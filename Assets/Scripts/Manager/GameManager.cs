@@ -10,7 +10,16 @@ public class GameManager : MonoBehaviour
     // 돈 관리
     public int Gold = 0;
 
-    // 음주부분 관리(3스테이지)
+    // 졸음운전 관리(2스테이지)
+    [Header ("Stage 2 Sleepy Drive")]
+    public bool sleepMode = false;
+    public bool isSleep = false;
+    public float sleepTimer = 0;
+    public bool isPhone = false;
+    public float phoneTimer = 0;
+
+    // 음주운전 관리(3스테이지)
+    [Header ("Stage 3 Drunk drive")]
     public bool drunkMode = false;
     public bool isDrunk = false;
     public float drunkTimer = 0;
@@ -25,31 +34,15 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         // 음주 부분 컨트롤
-        if (!drunkMode)
+        if (drunkTimer > 0)
         {
-            if (isDrunk)
+            drunkTimer -= Time.deltaTime;
+            if (drunkTimer < 0)
             {
-                drunkTimer -= Time.deltaTime;
-                if (drunkTimer < 0)
-                {
-                    drunkTimer = 0;
-                    isDrunk = false;
-                    PlayerDrunkUIControl();
-                }
-            }
-        }
-
-        else
-        {
-            if (!isDrunk)
-            {
-                drunkTimer -= Time.deltaTime;
-                if (drunkTimer < 0)
-                {
-                    drunkTimer = 0;
-                    isDrunk = true;
-                    PlayerDrunkUIControl();
-                }
+                drunkTimer = 0;
+                if (drunkMode) isDrunk = true;
+                else isDrunk = false;
+                PlayerDrunkUIControl();
             }
         }
     }
