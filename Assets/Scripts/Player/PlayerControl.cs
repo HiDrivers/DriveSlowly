@@ -20,6 +20,9 @@ public class PlayerControl : MonoBehaviour
     private float moveX;
     private float moveY;
 
+    private bool isUIChanged;
+    private bool drunkCheck = false;
+
     void Start()
     {
 
@@ -48,6 +51,14 @@ public class PlayerControl : MonoBehaviour
         }
         else
         {
+            CheckUIChange();
+            if (isUIChanged)
+            {
+                Up_PointerUp();
+                Down_PointerUp();
+                Left_PointerUp();
+                Right_PointerUp();
+            }
             moveX = 0; moveY = 0;
             if (isLeft) moveX -= 1;
             if (isRight) moveX += 1;
@@ -97,5 +108,14 @@ public class PlayerControl : MonoBehaviour
         isRight = false;
     }
 
+    public void CheckUIChange()
+    {
+        if (drunkCheck != GameManager.instance.isDrunk)
+        {
+            isUIChanged = true;
+            drunkCheck = GameManager.instance.isDrunk;
+        }
+        else isUIChanged = false;
+    }
 
 }

@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SojuCleaner : MonoBehaviour
+public class SojuCleaner : Items
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void ItemEffect(GameObject player)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        GameManager.instance.drunkTimer = 5.0f;
+        GameManager.instance.isDrunk = false;
+        GameManager.instance.PlayerDrunkUIControl();
+        // 아이템 효과음 TO DO
+        // 아이템 획득 애니메이션 TO DO
+        // 플레이어 애니메이션 효과
+        Destroy(this.gameObject);
     }
 }

@@ -468,8 +468,8 @@ GameObject:
   - component: {fileID: 125090450}
   - component: {fileID: 125090449}
   - component: {fileID: 125090448}
-  - component: {fileID: 125090447}
   - component: {fileID: 125090446}
+  - component: {fileID: 125090451}
   m_Layer: 0
   m_Name: SojuCleaner
   m_TagString: Item
@@ -504,19 +504,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &125090447
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 125090445}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ac15c4e789224941a489761f6a09cb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
 --- !u!61 &125090448
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -629,6 +616,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &125090451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 125090445}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5741147527b63b740bb84406107bf3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 0
 --- !u!1 &252335683
 GameObject:
   m_ObjectHideFlags: 0
@@ -1569,6 +1569,7 @@ GameObject:
   - component: {fileID: 1223956862}
   - component: {fileID: 1223956861}
   - component: {fileID: 1223956859}
+  - component: {fileID: 1223956864}
   m_Layer: 0
   m_Name: Soju
   m_TagString: Item
@@ -1715,6 +1716,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1223956864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1223956858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b12c34eae09a4548934df93c96b31d7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
 --- !u!1 &1444951025
 GameObject:
   m_ObjectHideFlags: 0
@@ -2154,8 +2168,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45afc4b091934c40b374bec515a1bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ControlUI: {fileID: 1156164606}
   Gold: 0
+  drunkMode: 0
   isDrunk: 0
+  drunkTimer: 0
 --- !u!4 &1519000174
 Transform:
   m_ObjectHideFlags: 0
@@ -2356,7 +2373,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1646031014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2743,7 +2760,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2044111439
 RectTransform:
   m_ObjectHideFlags: 0
