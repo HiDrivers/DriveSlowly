@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
     public float sleepTimer = 0;
     public bool isPhone = false;
     public float phoneTimer = 0;
+    private int currentArrow;
 
     // 음주운전 관리(3스테이지)
     [Header ("Stage 3 Drunk drive")]
@@ -45,6 +46,17 @@ public class GameManager : MonoBehaviour
                 PlayerDrunkUIControl();
             }
         }
+        // 스마트폰 부분 컨트롤
+        if (phoneTimer > 0)
+        {
+            phoneTimer -= Time.deltaTime;
+            if (phoneTimer < 0)
+            {
+                phoneTimer = 0;
+                isPhone = false;
+                PlayerPhoneUIControl();
+            }
+        }
     }
 
     public void PlayerDrunkUIControl()
@@ -59,6 +71,19 @@ public class GameManager : MonoBehaviour
         {
             ControlUI.transform.GetChild(0).gameObject.SetActive(true);
             ControlUI.transform.GetChild(1).gameObject.SetActive(false);
+        }
+    }
+
+    public void PlayerPhoneUIControl()
+    {
+        if (isPhone)
+        {
+            currentArrow = Random.Range(0, 4);
+            ControlUI.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.transform.GetChild(currentArrow).gameObject.SetActive(false);
+        }
+        else
+        {
+            ControlUI.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.transform.GetChild(currentArrow).gameObject.SetActive(true);
         }
     }
 
