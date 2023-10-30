@@ -14,7 +14,7 @@ public class Items : MonoBehaviour
         rigid.velocity = Vector2.down * 2; // 2 = speed
     }
 
-    protected virtual void ItemEffect(GameObject other)
+    public virtual void ItemEffect(GameObject other)
     {
 
     }
