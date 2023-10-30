@@ -8,7 +8,7 @@ public class Coin : Items
     {
         GameManager.instance.Gold += 10;
         // 효과음 TO DO
-
+        // 획득 애니메이션 TO DO
         Destroy(this.gameObject);
     }
 }
