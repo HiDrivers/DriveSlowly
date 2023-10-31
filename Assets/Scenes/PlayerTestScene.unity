@@ -2835,7 +2835,7 @@ MonoBehaviour:
   ControlUI: {fileID: 1156164606}
   Gold: 0
   sleepShade: {fileID: 1499144946}
-  sleepMode: 1
+  sleepMode: 0
   isSleep: 0
   sleepTimer: 0
   isPhone: 0
@@ -3127,7 +3127,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1646031014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3437,7 +3437,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2044111439
 RectTransform:
   m_ObjectHideFlags: 0
