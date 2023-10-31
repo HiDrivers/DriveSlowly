@@ -11,7 +11,8 @@ public class GameManager : MonoBehaviour
     public int Gold = 0;
 
     // 졸음운전 관리(2스테이지)
-    [Header ("Stage 2 Sleepy Drive")]
+    [Header("Stage 2 Sleepy Drive")]
+    public GameObject sleepShade;
     public bool sleepMode = false;
     public bool isSleep = false;
     public float sleepTimer = 0;
@@ -30,10 +31,32 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
         PlayerDrunkUIControl();
+        if (drunkMode)
+        {
+            isDrunk = true;
+            PlayerDrunkUIControl();
+        }
+        if (sleepMode)
+        {
+            isSleep = true;
+            PlayerSleepUIControl();
+        }
     }
 
     void Update()
     {
+        // 졸음운전 부분 컨트롤
+        if (sleepTimer > 0)
+        {
+            sleepTimer -= Time.deltaTime;
+            if (sleepTimer < 0)
+            {
+                sleepTimer = 0;
+                if (sleepMode) isSleep = true;
+                else isSleep = false;
+                PlayerSleepUIControl();
+            }
+        }
         // 음주 부분 컨트롤
         if (drunkTimer > 0)
         {
@@ -59,19 +82,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void PlayerSleepUIControl()
+    {
+        sleepShade.SetActive(isSleep);
+    }
+
     public void PlayerDrunkUIControl()
     {
-        if (isDrunk)
-        {
-            ControlUI.transform.GetChild(0).gameObject.SetActive(false);
-            ControlUI.transform.GetChild(1).gameObject.SetActive(true);
-        }
-
-        else
-        {
-            ControlUI.transform.GetChild(0).gameObject.SetActive(true);
-            ControlUI.transform.GetChild(1).gameObject.SetActive(false);
-        }
+        ControlUI.transform.GetChild(0).gameObject.SetActive(!isDrunk);
+        ControlUI.transform.GetChild(1).gameObject.SetActive(isDrunk);
     }
 
     public void PlayerPhoneUIControl()
