@@ -7,14 +7,14 @@ using UnityEngine;
 public class Items : MonoBehaviour
 {
     Rigidbody2D rigid;
-
+    public float speed;
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
-        rigid.velocity = Vector2.down * 2; // 2 = speed
+        rigid.velocity = Vector2.down * speed;
     }
 
-    protected virtual void ItemEffect(GameObject other)
+    public virtual void ItemEffect(GameObject other)
     {
 
     }
