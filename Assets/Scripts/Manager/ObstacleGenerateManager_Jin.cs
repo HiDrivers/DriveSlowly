@@ -12,4 +12,5 @@ public class ObstacleGenerateManager_Jin : MonoBehaviour
 
     private List<Transform> prefabGenPos;
 
+
 }
