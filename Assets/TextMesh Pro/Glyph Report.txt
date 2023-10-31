@@ -1,0 +1,12 @@
+Font: Elice DX Neolli Medium  Style: Medium
+Point Size: 688   SP/PD Ratio: 0.7%
+
+Characters included: 0/0
+Missing characters: 0
+Excluded characters: 0
+
+Characters missing from font file:
+----------------------------------------
+
+Characters excluded from packing:
+----------------------------------------
