@@ -98,11 +98,11 @@ public class GameManager : MonoBehaviour
         if (isPhone)
         {
             currentArrow = Random.Range(0, 4);
-            ControlUI.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.transform.GetChild(currentArrow).gameObject.SetActive(false);
+            ControlUI.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(currentArrow).gameObject.SetActive(false);
         }
         else
         {
-            ControlUI.transform.GetChild(0).gameObject.transform.GetChild(1).gameObject.transform.GetChild(currentArrow).gameObject.SetActive(true);
+            ControlUI.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(currentArrow).gameObject.SetActive(true);
         }
     }
 
