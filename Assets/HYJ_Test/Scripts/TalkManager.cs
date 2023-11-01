@@ -44,11 +44,15 @@ public class TalkManager : MonoBehaviour
         dialogueQueue.Enqueue(new Dialogue { speaker = "알람시계", text = "RRRRRRRR(일.어.나)" });
         dialogueQueue.Enqueue(new Dialogue { speaker = "주인공", text = "Zzzzz..쿠-울..." });
         dialogueQueue.Enqueue(new Dialogue { speaker = "주인공", text = "음.. 졸려.. 지금 몇시지?" });
-        dialogueQueue.Enqueue(new Dialogue { speaker = "주인공", text = "!!!! 8시 40분?!\n 안돼 9시까지 출근 해야 하는데 지각이다" });
-        dialogueQueue.Enqueue(new Dialogue { speaker = "주인공", text = "이번에도 지각하면 정직원 전환은 ...진짜 끝이야" });
-        dialogueQueue.Enqueue(new Dialogue { speaker = "주인공", text = "..." });
-        dialogueQueue.Enqueue(new Dialogue { speaker = "주인공", text = "..." });
-        dialogueQueue.Enqueue(new Dialogue { speaker = "주인공", text = "벌금이 문제가 아니야... 밟아 OOO 제발 정직원 가즈아" });
+        dialogueQueue.Enqueue(new Dialogue { speaker = "주인공", text = "!!!! 8시 40분?!\n안돼 9시까지 출근 해야 하는데 지각이다" });
+        dialogueQueue.Enqueue(new Dialogue { speaker = "주인공", text = "이번에도 지각하면 정직원 전환은 ...\n진짜 끝이야" });
+        dialogueQueue.Enqueue(new Dialogue { speaker = "주인공", text = "......어떻게 하지?" });
+        dialogueQueue.Enqueue(new Dialogue { speaker = "주인공", text = "......" });
+        dialogueQueue.Enqueue(new Dialogue { speaker = "주인공", text = "과속하면 벌금이..." });
+        dialogueQueue.Enqueue(new Dialogue { speaker = "주인공", text = "......" });
+        dialogueQueue.Enqueue(new Dialogue { speaker = "주인공", text = "...그렇지만 오늘이 정직원이 될 마지막 기회인데" });
+        dialogueQueue.Enqueue(new Dialogue { speaker = "주인공", text = "......그래" });
+        dialogueQueue.Enqueue(new Dialogue { speaker = "주인공", text = "벌금이 문제가 아니야...\n밟자! OOO! 제발 정직원 가즈아" });
 
 
     }
@@ -57,8 +61,14 @@ public class TalkManager : MonoBehaviour
     {
         dialogueQueue.Clear();
 
-        dialogueQueue.Enqueue(new Dialogue { speaker = "Joo", text = "OMG i need a HanguelFont " });
-        dialogueQueue.Enqueue(new Dialogue { speaker = "haha", text = "This is Test" });
+        dialogueQueue.Enqueue(new Dialogue { speaker = "부장님", text = "OO씨 점심 먹고 오후에 A 회사에서 하는 미팅 잊은 건 아니겠지?" });
+        dialogueQueue.Enqueue(new Dialogue { speaker = "부장님", text = "오늘 자네의 발표에 회사의 미래가 걸려 있어!" });
+        dialogueQueue.Enqueue(new Dialogue { speaker = "부장님", text = "자네 눈이 좋은 사슴을 뭐라고 하는 줄 아나?" });
+        dialogueQueue.Enqueue(new Dialogue { speaker = "주인공", text = "죄송합니다. 잘 모르겠습니다." });
+        dialogueQueue.Enqueue(new Dialogue { speaker = "부장님", text = "눈이 좋은 사슴은 바로 굿 아이디어라네 ^^ 하하하" });
+        dialogueQueue.Enqueue(new Dialogue { speaker = "부장님", text = "자네의 굿 아이디어 기대하겠네!\n자 다들 밥 먹으러 가자고~ 하하" });
+        dialogueQueue.Enqueue(new Dialogue { speaker = "주인공", text = "(아 부장님의 개그 너무 피곤해..\n게다가 밥 먹고 바로 운전하면 너무 졸릴 텐데… 이번 미팅 어쩌지?)" });
+
     }
 
     void ShowNextDialogue()
@@ -98,7 +108,7 @@ public class TalkManager : MonoBehaviour
 
         isTyping = false;
 
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.5f); // 각 대사가 끝난 0.5초 뒤 다음대사가 자동으로 재생 
 
         ShowNextDialogue();
     }
