@@ -10,12 +10,20 @@ public class GameManager : MonoBehaviour
     // 돈 관리
     public int Gold = 0;
 
+    // 난폭운전 관리 (1스테이지)
+    [Header("Stage 1 Reckless Drive")]
+    public bool isBoost = false;
+    public float boostTimer = 0;
+
+
     // 졸음운전 관리(2스테이지)
     [Header("Stage 2 Sleepy Drive")]
     public GameObject sleepShade;
     public bool sleepMode = false;
     public bool isSleep = false;
     public float sleepTimer = 0;
+
+    // 스마트폰 관리
     public bool isPhone = false;
     public float phoneTimer = 0;
     public int currentArrow;
@@ -45,6 +53,16 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        // 난폭운전 부분 컨트롤
+        if (boostTimer > 0)
+        {
+            boostTimer -= Time.deltaTime;
+            if (boostTimer < 0)
+            {
+                boostTimer = 0;
+                isBoost = false;
+            }
+        }
         // 졸음운전 부분 컨트롤
         if (sleepTimer > 0)
         {

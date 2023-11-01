@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    public float speed;
+    public float speed = 2.5f;
 
     private bool isUp = false;
     private bool isDown = false;
@@ -57,6 +57,9 @@ public class PlayerControl : MonoBehaviour
         if (isRight) moveX += 1;
         if (isUp) moveY += 1;
         if (isDown) moveY -= 1;
+
+        if (GameManager.instance.isBoost) speed = 4f;
+        else speed = 2.5f;
         transform.Translate(new Vector3(moveX, moveY, 0).normalized * speed * Time.deltaTime);
         //}
     }
