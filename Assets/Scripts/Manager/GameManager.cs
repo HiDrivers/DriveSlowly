@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     public float sleepTimer = 0;
     public bool isPhone = false;
     public float phoneTimer = 0;
-    private int currentArrow;
+    public int currentArrow;
 
     // 음주운전 관리(3스테이지)
     [Header ("Stage 3 Drunk drive")]
