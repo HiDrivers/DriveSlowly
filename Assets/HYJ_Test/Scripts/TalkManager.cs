@@ -66,7 +66,8 @@ public class TalkManager : MonoBehaviour
         dialogueQueue.Enqueue(new Dialogue { speaker = "부장님", text = "자네 눈이 좋은 사슴을 뭐라고 하는 줄 아나?" });
         dialogueQueue.Enqueue(new Dialogue { speaker = "주인공", text = "죄송합니다. 잘 모르겠습니다." });
         dialogueQueue.Enqueue(new Dialogue { speaker = "부장님", text = "눈이 좋은 사슴은 바로 굿 아이디어라네 ^^ 하하하" });
-        dialogueQueue.Enqueue(new Dialogue { speaker = "부장님", text = "자네의 굿 아이디어 기대하겠네!\n자 다들 밥 먹으러 가자고~ 하하" });
+        dialogueQueue.Enqueue(new Dialogue { speaker = "부장님", text = "자네의 굿 아이디어 기대하겠네!" });
+        dialogueQueue.Enqueue(new Dialogue { speaker = "부장님", text = "자 다들 밥 먹으러 가자고~ 하하하" });
         dialogueQueue.Enqueue(new Dialogue { speaker = "주인공", text = "(아 부장님의 개그 너무 피곤해..\n게다가 밥 먹고 바로 운전하면 너무 졸릴 텐데… 이번 미팅 어쩌지?)" });
 
     }
@@ -108,7 +109,10 @@ public class TalkManager : MonoBehaviour
 
         isTyping = false;
 
-        yield return new WaitForSeconds(0.5f); // 각 대사가 끝난 0.5초 뒤 다음대사가 자동으로 재생 
+        while (!Input.GetMouseButtonDown(0))
+        {
+            yield return null;
+        }
 
         ShowNextDialogue();
     }
