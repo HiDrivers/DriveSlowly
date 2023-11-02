@@ -11,6 +11,7 @@ public class TalkManager : MonoBehaviour
     public string writerText = "";
     public Animator animator;
     private bool isTyping = false;
+
     private Queue<CutSceneClip> dialogueQueue = new Queue<CutSceneClip>();
 
 
@@ -40,10 +41,10 @@ public class TalkManager : MonoBehaviour
 
     void CutScene() 
     {
-        dialogueQueue.Enqueue(new CutSceneClip { speaker = "알람시계", text = "RRRRRRRR(일.어.나)", animationName = "test" });
-        dialogueQueue.Enqueue(new CutSceneClip { speaker = "주인공", text = "Zzzzz..쿠-울...", animationName = "" });
-        dialogueQueue.Enqueue(new CutSceneClip { speaker = "주인공", text = "음.. 졸려.. 지금 몇시지?" });
-        dialogueQueue.Enqueue(new CutSceneClip { speaker = "주인공", text = "!!!! 8시 40분?!\n안돼 9시까지 출근 해야 하는데 지각이다" });
+        dialogueQueue.Enqueue(new CutSceneClip { speaker = "알람", text = "RRRRRRRR(일.어.나)" });
+        dialogueQueue.Enqueue(new CutSceneClip { speaker = "주인공", text = "Zzzzz..쿠-울..." });
+        dialogueQueue.Enqueue(new CutSceneClip { speaker = "주인공", text = "음.. 졸려.. 지금 몇시지?" , animationName = "Dialogue1_1" });
+        dialogueQueue.Enqueue(new CutSceneClip { speaker = "주인공", text = "!!!! 8시 40분?!\n안돼 9시까지 출근 해야 하는데 지각이다" ,animationName = "Dialogue1_2" });
         dialogueQueue.Enqueue(new CutSceneClip { speaker = "주인공", text = "이번에도 지각하면 정직원 전환은 ...\n진짜 끝이야" });
         dialogueQueue.Enqueue(new CutSceneClip { speaker = "주인공", text = "......어떻게 하지?" });
         dialogueQueue.Enqueue(new CutSceneClip { speaker = "주인공", text = "......" });
