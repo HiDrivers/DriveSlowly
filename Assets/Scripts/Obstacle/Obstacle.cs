@@ -7,6 +7,7 @@ public class Obstacle : MonoBehaviour
     private Rigidbody2D obstacleRigidbody;
 
     [SerializeField]
+    [Range(3, 10)]
     private float speed;
     [SerializeField]
     private Vector2 direction;
@@ -19,5 +20,10 @@ public class Obstacle : MonoBehaviour
     private void Start()
     {
         obstacleRigidbody.velocity = direction * speed;
+    }
+
+    private void Update()
+    {
+        
     }
 }

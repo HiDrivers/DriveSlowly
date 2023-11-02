@@ -10,6 +10,35 @@ public class ObstacleGenerateManager_Jin : Singleton<ObstacleGenerateManager_Jin
     // 장애물 이외의 생성 오브젝트는 없는가? 있다면 이 매니저로 같이 관리할 수 있는가?
     // 
 
-    private List<Transform> prefabGenPos;
+    [SerializeField]
+    private GameObject obstacle;
 
+    [SerializeField]
+    private GameObject PrefabGenPositions;
+    
+    public List<Transform> prefabGenPos;
+
+    [SerializeField]
+    private float obstacleGenDelay = 2.0f;
+
+    private void Awake()
+    {
+    }
+
+    private void Start()
+    {
+        Transform prefabPos = PrefabGenPositions.GetComponentInChildren<Transform>();
+
+        foreach (Transform pos in prefabPos)
+        {
+            prefabGenPos.Add(pos);
+        }
+        InvokeRepeating(nameof(GenerateObstacle), 1.0f, obstacleGenDelay);
+    }
+
+    private void GenerateObstacle()
+    {
+        Debug.Log("generated");
+        Instantiate(obstacle, prefabGenPos[Random.Range(0, 3)]);
+    }
 }
