@@ -22,7 +22,7 @@ public class ObstacleGenerateManager_Jin : Singleton<ObstacleGenerateManager_Jin
 
     [SerializeField]
     private List<GameObject> obstaclePool = new List<GameObject>();
-    public Queue<int> occupiedList = new Queue<int>();
+    //public Queue<int> occupiedList = new Queue<int>();
 
     [SerializeField]
     private GameObject obstacle1, obstacle2;
@@ -50,8 +50,8 @@ public class ObstacleGenerateManager_Jin : Singleton<ObstacleGenerateManager_Jin
     {
         int index = Random.Range(0, obstaclePositionGroup.Count);
 
-        if (index != occupiedList.Peek())
-        {
+        //if (index != occupiedList.Peek())
+        //{
             var _obstacle = GetGenPosition();
 
             Vector3 genPos = new Vector3();
@@ -66,8 +66,8 @@ public class ObstacleGenerateManager_Jin : Singleton<ObstacleGenerateManager_Jin
 
             _obstacle.transform.SetPositionAndRotation(genPos, obstaclePositionGroup[index].rotation);
             _obstacle.SetActive(true);
-            occupiedList.Enqueue(index);
-        }
+            //occupiedList.Enqueue(index);
+        //}
     }
 
     private GameObject GetGenPosition()
