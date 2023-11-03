@@ -47,13 +47,13 @@ public class TalkManager : MonoBehaviour
         dialogueQueue.Enqueue(new CutSceneClip { speaker = "천천희", text = "!!!! 8시 40분?!" ,animationName = "Dialogue1_4" });
         dialogueQueue.Enqueue(new CutSceneClip { speaker = "천천희", text = "안돼 9시까지 출근 해야 하는데 지각이다", animationName = "Dialogue1_5" });
         dialogueQueue.Enqueue(new CutSceneClip { speaker = "천천희", text = "이번에도 지각하면 정직원 전환은 ...\n진짜 끝이야", animationName = "Dialogue1_6" });
-        dialogueQueue.Enqueue(new CutSceneClip { speaker = "천천희", text = "......어떻게 하지?" });
+        dialogueQueue.Enqueue(new CutSceneClip { speaker = "천천희", text = "......어떻게 하지?", animationName = "Dialogue1_7" });
+        dialogueQueue.Enqueue(new CutSceneClip { speaker = "천천희", text = "......", animationName = "Dialogue1_8" });
+        dialogueQueue.Enqueue(new CutSceneClip { speaker = "천천희", text = "과속하면 벌금이...", animationName = "Dialogue1_9" });
         dialogueQueue.Enqueue(new CutSceneClip { speaker = "천천희", text = "......" });
-        dialogueQueue.Enqueue(new CutSceneClip { speaker = "천천희", text = "과속하면 벌금이..." });
-        dialogueQueue.Enqueue(new CutSceneClip { speaker = "천천희", text = "......" });
-        dialogueQueue.Enqueue(new CutSceneClip { speaker = "천천희", text = "...그렇지만 오늘이 정직원이 될 마지막 기회인데" });
+        dialogueQueue.Enqueue(new CutSceneClip { speaker = "천천희", text = "...그렇지만 오늘이 정직원이 될 마지막 기회인데",animationName = "Dialogue1_11" });
         dialogueQueue.Enqueue(new CutSceneClip { speaker = "천천희", text = "......그래 지금 벌금이 문제가 아니야..." });
-        dialogueQueue.Enqueue(new CutSceneClip { speaker = "천천희", text = "최대한 밟는거야! 할 수 있다 천천희! 제발 정직원 가즈아~" });
+        dialogueQueue.Enqueue(new CutSceneClip { speaker = "천천희", text = "최대한 밟는거야! 할 수 있다 천천희! 제발 정직원 가즈아~" , animationName = "Dialogue1_13" });
     }
 
  
