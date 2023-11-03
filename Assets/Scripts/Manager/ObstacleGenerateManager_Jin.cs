@@ -22,6 +22,7 @@ public class ObstacleGenerateManager_Jin : Singleton<ObstacleGenerateManager_Jin
 
     [SerializeField]
     private List<GameObject> obstaclePool = new List<GameObject>();
+    public Queue<int> occupiedList = new Queue<int>();
 
     [SerializeField]
     private GameObject obstacle1, obstacle2;
@@ -37,10 +38,7 @@ public class ObstacleGenerateManager_Jin : Singleton<ObstacleGenerateManager_Jin
         Debug.Log("Operated");
         foreach (Transform position in _obstaclePos)
         {
-            if (obstaclePositionGroup != null)
-            {
-                obstaclePositionGroup.Add(position);
-            }
+            obstaclePositionGroup.Add(position);
         }
 
         CreateObstaclePool();
@@ -52,25 +50,29 @@ public class ObstacleGenerateManager_Jin : Singleton<ObstacleGenerateManager_Jin
     {
         int index = Random.Range(0, obstaclePositionGroup.Count);
 
-        var _obstacle = GetGenPosition();
-
-        Vector3 genPos = new Vector3();
-        if (_obstacle.name.Contains("Bottom"))
+        if (index != occupiedList.Peek())
         {
-            genPos = new Vector3(obstaclePositionGroup[index].position.x, obstaclePositionGroup[index].position.y - 7f, obstaclePositionGroup[index].position.z);
-        }
-        else
-        {
-            genPos = new Vector3(obstaclePositionGroup[index].position.x, obstaclePositionGroup[index].position.y + 7f, obstaclePositionGroup[index].position.z);
-        }
+            var _obstacle = GetGenPosition();
 
-        _obstacle.transform.SetPositionAndRotation(genPos, obstaclePositionGroup[index].rotation);
-        _obstacle.SetActive(true);
+            Vector3 genPos = new Vector3();
+            if (_obstacle.name.Contains("Bottom"))
+            {
+                genPos = new Vector3(obstaclePositionGroup[index].position.x, obstaclePositionGroup[index].position.y - 7f, obstaclePositionGroup[index].position.z);
+            }
+            else
+            {
+                genPos = new Vector3(obstaclePositionGroup[index].position.x, obstaclePositionGroup[index].position.y + 7f, obstaclePositionGroup[index].position.z);
+            }
+
+            _obstacle.transform.SetPositionAndRotation(genPos, obstaclePositionGroup[index].rotation);
+            _obstacle.SetActive(true);
+            occupiedList.Enqueue(index);
+        }
     }
 
     private GameObject GetGenPosition()
     {
-        //GameObject _obs = obstaclePool[Random.Range(0, maxObstacles)];
+        //GameObject _obs = obstaclePool[Random.Range(0, maxObstacles)]; // 생성된 오브젝트 중 활성화할 오브젝트를 무작위로 고르는 코드. 테스트X
         //if (!_obs.activeSelf)
         //{
         //    return _obs;
