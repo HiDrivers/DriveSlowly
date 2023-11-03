@@ -31,7 +31,7 @@ public class Obstacle : MonoBehaviour
         if (transform.position.y < -10f || transform.position.y > 10f)
         {
             gameObject.SetActive(false);
-            ObstacleGenerateManager_Jin.Instance.occupiedList.Dequeue();
+            //ObstacleGenerateManager_Jin.Instance.occupiedList.Dequeue();
         }
     }
 }
