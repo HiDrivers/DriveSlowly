@@ -7,8 +7,13 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     [SerializeField] private GameObject ControlUI;
+
+
+    // 현재 스테이지 관리
+    public int currentStage;
+
     // 돈 관리
-    public int Gold = 0;
+    public int gold = 0;
 
     // 난폭운전 관리 (1스테이지)
     [Header("Stage 1 Reckless Drive")]
