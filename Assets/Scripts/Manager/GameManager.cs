@@ -40,9 +40,22 @@ public class GameManager : MonoBehaviour
     public float drunkTimer = 0;
 
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+        instance = this;
+        }
+
+        else
+        {
+            Destroy(gameObject);
+        }
+
+    }
     void Start()
     {
-        instance = this;
         PlayerDrunkUIControl();
         if (drunkMode)
         {
