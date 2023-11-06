@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/CutScene1.unity
     guid: 25a6df6174c894331a57a75753c24ddd
   - enabled: 1
-    path: Assets/Scenes/HYJ_TestScene2.unity
+    path: Assets/Scenes/CutScene2_0.unity
     guid: fc798218384c348e0aec60b1c0503f6e
   m_configObjects: {}
