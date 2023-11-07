@@ -58,7 +58,7 @@ public class PlayerControl : MonoBehaviour
         if (isUp) moveY += 1;
         if (isDown) moveY -= 1;
 
-        if (GameManager.instance.isBoost) speed = 4f;
+        if (GameManager.Instance.isBoost) speed = 4f;
         else speed = 2.5f;
         transform.Translate(new Vector3(moveX, moveY, 0).normalized * speed * Time.deltaTime);
         //}
@@ -106,20 +106,20 @@ public class PlayerControl : MonoBehaviour
 
     public void CheckUIChange()
     {
-        if (drunkCheck != GameManager.instance.isDrunk)
+        if (drunkCheck != GameManager.Instance.isDrunk)
         {
             Up_PointerUp();
             Down_PointerUp();
             Left_PointerUp();
             Right_PointerUp();
-            drunkCheck = GameManager.instance.isDrunk;
+            drunkCheck = GameManager.Instance.isDrunk;
         }
-        else if (phoneCheck != GameManager.instance.isPhone)
+        else if (phoneCheck != GameManager.Instance.isPhone)
         {
-            if (GameManager.instance.currentArrow == 0) Up_PointerUp();
-            else if (GameManager.instance.currentArrow == 1) Down_PointerUp();
-            else if (GameManager.instance.currentArrow == 2) Left_PointerUp();
-            else if (GameManager.instance.currentArrow == 3) Right_PointerUp();
+            if (GameManager.Instance.currentArrow == 0) Up_PointerUp();
+            else if (GameManager.Instance.currentArrow == 1) Down_PointerUp();
+            else if (GameManager.Instance.currentArrow == 2) Left_PointerUp();
+            else if (GameManager.Instance.currentArrow == 3) Right_PointerUp();
         }
     }
 

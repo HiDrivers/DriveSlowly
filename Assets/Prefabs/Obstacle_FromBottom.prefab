@@ -49,6 +49,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   direction: {x: 0, y: 1, z: 0}
+  isFromBottom: 1
+  oppoIndex: 0
 --- !u!50 &4398849812456630068
 Rigidbody2D:
   serializedVersion: 4

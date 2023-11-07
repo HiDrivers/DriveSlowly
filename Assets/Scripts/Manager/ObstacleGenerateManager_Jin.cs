@@ -20,10 +20,13 @@ public class ObstacleGenerateManager_Jin : Singleton<ObstacleGenerateManager_Jin
     [SerializeField] private GameObject topObstacleGenPositions;
     [SerializeField] private GameObject bottomObstacleGenPositions;
 
+    public List<int> spawnIndex = new List<int>(new int[] { 0, 1, 2, 3, 4, 5, 6, 7 });
+
     //public List<Transform> obstaclePositionGroup;
 
     [SerializeField]
     private List<GameObject> obstaclePool = new List<GameObject>();
+    private int oppoIndex;
     //public Queue<int> occupiedList = new Queue<int>();
 
     [SerializeField]
@@ -53,13 +56,21 @@ public class ObstacleGenerateManager_Jin : Singleton<ObstacleGenerateManager_Jin
     private void CreateObstacle()
     {
         //int index = Random.Range(0, obstaclePositionGroup.Count); // 송명근 주석처리
-        int index = Random.Range(0, 4);
-        var _obstacle = GetGenPosition();
+        int index = Random.Range(0, spawnIndex.Count);
+        bool isBottom = (spawnIndex[index] > 4);
+
+        if (isBottom) oppoIndex = index - 4;
+        else oppoIndex = index + 4;
+
+        spawnIndex.RemoveAt(oppoIndex);         // 반대편 차 리스트에서 제거
+
+        var _obstacle = GetGenPosition(isBottom);
+        _obstacle.GetComponent<Obstacle>().oppoIndex = oppoIndex;
 
         Vector3 genPos = new Vector3();
         quaternion genRot;
 
-        if (_obstacle.name.Contains("Bottom"))
+        if (_obstacle.GetComponent<Obstacle>().isFromBottom)
         {
             genPos = bottomObstacleGenPositions.transform.GetChild(index).gameObject.transform.position;
             genRot = bottomObstacleGenPositions.transform.GetChild(index).gameObject.transform.rotation;
@@ -74,20 +85,15 @@ public class ObstacleGenerateManager_Jin : Singleton<ObstacleGenerateManager_Jin
         _obstacle.SetActive(true);
     }
 
-    private GameObject GetGenPosition()
+    private GameObject GetGenPosition(bool isBottom)
     {
-        GameObject _obs = obstaclePool[Random.Range(0, maxObstacles)]; // 생성된 오브젝트 중 활성화할 오브젝트를 무작위로 고르는 코드. 테스트X
-        if (!_obs.activeSelf)
+        foreach (var _obstacle in obstaclePool)
         {
-            return _obs;
+            if (!_obstacle.activeSelf && _obstacle.GetComponent<Obstacle>().isFromBottom == isBottom)
+            {
+                return _obstacle;
+            }
         }
-        //foreach (var _obstacle in obstaclePool)
-        //{
-        //    if (!_obstacle.activeSelf)
-        //    {
-        //        return _obstacle;
-        //    }
-        //}
         return null;
     }
 

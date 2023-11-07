@@ -6,10 +6,10 @@ public class Obstacle : MonoBehaviour
 {
     private Rigidbody2D obstacleRigidbody;
 
-    [SerializeField]
-    private float speed;
-    [SerializeField]
-    private Vector3 direction;
+    [SerializeField] private float speed;
+    [SerializeField] private Vector3 direction;
+    public bool isFromBottom;
+    public int oppoIndex;
 
     private void Awake()
     {
@@ -38,4 +38,13 @@ public class Obstacle : MonoBehaviour
     //        //ObstacleGenerateManager_Jin.Instance.occupiedList.Dequeue();
     //    }
     //}
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "End")
+        {
+            gameObject.SetActive(false);
+        }
+        ObstacleGenerateManager_Jin.Instance.spawnIndex.Add(oppoIndex);
+    }
 }

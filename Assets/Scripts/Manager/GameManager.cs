@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
-    public static GameManager instance;
-
     [SerializeField] private GameObject ControlUI;
 
 
@@ -40,20 +38,6 @@ public class GameManager : MonoBehaviour
     public float drunkTimer = 0;
 
     // Start is called before the first frame update
-
-    private void Awake()
-    {
-        if (instance == null)
-        {
-        instance = this;
-        }
-
-        else
-        {
-            Destroy(gameObject);
-        }
-
-    }
     void Start()
     {
         PlayerDrunkUIControl();

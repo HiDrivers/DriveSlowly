@@ -33,7 +33,7 @@ public class StageManager : MonoBehaviour
     private void Start()
     {
         currentTime = 0;
-        gold.text = $"{GameManager.instance.gold} G";
+        gold.text = $"{GameManager.Instance.gold} G";
         curHp = maxHp;
     }
 
@@ -42,7 +42,7 @@ public class StageManager : MonoBehaviour
         currentTime += Time.deltaTime;
         itemTimer += Time.deltaTime;
         progress.value = (float) currentTime / clearTime;
-        gold.text = $"{GameManager.instance.gold} G";
+        gold.text = $"{GameManager.Instance.gold} G";
         Stage1();
 
     }
