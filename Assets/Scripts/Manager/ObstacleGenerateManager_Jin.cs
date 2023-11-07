@@ -20,13 +20,13 @@ public class ObstacleGenerateManager_Jin : Singleton<ObstacleGenerateManager_Jin
     [SerializeField] private GameObject topObstacleGenPositions;
     [SerializeField] private GameObject bottomObstacleGenPositions;
 
-    public List<int> spawnIndex = new List<int>(new int[] { 0, 1, 2, 3, 4, 5, 6, 7 });
+    public List<int> spawnPosCount = new List<int>(new int[] { 0, 0, 0, 0, 0, 0, 0, 0 });
 
     //public List<Transform> obstaclePositionGroup;
 
     [SerializeField]
     private List<GameObject> obstaclePool = new List<GameObject>();
-    private int oppoIndex;
+    private int oppoPos;
     //public Queue<int> occupiedList = new Queue<int>();
 
     [SerializeField]
@@ -50,35 +50,33 @@ public class ObstacleGenerateManager_Jin : Singleton<ObstacleGenerateManager_Jin
         CreateObstaclePool();
 
         // InvokeRepeating(nameof(CreateObstacle), 5.0f, 5.0f);
-        CreateObstacle();
     }
 
-    private void CreateObstacle()
+    public void CreateObstacle()
     {
         //int index = Random.Range(0, obstaclePositionGroup.Count); // 송명근 주석처리
-        int index = Random.Range(0, spawnIndex.Count);
-        bool isBottom = (spawnIndex[index] > 4);
-
-        if (isBottom) oppoIndex = index - 4;
-        else oppoIndex = index + 4;
-
-        spawnIndex.RemoveAt(oppoIndex);         // 반대편 차 리스트에서 제거
-
+        int pos = Random.Range(0, spawnPosCount.Count);
+        while (spawnPosCount[(pos + 4) % 8] > 0)
+        {
+            pos = (pos + 1) % spawnPosCount.Count;
+        }
+        spawnPosCount[pos] += 1;
+        bool isBottom = (pos > 3);
         var _obstacle = GetGenPosition(isBottom);
-        _obstacle.GetComponent<Obstacle>().oppoIndex = oppoIndex;
+        _obstacle.GetComponent<Obstacle>().pos = pos;
 
         Vector3 genPos = new Vector3();
         quaternion genRot;
 
-        if (_obstacle.GetComponent<Obstacle>().isFromBottom)
+        if (isBottom)
         {
-            genPos = bottomObstacleGenPositions.transform.GetChild(index).gameObject.transform.position;
-            genRot = bottomObstacleGenPositions.transform.GetChild(index).gameObject.transform.rotation;
+            genPos = bottomObstacleGenPositions.transform.GetChild(pos-4).gameObject.transform.position;
+            genRot = bottomObstacleGenPositions.transform.GetChild(pos-4).gameObject.transform.rotation;
         }
         else
         {
-            genPos = topObstacleGenPositions.transform.GetChild(index).gameObject.transform.position;
-            genRot = topObstacleGenPositions.transform.GetChild(index).gameObject.transform.rotation;
+            genPos = topObstacleGenPositions.transform.GetChild(pos).gameObject.transform.position;
+            genRot = topObstacleGenPositions.transform.GetChild(pos).gameObject.transform.rotation;
         }
 
         _obstacle.transform.SetPositionAndRotation(genPos, genRot);

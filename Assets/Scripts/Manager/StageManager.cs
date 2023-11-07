@@ -25,6 +25,7 @@ public class StageManager : MonoBehaviour
     private float obstacleTimer = 0;
 
     [SerializeField] private float itemSpawnCool;
+    private float obstacleSpawnCool = 0;
 
     public Slider progress;
     public Slider durability;
@@ -41,6 +42,8 @@ public class StageManager : MonoBehaviour
     {
         currentTime += Time.deltaTime;
         itemTimer += Time.deltaTime;
+        obstacleTimer += Time.deltaTime;
+
         progress.value = (float) currentTime / clearTime;
         gold.text = $"{GameManager.Instance.gold} G";
         Stage1();
@@ -66,6 +69,11 @@ public class StageManager : MonoBehaviour
         }
 
         // 厘局拱 积己 包府
-
+        if (obstacleTimer > obstacleSpawnCool)
+        {
+            ObstacleGenerateManager_Jin.Instance.CreateObstacle();
+            obstacleTimer = 0;
+            obstacleSpawnCool = Random.Range(2.0f, 4.0f);
+        }
     }
 }

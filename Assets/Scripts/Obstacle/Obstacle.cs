@@ -9,7 +9,7 @@ public class Obstacle : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private Vector3 direction;
     public bool isFromBottom;
-    public int oppoIndex;
+    public int pos;
 
     private void Awake()
     {
@@ -41,10 +41,11 @@ public class Obstacle : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+
         if (collision.tag == "End")
         {
+            ObstacleGenerateManager_Jin.Instance.spawnPosCount[pos] -= 1;
             gameObject.SetActive(false);
         }
-        ObstacleGenerateManager_Jin.Instance.spawnIndex.Add(oppoIndex);
     }
 }
