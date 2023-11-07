@@ -8,6 +8,7 @@ public class StageManager : MonoBehaviour
 {
     public GameObject spawnPoint;
 
+    [SerializeField] private GameObject coinPrefab;
     [SerializeField] private GameObject boosterPrefab;
 
     public float clearTime = 120;
@@ -44,7 +45,15 @@ public class StageManager : MonoBehaviour
         if (itemTimer > 5)
         {
             int index = Random.Range(0, 4);
-            Instantiate(boosterPrefab, spawnPoint.transform.GetChild(0).gameObject.transform.GetChild(index).gameObject.transform);
+            int itemIdx = Random.Range(0, 2);
+            if (itemIdx == 0)
+            {
+                Instantiate(coinPrefab, spawnPoint.transform.GetChild(0).gameObject.transform.GetChild(index).gameObject.transform);
+            }
+            else
+            {
+                Instantiate(boosterPrefab, spawnPoint.transform.GetChild(0).gameObject.transform.GetChild(index).gameObject.transform);
+            }
             itemTimer = 0;
         }
     }
