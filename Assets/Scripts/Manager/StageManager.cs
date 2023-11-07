@@ -4,21 +4,17 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StageManager : MonoBehaviour
+public class StageManager : Singleton<StageManager>
 {
     public GameObject spawnPoint;
 
     [SerializeField] private GameObject coinPrefab;
     [SerializeField] private GameObject boosterPrefab;
 
-
-    [SerializeField] private GameObject topObstacle;
-    [SerializeField] private GameObject bottomObstacle;
-
     public float clearTime = 120;
     public float currentTime;
 
-    public float maxHp = 100;
+    public float maxHp;
     public float curHp;
 
     private float itemTimer = 0;
@@ -45,6 +41,7 @@ public class StageManager : MonoBehaviour
         obstacleTimer += Time.deltaTime;
 
         progress.value = (float) currentTime / clearTime;
+        durability.value = curHp / maxHp;
         gold.text = $"{GameManager.Instance.gold} G";
         Stage1();
 
