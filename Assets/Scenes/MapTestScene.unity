@@ -1579,6 +1579,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2100869954}
+  - {fileID: 1091668647}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2390,6 +2391,55 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1064140571}
   m_CullTransparentMesh: 1
+--- !u!1 &1091668645
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1091668647}
+  - component: {fileID: 1091668646}
+  m_Layer: 0
+  m_Name: ObstacleGenerateManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1091668646
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091668645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfee9c2b29b380043a120546bbe0f61d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topObstacleGenPositions: {fileID: 429302841}
+  bottomObstacleGenPositions: {fileID: 1878030587}
+  obstaclePool: []
+  obstacle1: {fileID: 8205425647776018138, guid: fd31ebb0bf1a66b4483caeb3705e3156, type: 3}
+  obstacle2: {fileID: 8205425647776018138, guid: 2f059d60211245b459b1849a29d14102, type: 3}
+--- !u!4 &1091668647
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091668645}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 643761198}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1102270538
 GameObject:
   m_ObjectHideFlags: 0
@@ -3866,10 +3916,13 @@ MonoBehaviour:
   spawnPoint: {fileID: 1550525563}
   coinPrefab: {fileID: 8641314694878815675, guid: d674ce827e8e51b44b5dcf01514c4caa, type: 3}
   boosterPrefab: {fileID: 7170207221109864072, guid: 19ff012c03d19614d91117a9b893d2e5, type: 3}
+  topObstacle: {fileID: 0}
+  bottomObstacle: {fileID: 0}
   clearTime: 120
   currentTime: 0
   maxHp: 0
   curHp: 0
+  itemSpawnCool: 5
   progress: {fileID: 1102270540}
   durability: {fileID: 1623727833}
   gold: {fileID: 544004185}

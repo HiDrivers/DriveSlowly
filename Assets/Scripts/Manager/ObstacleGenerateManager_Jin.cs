@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.Mathematics;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -15,10 +16,11 @@ public class ObstacleGenerateManager_Jin : Singleton<ObstacleGenerateManager_Jin
     // 장애물 이외의 생성 오브젝트는 없는가? 여러 종류의 장애물을 이 매니저로 한꺼번에 관리할 수 있는가?
     // 
 
-    [SerializeField]
-    private GameObject obstacleGenPositions;
+    // 송명근 주석처리
+    [SerializeField] private GameObject topObstacleGenPositions;
+    [SerializeField] private GameObject bottomObstacleGenPositions;
 
-    public List<Transform> obstaclePositionGroup;
+    //public List<Transform> obstaclePositionGroup;
 
     [SerializeField]
     private List<GameObject> obstaclePool = new List<GameObject>();
@@ -29,61 +31,63 @@ public class ObstacleGenerateManager_Jin : Singleton<ObstacleGenerateManager_Jin
 
     private int maxObstacles = 20;
 
-    [SerializeField]
-    private float obstacleGenDelay = 2.0f;
+    //[SerializeField]
+    //private float obstacleGenDelay = 2.0f;
 
     private void Start()
     {
-        Transform _obstaclePos = obstacleGenPositions.GetComponentInChildren<Transform>();
-        Debug.Log("Operated");
-        foreach (Transform position in _obstaclePos)
-        {
-            obstaclePositionGroup.Add(position);
-        }
+        // 송명근 주석처리
+        //Transform _obstaclePos = obstacleGenPositions.GetComponentInChildren<Transform>();
+        //Debug.Log("Operated");
+        //foreach (Transform position in _obstaclePos)
+        //{
+        //    obstaclePositionGroup.Add(position);
+        //}
 
         CreateObstaclePool();
 
-        InvokeRepeating(nameof(CreateObstacle), 1.0f, 1.0f);
+        // InvokeRepeating(nameof(CreateObstacle), 5.0f, 5.0f);
+        CreateObstacle();
     }
 
     private void CreateObstacle()
     {
-        int index = Random.Range(0, obstaclePositionGroup.Count);
+        //int index = Random.Range(0, obstaclePositionGroup.Count); // 송명근 주석처리
+        int index = Random.Range(0, 4);
+        var _obstacle = GetGenPosition();
 
-        //if (index != occupiedList.Peek())
-        //{
-            var _obstacle = GetGenPosition();
+        Vector3 genPos = new Vector3();
+        quaternion genRot;
 
-            Vector3 genPos = new Vector3();
-            if (_obstacle.name.Contains("Bottom"))
-            {
-                genPos = new Vector3(obstaclePositionGroup[index].position.x, obstaclePositionGroup[index].position.y - 7f, obstaclePositionGroup[index].position.z);
-            }
-            else
-            {
-                genPos = new Vector3(obstaclePositionGroup[index].position.x, obstaclePositionGroup[index].position.y + 7f, obstaclePositionGroup[index].position.z);
-            }
+        if (_obstacle.name.Contains("Bottom"))
+        {
+            genPos = bottomObstacleGenPositions.transform.GetChild(index).gameObject.transform.position;
+            genRot = bottomObstacleGenPositions.transform.GetChild(index).gameObject.transform.rotation;
+        }
+        else
+        {
+            genPos = topObstacleGenPositions.transform.GetChild(index).gameObject.transform.position;
+            genRot = topObstacleGenPositions.transform.GetChild(index).gameObject.transform.rotation;
+        }
 
-            _obstacle.transform.SetPositionAndRotation(genPos, obstaclePositionGroup[index].rotation);
-            _obstacle.SetActive(true);
-            //occupiedList.Enqueue(index);
-        //}
+        _obstacle.transform.SetPositionAndRotation(genPos, genRot);
+        _obstacle.SetActive(true);
     }
 
     private GameObject GetGenPosition()
     {
-        //GameObject _obs = obstaclePool[Random.Range(0, maxObstacles)]; // 생성된 오브젝트 중 활성화할 오브젝트를 무작위로 고르는 코드. 테스트X
-        //if (!_obs.activeSelf)
-        //{
-        //    return _obs;
-        //}
-        foreach (var _obstacle in obstaclePool)
+        GameObject _obs = obstaclePool[Random.Range(0, maxObstacles)]; // 생성된 오브젝트 중 활성화할 오브젝트를 무작위로 고르는 코드. 테스트X
+        if (!_obs.activeSelf)
         {
-            if (!_obstacle.activeSelf)
-            {
-                return _obstacle;
-            }
+            return _obs;
         }
+        //foreach (var _obstacle in obstaclePool)
+        //{
+        //    if (!_obstacle.activeSelf)
+        //    {
+        //        return _obstacle;
+        //    }
+        //}
         return null;
     }
 

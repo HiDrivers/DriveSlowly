@@ -11,6 +11,10 @@ public class StageManager : MonoBehaviour
     [SerializeField] private GameObject coinPrefab;
     [SerializeField] private GameObject boosterPrefab;
 
+
+    [SerializeField] private GameObject topObstacle;
+    [SerializeField] private GameObject bottomObstacle;
+
     public float clearTime = 120;
     public float currentTime;
 
@@ -18,6 +22,9 @@ public class StageManager : MonoBehaviour
     public float curHp;
 
     private float itemTimer = 0;
+    private float obstacleTimer = 0;
+
+    [SerializeField] private float itemSpawnCool;
 
     public Slider progress;
     public Slider durability;
@@ -42,7 +49,8 @@ public class StageManager : MonoBehaviour
 
     public void Stage1()
     {
-        if (itemTimer > 5)
+        // 酒捞袍 积己 包府
+        if (itemTimer > itemSpawnCool)
         {
             int index = Random.Range(0, 4);
             int itemIdx = Random.Range(0, 2);
@@ -56,5 +64,8 @@ public class StageManager : MonoBehaviour
             }
             itemTimer = 0;
         }
+
+        // 厘局拱 积己 包府
+
     }
 }
