@@ -18,7 +18,22 @@ public class Obstacle : MonoBehaviour
 
     private void Update()
     {
-        transform.position += direction * speed * Time.deltaTime;
+        if (GameManager.Instance.isBoost)
+        {
+            if (isFromBottom)
+            {
+                transform.position += direction * (speed - 2.5f) * Time.deltaTime;
+            }
+            else
+            {
+                transform.position += direction * (speed + 2.5f) * Time.deltaTime;
+            }
+        }
+        else
+        {
+            transform.position += direction * speed * Time.deltaTime;
+        }
+
     }
 
     //private void OnEnable()
@@ -46,6 +61,11 @@ public class Obstacle : MonoBehaviour
         {
             ObstacleGenerateManager_Jin.Instance.spawnPosCount[pos] -= 1;
             gameObject.SetActive(false);
+        }
+
+        else if (collision.tag == "Obstacle")
+        {
+            Debug.Log("GameOver : Car crash");
         }
     }
 }

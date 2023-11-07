@@ -58,7 +58,7 @@ public class PlayerControl : MonoBehaviour
         if (isUp) moveY += 1;
         if (isDown) moveY -= 1;
 
-        if (GameManager.Instance.isBoost) speed = 4f;
+        if (GameManager.Instance.isBoost) speed = 4.5f;
         else speed = 2.5f;
         transform.Translate(new Vector3(moveX, moveY, 0).normalized * speed * Time.deltaTime);
         //}

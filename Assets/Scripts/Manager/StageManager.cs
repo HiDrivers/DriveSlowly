@@ -40,6 +40,11 @@ public class StageManager : Singleton<StageManager>
         itemTimer += Time.deltaTime;
         obstacleTimer += Time.deltaTime;
 
+        if (GameManager.Instance.isBoost)
+        {
+            currentTime += Time.deltaTime * 2;
+        }
+
         progress.value = (float) currentTime / clearTime;
         durability.value = curHp / maxHp;
         gold.text = $"{GameManager.Instance.gold} G";
