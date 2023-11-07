@@ -27,6 +27,8 @@ public class StageManager : Singleton<StageManager>
     public Slider durability;
     public TMP_Text gold;
 
+    private bool gameClear = false;
+
     private void Start()
     {
         currentTime = 0;
@@ -36,20 +38,26 @@ public class StageManager : Singleton<StageManager>
 
     private void Update()
     {
-        currentTime += Time.deltaTime;
-        itemTimer += Time.deltaTime;
-        obstacleTimer += Time.deltaTime;
-
-        if (GameManager.Instance.isBoost)
+        if (!gameClear)
         {
-            currentTime += Time.deltaTime * 2;
+            currentTime += Time.deltaTime;
+            itemTimer += Time.deltaTime;
+            obstacleTimer += Time.deltaTime;
+
+            if (GameManager.Instance.isBoost)
+            {
+                currentTime += Time.deltaTime * 2;
+            }
+
+            progress.value = (float) currentTime / clearTime;
+            durability.value = curHp / maxHp;
+            gold.text = $"{GameManager.Instance.gold} G";
+            Stage1();
+            if (currentTime >= clearTime)
+            {
+                gameClear = true;
+            }
         }
-
-        progress.value = (float) currentTime / clearTime;
-        durability.value = curHp / maxHp;
-        gold.text = $"{GameManager.Instance.gold} G";
-        Stage1();
-
     }
 
     public void Stage1()
@@ -77,5 +85,13 @@ public class StageManager : Singleton<StageManager>
             obstacleTimer = 0;
             obstacleSpawnCool = Random.Range(2.0f, 4.0f);
         }
+    }
+
+    public void Stage1Clear()
+    {
+        // 구현 예정
+        Debug.Log("GameClear");
+        // GameClear UI
+        // 데이터 저장
     }
 }
