@@ -10,18 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ba4c0215993242638f7b1a327cced02, type: 3}
-  m_Name: CutScnene2_0_1Data
+  m_Name: CutScnene2_1Data
   m_EditorClassIdentifier: 
   cutSceneClips:
   - speaker: "\uCC9C\uCC9C\uD76C"
     text: "\uBD80\uC7A5\uB2D8 \uC800\uB294 \uC774\uC81C \uBBF8\uD305 \uB2E4\uB140\uC624\uACA0\uC2B5\uB2C8\uB2E4"
     animationName: Dialogue2_1_1
   - speaker: "\uC655\uACE4\uB300 \uBD80\uC7A5"
-    text: "\uADF8\uB798, \uCC9C\uD76C\uC528\uB294 \uC5BC\uB978 \uB2E4\uB140\uC624\uACE0,
+    text: "\uADF8\uB798, \uCC9C\uD76C\uC528 \uC5BC\uB978 \uB2E4\uB140\uC624\uACE0,
       \uC790\uB124\uB9CC \uBBFF\uACA0\uB124! "
     animationName: Dialogue2_1_1
   - speaker: "\uC655\uACE4\uB300 \uBD80\uC7A5"
-    text: "\uC6B0\uB9AC\uB294 \uB2E4\uB4E4 \uCEE4\uD53C \uD55C\uC794 \uBA39\uC73C\uB7EC
+    text: "\uC6B0\uB9AC\uB294 \uB2E4\uB4E4 \uCEE4\uD53C \uD55C\uC794 \uB9C8\uC2DC\uB7EC
       \uAC00\uC790\uACE0 \uCEE4\uD53C\uB294 \uC5ED\uC2DC \uB77C\uB5BC\uC57C\u2026
       \uB77C\uB5BC\uB294 \uB9D0\uC774\uC57C \u2026 "
     animationName: Dialogue2_1_1
