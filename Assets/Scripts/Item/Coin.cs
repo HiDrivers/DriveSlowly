@@ -6,7 +6,7 @@ public class Coin : Items
 {
     public override void ItemEffect(GameObject player)
     {
-        GameManager.instance.Gold += 10;
+        GameManager.Instance.gold += 10;
         // 효과음 TO DO
         // 획득 애니메이션 TO DO
         Destroy(this.gameObject);

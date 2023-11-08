@@ -6,9 +6,9 @@ public class SmartPhone : Items
 {
     public override void ItemEffect(GameObject player)
     {
-        GameManager.instance.phoneTimer = 5.0f;
-        GameManager.instance.isPhone = true;
-        GameManager.instance.PlayerPhoneUIControl();
+        GameManager.Instance.phoneTimer = 5.0f;
+        GameManager.Instance.isPhone = true;
+        GameManager.Instance.PlayerPhoneUIControl();
         // 아이템 효과음 TO DO
         // 아이템 획득 애니메이션 TO DO
         // 플레이어 애니메이션 효과
