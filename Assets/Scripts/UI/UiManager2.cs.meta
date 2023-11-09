@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: bacc2bd6f9d906446ac87d4eeeaea4ec
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - startScreenPrefab: {fileID: 8312087275362899045, guid: 29011ef6e09d9f7479f2958b3b782e23, type: 3}
+  - lobbyScreenPrefab: {fileID: 1402391129885262730, guid: 1832b031d333d9d459c6193b09834271, type: 3}
+  - mainGameScreenPrefab: {fileID: 1346155949126256096, guid: 82cff44bc61a7474fb133803fdd7c51f, type: 3}
+  - pauseScreenPrefab: {fileID: 1160733858639005493, guid: c66b84898e35aec4fa7ddf18dd10089a, type: 3}
+  - settingsScreenPrefab: {fileID: 4528760042863955057, guid: 6e661af24f4d2984f8acbcacc2523446, type: 3}
+  - endingScreenPrefab: {fileID: 1227878387231539826, guid: e1f28ee5e2618b346a0f7555e7c8d727, type: 3}
+  - goldText: {fileID: 9101660602479660828, guid: e58871065c285ec4e893a36dedbb3068, type: 3}
+  - gameProgressSlider: {fileID: 6480847476756981915, guid: 678a2d11dbc599a42ae43f169c9a8cc6, type: 3}
+  - durabilityText: {fileID: 1597938095459283110, guid: ca5e4d8a6ee7c8d4dbd8c70368eb2805, type: 3}
+  - endingText: {fileID: 5783562889197794886, guid: 563a4b77c62695542aee593239182257, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
