@@ -4,11 +4,18 @@ using UnityEngine;
 
 public class HealthSystem : MonoBehaviour
 {
+    public float curHp;
+    public float maxHp;
+
+    private void Start()
+    {
+        curHp = maxHp;
+    }
     private void OnCollisionStay2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            StageManager.Instance.curHp -= Time.deltaTime;
+            curHp -= Time.deltaTime;
         }
     }
 }
