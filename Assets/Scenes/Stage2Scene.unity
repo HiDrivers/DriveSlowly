@@ -362,7 +362,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 20
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.99607843}
   m_FlipX: 0
@@ -1319,6 +1319,65 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!1 &392913007
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 392913009}
+  - component: {fileID: 392913008}
+  m_Layer: 0
+  m_Name: Stage2Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &392913008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392913007}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f3765da4d55ac5d4f8972b1ff0809ba3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 1550525563}
+  coinPrefab: {fileID: 8641314694878815675, guid: d674ce827e8e51b44b5dcf01514c4caa, type: 3}
+  player: {fileID: 513109719}
+  ControlUI: {fileID: 1062177905}
+  clearTime: 120
+  currentTime: 0
+  itemSpawnCool: 5
+  progress: {fileID: 1102270540}
+  durability: {fileID: 1623727833}
+  gold: {fileID: 544004185}
+  smartPhonePrefab: {fileID: 4173536656089796796, guid: 6c0fc3e00b3ed1e46bf579910fe3a37a, type: 3}
+  coffeePrefab: {fileID: 7467814589754578690, guid: 806547443decad14b8930676ded85e7b, type: 3}
+  pillowPrefab: {fileID: 5676098489017973072, guid: bcfe51b597899e94d85dcbf9bf8100e2, type: 3}
+  sleepShade: {fileID: 1692425444}
+  currentArrow: 0
+--- !u!4 &392913009
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 392913007}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &407354586
 GameObject:
   m_ObjectHideFlags: 0
@@ -1617,6 +1676,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 170a108a847119f469656161ff8c101a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curHp: 0
+  maxHp: 10
 --- !u!50 &513109725
 Rigidbody2D:
   serializedVersion: 4
@@ -1841,7 +1902,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2100869954}
   - {fileID: 1091668647}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1858,13 +1918,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45afc4b091934c40b374bec515a1bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ControlUI: {fileID: 1062177905}
   currentStage: 0
   gold: 0
   isBoost: 0
   boostTimer: 0
   sleepShade: {fileID: 1692425444}
-  sleepMode: 0
+  sleepMode: 1
   isSleep: 0
   sleepTimer: 0
   isPhone: 0
@@ -1945,7 +2004,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 20
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.99607843}
   m_FlipX: 0
@@ -3141,7 +3200,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 9
+  m_SortingOrder: 19
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_FlipX: 0
@@ -12800,61 +12859,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &2100869953
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2100869954}
-  - component: {fileID: 2100869955}
-  m_Layer: 0
-  m_Name: StageManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2100869954
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100869953}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 643761198}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2100869955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100869953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b20c76a4335c37a46ad6a7e47a20c6cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 1550525563}
-  coinPrefab: {fileID: 8641314694878815675, guid: d674ce827e8e51b44b5dcf01514c4caa, type: 3}
-  boosterPrefab: {fileID: 7170207221109864072, guid: 19ff012c03d19614d91117a9b893d2e5, type: 3}
-  clearTime: 120
-  currentTime: 0
-  maxHp: 100
-  curHp: 0
-  itemSpawnCool: 5
-  progress: {fileID: 1102270540}
-  durability: {fileID: 1623727833}
-  gold: {fileID: 544004185}
 --- !u!1 &2131393307
 GameObject:
   m_ObjectHideFlags: 0
