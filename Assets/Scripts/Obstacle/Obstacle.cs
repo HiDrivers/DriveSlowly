@@ -10,6 +10,7 @@ public class Obstacle : MonoBehaviour
     [SerializeField] private Vector3 direction;
     public bool isFromBottom;
     public int pos;
+    public GameObject ObstacleManager;
 
     private void Awake()
     {
@@ -59,7 +60,7 @@ public class Obstacle : MonoBehaviour
 
         if (collision.tag == "End")
         {
-            ObstacleGenerateManager_Jin.Instance.spawnPosCount[pos] -= 1;
+            ObstacleManager.GetComponent<ObstacleGenerateManager_Jin>().spawnPosCount[pos] -= 1;
             gameObject.SetActive(false);
         }
 

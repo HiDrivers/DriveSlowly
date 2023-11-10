@@ -46,7 +46,6 @@ public class GameManager : Singleton<GameManager>
         {
             isSleep = true;
         }
-        ObstacleGenerateManager_Jin.Instance.CreateObstaclePool();
     }
 
     void Update()
@@ -114,6 +113,7 @@ public class GameManager : Singleton<GameManager>
                 break;
             case 3:
                 SceneManager.LoadScene("CutScene2_1");
+                GameManager.Instance.sleepMode = true;
                 currentStage += 1;
                 break;
             case 4:
@@ -121,6 +121,11 @@ public class GameManager : Singleton<GameManager>
                 currentStage += 1;
                 InGameStart();
                 break;
+            case 5:
+                SceneManager.LoadScene("CutScene3_0");
+                currentStage += 1;
+                break;
+
         }
     }
 

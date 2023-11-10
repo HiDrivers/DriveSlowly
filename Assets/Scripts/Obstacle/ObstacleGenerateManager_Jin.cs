@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 
 
 
-public class ObstacleGenerateManager_Jin : Singleton<ObstacleGenerateManager_Jin>
+public class ObstacleGenerateManager_Jin : MonoBehaviour
 {
     // 4개의 차선
     // 차선에 맞춰 생성되는 장애물(자동차)
@@ -37,20 +37,20 @@ public class ObstacleGenerateManager_Jin : Singleton<ObstacleGenerateManager_Jin
     //[SerializeField]
     //private float obstacleGenDelay = 2.0f;
 
-    //private void Start()
-    //{
-    //    // 송명근 주석처리
-    //    //Transform _obstaclePos = obstacleGenPositions.GetComponentInChildren<Transform>();
-    //    //Debug.Log("Operated");
-    //    //foreach (Transform position in _obstaclePos)
-    //    //{
-    //    //    obstaclePositionGroup.Add(position);
-    //    //}
+    private void Start()
+    {
+        // 송명근 주석처리
+        //Transform _obstaclePos = obstacleGenPositions.GetComponentInChildren<Transform>();
+        //Debug.Log("Operated");
+        //foreach (Transform position in _obstaclePos)
+        //{
+        //    obstaclePositionGroup.Add(position);
+        //}
 
-    //    CreateObstaclePool();
+        CreateObstaclePool();
 
-    //    // InvokeRepeating(nameof(CreateObstacle), 5.0f, 5.0f);
-    //}
+        // InvokeRepeating(nameof(CreateObstacle), 5.0f, 5.0f);
+    }
 
     public void CreateObstacle()
     {
@@ -103,10 +103,17 @@ public class ObstacleGenerateManager_Jin : Singleton<ObstacleGenerateManager_Jin
             GameObject _obstacle2 = Instantiate(obstacle2);
             _obstacle1.name = $"obstacleFromTop{i:00}";
             _obstacle2.name = $"obstacleFromBottom{i:00}";
+            _obstacle1.GetComponent<Obstacle>().ObstacleManager = this.gameObject;
+            _obstacle2.GetComponent<Obstacle>().ObstacleManager = this.gameObject;
             _obstacle1.SetActive(false);
             _obstacle2.SetActive(false);
             obstaclePool.Add(_obstacle1);
             obstaclePool.Add(_obstacle2);
         }
+    }
+
+    private void Update()
+    {
+        
     }
 }

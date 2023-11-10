@@ -58,7 +58,7 @@ public class Stage2Manager : StageManager
         // 厘局拱 积己 包府
         if (obstacleTimer > obstacleSpawnCool)
         {
-            ObstacleGenerateManager_Jin.Instance.CreateObstacle();
+            ObstacleManager.GetComponent<ObstacleGenerateManager_Jin>().CreateObstacle();
             obstacleTimer = 0;
             obstacleSpawnCool = Random.Range(2.0f, 4.0f);
         }
