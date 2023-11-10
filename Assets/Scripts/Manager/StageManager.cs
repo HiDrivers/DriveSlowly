@@ -26,6 +26,7 @@ public class StageManager : MonoBehaviour
     public TMP_Text gold;
 
     protected bool gameClear = false;
+    private bool isClearOn = false;
 
     protected void Start()
     {
@@ -55,4 +56,5 @@ public class StageManager : MonoBehaviour
             }
         }
     }
+
 }

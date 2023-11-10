@@ -37,20 +37,20 @@ public class ObstacleGenerateManager_Jin : Singleton<ObstacleGenerateManager_Jin
     //[SerializeField]
     //private float obstacleGenDelay = 2.0f;
 
-    private void Start()
-    {
-        // 价疙辟 林籍贸府
-        //Transform _obstaclePos = obstacleGenPositions.GetComponentInChildren<Transform>();
-        //Debug.Log("Operated");
-        //foreach (Transform position in _obstaclePos)
-        //{
-        //    obstaclePositionGroup.Add(position);
-        //}
+    //private void Start()
+    //{
+    //    // 价疙辟 林籍贸府
+    //    //Transform _obstaclePos = obstacleGenPositions.GetComponentInChildren<Transform>();
+    //    //Debug.Log("Operated");
+    //    //foreach (Transform position in _obstaclePos)
+    //    //{
+    //    //    obstaclePositionGroup.Add(position);
+    //    //}
 
-        CreateObstaclePool();
+    //    CreateObstaclePool();
 
-        // InvokeRepeating(nameof(CreateObstacle), 5.0f, 5.0f);
-    }
+    //    // InvokeRepeating(nameof(CreateObstacle), 5.0f, 5.0f);
+    //}
 
     public void CreateObstacle()
     {
@@ -95,7 +95,7 @@ public class ObstacleGenerateManager_Jin : Singleton<ObstacleGenerateManager_Jin
         return null;
     }
 
-    private void CreateObstaclePool()
+    public void CreateObstaclePool()
     {
         for (int i = 0; i < maxObstacles/2; i++)
         {

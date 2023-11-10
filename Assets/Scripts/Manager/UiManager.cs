@@ -1,28 +1,9 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-public class UIManager : MonoBehaviour
+public class UIManager : Singleton<UIManager>
 {
-    private static UIManager instance;
     private Dictionary<string, GameObject> uiPrefabs = new Dictionary<string, GameObject>();
-
-    public static UIManager Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                instance = FindObjectOfType<UIManager>();
-
-                if (instance == null)
-                {
-                    GameObject go = new GameObject("UIManager");
-                    instance = go.AddComponent<UIManager>();
-                }
-            }
-            return instance;
-        }
-    }
 
     public void LoadUIPrefabs()
     {
@@ -38,30 +19,30 @@ public class UIManager : MonoBehaviour
     {
         LoadUIPrefabs();
 
-        // "SettingUi" 테스트용 코드
-        ShowSettingUi();
+        //// "SettingUi" 테스트용 코드
+        //ShowSettingUi();
 
-        // "SelectUi" 테스트용 코드
-        Invoke("ShowSelectUi", 5f);
+        //// "SelectUi" 테스트용 코드
+        //Invoke("ShowSelectUi", 5f);
 
-        // "GameClearUi" 테스트용 코드
-        Invoke("ShowGameClearUi", 10f);
+        //// "GameClearUi" 테스트용 코드
+        //Invoke("ShowGameClearUi", 10f);
     }
 
-    private void ShowSettingUi()
-    {
-        ShowUI<UIBase>("SettingUi", transform);
-    }
+    //private void ShowSettingUi()
+    //{
+    //    ShowUI<UIBase>("SettingUi", transform);
+    //}
 
-    private void ShowSelectUi()
-    {
-        ShowUI<UIBase>("SelectUi", transform);
-    }
+    //private void ShowSelectUi()
+    //{
+    //    ShowUI<UIBase>("SelectUi", transform);
+    //}
 
-    private void ShowGameClearUi()
-    {
-        ShowUI<UIBase>("GameClearUi", transform);
-    }
+    //private void ShowGameClearUi()
+    //{
+    //    ShowUI<UIBase>("GameClearUi", transform);
+    //}
 
     public T ShowUI<T>(string uiName, Transform parent) where T : UIBase
     {

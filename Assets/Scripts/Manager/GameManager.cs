@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
     // 현재 스테이지 관리
-    public int currentStage;
+    public int currentStage = 0;
 
     // 돈 관리
     public int gold = 0;
@@ -18,7 +19,6 @@ public class GameManager : Singleton<GameManager>
 
     // 졸음운전 관리(2스테이지)
     [Header("Stage 2 Sleepy Drive")]
-    public GameObject sleepShade;
     public bool sleepMode = false;
     public bool isSleep = false;
     public float sleepTimer = 0;
@@ -35,7 +35,7 @@ public class GameManager : Singleton<GameManager>
     public float drunkTimer = 0;
 
     // Start is called before the first frame update
-    void Start()
+    public void InGameStart()
     {
         if (drunkMode)
         {
@@ -46,6 +46,7 @@ public class GameManager : Singleton<GameManager>
         {
             isSleep = true;
         }
+        ObstacleGenerateManager_Jin.Instance.CreateObstaclePool();
     }
 
     void Update()
@@ -94,6 +95,33 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-
+    public void LoadNextScene()
+    {
+        switch(currentStage)
+        {
+            case 0:
+                SceneManager.LoadScene("CutScene1");
+                currentStage += 1;
+                break;
+            case 1:
+                SceneManager.LoadScene("MapTestScene_Stage1");
+                currentStage += 1;
+                InGameStart();
+                break;
+            case 2:
+                SceneManager.LoadScene("CutScene2_0");
+                currentStage += 1;
+                break;
+            case 3:
+                SceneManager.LoadScene("CutScene2_1");
+                currentStage += 1;
+                break;
+            case 4:
+                SceneManager.LoadScene("Stage2Scene");
+                currentStage += 1;
+                InGameStart();
+                break;
+        }
+    }
 
 }
