@@ -215,67 +215,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &244852237
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5766249176068066265, guid: f29138ca2b01e5b47b0448336e74a869, type: 3}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 5766249176068066265, guid: f29138ca2b01e5b47b0448336e74a869, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5766249176068066265, guid: f29138ca2b01e5b47b0448336e74a869, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5766249176068066265, guid: f29138ca2b01e5b47b0448336e74a869, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5766249176068066265, guid: f29138ca2b01e5b47b0448336e74a869, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5766249176068066265, guid: f29138ca2b01e5b47b0448336e74a869, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5766249176068066265, guid: f29138ca2b01e5b47b0448336e74a869, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5766249176068066265, guid: f29138ca2b01e5b47b0448336e74a869, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5766249176068066265, guid: f29138ca2b01e5b47b0448336e74a869, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5766249176068066265, guid: f29138ca2b01e5b47b0448336e74a869, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5766249176068066265, guid: f29138ca2b01e5b47b0448336e74a869, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5914107632723293877, guid: f29138ca2b01e5b47b0448336e74a869, type: 3}
-      propertyPath: m_Name
-      value: SideWallColliders
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: f29138ca2b01e5b47b0448336e74a869, type: 3}
 --- !u!1 &1673510057
 GameObject:
   m_ObjectHideFlags: 0
@@ -27192,7 +27131,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9222194421371612021, guid: 059a31812cf464c428fc6bd2b23a8355, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 9222194421371612021, guid: 059a31812cf464c428fc6bd2b23a8355, type: 3}
       propertyPath: m_LocalPosition.x
