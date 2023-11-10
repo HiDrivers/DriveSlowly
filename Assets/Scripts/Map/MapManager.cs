@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MapManager : MonoBehaviour
 {
-    // Update is called once per frame
     void Update()
     {
         if (GameManager.Instance.isBoost)
@@ -18,7 +17,7 @@ public class MapManager : MonoBehaviour
 
         if (transform.position.y < -18.5)
         {
-            transform.position = Vector3.zero;
+            transform.position = Vector3.zero + new Vector3(-0.23f,0,0);
         }
     }
 }
