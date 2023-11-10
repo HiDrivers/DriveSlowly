@@ -1,13 +1,11 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
     private static UIManager instance;
-    private GameObject settingPrefab;
-    private GameObject gameClearPrefab;
-    private GameObject instantiatedSettingUI;
-    private GameObject instantiatedGameClearUI;
 
     public static UIManager Instance
     {
@@ -27,9 +25,70 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    [SerializeField] private Slider progressSlider;
+    [SerializeField] private GameObject settingPrefab;
+    [SerializeField] private GameObject gameClearUiPrefab;
+    [SerializeField] private GameObject selectUiPrefab;
+
+    private GameObject instantiatedSettingUI;
+    private GameObject instantiatedGameClearUI;
+
+    private bool hasGameClearUIShown = false;
+
+    private void Awake()
+    {
+        progressSlider = FindObjectOfType<Slider>();
+
+        if (progressSlider == null)
+        {
+            Debug.LogError("ProgressSlider를 찾을 수 없습니다! ProgressSlider를 Unity Editor에서 직접 할당하세요.");
+            return;
+        }
+
+        LoadUIPrefabs();
+        progressSlider.onValueChanged.AddListener(OnSliderValueChanged);
+        StartCoroutine(CheckGameClearCondition());
+    }
+
     private void Start()
     {
-        LoadUIPrefabs();
+        if (SceneManager.GetActiveScene().name == "CutScene2_0")
+        {
+            StartCoroutine(ShowSelectUiAfterDelay(10f));
+        }
+    }
+
+    private IEnumerator ShowSelectUiAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (selectUiPrefab != null)
+        {
+            GameObject instantiatedSelectUI = Instantiate(selectUiPrefab);
+            Button closeBtn = instantiatedSelectUI.GetComponentInChildren<Button>();
+
+            if (closeBtn != null)
+            {
+                closeBtn.onClick.AddListener(CloseSelectUI);
+            }
+            else
+            {
+                Debug.LogError("CloseSelect 버튼을 찾을 수 없습니다!");
+            }
+        }
+        else
+        {
+            Debug.LogError("SelectUi 프리팹을 로드할 수 없습니다!");
+        }
+    }
+
+    private void OnSliderValueChanged(float value)
+    {
+        if (value == 1f && !hasGameClearUIShown)
+        {
+            ShowGameClearUI();
+            hasGameClearUIShown = true;
+        }
     }
 
     private void LoadUIPrefabs()
@@ -37,13 +96,19 @@ public class UIManager : MonoBehaviour
         settingPrefab = Resources.Load<GameObject>("Prefabs/Ui/Setting");
         if (settingPrefab == null)
         {
-            Debug.LogError("Setting prefab not found!");
+            Debug.LogError("Setting 프리팹을 찾을 수 없습니다!");
         }
 
-        gameClearPrefab = Resources.Load<GameObject>("Prefabs/Ui/GameClear");
-        if (gameClearPrefab == null)
+        gameClearUiPrefab = Resources.Load<GameObject>("Prefabs/Ui/GameClearUi");
+        if (gameClearUiPrefab == null)
         {
-            Debug.LogError("GameClear prefab not found!");
+            Debug.LogError("GameClearUi 프리팹을 찾을 수 없습니다!");
+        }
+
+        selectUiPrefab = Resources.Load<GameObject>("Prefabs/Ui/SelectUi");
+        if (selectUiPrefab == null)
+        {
+            Debug.LogError("SelectUi 프리팹을 찾을 수 없습니다!");
         }
     }
 
@@ -53,18 +118,19 @@ public class UIManager : MonoBehaviour
         {
             instantiatedSettingUI = Instantiate(settingPrefab);
             Button closeBtn = instantiatedSettingUI.GetComponentInChildren<Button>();
+
             if (closeBtn != null)
             {
                 closeBtn.onClick.AddListener(CloseSettingUI);
             }
             else
             {
-                Debug.LogError("CloseSetting button not found!");
+                Debug.LogError("CloseSetting 버튼을 찾을 수 없습니다!");
             }
         }
         else
         {
-            Debug.LogError("Setting prefab not loaded!");
+            Debug.LogError("Setting 프리팹을 로드할 수 없습니다!");
         }
     }
 
@@ -76,56 +142,92 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    public void CheckAndShowGameClearUI()
+    private IEnumerator CheckGameClearCondition()
     {
-        if (GameManager.Instance != null)
+        while (true)
         {
-            // 90초를 살아남았을 때 GameClearUI를 표시합니다.
-            if (GameManager.Instance.currentStage == 1 && GameManager.Instance.boostTimer <= 0)
+            yield return new WaitForSeconds(1f);
+
+            if (progressSlider.value == 1f && !hasGameClearUIShown)
             {
                 ShowGameClearUI();
+                hasGameClearUIShown = true;
             }
         }
     }
 
     private void ShowGameClearUI()
     {
-        if (gameClearPrefab != null)
+        if (gameClearUiPrefab != null)
         {
-            instantiatedGameClearUI = Instantiate(gameClearPrefab);
-            // 다음 스테이지로 진행
-            int nextStage = GameManager.Instance.currentStage + 1;
-            // 여기서 다음 스테이지에 대한 처리를 진행할 수 있습니다.
-            switch (nextStage)
-            {
-                case 2:
-                    // 1스테이지에서 2스테이지로 이동하는 처리
-                    Debug.Log("1스테이지를 클리어하여 2스테이지로 이동합니다.");
-                    break;
-                case 3:
-                    // 2스테이지에서 3스테이지로 이동하는 처리
-                    Debug.Log("2스테이지를 클리어하여 3스테이지로 이동합니다.");
-                    break;
-                // 다른 케이스에 대한 처리 추가
-                default:
-                    Debug.Log("더 이상의 스테이지가 없습니다!");
-                    break;
-            }
+            instantiatedGameClearUI = Instantiate(gameClearUiPrefab);
         }
         else
         {
-            Debug.LogError("GameClear prefab not loaded!");
+            Debug.LogError("GameClearUi 프리팹을 로드할 수 없습니다!");
         }
     }
 
-    public void CloseGameClearUI()
+    public void CloseSelectUI()
     {
-        if (instantiatedGameClearUI != null)
-        {
-            Destroy(instantiatedGameClearUI);
-        }
+        // Implement logic to close the SelectUi prefab if needed
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

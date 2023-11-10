@@ -7,6 +7,8 @@ TagManager:
   - Item
   - End
   - Obstacle
+  - ProgressSlider
+  - Slider
   layers:
   - Default
   - TransparentFX

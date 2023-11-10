@@ -169,6 +169,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b12ac4f4d382147bf0d99894287042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  progressSlider: {fileID: 0}
+  settingPrefab: {fileID: 0}
+  gameClearUiPrefab: {fileID: 0}
 --- !u!1001 &2822420536965162670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -766,11 +769,43 @@ PrefabInstance:
       propertyPath: m_Name
       value: CloseSetting
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8491423856460170329, guid: f87bc11aa812dda449b3ac9fff75938f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3567955614553717585}
+    - target: {fileID: 8491423856460170329, guid: f87bc11aa812dda449b3ac9fff75938f, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: CloseSettingUI
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 4034941210659411622, guid: f87bc11aa812dda449b3ac9fff75938f, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6915542574120030285, guid: f87bc11aa812dda449b3ac9fff75938f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3567955614553717585}
   m_SourcePrefab: {fileID: 100100000, guid: f87bc11aa812dda449b3ac9fff75938f, type: 3}
+--- !u!1 &4351812859856766976 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6915542574120030285, guid: f87bc11aa812dda449b3ac9fff75938f, type: 3}
+  m_PrefabInstance: {fileID: 7177699770536728653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3567955614553717585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4351812859856766976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92b12ac4f4d382147bf0d99894287042, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  progressSlider: {fileID: 4359759146324462594, guid: 8f90dcc682ae11145a9cd5d590a7316a, type: 3}
+  settingPrefab: {fileID: 7957769282649640748}
+  gameClearUiPrefab: {fileID: 7770564359922311964, guid: 6e3704f0f0765dc4da8f7e4f050b181f, type: 3}
 --- !u!224 &8204047746591146748 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1317001748851088049, guid: f87bc11aa812dda449b3ac9fff75938f, type: 3}

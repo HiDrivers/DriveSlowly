@@ -10,6 +10,10 @@ public class SceneLoader : MonoBehaviour
 
     public string sceneName3 = "EndingScene";
 
+    public string sceneName4 = "CutScene2_0";
+
+    public string sceneName5 = "CutScene2_1";
+
     // 첫 번째 버튼 클릭 시 호출될 함수
     public void LoadScene1OnClick()
     {
@@ -25,6 +29,16 @@ public class SceneLoader : MonoBehaviour
     public void LoadScene3OnClick()
     {
         SceneManager.LoadScene(sceneName3);
+    }
+
+    public void LoadScene4OnClick()
+    {
+        SceneManager.LoadScene(sceneName4);
+    }
+
+    public void LoadScene5OnClick()
+    {
+        SceneManager.LoadScene(sceneName5);
     }
 }
 

@@ -3,7 +3,11 @@ guid: 92b12ac4f4d382147bf0d99894287042
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - progressSlider: {fileID: 4359759146324462594, guid: 8f90dcc682ae11145a9cd5d590a7316a, type: 3}
+  - settingPrefab: {fileID: 7957769282649640748, guid: 8d0ca27dad3ef3f45b0c79f72a6ca578, type: 3}
+  - gameClearUiPrefab: {fileID: 7770564359922311964, guid: 6e3704f0f0765dc4da8f7e4f050b181f, type: 3}
+  - selectUiPrefab: {fileID: 7870213928682522862, guid: 5da1797537b43ba408aa81eed0ec8cbd, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

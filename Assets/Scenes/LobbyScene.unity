@@ -1052,6 +1052,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b12ac4f4d382147bf0d99894287042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  progressSlider: {fileID: 4359759146324462594, guid: 8f90dcc682ae11145a9cd5d590a7316a, type: 3}
+  settingPrefab: {fileID: 7957769282649640748, guid: 8d0ca27dad3ef3f45b0c79f72a6ca578, type: 3}
+  gameClearUiPrefab: {fileID: 7770564359922311964, guid: 6e3704f0f0765dc4da8f7e4f050b181f, type: 3}
 --- !u!1 &1149667623 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3589053435689237512, guid: 527de02989f3d074b8d5bce5c18c0b95, type: 3}
