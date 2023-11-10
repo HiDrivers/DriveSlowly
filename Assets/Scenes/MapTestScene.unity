@@ -586,7 +586,7 @@ Transform:
   - {fileID: 2030158083}
   - {fileID: 1433210672}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &148158155
 MonoBehaviour:
@@ -1498,6 +1498,61 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &488451839
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 488451841}
+  - component: {fileID: 488451840}
+  m_Layer: 0
+  m_Name: Stage1Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &488451840
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488451839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 623ecbfb642069e4d85c339a6ca32d85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 1550525563}
+  coinPrefab: {fileID: 8641314694878815675, guid: d674ce827e8e51b44b5dcf01514c4caa, type: 3}
+  player: {fileID: 513109719}
+  ControlUI: {fileID: 0}
+  clearTime: 120
+  currentTime: 0
+  itemSpawnCool: 5
+  progress: {fileID: 1102270540}
+  durability: {fileID: 1623727833}
+  gold: {fileID: 544004185}
+  boosterPrefab: {fileID: 7170207221109864072, guid: 19ff012c03d19614d91117a9b893d2e5, type: 3}
+--- !u!4 &488451841
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488451839}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &513109719
 GameObject:
   m_ObjectHideFlags: 0
@@ -1617,6 +1672,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 170a108a847119f469656161ff8c101a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curHp: 0
+  maxHp: 10
 --- !u!50 &513109725
 Rigidbody2D:
   serializedVersion: 4
@@ -1841,7 +1898,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2100869954}
   - {fileID: 1091668647}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1858,7 +1914,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45afc4b091934c40b374bec515a1bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ControlUI: {fileID: 1062177905}
   currentStage: 0
   gold: 0
   isBoost: 0
@@ -2795,37 +2850,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!1 &1130823252
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1130823253}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1130823253
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1130823252}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1144153799
 GameObject:
   m_ObjectHideFlags: 0
@@ -3996,7 +4020,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1564954728}
   m_Layer: 5
-  m_Name: Durability
+  m_Name: DurabilityRoot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12794,61 +12818,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &2100869953
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2100869954}
-  - component: {fileID: 2100869955}
-  m_Layer: 0
-  m_Name: StageManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2100869954
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100869953}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 643761198}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2100869955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100869953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b20c76a4335c37a46ad6a7e47a20c6cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 1550525563}
-  coinPrefab: {fileID: 8641314694878815675, guid: d674ce827e8e51b44b5dcf01514c4caa, type: 3}
-  boosterPrefab: {fileID: 7170207221109864072, guid: 19ff012c03d19614d91117a9b893d2e5, type: 3}
-  clearTime: 120
-  currentTime: 0
-  maxHp: 100
-  curHp: 0
-  itemSpawnCool: 5
-  progress: {fileID: 1102270540}
-  durability: {fileID: 1623727833}
-  gold: {fileID: 544004185}
 --- !u!1 &2131393307
 GameObject:
   m_ObjectHideFlags: 0

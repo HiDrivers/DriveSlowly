@@ -431,7 +431,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 513109722}
           m_TargetAssemblyTypeName: PlayerControl, Assembly-CSharp
           m_MethodName: Up_PointerUp
           m_Mode: 1
@@ -447,7 +447,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 513109722}
           m_TargetAssemblyTypeName: PlayerControl, Assembly-CSharp
           m_MethodName: Up_PointerDown
           m_Mode: 1
@@ -968,7 +968,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &199258097
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1617,6 +1617,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 170a108a847119f469656161ff8c101a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  curHp: 0
+  maxHp: 10
 --- !u!50 &513109725
 Rigidbody2D:
   serializedVersion: 4
@@ -1841,7 +1843,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2100869954}
   - {fileID: 1091668647}
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -1858,7 +1859,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e45afc4b091934c40b374bec515a1bac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ControlUI: {fileID: 1062177905}
   currentStage: 0
   gold: 0
   isBoost: 0
@@ -2054,7 +2054,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 513109722}
           m_TargetAssemblyTypeName: PlayerControl, Assembly-CSharp
           m_MethodName: Left_PointerUp
           m_Mode: 1
@@ -2070,7 +2070,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 513109722}
           m_TargetAssemblyTypeName: PlayerControl, Assembly-CSharp
           m_MethodName: Left_PointerDown
           m_Mode: 1
@@ -2392,6 +2392,62 @@ Transform:
   m_Children: []
   m_Father: {fileID: 429302842}
   m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &963852026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 963852028}
+  - component: {fileID: 963852027}
+  m_Layer: 0
+  m_Name: Stage3Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &963852027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963852026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6a08ce736b48e894a983c87effb1156b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 1550525563}
+  coinPrefab: {fileID: 8641314694878815675, guid: d674ce827e8e51b44b5dcf01514c4caa, type: 3}
+  player: {fileID: 513109719}
+  ControlUI: {fileID: 1062177905}
+  clearTime: 120
+  currentTime: 0
+  itemSpawnCool: 5
+  progress: {fileID: 1102270540}
+  durability: {fileID: 1623727833}
+  gold: {fileID: 544004185}
+  sojuPrefab: {fileID: 4198778072502153136, guid: 35c291500363e804084840cb31bde925, type: 3}
+  sojuCleanerPrefab: {fileID: 9221801603400900594, guid: 43540c010a88612418bf37cb849350d1, type: 3}
+--- !u!4 &963852028
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963852026}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.5187488, y: -0.35645765, z: -0.091893725}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1013402382
 GameObject:
@@ -2883,7 +2939,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 513109722}
           m_TargetAssemblyTypeName: PlayerControl, Assembly-CSharp
           m_MethodName: Down_PointerUp
           m_Mode: 1
@@ -2899,7 +2955,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 513109722}
           m_TargetAssemblyTypeName: PlayerControl, Assembly-CSharp
           m_MethodName: Down_PointerDown
           m_Mode: 1
@@ -4493,7 +4549,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1851876925
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12800,61 +12856,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!1 &2100869953
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2100869954}
-  - component: {fileID: 2100869955}
-  m_Layer: 0
-  m_Name: StageManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2100869954
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100869953}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 643761198}
-  m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2100869955
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2100869953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b20c76a4335c37a46ad6a7e47a20c6cd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spawnPoint: {fileID: 1550525563}
-  coinPrefab: {fileID: 8641314694878815675, guid: d674ce827e8e51b44b5dcf01514c4caa, type: 3}
-  boosterPrefab: {fileID: 7170207221109864072, guid: 19ff012c03d19614d91117a9b893d2e5, type: 3}
-  clearTime: 120
-  currentTime: 0
-  maxHp: 100
-  curHp: 0
-  itemSpawnCool: 5
-  progress: {fileID: 1102270540}
-  durability: {fileID: 1623727833}
-  gold: {fileID: 544004185}
 --- !u!1 &2131393307
 GameObject:
   m_ObjectHideFlags: 0
@@ -12912,7 +12913,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 513109722}
           m_TargetAssemblyTypeName: PlayerControl, Assembly-CSharp
           m_MethodName: Right_PointerUp
           m_Mode: 1
@@ -12928,7 +12929,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 513109722}
           m_TargetAssemblyTypeName: PlayerControl, Assembly-CSharp
           m_MethodName: Right_PointerDown
           m_Mode: 1

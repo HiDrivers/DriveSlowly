@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] private GameObject ControlUI;
-
-
     // 현재 스테이지 관리
     public int currentStage;
 
@@ -40,16 +37,14 @@ public class GameManager : Singleton<GameManager>
     // Start is called before the first frame update
     void Start()
     {
-        PlayerDrunkUIControl();
         if (drunkMode)
         {
             isDrunk = true;
-            PlayerDrunkUIControl();
+
         }
         if (sleepMode)
         {
             isSleep = true;
-            PlayerSleepUIControl();
         }
     }
 
@@ -74,7 +69,6 @@ public class GameManager : Singleton<GameManager>
                 sleepTimer = 0;
                 if (sleepMode) isSleep = true;
                 else isSleep = false;
-                PlayerSleepUIControl();
             }
         }
         // 음주 부분 컨트롤
@@ -86,7 +80,6 @@ public class GameManager : Singleton<GameManager>
                 drunkTimer = 0;
                 if (drunkMode) isDrunk = true;
                 else isDrunk = false;
-                PlayerDrunkUIControl();
             }
         }
         // 스마트폰 부분 컨트롤
@@ -97,33 +90,10 @@ public class GameManager : Singleton<GameManager>
             {
                 phoneTimer = 0;
                 isPhone = false;
-                PlayerPhoneUIControl();
             }
         }
     }
 
-    public void PlayerSleepUIControl()
-    {
-        sleepShade.SetActive(isSleep);
-    }
 
-    public void PlayerDrunkUIControl()
-    {
-        ControlUI.transform.GetChild(0).gameObject.SetActive(!isDrunk);
-        ControlUI.transform.GetChild(1).gameObject.SetActive(isDrunk);
-    }
-
-    public void PlayerPhoneUIControl()
-    {
-        if (isPhone)
-        {
-            currentArrow = Random.Range(0, 4);
-            ControlUI.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(currentArrow).gameObject.SetActive(false);
-        }
-        else
-        {
-            ControlUI.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(currentArrow).gameObject.SetActive(true);
-        }
-    }
 
 }
