@@ -15,7 +15,7 @@ public class MapManager : MonoBehaviour
             transform.position += Vector3.down * 3 * Time.deltaTime;
         }
 
-        if (transform.position.y < -18.5)
+        if (transform.position.y < -29.5f)
         {
             transform.position = Vector3.zero + new Vector3(-0.23f,0,0);
         }
