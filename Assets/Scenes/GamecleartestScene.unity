@@ -152,6 +152,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92b12ac4f4d382147bf0d99894287042, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  progressSlider: {fileID: 0}
+  settingPrefab: {fileID: 0}
+  gameClearUiPrefab: {fileID: 0}
+  selectUiPrefab: {fileID: 0}
 --- !u!4 &718745600
 Transform:
   m_ObjectHideFlags: 0

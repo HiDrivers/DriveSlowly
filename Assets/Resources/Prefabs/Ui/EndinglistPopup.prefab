@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -40}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3302223377260780301
@@ -130,7 +130,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 37.384277, z: 0, w: 112.1532}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -228,7 +228,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 800, y: 300}
+  m_AnchoredPosition: {x: 436, y: 842}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &579988119894697792
@@ -306,8 +306,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 18, y: -47}
-  m_SizeDelta: {x: -138.6855, y: -223.7461}
+  m_AnchoredPosition: {x: -0.00024414062, y: -0.00030518}
+  m_SizeDelta: {x: -0.0005, y: -0.00048828}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8618204416676101145
 CanvasRenderer:
@@ -384,8 +384,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -700, y: 0}
-  m_SizeDelta: {x: 200, y: 200}
+  m_AnchoredPosition: {x: -321.90436, y: 496}
+  m_SizeDelta: {x: 340.1913, y: 292}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5883595056005523958
 CanvasRenderer:
@@ -496,3 +496,5 @@ MonoBehaviour:
   sceneName1: LobbyScene
   sceneName2: MapTestScene
   sceneName3: EndingScene
+  sceneName4: CutScene2_0
+  sceneName5: CutScene2_1

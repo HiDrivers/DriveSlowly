@@ -195,7 +195,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1920, y: 1280}
+  m_ReferenceResolution: {x: 760, y: 1280}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -624,7 +624,6 @@ GameObject:
   m_Component:
   - component: {fileID: 449683328}
   - component: {fileID: 449683327}
-  - component: {fileID: 449683329}
   m_Layer: 0
   m_Name: TalkController
   m_TagString: Untagged
@@ -664,22 +663,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &449683329
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 449683326}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92b12ac4f4d382147bf0d99894287042, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  progressSlider: {fileID: 4359759146324462594, guid: 8f90dcc682ae11145a9cd5d590a7316a, type: 3}
-  settingPrefab: {fileID: 7957769282649640748, guid: 8d0ca27dad3ef3f45b0c79f72a6ca578, type: 3}
-  gameClearUiPrefab: {fileID: 7770564359922311964, guid: 6e3704f0f0765dc4da8f7e4f050b181f, type: 3}
-  selectUiPrefab: {fileID: 7870213928682522862, guid: 5da1797537b43ba408aa81eed0ec8cbd, type: 3}
 --- !u!1 &485837922
 GameObject:
   m_ObjectHideFlags: 0

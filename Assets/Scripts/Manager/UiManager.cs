@@ -1,11 +1,10 @@
-using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using System.Collections.Generic;
 
 public class UIManager : MonoBehaviour
 {
     private static UIManager instance;
+    private Dictionary<string, GameObject> uiPrefabs = new Dictionary<string, GameObject>();
 
     public static UIManager Instance
     {
@@ -25,154 +24,92 @@ public class UIManager : MonoBehaviour
         }
     }
 
-    [SerializeField] private Slider progressSlider;
-    [SerializeField] private GameObject settingPrefab;
-    [SerializeField] private GameObject gameClearUiPrefab;
-    [SerializeField] private GameObject selectUiPrefab;
-
-    private GameObject instantiatedSettingUI;
-    private GameObject instantiatedGameClearUI;
-
-    private bool hasGameClearUIShown = false;
-
-    private void Awake()
+    public void LoadUIPrefabs()
     {
-        progressSlider = FindObjectOfType<Slider>();
-
-        if (progressSlider == null)
+        var objs = Resources.LoadAll<GameObject>("Prefabs/UI/");
+        foreach (var obj in objs)
         {
-            Debug.LogError("ProgressSlider를 찾을 수 없습니다! ProgressSlider를 Unity Editor에서 직접 할당하세요.");
-            return;
+            string uiName = obj.name.ToLower();
+            uiPrefabs[uiName] = obj;
         }
+    }
 
+    void Start()
+    {
         LoadUIPrefabs();
-        progressSlider.onValueChanged.AddListener(OnSliderValueChanged);
-        StartCoroutine(CheckGameClearCondition());
+
+        // "SettingUi" 테스트용 코드
+        ShowSettingUi();
+
+        // "SelectUi" 테스트용 코드
+        Invoke("ShowSelectUi", 5f);
+
+        // "GameClearUi" 테스트용 코드
+        Invoke("ShowGameClearUi", 10f);
     }
 
-    private void Start()
+    private void ShowSettingUi()
     {
-        if (SceneManager.GetActiveScene().name == "CutScene2_0")
-        {
-            StartCoroutine(ShowSelectUiAfterDelay(10f));
-        }
+        ShowUI<UIBase>("SettingUi", transform);
     }
 
-    private IEnumerator ShowSelectUiAfterDelay(float delay)
+    private void ShowSelectUi()
     {
-        yield return new WaitForSeconds(delay);
+        ShowUI<UIBase>("SelectUi", transform);
+    }
 
-        if (selectUiPrefab != null)
+    private void ShowGameClearUi()
+    {
+        ShowUI<UIBase>("GameClearUi", transform);
+    }
+
+    public T ShowUI<T>(string uiName, Transform parent) where T : UIBase
+    {
+        uiName = uiName.ToLower();
+
+        if (uiPrefabs.ContainsKey(uiName))
         {
-            GameObject instantiatedSelectUI = Instantiate(selectUiPrefab);
-            Button closeBtn = instantiatedSelectUI.GetComponentInChildren<Button>();
+            GameObject uiGameObject = Instantiate(uiPrefabs[uiName], parent,true);
+            T uiComponent = uiGameObject.GetComponent<T>();
 
-            if (closeBtn != null)
+            if (uiComponent != null)
             {
-                closeBtn.onClick.AddListener(CloseSelectUI);
+                return uiComponent;
             }
             else
             {
-                Debug.LogError("CloseSelect 버튼을 찾을 수 없습니다!");
+                Debug.LogError($"UI Component not found in UI Prefab: {uiName}");
+                Destroy(uiGameObject);
             }
         }
         else
         {
-            Debug.LogError("SelectUi 프리팹을 로드할 수 없습니다!");
-        }
-    }
-
-    private void OnSliderValueChanged(float value)
-    {
-        if (value == 1f && !hasGameClearUIShown)
-        {
-            ShowGameClearUI();
-            hasGameClearUIShown = true;
-        }
-    }
-
-    private void LoadUIPrefabs()
-    {
-        settingPrefab = Resources.Load<GameObject>("Prefabs/Ui/Setting");
-        if (settingPrefab == null)
-        {
-            Debug.LogError("Setting 프리팹을 찾을 수 없습니다!");
+            Debug.LogError($"UI Prefab not loaded: {uiName}");
         }
 
-        gameClearUiPrefab = Resources.Load<GameObject>("Prefabs/Ui/GameClearUi");
-        if (gameClearUiPrefab == null)
-        {
-            Debug.LogError("GameClearUi 프리팹을 찾을 수 없습니다!");
-        }
-
-        selectUiPrefab = Resources.Load<GameObject>("Prefabs/Ui/SelectUi");
-        if (selectUiPrefab == null)
-        {
-            Debug.LogError("SelectUi 프리팹을 찾을 수 없습니다!");
-        }
-    }
-
-    public void ShowSettingUI()
-    {
-        if (settingPrefab != null)
-        {
-            instantiatedSettingUI = Instantiate(settingPrefab);
-            Button closeBtn = instantiatedSettingUI.GetComponentInChildren<Button>();
-
-            if (closeBtn != null)
-            {
-                closeBtn.onClick.AddListener(CloseSettingUI);
-            }
-            else
-            {
-                Debug.LogError("CloseSetting 버튼을 찾을 수 없습니다!");
-            }
-        }
-        else
-        {
-            Debug.LogError("Setting 프리팹을 로드할 수 없습니다!");
-        }
-    }
-
-    public void CloseSettingUI()
-    {
-        if (instantiatedSettingUI != null)
-        {
-            Destroy(instantiatedSettingUI);
-        }
-    }
-
-    private IEnumerator CheckGameClearCondition()
-    {
-        while (true)
-        {
-            yield return new WaitForSeconds(1f);
-
-            if (progressSlider.value == 1f && !hasGameClearUIShown)
-            {
-                ShowGameClearUI();
-                hasGameClearUIShown = true;
-            }
-        }
-    }
-
-    private void ShowGameClearUI()
-    {
-        if (gameClearUiPrefab != null)
-        {
-            instantiatedGameClearUI = Instantiate(gameClearUiPrefab);
-        }
-        else
-        {
-            Debug.LogError("GameClearUi 프리팹을 로드할 수 없습니다!");
-        }
-    }
-
-    public void CloseSelectUI()
-    {
-        // Implement logic to close the SelectUi prefab if needed
+        return null;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
