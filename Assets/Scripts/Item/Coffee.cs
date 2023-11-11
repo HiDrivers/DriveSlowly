@@ -6,7 +6,7 @@ public class Coffee : Items
 {
     public override void ItemEffect(GameObject player)
     {
-        GameManager.Instance.sleepTimer = 15.0f;
+        GameManager.Instance.sleepTimer = 5.0f;
         GameManager.Instance.isSleep = false;
         // 아이템 효과음 TO DO
         // 아이템 획득 애니메이션 TO DO
