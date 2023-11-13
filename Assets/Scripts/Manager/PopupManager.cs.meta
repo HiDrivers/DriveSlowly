@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 398b47e528e86514eb14d85c90586a11
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - endingListPanel: {fileID: 5916353508062092986, guid: 39bfb6578fa048d488741a78288d6f7a, type: 3}
+  - carListPanel: {fileID: 3589053435689237512, guid: 527de02989f3d074b8d5bce5c18c0b95, type: 3}
+  - backgroundPanel: {fileID: 5491748783175830822, guid: d6a166329aab60f49a9672fff2bc676b, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
