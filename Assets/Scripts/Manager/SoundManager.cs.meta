@@ -1,12 +1,12 @@
 fileFormatVersion: 2
-guid: b8024a6410f0b974c912481af7903179
+guid: 8370fcde9e5dd61489f907c405aacb44
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - masterVolumeSlider: {fileID: 7492995981674914489, guid: 971dbae177c70d4448c961c55ef29de2, type: 3}
-  - backgroundVolumeSlider: {fileID: 3289986200502753989, guid: 2821a5b8bb075c14b969ae906d4ecb44, type: 3}
-  - effectVolumeSlider: {fileID: 7857394477804813859, guid: 3923470007b1bba4b9307a7f346ddfcd, type: 3}
+  - masterVolumeSlider: {fileID: 4844658710084387663, guid: 188295f531ca9744c9798a2216753866, type: 3}
+  - backgroundVolumeSlider: {fileID: 1346347285021083889, guid: 515243397752d5b46ac260cbb2a8b467, type: 3}
+  - effectVolumeSlider: {fileID: 4627415083150933801, guid: 9cf8cfbc9a66caf48bba1a4ab610c840, type: 3}
   - backgroundAudioSource: {fileID: 7007327376683189620, guid: a271a2ad808b81747997a186ca4f1802, type: 3}
   - effectAudioSource: {fileID: 2300092482679646778, guid: 4fe36b4e75a5f2c458604f8b3b633b28, type: 3}
   executionOrder: 0
