@@ -1,11 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
     // 현재 스테이지 관리
-    public int currentStage;
+    public int currentStage = 0;
+
+    // 엔딩 관리
+    public int currentGoldCount = 0;
+
+    public int totalItemCount = 0;
+    public int currentBoosterCount = 0;
+    public int currentCoffeeCount = 0;
+    public int currentPillowCount = 0;
+    public int currentSmartPhoneCount = 0;
+    public int currentSojuCount = 0;
+    public int currentSojuCleanerCount = 0;
+    public float totalDurabilityDamage = 0;
+
 
     // 돈 관리
     public int gold = 0;
@@ -18,7 +32,6 @@ public class GameManager : Singleton<GameManager>
 
     // 졸음운전 관리(2스테이지)
     [Header("Stage 2 Sleepy Drive")]
-    public GameObject sleepShade;
     public bool sleepMode = false;
     public bool isSleep = false;
     public float sleepTimer = 0;
@@ -35,7 +48,7 @@ public class GameManager : Singleton<GameManager>
     public float drunkTimer = 0;
 
     // Start is called before the first frame update
-    void Start()
+    public void InGameStart()
     {
         if (drunkMode)
         {
@@ -94,6 +107,102 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    public void LoadNextScene()
+    {
+        switch(currentStage)
+        {
+            case 0:
+                SceneManager.LoadScene("CutScene1");
+                currentStage += 1;
+                break;
+            case 1:
+                SceneManager.LoadScene("MapTestScene_Stage1");
+                currentStage += 1;
+                InGameStart();
+                break;
+            case 2:
+                SceneManager.LoadScene("CutScene2_0");
+                currentStage += 1;
+                break;
+            case 3:
+                SceneManager.LoadScene("CutScene2_1");
+                GameManager.Instance.sleepMode = true;
+                currentStage += 1;
+                break;
+            case 4:
+                SceneManager.LoadScene("Stage2Scene");
+                currentStage += 1;
+                InGameStart();
+                break;
+            case 5:
+                SceneManager.LoadScene("CutScene3_0");
+                currentStage += 1;
+                break;
+            case 6:
+                SceneManager.LoadScene("Stage3Scene");
+                currentStage += 1;
+                break;
 
+        }
+    }
+
+    public void CheckEnding()
+    {
+        // 배드 엔딩1
+        // 배드 드라이버 엔딩
+        if (drunkMode && sleepMode && currentBoosterCount > 0 && totalDurabilityDamage == 0)
+        {
+
+        }
+        // 악질 엔딩
+        else if (drunkMode && sleepMode && currentBoosterCount > 0)
+        {
+
+        }
+        // 졸음 운전 엔딩
+        else if(sleepMode && !drunkMode && currentBoosterCount == 0)
+        {
+
+        }
+        // 음주 운전 엔딩
+        else if(!sleepMode && drunkMode && currentBoosterCount == 0)
+        {
+
+        }
+        // 난폭운전 엔딩
+        else if(!drunkMode && !drunkMode && currentBoosterCount > 0)
+        {
+
+        }
+        // 배드 엔딩2
+        else if (!drunkMode && !drunkMode && currentBoosterCount == 0)
+        {
+            // 바보 엔딩
+            if (currentSojuCount > 0 && currentPillowCount > 0 && currentSmartPhoneCount > 0)
+            {
+
+            }
+
+            // 스마트폰 엔딩
+            else if (currentSmartPhoneCount > 0 && currentSojuCount == 0 && currentPillowCount == 0)
+            {
+
+            }
+            // 스페셜 엔딩
+            else if (totalItemCount == 0)
+            {
+                // 헤지 펀드
+                if (currentGoldCount > 200)
+                {
+
+                }
+                // 진엔딩 초입
+                else
+                {
+
+                }
+            }
+        }
+    }
 
 }

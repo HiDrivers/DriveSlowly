@@ -39,6 +39,7 @@ public class TalkManager : MonoBehaviour
         else
         {
             Debug.Log("대화가 모두 종료되었습니다.");
+            GameManager.Instance.LoadNextScene();
         }
     }
    

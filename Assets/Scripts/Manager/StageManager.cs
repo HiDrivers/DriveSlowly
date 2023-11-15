@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class StageManager : MonoBehaviour
 {
+    [SerializeField] private Transform UIRoot;
+
+    [SerializeField] protected GameObject ObstacleManager;
     public GameObject spawnPoint;
 
     [SerializeField] protected GameObject coinPrefab;
@@ -26,6 +29,8 @@ public class StageManager : MonoBehaviour
     public TMP_Text gold;
 
     protected bool gameClear = false;
+    private bool isClearOn = false;
+    private float gameStartDelay = 1;
 
     protected void Start()
     {
@@ -35,7 +40,7 @@ public class StageManager : MonoBehaviour
 
     protected void Update()
     {
-        if (!gameClear)
+        if (!gameClear && gameStartDelay < 0)
         {
             currentTime += Time.deltaTime;
             itemTimer += Time.deltaTime;
@@ -54,5 +59,16 @@ public class StageManager : MonoBehaviour
                 gameClear = true;
             }
         }
+
+        else if (gameStartDelay >= 0)
+        {
+            gameStartDelay -= Time.deltaTime;
+        }
+        else if (gameClear && !isClearOn)
+        {
+            UIManager.Instance.ShowUI<UIBase>("GameClearUi", UIRoot);
+            isClearOn = true;
+        }
     }
+
 }

@@ -32,12 +32,12 @@ public class Stage2Manager : StageManager
         if (itemTimer > itemSpawnCool)
         {
             int index = Random.Range(0, 4);
-            int itemIdx = Random.Range(0, 4);
-            if (itemIdx == 0)
+            int itemIdx = Random.Range(0, 10);
+            if (itemIdx < 3)
             {
                 Instantiate(coinPrefab, spawnPoint.transform.GetChild(0).gameObject.transform.GetChild(index).gameObject.transform);
             }
-            else if (itemIdx == 1) 
+            else if (itemIdx < 8) 
             {
                 Instantiate(smartPhonePrefab, spawnPoint.transform.GetChild(0).gameObject.transform.GetChild(index).gameObject.transform);
             }
@@ -58,9 +58,9 @@ public class Stage2Manager : StageManager
         // 厘局拱 积己 包府
         if (obstacleTimer > obstacleSpawnCool)
         {
-            ObstacleGenerateManager_Jin.Instance.CreateObstacle();
+            ObstacleManager.GetComponent<ObstacleGenerateManager_Jin>().CreateObstacle();
             obstacleTimer = 0;
-            obstacleSpawnCool = Random.Range(2.0f, 4.0f);
+            obstacleSpawnCool = Random.Range(1.5f, 3.5f);
         }
         if (isSleep != GameManager.Instance.isSleep)
         {
