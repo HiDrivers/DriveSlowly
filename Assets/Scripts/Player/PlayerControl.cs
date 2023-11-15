@@ -23,9 +23,13 @@ public class PlayerControl : MonoBehaviour
     private bool drunkCheck = false;
     private bool phoneCheck = false;
 
+    private Vector3 rotOrigin;
+    private Vector3 rotLeft = new Vector3(0, 0, 30f);
+    private Vector3 rotRight = new Vector3(0, 0, -30f);
+
     void Start()
     {
-
+        
     }
 
     // Update is called once per frame
@@ -89,16 +93,21 @@ public class PlayerControl : MonoBehaviour
     public void Left_PointerDown()
     {
         isLeft = true;
+        // 왼쪽 버튼 홀드 시 작동 => 여기다 자동차 회전 로직 작성
+        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(rotLeft), Time.deltaTime); // 작성중
+        Debug.Log("Left Operated");
     }
 
     public void Left_PointerUp()
     {
         isLeft = false;
+        // 자동차 회전값 원상 복귀
     }
 
     public void Right_PointerDown()
     {
         isRight = true;
+        // 왼쪽 버튼 홀드 시 작동
     }
 
     public void Right_PointerUp()
