@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 
 
 
-public class ObstacleGenerateManager_Jin : Singleton<ObstacleGenerateManager_Jin>
+public class ObstacleGenerateManager_Jin : MonoBehaviour
 {
     // 4개의 차선
     // 차선에 맞춰 생성되는 장애물(자동차)
@@ -95,7 +95,7 @@ public class ObstacleGenerateManager_Jin : Singleton<ObstacleGenerateManager_Jin
         return null;
     }
 
-    private void CreateObstaclePool()
+    public void CreateObstaclePool()
     {
         for (int i = 0; i < maxObstacles/2; i++)
         {
@@ -103,10 +103,17 @@ public class ObstacleGenerateManager_Jin : Singleton<ObstacleGenerateManager_Jin
             GameObject _obstacle2 = Instantiate(obstacle2);
             _obstacle1.name = $"obstacleFromTop{i:00}";
             _obstacle2.name = $"obstacleFromBottom{i:00}";
+            _obstacle1.GetComponent<Obstacle>().ObstacleManager = this.gameObject;
+            _obstacle2.GetComponent<Obstacle>().ObstacleManager = this.gameObject;
             _obstacle1.SetActive(false);
             _obstacle2.SetActive(false);
             obstaclePool.Add(_obstacle1);
             obstaclePool.Add(_obstacle2);
         }
+    }
+
+    private void Update()
+    {
+        
     }
 }
