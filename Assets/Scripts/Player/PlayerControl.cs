@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject carPrefab;
+    [SerializeField]
+    private float rotSpeed = 10.0f;
+
+    [SerializeField]
     public float speed = 2.5f;
 
     private bool isUp = false;
@@ -29,12 +35,6 @@ public class PlayerControl : MonoBehaviour
     private Vector3 rotLeft = new Vector3(0, 0, 30f);
     private Vector3 rotRight = new Vector3(0, 0, -30f);
 
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         //float x = Input.GetAxis("Horizontal");
@@ -59,10 +59,22 @@ public class PlayerControl : MonoBehaviour
         //{
         CheckUIChange();
         moveX = 0; moveY = 0;
-        if (isLeft) moveX -= 1;
-        if (isRight) moveX += 1;
+        if (isLeft)
+        {
+            moveX -= 1;
+            carPrefab.transform.rotation = Quaternion.Lerp(carPrefab.transform.rotation, Quaternion.Euler(rotLeft), Time.deltaTime * rotSpeed);
+        }
+        if (isRight)
+        {
+            moveX += 1;
+            carPrefab.transform.rotation = Quaternion.Lerp(carPrefab.transform.rotation, Quaternion.Euler(rotRight), Time.deltaTime * rotSpeed);
+        }
         if (isUp) moveY += 1;
         if (isDown) moveY -= 1;
+        if (!isLeft || !isRight) // 좌우 이동 복귀 시 회전값 복구
+        {
+            carPrefab.transform.rotation = Quaternion.Lerp(carPrefab.transform.rotation, Quaternion.Euler(rotOrigin), Time.deltaTime * rotSpeed);
+        }
 
         if (GameManager.Instance.isBoost)
         {
@@ -113,8 +125,6 @@ public class PlayerControl : MonoBehaviour
     {
         isLeft = true;
         // 왼쪽 버튼 홀드 시 작동 => 여기다 자동차 회전 로직 작성
-        transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(rotLeft), Time.deltaTime); // 작성중
-        Debug.Log("Left Operated");
     }
 
     public void Left_PointerUp()
