@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: fe8ee16964f6a7e4ca614ba1f3e7d700
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - pausePanel: {fileID: 6441240987119308519, guid: 87b82e4fb06bf8c4e8ef32f85a0891fe, type: 3}
+  - resumeButton: {instanceID: 0}
+  - settingButton: {instanceID: 0}
+  - lobbyButton: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
