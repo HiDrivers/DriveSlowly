@@ -8,7 +8,9 @@ public class Coin : Items
     {
         GameManager.Instance.gold += 10;
         // 효과음 TO DO
+
         // 획득 애니메이션 TO DO
-        Destroy(this.gameObject);
+        this.gameObject.GetComponent<Animator>().Play("Coin_OnHit");
+        Invoke("DestroyThis", 0.3f);
     }
 }

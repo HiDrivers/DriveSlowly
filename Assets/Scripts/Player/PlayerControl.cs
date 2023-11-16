@@ -5,12 +5,20 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject carPrefab;
+    [SerializeField]
+    private float rotSpeed = 10.0f;
+
+    [SerializeField]
     public float speed = 2.5f;
 
     private bool isUp = false;
     private bool isDown = false;
     private bool isLeft = false;
     private bool isRight = false;
+
+    private bool isBoost = false;
 
     //private bool isUpBtnUp = true;
     //private bool isDownBtnUp = true;
@@ -23,12 +31,10 @@ public class PlayerControl : MonoBehaviour
     private bool drunkCheck = false;
     private bool phoneCheck = false;
 
-    void Start()
-    {
+    private Vector3 rotOrigin;
+    private Vector3 rotLeft = new Vector3(0, 0, 30f);
+    private Vector3 rotRight = new Vector3(0, 0, -30f);
 
-    }
-
-    // Update is called once per frame
     void Update()
     {
         //float x = Input.GetAxis("Horizontal");
@@ -53,13 +59,44 @@ public class PlayerControl : MonoBehaviour
         //{
         CheckUIChange();
         moveX = 0; moveY = 0;
-        if (isLeft) moveX -= 1;
-        if (isRight) moveX += 1;
+        if (isLeft)
+        {
+            moveX -= 1;
+            carPrefab.transform.rotation = Quaternion.Lerp(carPrefab.transform.rotation, Quaternion.Euler(rotLeft), Time.deltaTime * rotSpeed);
+        }
+        if (isRight)
+        {
+            moveX += 1;
+            carPrefab.transform.rotation = Quaternion.Lerp(carPrefab.transform.rotation, Quaternion.Euler(rotRight), Time.deltaTime * rotSpeed);
+        }
         if (isUp) moveY += 1;
         if (isDown) moveY -= 1;
+        if (!isLeft || !isRight) // 좌우 이동 복귀 시 회전값 복구
+        {
+            carPrefab.transform.rotation = Quaternion.Lerp(carPrefab.transform.rotation, Quaternion.Euler(rotOrigin), Time.deltaTime * rotSpeed);
+        }
 
-        if (GameManager.Instance.isBoost) speed = 4.5f;
-        else speed = 2.5f;
+        if (GameManager.Instance.isBoost)
+        {
+            speed = 4.5f;
+            if (!isBoost)
+            {
+                transform.GetChild(1).gameObject.SetActive(true);
+                isBoost = true;
+            }
+        }
+        else
+        {
+            speed = 2.5f;
+            if (isBoost)
+            {
+                transform.GetChild(1).gameObject.SetActive(false);
+                isBoost = false;
+            }
+        }
+        if (transform.position.y < -5.2 && moveY < 0) moveY = 0;
+        if (transform.position.y > 5.2 && moveY > 0) moveY = 0;
+
         transform.Translate(new Vector3(moveX, moveY, 0).normalized * speed * Time.deltaTime);
         //}
     }
@@ -87,16 +124,19 @@ public class PlayerControl : MonoBehaviour
     public void Left_PointerDown()
     {
         isLeft = true;
+        // 왼쪽 버튼 홀드 시 작동 => 여기다 자동차 회전 로직 작성
     }
 
     public void Left_PointerUp()
     {
         isLeft = false;
+        // 자동차 회전값 원상 복귀
     }
 
     public void Right_PointerDown()
     {
         isRight = true;
+        // 왼쪽 버튼 홀드 시 작동
     }
 
     public void Right_PointerUp()
