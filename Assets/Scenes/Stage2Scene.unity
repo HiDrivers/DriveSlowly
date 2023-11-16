@@ -1591,6 +1591,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe4a93d1b7b49e14a91ee7e9047fe713, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  carPrefab: {fileID: 187341669}
+  rotSpeed: 10
   speed: 2.5
 --- !u!4 &513109723
 Transform:
