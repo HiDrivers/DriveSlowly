@@ -26,4 +26,9 @@ public class Items : MonoBehaviour
             Destroy(this);
         }
     }
+
+    protected void DestroyThis()
+    {
+        Destroy(this.gameObject);
+    }
 }
