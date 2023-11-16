@@ -18,6 +18,8 @@ public class PlayerControl : MonoBehaviour
     private bool isLeft = false;
     private bool isRight = false;
 
+    private bool isBoost = false;
+
     //private bool isUpBtnUp = true;
     //private bool isDownBtnUp = true;
     //private bool isLeftBtnUp = true;
@@ -74,10 +76,27 @@ public class PlayerControl : MonoBehaviour
             carPrefab.transform.rotation = Quaternion.Lerp(carPrefab.transform.rotation, Quaternion.Euler(rotOrigin), Time.deltaTime * rotSpeed);
         }
 
-        if (GameManager.Instance.isBoost) speed = 4.5f;
+        if (GameManager.Instance.isBoost)
+        {
+            speed = 4.5f;
+            if (!isBoost)
+            {
+                transform.GetChild(1).gameObject.SetActive(true);
+                isBoost = true;
+            }
+        }
+        else
+        {
+            speed = 2.5f;
+            if (isBoost)
+            {
+                transform.GetChild(1).gameObject.SetActive(false);
+                isBoost = false;
+            }
+        }
         if (transform.position.y < -5.2 && moveY < 0) moveY = 0;
         if (transform.position.y > 5.2 && moveY > 0) moveY = 0;
-        else speed = 2.5f;
+
         transform.Translate(new Vector3(moveX, moveY, 0).normalized * speed * Time.deltaTime);
         //}
     }
