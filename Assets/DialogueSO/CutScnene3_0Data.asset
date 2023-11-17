@@ -37,7 +37,7 @@ MonoBehaviour:
   - speaker: "\uC655\uACE4\uB300\uBD80\uC7A5"
     text: "\uC790\uB124 \uB9E5\uC8FC\uAC00 \uC8FD\uC73C\uBA74 \uBB50\uB77C\uACE0
       \uD558\uB294 \uC904 \uC54C\uACE0 \uC788\uB098?"
-    animationName: 
+    animationName: Empty
   - speaker: "\uC655\uACE4\uB300\uBD80\uC7A5"
     text: "\uC720.\uC5B8.\uBE44.\uC5B4"
     animationName: Dialogue3_0_7
