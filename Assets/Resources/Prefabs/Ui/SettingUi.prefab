@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8808137330361988757}
   - component: {fileID: 2736622286851037786}
-  - component: {fileID: 8503140795036003557}
+  - component: {fileID: 2162370462450068729}
   m_Layer: 5
   m_Name: SettingUi
   m_TagString: Untagged
@@ -62,7 +62,7 @@ MonoBehaviour:
   effectVolumeSlider: {fileID: 6789845353124649916}
   backgroundAudioSource: {fileID: 2228988055878252034}
   effectAudioSources: []
---- !u!114 &8503140795036003557
+--- !u!114 &2162370462450068729
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -76,6 +76,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   settingPanel: {fileID: 169149061408527328}
   closeButton: {fileID: 7825045911299759616}
+  masterVolumeSlider: {fileID: 3268635112455231419}
+  backgroundVolumeSlider: {fileID: 5035877601239423738}
+  effectVolumeSlider: {fileID: 6789845353124649916}
 --- !u!1 &645751823263335977
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,8 +1060,8 @@ GameObject:
   - component: {fileID: 969417173950729593}
   - component: {fileID: 5814410361886617343}
   - component: {fileID: 8541963981028446218}
-  - component: {fileID: 4416562118411576716}
   - component: {fileID: 7825045911299759616}
+  - component: {fileID: 7822687480197035566}
   m_Layer: 5
   m_Name: CloseSetting
   m_TagString: Untagged
@@ -1125,20 +1128,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &4416562118411576716
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4471443116887504835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0bf73a2397ff7dd479ada03a68fd829f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  settingPanel: {fileID: 169149061408527328}
-  closeButton: {fileID: 7825045911299759616}
 --- !u!114 &7825045911299759616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1183,9 +1172,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4416562118411576716}
-        m_TargetAssemblyTypeName: SettingUI, Assembly-CSharp
-        m_MethodName: CloseSettingUI
+      - m_Target: {fileID: 7822687480197035566}
+        m_TargetAssemblyTypeName: CloseSettingUi, Assembly-CSharp
+        m_MethodName: SaveAndHide
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1195,6 +1184,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &7822687480197035566
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4471443116887504835}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bf73a2397ff7dd479ada03a68fd829f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  settingPanel: {fileID: 169149061408527328}
+  closeButton: {fileID: 7825045911299759616}
+  masterVolumeSlider: {fileID: 3268635112455231419}
+  backgroundVolumeSlider: {fileID: 5035877601239423738}
+  effectVolumeSlider: {fileID: 6789845353124649916}
 --- !u!1 &4537491741618102326
 GameObject:
   m_ObjectHideFlags: 0

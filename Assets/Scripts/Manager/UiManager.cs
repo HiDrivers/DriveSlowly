@@ -26,15 +26,13 @@ public class UIManager : Singleton<UIManager>
 
         if (uiPrefabs.ContainsKey(uiName))
         {
-            // Check if UI already exists
             T existingUI = parent.GetComponentInChildren<T>();
             if (existingUI != null)
             {
-                return existingUI; // Return the existing UI component
+                return existingUI;
             }
             else
             {
-                // If UI doesn't exist, create a new instance
                 GameObject uiGameObject = Instantiate(uiPrefabs[uiName], parent, false);
                 T uiComponent = uiGameObject.GetComponent<T>();
 
@@ -57,6 +55,8 @@ public class UIManager : Singleton<UIManager>
         return null;
     }
 }
+
+
 
 
 
