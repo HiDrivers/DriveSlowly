@@ -9,23 +9,21 @@ public class Pause : MonoBehaviour
     public GameObject lobbyButton;
 
     private UIManager uiManager;
+    private SoundManager soundManager;
     private bool isPaused = false;
 
     void Start()
     {
         uiManager = UIManager.Instance;
-        ResumeGame(); // 시작 시 게임은 실행 중으로 설정
+        ResumeGame();
     }
-    //update 안쓰고 버튼 onclick
-    void Update()
+
+    public void TogglePause()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            if (isPaused)
-                ResumeGame();
-            else
-                PauseGame();
-        }
+        if (isPaused)
+            ResumeGame();
+        else
+            PauseGame();
     }
 
     public void PauseGame()
@@ -47,9 +45,13 @@ public class Pause : MonoBehaviour
 
     public void ShowSettingUI()
     {
-        // Debug.Log를 이용하여 호출되는 부분 확인
-        Debug.Log("Trying to show Setting UI");
-        uiManager.ShowUI<SettingUI>("SettingUi", transform);
+        Debug.Log("Displaying settings UI");
+        CloseSettingUi settingUI = uiManager.ShowUI<CloseSettingUi>("SettingUi", transform);
+        if (settingUI != null && soundManager != null)
+        {
+            settingUI.SetSoundManagerReference(soundManager);
+            settingUI.ShowAndApplySavedValues();
+        }
     }
 
     public void LoadLobby()
@@ -57,4 +59,29 @@ public class Pause : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("LobbyScene");
     }
+
+    public void OnSettingsClosed()
+    {
+        FindObjectOfType<CloseSettingUi>()?.LoadAndApplySliderValues();
+        PlayerPrefs.Save();
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
