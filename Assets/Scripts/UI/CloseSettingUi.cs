@@ -7,7 +7,7 @@ public class CloseSettingUi : UIBase
     public Button closeButton;
 
     private SoundManager soundManager;
-    private UIManager uiManager;
+
     public Slider masterVolumeSlider;
     public Slider backgroundVolumeSlider;
     public Slider effectVolumeSlider;
@@ -16,7 +16,6 @@ public class CloseSettingUi : UIBase
     {
         settingPanel = gameObject;
         soundManager = FindObjectOfType<SoundManager>();
-        uiManager = UIManager.Instance;
 
         LoadAndApplySliderValues();
 
@@ -59,7 +58,6 @@ public class CloseSettingUi : UIBase
         {
             SaveSliderValues();
             settingPanel.SetActive(false);
-            FindObjectOfType<Pause>()?.OnSettingsClosed();
         }
         else
         {
@@ -79,6 +77,11 @@ public class CloseSettingUi : UIBase
         soundManager = manager;
     }
 }
+
+
+
+
+
 
 
 
