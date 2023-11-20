@@ -18,7 +18,7 @@ public class SoundManager : MonoBehaviour
         backgroundVolumeSlider.onValueChanged.AddListener((value) => { SetBackgroundVolume(value); });
         effectVolumeSlider.onValueChanged.AddListener((value) => { SetEffectVolume(value); });
 
-        effectAudioSources = new AudioSource[7]; // 가정: 7개의 효과음 AudioSource
+        effectAudioSources = new AudioSource[7];
         for (int i = 0; i < effectAudioSources.Length; i++)
         {
             effectAudioSources[i] = gameObject.AddComponent<AudioSource>();
@@ -61,20 +61,20 @@ public class SoundManager : MonoBehaviour
         backgroundAudioSource.Play();
     }
 
-    private void SetMasterVolume(float volume)
+    public void SetMasterVolume(float volume)
     {
         masterVolume = volume;
         ApplyMasterVolume();
         PlayerPrefs.SetFloat("MasterVolume", volume);
     }
 
-    private void SetBackgroundVolume(float volume)
+    public void SetBackgroundVolume(float volume)
     {
         backgroundAudioSource.volume = masterVolume * volume;
         PlayerPrefs.SetFloat("BackgroundVolume", volume);
     }
 
-    private void SetEffectVolume(float volume)
+    public void SetEffectVolume(float volume)
     {
         for (int i = 0; i < effectAudioSources.Length; i++)
         {
@@ -83,7 +83,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    private void ApplyMasterVolume()
+    public void ApplyMasterVolume()
     {
         for (int i = 0; i < effectAudioSources.Length; i++)
         {
@@ -92,7 +92,7 @@ public class SoundManager : MonoBehaviour
         }
         backgroundAudioSource.volume = masterVolume * backgroundVolumeSlider.value;
         PlayerPrefs.SetFloat("BackgroundVolume", backgroundVolumeSlider.value);
-        PlayerPrefs.SetFloat("MasterVolume", masterVolume);
+        // PlayerPrefs.SetFloat("MasterVolume", masterVolume); // 이 부분 주석 처리
     }
 
     public void UpdateVolumes()
@@ -111,7 +111,7 @@ public class SoundManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("유효하지 않은 오디오 소스 인덱스");
+            Debug.LogWarning("Invalid audio source index");
         }
     }
 
@@ -143,7 +143,7 @@ public class SoundManager : MonoBehaviour
                 audioSourceIndex = 6;
                 break;
             default:
-                Debug.LogWarning("해당 아이템에 대한 효과음이 없습니다.");
+                Debug.LogWarning("No sound for this item.");
                 break;
         }
 
@@ -153,6 +153,13 @@ public class SoundManager : MonoBehaviour
         }
     }
 }
+
+
+
+
+
+
+
 
 
 
