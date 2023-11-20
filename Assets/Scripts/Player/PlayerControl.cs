@@ -13,6 +13,8 @@ public class PlayerControl : MonoBehaviour
     [SerializeField]
     public float speed = 2.5f;
 
+    private Rigidbody2D rgbody2D;
+
     private bool isUp = false;
     private bool isDown = false;
     private bool isLeft = false;
@@ -34,6 +36,11 @@ public class PlayerControl : MonoBehaviour
     private Vector3 rotOrigin;
     private Vector3 rotLeft = new Vector3(0, 0, 30f);
     private Vector3 rotRight = new Vector3(0, 0, -30f);
+
+    private void Start()
+    {
+        rgbody2D = GetComponent<Rigidbody2D>();
+    }
 
     void Update()
     {
@@ -95,7 +102,10 @@ public class PlayerControl : MonoBehaviour
             }
         }
         if (transform.position.y < -5.2 && moveY < 0) moveY = 0;
-        if (transform.position.y > 5.2 && moveY > 0) moveY = 0;
+        else if (transform.position.y > 5.2 && moveY > 0) moveY = 0;
+
+        if (transform.position.y < -5.2 || transform.position.y > 5.2) rgbody2D.mass = 100;
+        else rgbody2D.mass = 1;
 
         transform.Translate(new Vector3(moveX, moveY, 0).normalized * speed * Time.deltaTime);
         //}
