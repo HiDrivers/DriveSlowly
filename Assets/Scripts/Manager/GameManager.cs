@@ -10,7 +10,6 @@ public class GameManager : Singleton<GameManager>
 
     // 엔딩 관리
     public int currentGoldCount = 0;
-
     public int totalItemCount = 0;
     public int currentBoosterCount = 0;
     public int currentCoffeeCount = 0;
@@ -19,8 +18,7 @@ public class GameManager : Singleton<GameManager>
     public int currentSojuCount = 0;
     public int currentSojuCleanerCount = 0;
     public float totalDurabilityDamage = 0;
-
-
+            
     // 돈 관리
     public int gold = 0;
 
@@ -47,7 +45,6 @@ public class GameManager : Singleton<GameManager>
     public bool isDrunk = false;
     public float drunkTimer = 0;
 
-    // Start is called before the first frame update
     public void InGameStart()
     {
         if (drunkMode)
@@ -152,7 +149,7 @@ public class GameManager : Singleton<GameManager>
         // 배드 드라이버 엔딩
         if (drunkMode && sleepMode && currentBoosterCount > 0 && totalDurabilityDamage == 0)
         {
-
+            // EndingManager.Instance.endingPanels[0].blindObject.SetActive(false); CheckEnding이 작동함에 따라 엔딩 해금이 이루러질 겁니다.
         }
         // 악질 엔딩
         else if (drunkMode && sleepMode && currentBoosterCount > 0)
