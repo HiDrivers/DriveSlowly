@@ -8,19 +8,23 @@ public class SoundManager : MonoBehaviour
     public Slider backgroundVolumeSlider;
     public Slider effectVolumeSlider;
 
-    private AudioSource[] sceneBackgroundAudioSources;
-    private float masterVolume = 1.0f;
+    private AudioSource[] backgroundAudioSources;
+    private AudioSource[] effectAudioSources;
 
     private void Awake()
     {
-        sceneBackgroundAudioSources = new AudioSource[SceneManager.sceneCountInBuildSettings];
-        for (int i = 0; i < sceneBackgroundAudioSources.Length; i++)
+        int sceneCount = SceneManager.sceneCountInBuildSettings;
+        backgroundAudioSources = new AudioSource[sceneCount];
+        effectAudioSources = new AudioSource[sceneCount];
+
+        for (int i = 0; i < sceneCount; i++)
         {
-            sceneBackgroundAudioSources[i] = gameObject.AddComponent<AudioSource>();
+            backgroundAudioSources[i] = gameObject.AddComponent<AudioSource>();
+            effectAudioSources[i] = gameObject.AddComponent<AudioSource>();
         }
 
         LoadVolumesFromPlayerPrefs();
-        ApplyMasterVolume();
+        ApplyVolumes();
 
         masterVolumeSlider.onValueChanged.AddListener((value) => { SetMasterVolume(value); });
         backgroundVolumeSlider.onValueChanged.AddListener((value) => { SetBackgroundVolume(value); });
@@ -31,7 +35,7 @@ public class SoundManager : MonoBehaviour
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        ApplyMasterVolume();
+        ApplyVolumes();
         LoadAndPlaySceneBackground();
     }
 
@@ -42,22 +46,25 @@ public class SoundManager : MonoBehaviour
         effectVolumeSlider.value = PlayerPrefs.GetFloat("EffectVolume", 1.0f);
     }
 
-    private void ApplyMasterVolume()
-    {
-        masterVolume = masterVolumeSlider.value;
-        PlayerPrefs.SetFloat("MasterVolume", masterVolume);
-        PlayerPrefs.Save();
-
-        ApplyVolumes();
-    }
-
     private void ApplyVolumes()
     {
-        for (int i = 0; i < sceneBackgroundAudioSources.Length; i++)
+        float masterVolume = masterVolumeSlider.value;
+        float backgroundVolume = backgroundVolumeSlider.value;
+        float effectVolume = effectVolumeSlider.value;
+
+        for (int i = 0; i < backgroundAudioSources.Length; i++)
         {
-            if (sceneBackgroundAudioSources[i] != null)
+            if (backgroundAudioSources[i] != null)
             {
-                sceneBackgroundAudioSources[i].volume = masterVolume * backgroundVolumeSlider.value;
+                backgroundAudioSources[i].volume = masterVolume * backgroundVolume;
+            }
+        }
+
+        for (int i = 0; i < effectAudioSources.Length; i++)
+        {
+            if (effectAudioSources[i] != null)
+            {
+                effectAudioSources[i].volume = masterVolume * effectVolume;
             }
         }
     }
@@ -72,12 +79,13 @@ public class SoundManager : MonoBehaviour
         if (sceneBackground != null)
         {
             int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-            if (sceneIndex < sceneBackgroundAudioSources.Length)
+
+            if (sceneIndex < backgroundAudioSources.Length)
             {
-                sceneBackgroundAudioSources[sceneIndex].clip = sceneBackground;
-                sceneBackgroundAudioSources[sceneIndex].loop = true;
-                sceneBackgroundAudioSources[sceneIndex].volume = masterVolume * backgroundVolumeSlider.value;
-                sceneBackgroundAudioSources[sceneIndex].Play();
+                backgroundAudioSources[sceneIndex].clip = sceneBackground;
+                ApplyVolumes();
+                backgroundAudioSources[sceneIndex].loop = true;
+                backgroundAudioSources[sceneIndex].Play();
             }
         }
     }
@@ -85,67 +93,88 @@ public class SoundManager : MonoBehaviour
     public void SetMasterVolume(float volume)
     {
         masterVolumeSlider.value = volume;
-        ApplyMasterVolume();
+        ApplyVolumes();
+        PlayerPrefs.SetFloat("MasterVolume", volume);
+        PlayerPrefs.Save();
     }
 
     public void SetBackgroundVolume(float volume)
     {
         backgroundVolumeSlider.value = volume;
+        ApplyVolumes();
         PlayerPrefs.SetFloat("BackgroundVolume", volume);
         PlayerPrefs.Save();
-        ApplyVolumes();
     }
 
     public void SetEffectVolume(float volume)
     {
         effectVolumeSlider.value = volume;
+        ApplyVolumes();
         PlayerPrefs.SetFloat("EffectVolume", volume);
         PlayerPrefs.Save();
-        // 여기에 효과음 볼륨 조절을 위한 처리를 추가할 수 있습니다.
     }
 
     public void PlayItemSound(string itemName)
     {
         int audioSourceIndex = -1;
+        AudioClip itemClip = null;
 
         switch (itemName)
         {
-            case "booster":
+            case "Booster":
                 audioSourceIndex = 0;
+                itemClip = Resources.Load<AudioClip>("BoosterSound");
                 break;
-            case "coffee":
+            case "Coffee":
                 audioSourceIndex = 1;
+                itemClip = Resources.Load<AudioClip>("CoffeeSound");
                 break;
-            case "coin":
+            case "Coin":
                 audioSourceIndex = 2;
+                itemClip = Resources.Load<AudioClip>("CoinSound");
                 break;
-            case "pillow":
+            case "Pillow":
                 audioSourceIndex = 3;
+                itemClip = Resources.Load<AudioClip>("PillowSound");
                 break;
-            case "smartphone":
+            case "SmartPhone":
                 audioSourceIndex = 4;
+                itemClip = Resources.Load<AudioClip>("SmartPhoneSound");
                 break;
-            case "soju":
+            case "Soju":
                 audioSourceIndex = 5;
+                itemClip = Resources.Load<AudioClip>("SojuSound");
                 break;
-            case "sojuCleaner":
+            case "SojuCleaner":
                 audioSourceIndex = 6;
+                itemClip = Resources.Load<AudioClip>("SojuCleanerSound");
                 break;
             default:
                 Debug.LogWarning("No sound for this item.");
                 break;
         }
 
-        if (audioSourceIndex >= 0 && audioSourceIndex < sceneBackgroundAudioSources.Length)
+        if (itemClip != null)
         {
-            sceneBackgroundAudioSources[audioSourceIndex].Play();
-        }
-        else
-        {
-            Debug.LogWarning("Invalid audio source index");
+            if (audioSourceIndex >= 0 && audioSourceIndex < effectAudioSources.Length)
+            {
+                effectAudioSources[audioSourceIndex].clip = itemClip;
+                ApplyVolumes();
+                effectAudioSources[audioSourceIndex].Play();
+            }
+            else
+            {
+                Debug.LogWarning("Invalid audio source index");
+            }
         }
     }
 }
+
+
+
+
+
+
 
 
 
