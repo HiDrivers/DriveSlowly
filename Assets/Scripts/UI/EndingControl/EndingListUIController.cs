@@ -89,7 +89,6 @@ public class EndingListUIController : MonoBehaviour
             previousButton.interactable = true;
             nextButton.interactable = true;
         }
-        Debug.Log(page);
         UpdatePage();
     }
 
