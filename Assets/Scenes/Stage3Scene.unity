@@ -1575,7 +1575,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!61 &513109720
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3421,8 +3421,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.006099999, y: 0.004000008, z: 0}
-    m_Extent: {x: 1.296, y: 1.3034999, z: 0}
+    m_Center: {x: -0.0015999675, y: 0.0073999763, z: 0}
+    m_Extent: {x: 1.3007, y: 1.2992, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -5126,7 +5126,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6f483da77e56f48f0b086723592c84f7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 64da3a416f88545aab82d378858a968a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
