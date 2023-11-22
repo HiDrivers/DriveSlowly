@@ -37,7 +37,7 @@ public class Stage2Manager : StageManager
             {
                 Instantiate(coinPrefab, spawnPoint.transform.GetChild(0).gameObject.transform.GetChild(index).gameObject.transform);
             }
-            else if (itemIdx < 8) 
+            else if (itemIdx < 5) 
             {
                 Instantiate(smartPhonePrefab, spawnPoint.transform.GetChild(0).gameObject.transform.GetChild(index).gameObject.transform);
             }
