@@ -149,7 +149,7 @@ public class GameManager : Singleton<GameManager>
         // 배드 드라이버 엔딩
         if (drunkMode && sleepMode && currentBoosterCount > 0 && totalDurabilityDamage == 0)
         {
-            // EndingManager.Instance.endingPanels[0].blindObject.SetActive(false); CheckEnding이 작동함에 따라 엔딩 해금이 이루러질 겁니다.
+            // EndingManager.Instance.endingPanels[0].blindObject.SetActive(false); CheckEnding이 작동함에 따라 엔딩이 해금될 겁니다.
         }
         // 악질 엔딩
         else if (drunkMode && sleepMode && currentBoosterCount > 0)
