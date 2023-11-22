@@ -15,7 +15,7 @@ MonoBehaviour:
   cutSceneClips:
   - speaker: "\uC54C\uB78C"
     text: "Rrrrrrrrrr(\uC77C.\uC5B4.\uB098)"
-    animationName: 
+    animationName: Dialogue1_1
   - speaker: "\uCC9C\uCC9C\uD76C"
     text: "Zzzzzz .. \uCFE0-\uC6B8 "
     animationName: Dialogue1_2

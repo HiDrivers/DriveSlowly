@@ -3676,7 +3676,7 @@ GameObject:
   - component: {fileID: 2025768328}
   - component: {fileID: 2025768330}
   m_Layer: 0
-  m_Name: animationRoot
+  m_Name: Animation1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
