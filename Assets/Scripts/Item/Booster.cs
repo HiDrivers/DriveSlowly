@@ -6,7 +6,7 @@ public class Booster : Items
 
     private void Start()
     {
-        soundManager = FindObjectOfType<SoundManager>(); // ¾À ¾È¿¡¼­ SoundManager¸¦ Ã£¾Æ¿È
+        soundManager = SoundManager.Instance;
     }
 
     public override void ItemEffect(GameObject player)
