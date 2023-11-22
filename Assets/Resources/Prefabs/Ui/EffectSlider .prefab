@@ -123,7 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2108976884462325075}
   - component: {fileID: 1059422480481590122}
-  - component: {fileID: 2955031076169364406}
+  - component: {fileID: 6045110819258730559}
   m_Layer: 5
   m_Name: 'EffectSlider '
   m_TagString: Untagged
@@ -202,23 +202,23 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0
+  m_Value: 0.35380834
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4440910259687509379}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 6045110819258730559}
+        m_TargetAssemblyTypeName: PrefabVolumeController, Assembly-CSharp
+        m_MethodName: SetEffectVolume
+        m_Mode: 4
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &2955031076169364406
+--- !u!114 &6045110819258730559
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,7 +227,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4440910259687509379}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8370fcde9e5dd61489f907c405aacb44, type: 3}
+  m_Script: {fileID: 11500000, guid: 597c73c47188ce648a6b3ea2e23176e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   masterVolumeSlider: {fileID: 0}
@@ -299,7 +299,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: eca6935471b89d146b0c89a9e55d94c2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -547,8 +547,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: f6c2e577c810869468373c96e07ad2cd, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4

@@ -15,15 +15,13 @@ public class UIManager : Singleton<UIManager>
         var objs = Resources.LoadAll<GameObject>("Prefabs/UI/");
         foreach (var obj in objs)
         {
-            string uiName = obj.name.ToLower();
+            string uiName = obj.name;
             uiPrefabs[uiName] = obj;
         }
     }
 
     public T ShowUI<T>(string uiName, Transform parent) where T : UIBase
     {
-        uiName = uiName.ToLower();
-
         if (uiPrefabs.ContainsKey(uiName))
         {
             T existingUI = parent.GetComponentInChildren<T>();
@@ -55,6 +53,17 @@ public class UIManager : Singleton<UIManager>
         return null;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
