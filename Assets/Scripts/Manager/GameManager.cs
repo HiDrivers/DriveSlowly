@@ -113,7 +113,7 @@ public class GameManager : Singleton<GameManager>
                 currentStage += 1;
                 break;
             case 1:
-                SceneManager.LoadScene("MapTestScene_Stage1");
+                SceneManager.LoadScene("Stage1Scene");
                 currentStage += 1;
                 InGameStart();
                 break;
