@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Pause : MonoBehaviour
 {
@@ -8,22 +7,20 @@ public class Pause : MonoBehaviour
     public GameObject settingButton;
     public GameObject lobbyButton;
 
-    private UIManager uiManager;
-    private SoundManager soundManager;
     private bool isPaused = false;
-
-    void Start()
-    {
-        uiManager = UIManager.Instance;
-        ResumeGame();
-    }
+    private float lastClickTime = 0f;
+    private float clickDelay = 0.5f;
 
     public void TogglePause()
     {
-        if (isPaused)
-            ResumeGame();
-        else
+        if (Time.time - lastClickTime < clickDelay) return;
+
+        if (!isPaused)
             PauseGame();
+        else
+            ResumeGame();
+
+        lastClickTime = Time.time;
     }
 
     public void PauseGame()
@@ -42,30 +39,10 @@ public class Pause : MonoBehaviour
         isPaused = false;
         pausePanel.SetActive(false);
     }
-
-    public void ShowSettingUI()
-    {
-        Debug.Log("Displaying settings UI");
-        CloseSettingUi settingUI = uiManager.ShowUI<CloseSettingUi>("SettingUi", transform);
-        if (settingUI != null && soundManager != null)
-        {
-            settingUI.SetSoundManagerReference(soundManager);
-            settingUI.ShowAndApplySavedValues();
-        }
-    }
-
-    public void LoadLobby()
-    {
-        Time.timeScale = 1f;
-        SceneManager.LoadScene("LobbyScene");
-    }
-
-    public void OnSettingsClosed()
-    {
-        FindObjectOfType<CloseSettingUi>()?.LoadAndApplySliderValues();
-        PlayerPrefs.Save();
-    }
 }
+
+
+
 
 
 
