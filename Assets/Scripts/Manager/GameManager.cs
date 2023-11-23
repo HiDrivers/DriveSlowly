@@ -49,7 +49,10 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        PlayerPrefs.SetInt("IsStart", 0);
+        if (!PlayerPrefs.HasKey("IsFirst"))
+        {
+            PlayerPrefs.SetInt("IsFirst", 0);
+        }
     }
 
 
@@ -127,15 +130,15 @@ public class GameManager : Singleton<GameManager>
                 SceneManager.LoadScene("CutScene2_0");
                 break;
             case "CutScene2_0":
-                if (PlayerPrefs.GetInt("IsStart") == 0)
+                if (PlayerPrefs.GetInt("IsFirst") == 0)
                 {
                     sleepMode = true;
                     SceneManager.LoadScene("CutScene2_1");
                 }
                 else
                 {
-                    GameObject.Find("UIRoot");
-                    UIManager.Instance.ShowUI<UIBase>("SelectUI1", UIRoot);
+                    UIRoot = GameObject.Find("UIRoot").transform;
+                    UIManager.Instance.ShowUI<UIBase>("SelectUI", UIRoot);
                 }
                 break;
             case "CutScene2_1":
@@ -143,21 +146,22 @@ public class GameManager : Singleton<GameManager>
                 InGameStart();
                 break;
             case "CutScene2_2":
-                SceneManager.LoadScene("CutScene3_0");
+                SceneManager.LoadScene("Stage2Scene");
                 drunkMode = true;
                 break;
             case "Stage2Scene":
-                SceneManager.LoadScene("Stage3Scene");
+                SceneManager.LoadScene("CutScene3_0");
                 break;
             case "CutScene3_0":
-                if (PlayerPrefs.GetInt("IsStart") == 0)
+                if (PlayerPrefs.GetInt("IsFirst") == 0)
                 {
                     drunkMode = true;
                     SceneManager.LoadScene("CutScene3_1");
                 }
                 else
                 {
-                    GameObject.Find("UIRoot");
+                    drunkMode = false;
+                    UIRoot = GameObject.Find("UIRoot").transform;
                     UIManager.Instance.ShowUI<UIBase>("SelectUI2", UIRoot);
                 }
                 break;
@@ -173,9 +177,9 @@ public class GameManager : Singleton<GameManager>
                 break;
 
             case "Stage3Scene":
-                SceneManager.LoadScene("EndingScene");
                 PlayerPrefs.SetInt("IsFirst", 1);
                 Debug.Log("EndingScene Activated");
+                SceneManager.LoadScene("EndingScene");
                 break;
 
         }
