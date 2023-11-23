@@ -8,8 +8,8 @@ public class StageManager : MonoBehaviour
 {
     [SerializeField] private Transform UIRoot;
 
-    [SerializeField] protected GameObject ObstacleManager;
-    public GameObject spawnPoint;
+    [SerializeField] protected GameObject obstacleManager;
+    protected Vector3[] spawnPoint;
 
     [SerializeField] protected GameObject coinPrefab;
     [SerializeField] protected GameObject player;
@@ -32,13 +32,23 @@ public class StageManager : MonoBehaviour
     private bool isClearOn = false;
     private float gameStartDelay = 1;
 
-    protected void Start()
+    protected GameManager gameManager;
+    HealthSystem healthSystem;
+
+    protected virtual void Awake()
     {
-        currentTime = 0;
-        gold.text = $"{GameManager.Instance.gold} G";
+        gameManager = GameManager.Instance;
+        healthSystem = player.GetComponent<HealthSystem>();
+        spawnPoint = obstacleManager.GetComponent<ObstacleGenerateManager>().obstacleGenPositions;
     }
 
-    protected void Update()
+    protected virtual void Start()
+    {
+        currentTime = 0;
+        gold.text = $"{gameManager.gold} G";
+    }
+
+    protected virtual void Update()
     {
         if (!gameClear && gameStartDelay < 0)
         {
@@ -46,14 +56,14 @@ public class StageManager : MonoBehaviour
             itemTimer += Time.deltaTime;
             obstacleTimer += Time.deltaTime;
 
-            if (GameManager.Instance.isBoost)
+            if (gameManager.isBoost)
             {
                 currentTime += Time.deltaTime * 2;
             }
 
             progress.value = (float) currentTime / clearTime;
-            durability.value = player.GetComponent<HealthSystem>().curHp / player.GetComponent<HealthSystem>().maxHp;
-            gold.text = $"{GameManager.Instance.gold} G";
+            durability.value = healthSystem.curHp / healthSystem.maxHp;
+            gold.text = $"{gameManager.gold} G";
             if (currentTime >= clearTime)
             {
                 gameClear = true;

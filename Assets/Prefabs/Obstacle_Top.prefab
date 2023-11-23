@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4398849812456630068}
   - component: {fileID: 4959904668306028022}
   m_Layer: 0
-  m_Name: Obstacle_FromBottom
+  m_Name: Obstacle_Top
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,9 +47,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e5b4e083f8c5b41adc680c5e440e32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  direction: {x: 0, y: 1, z: 0}
-  isFromBottom: 1
+  speed: 1
+  direction: {x: 0, y: -1, z: 0}
+  isFromBottom: 0
   pos: 0
 --- !u!50 &4398849812456630068
 Rigidbody2D:
@@ -196,7 +196,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: 21300000, guid: 790e705f7fa3fe748bb12205e64b140c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2fb37aa3251be2f4ebca8d80ee84d8da, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

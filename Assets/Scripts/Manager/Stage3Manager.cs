@@ -8,19 +8,18 @@ public class Stage3Manager : StageManager
     [SerializeField] private GameObject sojuCleanerPrefab;
 
     private bool isDrunk = false;
-    // Start is called before the first frame update
-    new void Start()
+
+    protected override void Start()
     {
         base.Start();
         PlayerDrunkUIControl();
-        if(GameManager.Instance.drunkMode)
+        if(gameManager.drunkMode)
         {
             PlayerDrunkUIControl();
         }
     }
 
-    // Update is called once per frame
-    new void Update()
+    protected override void Update()
     {
         base.Update();
         // 酒捞袍 积己 包府
@@ -30,17 +29,17 @@ public class Stage3Manager : StageManager
             int itemIdx = Random.Range(0, 2);
             if (itemIdx == 0)
             {
-                Instantiate(coinPrefab, spawnPoint.transform.GetChild(0).gameObject.transform.GetChild(index).gameObject.transform);
+                Instantiate(coinPrefab, spawnPoint[index], Quaternion.identity);
             }
             else
             {
-                if(GameManager.Instance.drunkMode)
+                if(gameManager.drunkMode)
                 {
-                    Instantiate(sojuCleanerPrefab, spawnPoint.transform.GetChild(0).gameObject.transform.GetChild(index).gameObject.transform);
+                    Instantiate(sojuCleanerPrefab, spawnPoint[index], Quaternion.identity);
                 }
                 else
                 {
-                    Instantiate(sojuPrefab, spawnPoint.transform.GetChild(0).gameObject.transform.GetChild(index).gameObject.transform);
+                    Instantiate(sojuPrefab, spawnPoint[index], Quaternion.identity);
                 }
 
             }
@@ -50,20 +49,20 @@ public class Stage3Manager : StageManager
         // 厘局拱 积己 包府
         if (obstacleTimer > obstacleSpawnCool)
         {
-            ObstacleManager.GetComponent<ObstacleGenerateManager_Jin>().CreateObstacle();
+            obstacleManager.GetComponent<ObstacleGenerateManager>().CreateObstacle();
             obstacleTimer = 0;
             obstacleSpawnCool = Random.Range(2.0f, 4.0f);
         }
-        if (isDrunk != GameManager.Instance.isDrunk)
+        if (isDrunk != gameManager.isDrunk)
         {
             PlayerDrunkUIControl();
-            isDrunk = GameManager.Instance.isDrunk;
+            isDrunk = gameManager.isDrunk;
         }
     }
 
     public void PlayerDrunkUIControl()
     {
-        ControlUI.transform.GetChild(0).gameObject.SetActive(!GameManager.Instance.isDrunk);
-        ControlUI.transform.GetChild(1).gameObject.SetActive(GameManager.Instance.isDrunk);
+        ControlUI.transform.GetChild(0).gameObject.SetActive(!gameManager.isDrunk);
+        ControlUI.transform.GetChild(1).gameObject.SetActive(gameManager.isDrunk);
     }
 }
