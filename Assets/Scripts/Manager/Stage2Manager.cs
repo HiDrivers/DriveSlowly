@@ -14,18 +14,17 @@ public class Stage2Manager : StageManager
     private bool isPhone = false;
 
     public int currentArrow;
-    // Start is called before the first frame update
-    new void Start()
+
+    protected override void Start()
     {
         base.Start();
-        if (GameManager.Instance.sleepMode)
+        if (gameManager.sleepMode)
         {
             PlayerSleepUIControl();
         }
     }
 
-    // Update is called once per frame
-    new void Update()
+    protected override void Update()
     {
         base.Update();
         // 酒捞袍 积己 包府
@@ -35,21 +34,21 @@ public class Stage2Manager : StageManager
             int itemIdx = Random.Range(0, 10);
             if (itemIdx < 3)
             {
-                Instantiate(coinPrefab, spawnPoint.transform.GetChild(0).gameObject.transform.GetChild(index).gameObject.transform);
+                Instantiate(coinPrefab, spawnPoint[index], Quaternion.identity);
             }
             else if (itemIdx < 5) 
             {
-                Instantiate(smartPhonePrefab, spawnPoint.transform.GetChild(0).gameObject.transform.GetChild(index).gameObject.transform);
+                Instantiate(smartPhonePrefab, spawnPoint[index], Quaternion.identity);
             }
             else
             {
                 if (GameManager.Instance.sleepMode)
                 {
-                    Instantiate(coffeePrefab, spawnPoint.transform.GetChild(0).gameObject.transform.GetChild(index).gameObject.transform);
+                    Instantiate(coffeePrefab, spawnPoint[index], Quaternion.identity);
                 }
                 else
                 {
-                    Instantiate(pillowPrefab, spawnPoint.transform.GetChild(0).gameObject.transform.GetChild(index).gameObject.transform);
+                    Instantiate(pillowPrefab, spawnPoint[index], Quaternion.identity);
                 }
             }
             itemTimer = 0;
@@ -58,25 +57,25 @@ public class Stage2Manager : StageManager
         // 厘局拱 积己 包府
         if (obstacleTimer > obstacleSpawnCool)
         {
-            ObstacleManager.GetComponent<ObstacleGenerateManager_Jin>().CreateObstacle();
+            obstacleManager.GetComponent<ObstacleGenerateManager>().CreateObstacle();
             obstacleTimer = 0;
             obstacleSpawnCool = Random.Range(1.5f, 3.5f);
         }
-        if (isSleep != GameManager.Instance.isSleep)
+        if (isSleep != gameManager.isSleep)
         {
             PlayerSleepUIControl();
-            isSleep = GameManager.Instance.isSleep;
+            isSleep = gameManager.isSleep;
         }
-        if (isPhone != GameManager.Instance.isPhone)
+        if (isPhone != gameManager.isPhone)
         {
             PlayerPhoneUIControl();
-            isPhone = GameManager.Instance.isPhone;
+            isPhone = gameManager.isPhone;
         }
     }
 
     public void PlayerSleepUIControl()
     {
-        sleepShade.SetActive(GameManager.Instance.isSleep);
+        sleepShade.SetActive(gameManager.isSleep);
     }
 
     public void PlayerPhoneUIControl()

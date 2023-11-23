@@ -1576,8 +1576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UIRoot: {fileID: 466721413}
-  ObstacleManager: {fileID: 514032882}
-  spawnPoint: {fileID: 1550525563}
+  obstacleManager: {fileID: 514032882}
   coinPrefab: {fileID: 7725250228831151455, guid: d674ce827e8e51b44b5dcf01514c4caa, type: 3}
   player: {fileID: 513109719}
   ControlUI: {fileID: 1062177905}
@@ -1799,8 +1798,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfee9c2b29b380043a120546bbe0f61d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topObstacleGenPositions: {fileID: 429302841}
-  bottomObstacleGenPositions: {fileID: 1878030587}
+  obstacleGenPositions:
+  - {x: -1.8, y: 6, z: 0}
+  - {x: -0.6, y: 6, z: 0}
+  - {x: 0.6, y: 6, z: 0}
+  - {x: 1.8, y: 6, z: 0}
+  - {x: -1.8, y: -6, z: 0}
+  - {x: -0.6, y: -6, z: 0}
+  - {x: 0.6, y: -6, z: 0}
+  - {x: 1.8, y: -6, z: 0}
   spawnPosCount: 0000000000000000000000000000000000000000000000000000000000000000
   obstaclePool: []
   obstacle1: {fileID: 8205425647776018138, guid: fd31ebb0bf1a66b4483caeb3705e3156, type: 3}
