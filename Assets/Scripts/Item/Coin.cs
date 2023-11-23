@@ -27,10 +27,5 @@ public class Coin : Items
     {
         soundManager.PlayItemSound("Coin");
     }
-
-    private void DestroyThis()
-    {
-        Destroy(gameObject);
-    }
 }
 

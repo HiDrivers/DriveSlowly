@@ -11,8 +11,6 @@ public class TalkManager : MonoBehaviour
     public string writerText = "";
     public Animator animator;
 
-    private bool isTyping = false;
-
     public CutScneneSO cutScneneSO;
 
     private int currentCutSceneIndex = 0;
@@ -46,7 +44,6 @@ public class TalkManager : MonoBehaviour
 
     IEnumerator NormalChat(CutSceneClip cutSceneClip)
     {
-        isTyping = true;
         characterNameText.text = cutSceneClip.speaker;
         writerText = "";
 
@@ -65,8 +62,6 @@ public class TalkManager : MonoBehaviour
             talkText.text = writerText;
             yield return new WaitForSeconds(0.05f);
         }
-
-        isTyping = false;
 
         while (!Input.GetMouseButtonDown(0))
         {

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 531538968964152051}
   - component: {fileID: 775272789630794274}
   m_Layer: 5
-  m_Name: Sleep
+  m_Name: Work
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -260,7 +260,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 9067592919857744921}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadScene5OnClick
+        m_MethodName: CutScene2_1Load
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -407,7 +407,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4422098289762821784}
         m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadScene5OnClick
+        m_MethodName: CutScene2_2Load
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -441,7 +441,7 @@ GameObject:
   - component: {fileID: 4767418091814593637}
   - component: {fileID: 4988608144457558794}
   m_Layer: 5
-  m_Name: Work
+  m_Name: Sleep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -861,7 +861,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6825434613345306296}
   m_Layer: 5
-  m_Name: SelectUi
+  m_Name: SelectUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

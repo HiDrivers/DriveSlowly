@@ -12,6 +12,26 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("LobbyScene");
     }
 
+    public void CutScene2_1Load()
+    {
+        SceneManager.LoadScene("CutScene2_1");
+    }
+
+    public void CutScene2_2Load()
+    {
+        SceneManager.LoadScene("CutScene2_2");
+    }
+
+    public void CutScene3_1Load()
+    {
+        SceneManager.LoadScene("CutScene3_1");
+    }
+
+    public void CutScene3_2Load()
+    {
+        SceneManager.LoadScene("CutScene3_2");
+    }
+
     public void GameSceneReload()
     {
         // ÇöÀç ¾ÀÀ» ´Ù½Ã ºÒ·¯¿È

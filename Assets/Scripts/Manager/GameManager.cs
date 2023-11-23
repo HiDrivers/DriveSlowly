@@ -6,7 +6,9 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
     // 현재 스테이지 관리
-    public int currentStage = 0;
+    public string currentStage;
+
+    private Transform UIRoot;
 
     // 엔딩 관리
     public int currentGoldCount = 0;
@@ -44,6 +46,12 @@ public class GameManager : Singleton<GameManager>
     public bool drunkMode = false;
     public bool isDrunk = false;
     public float drunkTimer = 0;
+
+    private void Start()
+    {
+        PlayerPrefs.SetInt("IsStart", 0);
+    }
+
 
     public void InGameStart()
     {
@@ -106,38 +114,68 @@ public class GameManager : Singleton<GameManager>
 
     public void LoadNextScene()
     {
-        switch(currentStage)
+        switch(SceneManager.GetActiveScene().name)
         {
-            case 0:
+            case "LobbyScene":
                 SceneManager.LoadScene("CutScene1");
-                currentStage += 1;
                 break;
-            case 1:
+            case "CutScene1":
                 SceneManager.LoadScene("Stage1Scene");
-                currentStage += 1;
                 InGameStart();
                 break;
-            case 2:
+            case "Stage1Scene":
                 SceneManager.LoadScene("CutScene2_0");
-                currentStage += 1;
                 break;
-            case 3:
-                SceneManager.LoadScene("CutScene2_1");
-                GameManager.Instance.sleepMode = true;
-                currentStage += 1;
+            case "CutScene2_0":
+                if (PlayerPrefs.GetInt("IsStart") == 0)
+                {
+                    sleepMode = true;
+                    SceneManager.LoadScene("CutScene2_1");
+                }
+                else
+                {
+                    GameObject.Find("UIRoot");
+                    UIManager.Instance.ShowUI<UIBase>("SelectUI1", UIRoot);
+                }
                 break;
-            case 4:
+            case "CutScene2_1":
                 SceneManager.LoadScene("Stage2Scene");
-                currentStage += 1;
                 InGameStart();
                 break;
-            case 5:
+            case "CutScene2_2":
                 SceneManager.LoadScene("CutScene3_0");
-                currentStage += 1;
+                drunkMode = true;
                 break;
-            case 6:
+            case "Stage2Scene":
                 SceneManager.LoadScene("Stage3Scene");
-                currentStage += 1;
+                break;
+            case "CutScene3_0":
+                if (PlayerPrefs.GetInt("IsStart") == 0)
+                {
+                    drunkMode = true;
+                    SceneManager.LoadScene("CutScene3_1");
+                }
+                else
+                {
+                    GameObject.Find("UIRoot");
+                    UIManager.Instance.ShowUI<UIBase>("SelectUI2", UIRoot);
+                }
+                break;
+            case "CutScene3_1":
+                drunkMode = true;
+                SceneManager.LoadScene("Stage3Scene");
+                InGameStart();
+                break;
+            case "CutScene3_2":
+                drunkMode = false;
+                SceneManager.LoadScene("Stage3Scene");
+                InGameStart();
+                break;
+
+            case "Stage3Scene":
+                SceneManager.LoadScene("EndingScene");
+                PlayerPrefs.SetInt("IsFirst", 1);
+                Debug.Log("EndingScene Activated");
                 break;
 
         }
