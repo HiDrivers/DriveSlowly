@@ -6747,6 +6747,7 @@ GameObject:
   - component: {fileID: 3863296651487235966}
   - component: {fileID: 8618204416676101145}
   - component: {fileID: 6074591928714596178}
+  - component: {fileID: 4097194325618965902}
   m_Layer: 5
   m_Name: EndinglistPopup
   m_TagString: Untagged
@@ -6816,6 +6817,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &4097194325618965902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5916353508062092986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e31a6d36c5aa264e81f1597b4e721d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _Container: {fileID: 77829630686910503}
+  pageText: {fileID: 2527338929891054854}
+  previousArrow: {fileID: 5776667468059383223}
+  nextArrow: {fileID: 2917441286882262144}
 --- !u!1 &5922611186004026717
 GameObject:
   m_ObjectHideFlags: 0
