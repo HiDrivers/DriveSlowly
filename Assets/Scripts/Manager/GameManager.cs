@@ -138,7 +138,7 @@ public class GameManager : Singleton<GameManager>
                 else
                 {
                     UIRoot = GameObject.Find("UIRoot").transform;
-                    UIManager.Instance.ShowUI<UIBase>("SelectUI", UIRoot);
+                    UIManager.Instance.ShowUI<UIBase>("SelectUI1", UIRoot);
                 }
                 break;
             case "CutScene2_1":
