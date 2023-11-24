@@ -52,5 +52,21 @@ public class PrefabVolumeController : MonoBehaviour
             soundManager.SetEffectVolume(volume);
         }
     }
+
+    public void SetMinimumVolume(Slider slider)
+    {
+        if (slider != null)
+        {
+            slider.value = 0f;
+        }
+    }
+
+    public void SetMaximumVolume(Slider slider)
+    {
+        if (slider != null)
+        {
+            slider.value = 1f;
+        }
+    }
 }
 
