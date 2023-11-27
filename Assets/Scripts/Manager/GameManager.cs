@@ -58,15 +58,8 @@ public class GameManager : Singleton<GameManager>
 
     public void InGameStart()
     {
-        if (drunkMode)
-        {
-            isDrunk = true;
-
-        }
-        if (sleepMode)
-        {
-            isSleep = true;
-        }
+        isDrunk = drunkMode;
+        isSleep = sleepMode;
     }
 
     void Update()
@@ -132,23 +125,22 @@ public class GameManager : Singleton<GameManager>
             case "CutScene2_0":
                 if (PlayerPrefs.GetInt("IsFirst") == 0)
                 {
-                    sleepMode = true;
                     SceneManager.LoadScene("CutScene2_1");
                 }
                 else
                 {
-                    sleepMode = false;
                     UIRoot = GameObject.Find("UIRoot").transform;
                     UIManager.Instance.ShowUI<UIBase>("SelectUI1", UIRoot);
                 }
                 break;
             case "CutScene2_1":
+                sleepMode = true;
                 SceneManager.LoadScene("Stage2Scene");
                 InGameStart();
                 break;
             case "CutScene2_2":
+                sleepMode = false;
                 SceneManager.LoadScene("Stage2Scene");
-                drunkMode = true;
                 break;
             case "Stage2Scene":
                 SceneManager.LoadScene("CutScene3_0");
@@ -156,12 +148,10 @@ public class GameManager : Singleton<GameManager>
             case "CutScene3_0":
                 if (PlayerPrefs.GetInt("IsFirst") == 0)
                 {
-                    drunkMode = true;
                     SceneManager.LoadScene("CutScene3_1");
                 }
                 else
                 {
-                    drunkMode = false;
                     UIRoot = GameObject.Find("UIRoot").transform;
                     UIManager.Instance.ShowUI<UIBase>("SelectUI2", UIRoot);
                 }
