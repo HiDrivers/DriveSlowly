@@ -137,6 +137,7 @@ public class GameManager : Singleton<GameManager>
                 }
                 else
                 {
+                    sleepMode = false;
                     UIRoot = GameObject.Find("UIRoot").transform;
                     UIManager.Instance.ShowUI<UIBase>("SelectUI1", UIRoot);
                 }

@@ -11,7 +11,7 @@ public class SoundManager : Singleton<SoundManager>
     private AudioSource[] backgroundAudioSources;
     private AudioSource[] effectAudioSources;
 
-    private void Awake()
+    private new void Awake()
     {
         int sceneCount = SceneManager.sceneCountInBuildSettings;
         backgroundAudioSources = new AudioSource[sceneCount];
@@ -35,8 +35,21 @@ public class SoundManager : Singleton<SoundManager>
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        ApplyVolumes();
+        StopPreviousSceneBackground();
         LoadAndPlaySceneBackground();
+    }
+
+    private void StopPreviousSceneBackground()
+    {
+        int previousSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        for (int i = 0; i < backgroundAudioSources.Length; i++)
+        {
+            if (i != previousSceneIndex && backgroundAudioSources[i] != null)
+            {
+                backgroundAudioSources[i].Stop();
+            }
+        }
     }
 
     private void LoadVolumesFromPlayerPrefs()
@@ -71,6 +84,8 @@ public class SoundManager : Singleton<SoundManager>
 
     private void LoadAndPlaySceneBackground()
     {
+        if (this == null) return;
+
         string sceneName = SceneManager.GetActiveScene().name;
         string backgroundMusicName = sceneName + "Background";
 
@@ -82,10 +97,24 @@ public class SoundManager : Singleton<SoundManager>
 
             if (sceneIndex < backgroundAudioSources.Length)
             {
-                backgroundAudioSources[sceneIndex].clip = sceneBackground;
-                ApplyVolumes();
-                backgroundAudioSources[sceneIndex].loop = true;
-                backgroundAudioSources[sceneIndex].Play();
+                if (backgroundAudioSources[sceneIndex] != null)
+                {
+                    backgroundAudioSources[sceneIndex].clip = sceneBackground;
+                    ApplyVolumes();
+                    backgroundAudioSources[sceneIndex].loop = true;
+                    backgroundAudioSources[sceneIndex].Play();
+                }
+                else
+                {
+                    if (this != null)
+                    {
+                        backgroundAudioSources[sceneIndex] = gameObject.AddComponent<AudioSource>();
+                        backgroundAudioSources[sceneIndex].clip = sceneBackground;
+                        ApplyVolumes();
+                        backgroundAudioSources[sceneIndex].loop = true;
+                        backgroundAudioSources[sceneIndex].Play();
+                    }
+                }
             }
         }
     }
@@ -168,7 +197,29 @@ public class SoundManager : Singleton<SoundManager>
             }
         }
     }
+    
+    public AudioClip backgroundMusic;
+
+    private AudioSource backgroundAudioSource;
+
+    private void Start()
+    {
+        backgroundAudioSource = gameObject.AddComponent<AudioSource>();
+        backgroundAudioSource.clip = backgroundMusic;
+        backgroundAudioSource.loop = false; // 루프를 비활성화하여 한 번만 재생되도록 설정
+        backgroundAudioSource.Play();
+    }
+
+    private void Update()
+    {
+        if (!backgroundAudioSource.isPlaying)
+        {
+            // 노래가 끝났을 때 다시 재생
+            backgroundAudioSource.Play();
+        }
+    }
 }
+
 
 
 
