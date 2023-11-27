@@ -161,10 +161,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (drunkCheck != gameManager.isDrunk)
         {
-            Up_PointerUp();
-            Down_PointerUp();
-            Left_PointerUp();
-            Right_PointerUp();
+            AllUp();
             drunkCheck = gameManager.isDrunk;
         }
         else if (phoneCheck != gameManager.isPhone)
@@ -174,6 +171,14 @@ public class PlayerControl : MonoBehaviour
             else if (gameManager.currentArrow == 2) Left_PointerUp();
             else if (gameManager.currentArrow == 3) Right_PointerUp();
         }
+    }
+
+    public void AllUp()
+    {
+        Up_PointerUp();
+        Down_PointerUp();
+        Left_PointerUp();
+        Right_PointerUp();
     }
 
 }
