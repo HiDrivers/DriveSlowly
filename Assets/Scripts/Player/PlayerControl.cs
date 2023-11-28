@@ -37,9 +37,12 @@ public class PlayerControl : MonoBehaviour
     private Vector3 rotLeft = new Vector3(0, 0, 30f);
     private Vector3 rotRight = new Vector3(0, 0, -30f);
 
+    private GameManager gameManager;
+
     private void Start()
     {
         rgbody2D = GetComponent<Rigidbody2D>();
+        gameManager = GameManager.Instance;
     }
 
     void Update()
@@ -83,7 +86,7 @@ public class PlayerControl : MonoBehaviour
             carPrefab.transform.rotation = Quaternion.Lerp(carPrefab.transform.rotation, Quaternion.Euler(rotOrigin), Time.deltaTime * rotSpeed);
         }
 
-        if (GameManager.Instance.isBoost)
+        if (gameManager.isBoost)
         {
             speed = 4.5f;
             if (!isBoost)
@@ -156,21 +159,26 @@ public class PlayerControl : MonoBehaviour
 
     public void CheckUIChange()
     {
-        if (drunkCheck != GameManager.Instance.isDrunk)
+        if (drunkCheck != gameManager.isDrunk)
         {
-            Up_PointerUp();
-            Down_PointerUp();
-            Left_PointerUp();
-            Right_PointerUp();
-            drunkCheck = GameManager.Instance.isDrunk;
+            AllUp();
+            drunkCheck = gameManager.isDrunk;
         }
-        else if (phoneCheck != GameManager.Instance.isPhone)
+        else if (phoneCheck != gameManager.isPhone)
         {
-            if (GameManager.Instance.currentArrow == 0) Up_PointerUp();
-            else if (GameManager.Instance.currentArrow == 1) Down_PointerUp();
-            else if (GameManager.Instance.currentArrow == 2) Left_PointerUp();
-            else if (GameManager.Instance.currentArrow == 3) Right_PointerUp();
+            if (gameManager.currentArrow == 0) Up_PointerUp();
+            else if (gameManager.currentArrow == 1) Down_PointerUp();
+            else if (gameManager.currentArrow == 2) Left_PointerUp();
+            else if (gameManager.currentArrow == 3) Right_PointerUp();
         }
+    }
+
+    public void AllUp()
+    {
+        Up_PointerUp();
+        Down_PointerUp();
+        Left_PointerUp();
+        Right_PointerUp();
     }
 
 }
