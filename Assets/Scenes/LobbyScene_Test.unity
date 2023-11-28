@@ -424,7 +424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3589053435689237512, guid: 527de02989f3d074b8d5bce5c18c0b95, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3900498870804514386, guid: 527de02989f3d074b8d5bce5c18c0b95, type: 3}
       propertyPath: m_text
@@ -3967,8 +3967,8 @@ RectTransform:
   - {fileID: 1887913855}
   - {fileID: 1191131010}
   - {fileID: 1652201095}
-  - {fileID: 715617315}
   - {fileID: 1008587282}
+  - {fileID: 715617315}
   - {fileID: 119241960}
   - {fileID: 1153831986}
   m_Father: {fileID: 0}
