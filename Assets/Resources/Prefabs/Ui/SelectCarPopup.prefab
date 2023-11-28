@@ -709,10 +709,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec274b9fdc2584489fcee339068e26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  car_UnusableIcon: {fileID: 0}
   price: 0
   outline: {fileID: 0}
   selected: 0
-  index: 0
+  slotIndex: 0
   carSelectController: {fileID: 2743583728596172206}
 --- !u!1 &3589053435689237512
 GameObject:
@@ -808,9 +809,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a393b3ea580a7c4b947bbe0aa2b7a94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedSlot: {fileID: 0}
   carSlots:
   - {fileID: 3463023246952785857}
   - {fileID: 7550222193049024238}
+  buyButton: {fileID: 0}
+  confirmButton: {fileID: 0}
 --- !u!1 &3610157130892917869
 GameObject:
   m_ObjectHideFlags: 0
@@ -1967,8 +1971,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec274b9fdc2584489fcee339068e26e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  car_UnusableIcon: {fileID: 0}
   price: 0
   outline: {fileID: 0}
   selected: 0
-  index: 0
+  slotIndex: 0
   carSelectController: {fileID: 2743583728596172206}
