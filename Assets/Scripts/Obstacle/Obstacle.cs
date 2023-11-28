@@ -12,6 +12,8 @@ public class Obstacle : MonoBehaviour
     public int pos;
     public GameObject ObstacleManager;
 
+    public bool isSlow;
+
     private void Awake()
     {
         obstacleRigidbody = GetComponent<Rigidbody2D>();
