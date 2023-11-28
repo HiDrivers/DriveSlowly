@@ -37,6 +37,8 @@ public class PlayerControl : MonoBehaviour
     private Vector3 rotLeft = new Vector3(0, 0, 30f);
     private Vector3 rotRight = new Vector3(0, 0, -30f);
 
+    [SerializeField] private SpriteRenderer carImageRenderer;
+
     private void Start()
     {
         rgbody2D = GetComponent<Rigidbody2D>();

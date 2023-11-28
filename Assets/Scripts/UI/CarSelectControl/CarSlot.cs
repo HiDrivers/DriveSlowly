@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class CarSlot : MonoBehaviour
 {
-    private Image carImage;
+    [HideInInspector] public Image carImage;
+    public GameObject car_UnusableIcon;
     [SerializeField] private int price;
 
     [HideInInspector] public Outline outline;
-    public bool selected;
-
-    public int index;
+    public bool selected; // 필요 없는 변수?
+    public int slotIndex;
 
     [SerializeField] private CarSelectController carSelectController;
 
     private void Awake()
     {
-        carImage = GetComponent<Image>();
+        carImage = transform.GetChild(0).GetComponent<Image>();
         outline = GetComponent<Outline>();
     }
     
@@ -29,6 +29,6 @@ public class CarSlot : MonoBehaviour
     public void ClickSlotUI()
     {
         selected = true;
-        carSelectController.SelectSlot(index);
+        carSelectController.SelectSlot(slotIndex);
     }
 }
