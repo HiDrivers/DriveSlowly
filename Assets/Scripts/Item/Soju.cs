@@ -5,16 +5,18 @@ using UnityEngine;
 public class Soju : Items
 {
     private SoundManager soundManager; // SoundManager의 참조
+    private GameManager gameManager;
 
     private void Start()
     {
         soundManager = SoundManager.Instance;
+        gameManager = GameManager.Instance;
     }
 
     public override void ItemEffect(GameObject player)
     {
-        GameManager.Instance.drunkTimer = 5.0f;
-        GameManager.Instance.isDrunk = true;
+        gameManager.drunkTimer = 5.0f;
+        gameManager.isDrunk = true;
         soundManager.PlayItemSound("Soju");
 
         // 아이템의 다른 효과들...

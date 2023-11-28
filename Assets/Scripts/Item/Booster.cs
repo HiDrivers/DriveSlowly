@@ -3,16 +3,18 @@ using UnityEngine;
 public class Booster : Items
 {
     private SoundManager soundManager; // SoundManager의 참조
+    private GameManager gameManager;
 
     private void Start()
     {
         soundManager = SoundManager.Instance;
+        gameManager = GameManager.Instance;
     }
 
     public override void ItemEffect(GameObject player)
     {
-        GameManager.Instance.boostTimer = 5.0f;
-        GameManager.Instance.isBoost = true;
+        gameManager.boostTimer = 5.0f;
+        gameManager.isBoost = true;
 
         // 아이템 충돌 시 효과음을 재생
         soundManager.PlayItemSound("Booster");

@@ -8,15 +8,14 @@ public class Stage3Manager : StageManager
     [SerializeField] private GameObject sojuCleanerPrefab;
 
     private bool isDrunk = false;
+    private int currentControl;
+    private float drunkControlTimer = 5;
 
     protected override void Start()
     {
         base.Start();
+        currentControl = Random.Range(1, 4);
         PlayerDrunkUIControl();
-        if(gameManager.drunkMode)
-        {
-            PlayerDrunkUIControl();
-        }
     }
 
     protected override void Update()
@@ -58,11 +57,20 @@ public class Stage3Manager : StageManager
             PlayerDrunkUIControl();
             isDrunk = gameManager.isDrunk;
         }
+
+        if (isDrunk && drunkControlTimer < currentTime)
+        {
+            ControlUI.transform.GetChild(currentControl).gameObject.SetActive(false);
+            player.GetComponent<PlayerControl>().AllUp();
+            currentControl = ((Random.Range(0, 2) + currentControl) % 3) + 1; // 이전 방향키와 겹치지 않게
+            ControlUI.transform.GetChild(currentControl).gameObject.SetActive(true);
+            drunkControlTimer = currentTime + 5;
+        }
     }
 
     public void PlayerDrunkUIControl()
     {
         ControlUI.transform.GetChild(0).gameObject.SetActive(!gameManager.isDrunk);
-        ControlUI.transform.GetChild(1).gameObject.SetActive(gameManager.isDrunk);
+        ControlUI.transform.GetChild(currentControl).gameObject.SetActive(gameManager.isDrunk);
     }
 }

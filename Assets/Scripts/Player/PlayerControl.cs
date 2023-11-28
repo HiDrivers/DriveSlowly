@@ -38,10 +38,12 @@ public class PlayerControl : MonoBehaviour
     private Vector3 rotRight = new Vector3(0, 0, -30f);
 
     [SerializeField] private SpriteRenderer carImageRenderer;
+    private GameManager gameManager;
 
     private void Start()
     {
         rgbody2D = GetComponent<Rigidbody2D>();
+        gameManager = GameManager.Instance;
     }
 
     void Update()
@@ -80,12 +82,12 @@ public class PlayerControl : MonoBehaviour
         }
         if (isUp) moveY += 1;
         if (isDown) moveY -= 1;
-        if (!isLeft || !isRight) // ÁÂ¿ì ÀÌµ¿ º¹±Í ½Ã È¸Àü°ª º¹±¸
+        if (!isLeft || !isRight) // ï¿½Â¿ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         {
             carPrefab.transform.rotation = Quaternion.Lerp(carPrefab.transform.rotation, Quaternion.Euler(rotOrigin), Time.deltaTime * rotSpeed);
         }
 
-        if (GameManager.Instance.isBoost)
+        if (gameManager.isBoost)
         {
             speed = 4.5f;
             if (!isBoost)
@@ -136,19 +138,19 @@ public class PlayerControl : MonoBehaviour
     public void Left_PointerDown()
     {
         isLeft = true;
-        // ¿ÞÂÊ ¹öÆ° È¦µå ½Ã ÀÛµ¿ => ¿©±â´Ù ÀÚµ¿Â÷ È¸Àü ·ÎÁ÷ ÀÛ¼º
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° È¦ï¿½ï¿½ ï¿½ï¿½ ï¿½Ûµï¿½ => ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Úµï¿½ï¿½ï¿½ È¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Û¼ï¿½
     }
 
     public void Left_PointerUp()
     {
         isLeft = false;
-        // ÀÚµ¿Â÷ È¸Àü°ª ¿ø»ó º¹±Í
+        // ï¿½Úµï¿½ï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     public void Right_PointerDown()
     {
         isRight = true;
-        // ¿ÞÂÊ ¹öÆ° È¦µå ½Ã ÀÛµ¿
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ° È¦ï¿½ï¿½ ï¿½ï¿½ ï¿½Ûµï¿½
     }
 
     public void Right_PointerUp()
@@ -158,21 +160,26 @@ public class PlayerControl : MonoBehaviour
 
     public void CheckUIChange()
     {
-        if (drunkCheck != GameManager.Instance.isDrunk)
+        if (drunkCheck != gameManager.isDrunk)
         {
-            Up_PointerUp();
-            Down_PointerUp();
-            Left_PointerUp();
-            Right_PointerUp();
-            drunkCheck = GameManager.Instance.isDrunk;
+            AllUp();
+            drunkCheck = gameManager.isDrunk;
         }
-        else if (phoneCheck != GameManager.Instance.isPhone)
+        else if (phoneCheck != gameManager.isPhone)
         {
-            if (GameManager.Instance.currentArrow == 0) Up_PointerUp();
-            else if (GameManager.Instance.currentArrow == 1) Down_PointerUp();
-            else if (GameManager.Instance.currentArrow == 2) Left_PointerUp();
-            else if (GameManager.Instance.currentArrow == 3) Right_PointerUp();
+            if (gameManager.currentArrow == 0) Up_PointerUp();
+            else if (gameManager.currentArrow == 1) Down_PointerUp();
+            else if (gameManager.currentArrow == 2) Left_PointerUp();
+            else if (gameManager.currentArrow == 3) Right_PointerUp();
         }
+    }
+
+    public void AllUp()
+    {
+        Up_PointerUp();
+        Down_PointerUp();
+        Left_PointerUp();
+        Right_PointerUp();
     }
 
 }
