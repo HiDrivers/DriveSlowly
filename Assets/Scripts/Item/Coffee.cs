@@ -5,16 +5,18 @@ using UnityEngine;
 public class Coffee : Items
 {
     private SoundManager soundManager; // SoundManagerÀÇ ÂüÁ¶
+    private GameManager gameManager;
 
     private void Start()
     {
         soundManager = SoundManager.Instance;
+        gameManager = GameManager.Instance;
     }
 
     public override void ItemEffect(GameObject player)
     {
-        GameManager.Instance.sleepTimer = 5.0f;
-        GameManager.Instance.isSleep = false;
+        gameManager.sleepTimer = 5.0f;
+        gameManager.isSleep = false;
 
         soundManager.PlayItemSound("Coffee");
 
