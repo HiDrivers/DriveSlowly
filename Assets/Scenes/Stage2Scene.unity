@@ -1468,6 +1468,7 @@ MonoBehaviour:
   carPrefab: {fileID: 187341669}
   rotSpeed: 10
   speed: 2.5
+  carImageRenderer: {fileID: 0}
 --- !u!4 &513109723
 Transform:
   m_ObjectHideFlags: 0
@@ -2883,8 +2884,11 @@ MonoBehaviour:
   - {x: 1.8, y: -6, z: 0}
   spawnPosCount: 0000000000000000000000000000000000000000000000000000000000000000
   obstaclePool: []
-  _obstacle1: {fileID: 8205425647776018138, guid: 60af07485cf0d224894b017981098a18, type: 3}
-  _obstacle2: {fileID: 8205425647776018138, guid: fd31ebb0bf1a66b4483caeb3705e3156, type: 3}
+  obstacleList:
+  - {fileID: 8205425647776018138, guid: ef743fcb18eb1ad41b13d37b9e41a257, type: 3}
+  - {fileID: 8205425647776018138, guid: fd31ebb0bf1a66b4483caeb3705e3156, type: 3}
+  - {fileID: 8205425647776018138, guid: 851d316104ed9094bac31b87ef158fb5, type: 3}
+  - {fileID: 8205425647776018138, guid: 60af07485cf0d224894b017981098a18, type: 3}
 --- !u!1 &1144153799
 GameObject:
   m_ObjectHideFlags: 0
