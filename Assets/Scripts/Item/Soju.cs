@@ -17,6 +17,11 @@ public class Soju : Items
     {
         gameManager.drunkTimer = 5.0f;
         gameManager.isDrunk = true;
+
+        // 데이터 저장
+        gameManager.totalItemCount += 1;
+        gameManager.currentSojuCount += 1;
+
         soundManager.PlayItemSound("Soju");
 
         // 아이템의 다른 효과들...

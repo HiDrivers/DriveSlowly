@@ -15,8 +15,14 @@ public class Pillow : Items
 
     public override void ItemEffect(GameObject player)
     {
+        // 아이템 기본 효과
         gameManager.sleepTimer = 15.0f;
         gameManager.isSleep = true;
+
+        // 데이터 저장
+        gameManager.totalItemCount += 1;
+        gameManager.currentPillowCount += 1;
+
         soundManager.PlayItemSound("Pillow");
 
         // 아이템의 다른 효과들...

@@ -15,8 +15,13 @@ public class Coffee : Items
 
     public override void ItemEffect(GameObject player)
     {
+        // 아이템 기본 효과
         gameManager.sleepTimer = 5.0f;
         gameManager.isSleep = false;
+
+        // 데이터 저장
+        gameManager.totalItemCount += 1;
+        gameManager.currentCoffeeCount += 1;
 
         soundManager.PlayItemSound("Coffee");
 

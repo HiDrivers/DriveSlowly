@@ -6,9 +6,12 @@ public class Stage1Manager : StageManager
 {
     [SerializeField] private GameObject boosterPrefab;
 
+    private int boosterCriterion = 5;
+
     protected override void Start()
     {
         base.Start();
+        boosterCriterion = 5;
     }
 
     protected override void Update()
@@ -18,8 +21,8 @@ public class Stage1Manager : StageManager
         if (itemTimer > itemSpawnCool)
         {
             int index = Random.Range(0, 4);
-            int itemIdx = Random.Range(0, 2);
-            if (itemIdx == 0)
+            int itemIdx = Random.Range(0, 10);
+            if (itemIdx < boosterCriterion)
             {
                 Instantiate(coinPrefab, spawnPoint[index], Quaternion.identity);
             }
@@ -28,6 +31,19 @@ public class Stage1Manager : StageManager
                 Instantiate(boosterPrefab, spawnPoint[index], Quaternion.identity);
             }
             itemTimer = 0;
+
+            if (gameManager.currentBoosterCount == 0 && currentTime > 40)
+            {
+                if(currentTime > 80)
+                {
+                    boosterCriterion = 2;
+                }
+                else
+                {
+                    boosterCriterion = 3;
+                }
+            }
+            ItemSpawnCoolControl();
         }
 
         // 厘局拱 积己 包府
@@ -53,4 +69,21 @@ public class Stage1Manager : StageManager
 
         }
     }
+
+    private void ItemSpawnCoolControl()
+    {
+        if (gameManager.totalItemCount == 0)
+        {
+            if(currentTime > 80)
+            {
+                itemSpawnCool = 3.0f;
+            }
+
+            else if (currentTime > 40)
+            {
+                itemSpawnCool = 4.0f;
+            }
+        }
+    }
+
 }
