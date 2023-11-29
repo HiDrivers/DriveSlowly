@@ -18,9 +18,9 @@ public class ObstacleGenerateManager : MonoBehaviour
 
     [SerializeField] private List<GameObject> obstaclePool = new List<GameObject>();
 
-    [SerializeField] private GameObject _obstacle1, _obstacle2;
+    [SerializeField] private List<GameObject> obstacleList = new List<GameObject>();
 
-    private int maxObstacles = 20;
+    private int maxObstacles = 10;
 
     private void Start()
     {
@@ -60,18 +60,16 @@ public class ObstacleGenerateManager : MonoBehaviour
 
     public void CreateObstaclePool()
     {
-        for (int i = 0; i < maxObstacles; i++)
+        for (int j = 0; j < maxObstacles; j++)
         {
-            GameObject _obs1 = Instantiate(_obstacle1);
-            GameObject _obs2 = Instantiate(_obstacle2);
-            _obs1.name = $"obstacle_{i:00}";
-            _obs2.name = $"obstacle_{i:00}";
-            _obs1.GetComponent<Obstacle>().ObstacleManager = this.gameObject;
-            _obs2.GetComponent<Obstacle>().ObstacleManager = this.gameObject;
-            _obs1.SetActive(false);
-            _obs2.SetActive(false);
-            obstaclePool.Add(_obs1);
-            obstaclePool.Add(_obs2);
+            for (int i = 0; i < obstacleList.Count; i++)
+            {
+                GameObject _obs1 = Instantiate(obstacleList[i]);
+                _obs1.name = $"{obstacleList[i].name}_{j:00}";
+                _obs1.GetComponent<Obstacle>().ObstacleManager = this.gameObject;
+                _obs1.SetActive(false);
+                obstaclePool.Add(_obs1);
+            }
         }
     }
 }

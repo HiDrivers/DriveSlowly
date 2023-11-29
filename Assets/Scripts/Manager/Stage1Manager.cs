@@ -35,7 +35,20 @@ public class Stage1Manager : StageManager
         {
             obstacleManager.GetComponent<ObstacleGenerateManager>().CreateObstacle();
             obstacleTimer = 0;
-            obstacleSpawnCool = Random.Range(2.0f, 4.0f);
+            if (currentTime < 40)
+            {
+                obstacleSpawnCool = Random.Range(2.0f, 4.0f);
+            }
+            else if (currentTime < 80)
+            {
+                obstacleSpawnCool = Random.Range(2.0f, 3.1f);
+            }
+            else
+            {
+                obstacleSpawnCool = 1.8f;
+            }
+            Debug.Log($"{obstacleSpawnCool}");
+
         }
     }
 }
