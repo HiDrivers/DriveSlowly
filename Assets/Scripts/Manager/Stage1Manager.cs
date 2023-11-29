@@ -34,7 +34,11 @@ public class Stage1Manager : StageManager
 
             if (gameManager.currentBoosterCount == 0 && currentTime > 40)
             {
-                if(currentTime > 80)
+                if (currentTime > 100)
+                {
+                    boosterCriterion = 0;
+                }
+                else if(currentTime > 80)
                 {
                     boosterCriterion = 2;
                 }
@@ -74,7 +78,17 @@ public class Stage1Manager : StageManager
     {
         if (gameManager.totalItemCount == 0)
         {
-            if(currentTime > 80)
+            if(currentTime > 100)
+            {
+                itemSpawnCool = 1.5f;
+            }
+
+            else if(currentTime > 80)
+            {
+                itemSpawnCool = 2.0f;
+            }
+
+            else if(currentTime > 60)
             {
                 itemSpawnCool = 3.0f;
             }
