@@ -2651,7 +2651,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2816680854914305009, guid: 527de02989f3d074b8d5bce5c18c0b95, type: 3}
       propertyPath: price
-      value: 120
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2816680854914305009, guid: 527de02989f3d074b8d5bce5c18c0b95, type: 3}
       propertyPath: car_UnusableIcon
