@@ -98,3 +98,6 @@ public class EndingListUIController : MonoBehaviour
         _Text.text = _TextContent;
     }
 }
+
+
+

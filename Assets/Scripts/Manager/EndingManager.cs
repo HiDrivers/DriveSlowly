@@ -11,3 +11,4 @@ public class EndingManager : Singleton<EndingManager>
         endingPanels = endingContainer.GetComponentsInChildren<EndingPanel>();
     }
 }
+
