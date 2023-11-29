@@ -7,7 +7,7 @@ public class CarSlot : MonoBehaviour
 {
     [HideInInspector] public Image carImage;
     public GameObject car_UnusableIcon;
-    [SerializeField] private int price;
+    public int price;
 
     [HideInInspector] public Outline outline;
     public bool selected; // 필요 없는 변수?

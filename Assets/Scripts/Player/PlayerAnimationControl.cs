@@ -1,33 +1,105 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerAnimationControl : MonoBehaviour
 {
     private GameManager gameManager;
 
-    public int currentStage;
+    [SerializeField] private int currentStage;
 
+    private bool isBoost = false;
     private bool isSleep = false;
     private bool isDrunk = false;
 
-    [SerializeField] private GameObject EffectObject;
+    [SerializeField] private GameObject frontLight;
 
-    // Start is called before the first frame update
-    void Start()
+    [Header("Effect List: <effectObject> will be Current Effect of each scene")]
+    [SerializeField] private GameObject effectObject;
+    [SerializeField] private GameObject boostEffect;
+    [SerializeField] private GameObject drunkEffect;
+    [SerializeField] private GameObject sleepEffect;
+
+    private PlayerControl playerControl;
+
+    private string currentScene;
+
+    private void Awake()
     {
+        currentScene = SceneManager.GetActiveScene().name;
         gameManager = GameManager.Instance;
+        playerControl = GetComponent<PlayerControl>();
+    }
+    private void Start()
+    {
+        //gameManager = GameManager.Instance;
+        switch (currentScene)
+        {
+            case "Stage2Scene":
+            case "Stage2Scene 1":
+                currentStage = 2;
+                effectObject = sleepEffect;
+                break;
+            case "Stage3Scene":
+            case "Stage3Scene 1":
+                currentStage = 3;
+                effectObject = drunkEffect;
+                break;
+            default:
+                currentStage = 0;
+                effectObject = null;
+                break;
+        }
+        //if (currentScene == "Stage2Scene" || currentScene == "Stage2Scene 1")
+        //{
+        //    currentStage = 2;
+        //    effectObject = sleepEffect;
+        //}
+        //else if (currentScene == "Stage3Scene" || currentScene == "Stage3Scene 1")
+        //{
+        //    currentStage = 3;
+        //    effectObject = drunkEffect;
+        //}
+        //else
+        //{
+        //    currentStage = 0;
+        //    effectObject = null;
+        //}
+
+        if (currentScene != "Stage3Scene" || currentScene != "Stage3Scene 1")
+        {
+            frontLight.SetActive(false);
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        if (gameManager.isBoost)
+        {
+            playerControl.speed = 4.5f;
+            if (!isBoost)
+            {
+                boostEffect.SetActive(true);
+                isBoost = true;
+            }
+        }
+        else
+        {
+            playerControl.speed = 2.5f;
+            if (isBoost)
+            {
+                boostEffect.SetActive(false);
+                isBoost = false;
+            }
+        }
+
         if (currentStage == 2)
         {
             if (gameManager.isSleep != isSleep)
             {
                 isSleep = gameManager.isSleep;
-                EffectObject.SetActive(isSleep);
+                effectObject.SetActive(isSleep);
             }
         }
 
@@ -36,7 +108,7 @@ public class PlayerAnimationControl : MonoBehaviour
             if(gameManager.isDrunk != isDrunk)
             {
                 isDrunk = gameManager.isDrunk;
-                EffectObject.SetActive(isDrunk);
+                effectObject.SetActive(isDrunk);
             }
         }
     }
