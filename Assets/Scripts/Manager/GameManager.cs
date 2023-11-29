@@ -58,6 +58,7 @@ public class GameManager : Singleton<GameManager>
 
     public void InGameStart()
     {
+        isBoost = false;
         isDrunk = drunkMode;
         isSleep = sleepMode;
     }
