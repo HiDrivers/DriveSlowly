@@ -5,22 +5,22 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    //private HealthSystem healthSystem;
-    [SerializeField] private GameObject carPrefab;
+    [SerializeField]
+    private GameObject carPrefab;
     [SerializeField]
     private float rotSpeed = 10.0f;
 
     [SerializeField]
     public float speed = 2.5f;
 
-    private Rigidbody2D rb;
+    private Rigidbody2D rgbody2D;
 
     private bool isUp = false;
     private bool isDown = false;
     private bool isLeft = false;
     private bool isRight = false;
 
-    // private bool isBoost = false; 부스트, 졸음, 숙취 변수는 PlayerAnimationControl스크립트로 옮깁니다.
+    private bool isBoost = false;
 
     //private bool isUpBtnUp = true;
     //private bool isDownBtnUp = true;
@@ -37,26 +37,14 @@ public class PlayerControl : MonoBehaviour
     private Vector3 rotLeft = new Vector3(0, 0, 30f);
     private Vector3 rotRight = new Vector3(0, 0, -30f);
 
+    [SerializeField] private SpriteRenderer carImageRenderer;
     private GameManager gameManager;
 
-    [SerializeField] private GameObject boostEffect;
-
-    private void Awake()
+    private void Start()
     {
+        rgbody2D = GetComponent<Rigidbody2D>();
         gameManager = GameManager.Instance;
-        //healthSystem = GetComponent<HealthSystem>();
     }
-
-    private void OnEnable()
-    {
-        //carPrefab = healthSystem.carPrefab;
-        rb = carPrefab.GetComponent<Rigidbody2D>();
-    }
-
-    //private void Start()
-    //{
-    //    //carPrefab = PlayerData.Instance.carPrefab;
-    //}
 
     void Update()
     {
@@ -99,29 +87,29 @@ public class PlayerControl : MonoBehaviour
             carPrefab.transform.rotation = Quaternion.Lerp(carPrefab.transform.rotation, Quaternion.Euler(rotOrigin), Time.deltaTime * rotSpeed);
         }
 
-        //if (gameManager.isBoost)
-        //{
-        //    speed = 4.5f;
-        //    if (!isBoost)
-        //    {
-        //        transform.GetChild(1).gameObject.SetActive(true);
-        //        isBoost = true;
-        //    }
-        //}
-        //else
-        //{
-        //    speed = 2.5f;
-        //    if (isBoost)
-        //    {
-        //        transform.GetChild(1).gameObject.SetActive(false);
-        //        isBoost = false;
-        //    }
-        //}
+        if (gameManager.isBoost)
+        {
+            speed = 4.5f;
+            if (!isBoost)
+            {
+                transform.GetChild(1).gameObject.SetActive(true);
+                isBoost = true;
+            }
+        }
+        else
+        {
+            speed = 2.5f;
+            if (isBoost)
+            {
+                transform.GetChild(1).gameObject.SetActive(false);
+                isBoost = false;
+            }
+        }
         if (transform.position.y < -5.2 && moveY < 0) moveY = 0;
         else if (transform.position.y > 5.2 && moveY > 0) moveY = 0;
 
-        if (transform.position.y < -5.2 || transform.position.y > 5.2) rb.mass = 100;
-        else rb.mass = 1;
+        if (transform.position.y < -5.2 || transform.position.y > 5.2) rgbody2D.mass = 100;
+        else rgbody2D.mass = 1;
 
         transform.Translate(new Vector3(moveX, moveY, 0).normalized * speed * Time.deltaTime);
         //}
