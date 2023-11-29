@@ -3336,8 +3336,9 @@ MonoBehaviour:
   obstaclePool: []
   obstacleList:
   - {fileID: 8205425647776018138, guid: ef743fcb18eb1ad41b13d37b9e41a257, type: 3}
-  - {fileID: 8205425647776018138, guid: fd31ebb0bf1a66b4483caeb3705e3156, type: 3}
-  - {fileID: 8205425647776018138, guid: 851d316104ed9094bac31b87ef158fb5, type: 3}
+  - {fileID: 8205425647776018138, guid: 0431cd09b4995744489fb65bf87146f1, type: 3}
+  - {fileID: 8205425647776018138, guid: 9e003502c96cb1d4eb12b8370f8db195, type: 3}
+  - {fileID: 8205425647776018138, guid: c638ab2426adefe43bfa415cdfdc00ab, type: 3}
   - {fileID: 8205425647776018138, guid: 60af07485cf0d224894b017981098a18, type: 3}
 --- !u!4 &1091668647
 Transform:
@@ -4200,8 +4201,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.0018000007, y: -0.003700018, z: 0}
-    m_Extent: {x: 1.2981999, y: 1.301, z: 0}
+    m_Center: {x: 0.0042999983, y: 0.0017499924, z: 0}
+    m_Extent: {x: 1.2974, y: 1.30205, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

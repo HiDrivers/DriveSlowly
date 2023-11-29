@@ -33,7 +33,7 @@ public class Stage1Manager : StageManager
         // 厘局拱 积己 包府
         if (obstacleTimer > obstacleSpawnCool)
         {
-            obstacleManager.GetComponent<ObstacleGenerateManager>().CreateObstacle();
+            obstacleManager.GetComponent<ObstacleGenerateManager>().CreateObstacle(multiplier);
             obstacleTimer = 0;
             if (currentTime < 40)
             {
@@ -42,12 +42,14 @@ public class Stage1Manager : StageManager
             else if (currentTime < 80)
             {
                 obstacleSpawnCool = Random.Range(2.0f, 3.1f);
+                multiplier = 1.1f;
             }
             else
             {
                 obstacleSpawnCool = 1.8f;
+                multiplier = 1.2f;
             }
-            Debug.Log($"{obstacleSpawnCool}");
+            //Debug.Log($"{obstacleSpawnCool}");
 
         }
     }

@@ -6,13 +6,13 @@ public class Obstacle : MonoBehaviour
 {
     private Rigidbody2D obstacleRigidbody;
 
-    [SerializeField] private float speed;
+    public float speed;
     [SerializeField] private Vector3 direction;
     public bool isFromBottom;
     public int pos;
     public GameObject ObstacleManager;
 
-    public bool isSlow;
+    public float initialSpeed;
 
     private void Awake()
     {

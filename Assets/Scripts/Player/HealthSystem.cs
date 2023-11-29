@@ -9,9 +9,12 @@ public class HealthSystem : MonoBehaviour
 
     [SerializeField] public GameObject carPrefab;
     [SerializeField] private GameObject tempcarPrefab;
+    //[SerializeField] private Animator animator;
 
     public float curHp;
     public float maxHp;
+
+    //private static readonly int IsHit = Animator.StringToHash("IsHit");
 
     //private void Awake()
     //{
@@ -34,5 +37,6 @@ public class HealthSystem : MonoBehaviour
     internal void UpdateCurHp()
     {
         curHp -= Time.deltaTime;
+        //animator.SetTrigger(IsHit);
     }
 }
