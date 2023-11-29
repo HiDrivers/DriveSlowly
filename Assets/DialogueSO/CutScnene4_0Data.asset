@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba4c0215993242638f7b1a327cced02, type: 3}
+  m_Name: CutScnene4_0Data
+  m_EditorClassIdentifier: 
+  cutSceneClips:
+  - speaker: "\uC6B4\uC804\uC758 \uC2E0"
+    text: "\uBCF8 \uC7AC\uD310\uC5D0\uC11C \uD53C\uACE0 \uCC9C\uCC9C\uD76C\uC758
+      \uC7AC\uD310 \uACB0\uACFC\uB97C \uC120\uACE0\uD55C\uB2E4."
+    animationName: 
+  - speaker: "\uCC9C\uCC9C\uD76C"
+    text: "\uC751, \uAFC8\uC778\uAC00? \uC9C0\uAE08 \uC774\uAC8C \uBB34\uC2A8 \uC0C1\uD669\uC774\uC57C!!"
+    animationName: 
+  - speaker: "\uC6B4\uC804\uC758 \uC2E0"
+    text: "\uD53C\uACE0 \uCC9C\uCC9C\uD76C\uB294 \uC120\uD0DD\uC758 \uAE30\uD68C\uAC00
+      \uB2E4\uC591\uD588\uC74C\uC5D0\uB3C4 \uBD88\uAD6C\uD558\uACE0,"
+    animationName: 
+  - speaker: "\uC6B4\uC804\uC758 \uC2E0"
+    text: "\uCD5C\uC545\uC758 \uC120\uD0DD\uB9CC\uC744 \uD574 \uC0AC\uACE0\uAC00
+      \uB0AB\uAE30\uC5D0 7\uAC1C \uC9C0\uC625 \uC911 BMW \uC9C0\uC625\uD615\uC5D0
+      \uCC98\uD55C\uB2E4!"
+    animationName: 
+  - speaker: "\uC6B4\uC804\uC758 \uC2E0"
+    text: "\uD53C\uACE0 \uCC9C\uCC9C\uD76C\uB294 BMW \uC9C0\uC625\uC5D0\uC11C \uADF8
+      \uC5B4\uB5A4 \uC0C1\uD669\uC5D0\uC11C\uB3C4 \uD3ED\uC6B0\uAC00 \uB3D9\uBC18\uB41C
+      \uD3ED\uC5FC\uC774\uB098 \uD639\uD55C\uC758 \uC0C1\uD669\uC5D0\uC11C \uAC78\uC5B4\uAC00\uAC70\uB098"
+    animationName: 
+  - speaker: "\uC6B4\uC804\uC758 \uC2E0"
+    text: "\uBC1C \uB514\uB51C \uACF5\uAC04\uC870\uCC28 \uC5C6\uB294 \uBC84\uC2A4\uB098
+      \uC9C0\uD558\uCCA0\uB9CC\uC744 \uC774\uC6A9\uD558\uAC8C \uB420 \uAC83\uC774\uB2E4."
+    animationName: 
+  - speaker: "\uCC9C\uCC9C\uD76C"
+    text: "\uAC70, \uC8FD\uAE30 \uB531 \uC88B\uC740 \uB0A0\uC528\uB124. \uAC08\uB550
+      \uAC00\uB354\uB77C\uB3C4 \uB2F4\uBC30 \uD55C\uB300 \uC815\uB3C4\uB294 \uAD1C\u314A.
+      \uC73C\uC545!"
+    animationName: 
+  - speaker: "\uC6B4\uC804\uC758 \uC2E0"
+    text: "\uBCF8\uC778\uC758 \uC798 \uBABB\uB41C \uC120\uD0DD\uC73C\uB85C \uC624\uAC8C
+      \uB41C \uC800\uC2B9\uC5D0\uC11C\uB294 \uADF8 \uC5B4\uB5A0\uD55C \uC120\uCC98\uB3C4
+      \uC5C6\uACE0 "
+    animationName: 
+  - speaker: "\uC6B4\uC804\uC758 \uC2E0"
+    text: "\uB450\uBC88 \uB2E4\uC2DC\uB294 \uC77C\uC5B4\uB0A0 \uC218 \uC5C6\uC744\uAC78\uC138.
+      \uCC9C\uCC9C\uD76C \uC720\uC8C4!!"
+    animationName: 
