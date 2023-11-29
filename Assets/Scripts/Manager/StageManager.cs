@@ -80,5 +80,4 @@ public class StageManager : MonoBehaviour
             isClearOn = true;
         }
     }
-
 }

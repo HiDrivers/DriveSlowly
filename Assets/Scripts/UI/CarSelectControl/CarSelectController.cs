@@ -10,7 +10,7 @@ public class CarImagePairs : SerializableDictionary<Sprite, Sprite> { }
 public class CarSelectController : MonoBehaviour
 {
     [SerializeField] private CarImagePairs carImagePairs;
-    // [SerializeField] private GameObject[] carPrefabs;
+    [SerializeField] private GameObject[] carPrefabs;
 
     public CarSlot[] carSlots;
     [SerializeField] private CarSlot selectedSlot;
@@ -96,7 +96,7 @@ public class CarSelectController : MonoBehaviour
     public void ConfirmCar() // Confirm버튼
     {
         selectedCarImage.sprite = selectedSlot.carImage.sprite;
-        //PlayerData.Instance.carPrefab = 
+        PlayerData.Instance.carPrefab = carPrefabs[selectedSlot.slotIndex];
         // SelectCarPopup UI 창 닫기(UI메니저 스크립트에 있나?)
         // gameObject.SetActive(false);
     }
