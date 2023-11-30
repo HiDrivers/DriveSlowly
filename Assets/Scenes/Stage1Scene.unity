@@ -1282,9 +1282,9 @@ MonoBehaviour:
   obstaclePool: []
   obstacleList:
   - {fileID: 8205425647776018138, guid: ef743fcb18eb1ad41b13d37b9e41a257, type: 3}
-  - {fileID: 8205425647776018138, guid: fd31ebb0bf1a66b4483caeb3705e3156, type: 3}
   - {fileID: 8205425647776018138, guid: 851d316104ed9094bac31b87ef158fb5, type: 3}
   - {fileID: 8205425647776018138, guid: 60af07485cf0d224894b017981098a18, type: 3}
+  - {fileID: 8205425647776018138, guid: 0431cd09b4995744489fb65bf87146f1, type: 3}
 --- !u!1 &544004184
 GameObject:
   m_ObjectHideFlags: 0
@@ -22211,6 +22211,10 @@ PrefabInstance:
     - target: {fileID: 548113764406314326, guid: acbda6c426744ce4ea2e0343d0061bf1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1419553827504826046, guid: acbda6c426744ce4ea2e0343d0061bf1, type: 3}
+      propertyPath: maxHp
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1855901742906315892, guid: acbda6c426744ce4ea2e0343d0061bf1, type: 3}
       propertyPath: m_Name

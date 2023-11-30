@@ -32,6 +32,8 @@ public class StageManager : MonoBehaviour
     private bool isClearOn = false;
     private float gameStartDelay = 1;
 
+    protected float multiplier = 1.0f;
+
     protected GameManager gameManager;
     HealthSystem healthSystem;
 

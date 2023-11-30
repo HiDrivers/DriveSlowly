@@ -55,6 +55,24 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
+    private void DataInitialize()
+    {
+        currentGoldCount = 0;
+        totalItemCount = 0;
+        currentBoosterCount = 0;
+        currentCoffeeCount = 0;
+        currentPillowCount = 0;
+        currentSmartPhoneCount = 0;
+        currentSojuCount = 0;
+        currentSojuCleanerCount = 0;
+        totalDurabilityDamage = 0;
+
+        sleepMode = false;
+        drunkMode = false;
+        isBoost = false;
+        isPhone = false;
+    }
+
 
     public void InGameStart()
     {
@@ -113,6 +131,7 @@ public class GameManager : Singleton<GameManager>
         switch(SceneManager.GetActiveScene().name)
         {
             case "LobbyScene":
+                DataInitialize();
                 SceneManager.LoadScene("CutScene1");
                 break;
             case "CutScene1":
