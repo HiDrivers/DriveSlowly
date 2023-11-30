@@ -13,8 +13,13 @@ public class Booster : Items
 
     public override void ItemEffect(GameObject player)
     {
+        // 기본 아이템 효과 적용
         gameManager.boostTimer = 5.0f;
         gameManager.isBoost = true;
+
+        // 데이터 저장
+        gameManager.totalItemCount += 1;
+        gameManager.currentBoosterCount += 1;
 
         // 아이템 충돌 시 효과음을 재생
         soundManager.PlayItemSound("Booster");

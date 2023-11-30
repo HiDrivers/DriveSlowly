@@ -15,6 +15,9 @@ public class Stage2Manager : StageManager
 
     public int currentArrow;
 
+    private int phoneCriterion = 5;
+    private int coffeeCriterion = 5;
+
     protected override void Start()
     {
         base.Start();
@@ -22,6 +25,8 @@ public class Stage2Manager : StageManager
         {
             PlayerSleepUIControl();
         }
+        phoneCriterion = 5;
+        coffeeCriterion = 10;
     }
 
     protected override void Update()
@@ -31,18 +36,14 @@ public class Stage2Manager : StageManager
         if (itemTimer > itemSpawnCool)
         {
             int index = Random.Range(0, 4);
-            int itemIdx = Random.Range(0, 10);
-            if (itemIdx < 3)
-            {
-                Instantiate(coinPrefab, spawnPoint[index], Quaternion.identity);
-            }
-            else if (itemIdx < 5) 
+            int itemIdx = Random.Range(0, 15);
+            if (itemIdx < phoneCriterion)
             {
                 Instantiate(smartPhonePrefab, spawnPoint[index], Quaternion.identity);
             }
-            else
+            else if (itemIdx < coffeeCriterion + phoneCriterion) 
             {
-                if (GameManager.Instance.sleepMode)
+                if (gameManager.sleepMode)
                 {
                     Instantiate(coffeePrefab, spawnPoint[index], Quaternion.identity);
                 }
@@ -51,15 +52,57 @@ public class Stage2Manager : StageManager
                     Instantiate(pillowPrefab, spawnPoint[index], Quaternion.identity);
                 }
             }
+            else
+            {
+                Instantiate(coinPrefab, spawnPoint[index], Quaternion.identity);
+            }
             itemTimer = 0;
+
+            if (gameManager.currentPillowCount == 0 && currentTime > 40)
+            {
+                if (currentTime > 100)
+                {
+                    coffeeCriterion = 10;
+                }
+                else if (currentTime > 80)
+                {
+                    coffeeCriterion = 8;
+                }
+                else
+                {
+                    coffeeCriterion = 7;
+                }
+            }
+            if (!gameManager.sleepMode)
+            {
+                ItemSpawnCoolControl();
+            }
+
         }
 
         // 厘局拱 积己 包府
         if (obstacleTimer > obstacleSpawnCool)
         {
-            obstacleManager.GetComponent<ObstacleGenerateManager>().CreateObstacle();
+            obstacleManager.GetComponent<ObstacleGenerateManager>().CreateObstacle(multiplier);
             obstacleTimer = 0;
-            obstacleSpawnCool = Random.Range(1.5f, 3.5f);
+            if (currentTime < 30)
+            {
+                obstacleSpawnCool = Random.Range(2.0f, 4.0f);
+            }
+            else if (currentTime < 60)
+            {
+                obstacleSpawnCool = Random.Range(2.0f, 3.1f);
+                multiplier = 1.1f;
+            }
+            else if (currentTime < 90)
+            {
+                obstacleSpawnCool = 1.8f;
+                multiplier = 1.2f;
+            }
+            else
+            {
+                obstacleSpawnCool = 1.6f;
+            }
         }
         if (isSleep != gameManager.isSleep)
         {
@@ -91,4 +134,31 @@ public class Stage2Manager : StageManager
             ControlUI.transform.GetChild(0).gameObject.transform.GetChild(0).gameObject.transform.GetChild(currentArrow).gameObject.SetActive(true);
         }
     }
+
+    private void ItemSpawnCoolControl()
+    {
+        if (gameManager.currentPillowCount + gameManager.currentSmartPhoneCount == 0)
+        {
+            if (currentTime > 100)
+            {
+                itemSpawnCool = 1.5f;
+            }
+
+            else if (currentTime > 80)
+            {
+                itemSpawnCool = 2.0f;
+            }
+
+            else if (currentTime > 60)
+            {
+                itemSpawnCool = 3.0f;
+            }
+
+            else if (currentTime > 40)
+            {
+                itemSpawnCool = 4.0f;
+            }
+        }
+    }
+
 }

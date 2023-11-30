@@ -27,7 +27,7 @@ public class ObstacleGenerateManager : MonoBehaviour
         CreateObstaclePool();
     }
 
-    public void CreateObstacle()
+    public void CreateObstacle(float multiplier)
     {
         int pos = Random.Range(0, spawnPosCount.Count);
         while (spawnPosCount[(pos + 4) % spawnPosCount.Count] > 0)
@@ -38,6 +38,7 @@ public class ObstacleGenerateManager : MonoBehaviour
         bool isBottom = (pos > 3);
         var _obstacle = GetGenPosition(isBottom);
         _obstacle.GetComponent<Obstacle>().pos = pos;
+        _obstacle.GetComponent<Obstacle>().speed = multiplier * _obstacle.GetComponent<Obstacle>().initialSpeed;
 
         Vector3 genPos = obstacleGenPositions[pos];
         Quaternion genRot = Quaternion.Euler(Vector3.zero);

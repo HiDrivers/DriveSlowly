@@ -37,6 +37,8 @@ public class PlayerControl : MonoBehaviour
     private Vector3 rotLeft = new Vector3(0, 0, 30f);
     private Vector3 rotRight = new Vector3(0, 0, -30f);
 
+    private float currentY;
+
     private GameManager gameManager;
 
     [SerializeField] private GameObject boostEffect;
@@ -117,10 +119,13 @@ public class PlayerControl : MonoBehaviour
         //        isBoost = false;
         //    }
         //}
-        if (transform.position.y < -5.2 && moveY < 0) moveY = 0;
-        else if (transform.position.y > 5.2 && moveY > 0) moveY = 0;
 
-        if (transform.position.y < -5.2 || transform.position.y > 5.2) rb.mass = 100;
+        currentY = carPrefab.transform.position.y;
+
+        if (currentY < -5.2 && moveY < 0) moveY = 0;
+        else if (currentY > 5.2 && moveY > 0) moveY = 0;
+
+        if (currentY < -5.2 || currentY > 5.2) rb.mass = 100;
         else rb.mass = 1;
 
         transform.Translate(new Vector3(moveX, moveY, 0).normalized * speed * Time.deltaTime);
