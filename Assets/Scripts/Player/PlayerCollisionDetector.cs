@@ -6,12 +6,9 @@ public class PlayerCollisionDetector : MonoBehaviour
 {
     private HealthSystem playerHealth;
 
-    private void Awake()
+    private void Start()
     {
-        if (playerHealth == null)
-        {
-            playerHealth = GetComponentInParent<HealthSystem>();
-        }
+        playerHealth = GetComponentInParent<HealthSystem>();
     }
     private void OnCollisionStay2D(Collision2D collision)
     {

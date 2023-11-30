@@ -49,6 +49,7 @@ public class PlayerControl : MonoBehaviour
     private void Start()
     {
         healthSystem = GetComponent<HealthSystem>();
+        carPrefab = healthSystem._car;
         rb = carPrefab.GetComponent<Rigidbody2D>();
     }
 

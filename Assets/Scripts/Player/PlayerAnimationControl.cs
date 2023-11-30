@@ -15,15 +15,9 @@ public class PlayerAnimationControl : MonoBehaviour
 
     private HealthSystem healthSystem;
     private GameObject carPrefab;
-    //private CarPrefabInfo carPrefabInfo;
+    private CarPrefabInfo carPrefabInfo;
 
-    [SerializeField] private GameObject frontLight;
-
-    [Header("Effect List: <effectObject> will be Current Effect of each scene")]
-    [SerializeField] private GameObject effectObject;
-    [SerializeField] private GameObject boostEffect;
-    [SerializeField] private GameObject drunkEffect;
-    [SerializeField] private GameObject sleepEffect;
+    private GameObject frontLight, effectObject, boostEffect, drunkEffect, sleepEffect;
 
     private PlayerControl playerControl;
 
@@ -35,19 +29,22 @@ public class PlayerAnimationControl : MonoBehaviour
         gameManager = GameManager.Instance;
         playerControl = GetComponent<PlayerControl>();
     }
-    public void Initialize()
+    public void Start()
     {
         healthSystem = GetComponent<HealthSystem>();
-        carPrefab = healthSystem.carPrefab;
-        //carPrefabInfo = carPrefab.GetComponent<CarPrefabInfo>();
+        carPrefab = healthSystem._car;
+        carPrefabInfo = carPrefab.GetComponent<CarPrefabInfo>();
 
-        //frontLight = carPrefabInfo.frontLight;
-        //boostEffect = carPrefabInfo.effectRoot_Stage1;
-        //sleepEffect = carPrefabInfo.sleepEffect_Stage2;
-        //drunkEffect = carPrefabInfo.drunkEffect_Stage3;
+        frontLight = carPrefabInfo.frontLight;
+        boostEffect = carPrefabInfo.effectRoot_Stage1;
+        sleepEffect = carPrefabInfo.sleepEffect_Stage2;
+        drunkEffect = carPrefabInfo.drunkEffect_Stage3;
 
         switch (currentScene)
         {
+            case "Stage1Scene":
+                effectObject = boostEffect;
+                break;
             case "Stage2Scene":
             case "Stage2Scene 1":
                 currentStage = 2;
