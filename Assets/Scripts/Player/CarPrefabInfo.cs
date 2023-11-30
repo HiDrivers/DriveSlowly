@@ -4,5 +4,5 @@ using UnityEngine;
 
 public class CarPrefabInfo : MonoBehaviour
 {
-    public GameObject a1, b1, c1, d1;
+    public GameObject frontLight, effectRoot_Stage1, sleepEffect_Stage2, drunkEffect_Stage3;
 }
