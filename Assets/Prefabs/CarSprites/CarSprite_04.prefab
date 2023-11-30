@@ -639,6 +639,7 @@ GameObject:
   - component: {fileID: 8816915319514123061}
   - component: {fileID: 5726511129392309165}
   - component: {fileID: 7323682796715756782}
+  - component: {fileID: 3820604919524702812}
   m_Layer: 0
   m_Name: CarSprite_04
   m_TagString: Untagged
@@ -813,6 +814,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.8175606, y: 1.1159751}
   m_EdgeRadius: 0
+--- !u!114 &3820604919524702812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2897984505001321067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c57acc49fe4167048a5cf0a661d24195, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frontLight: {fileID: 5621024561092557030}
+  effectRoot_Stage1: {fileID: 4213501093862327587}
+  sleepEffect_Stage2: {fileID: 1388827824661845666}
+  drunkEffect_Stage3: {fileID: 382619278637212610}
 --- !u!1 &3033056389043216403
 GameObject:
   m_ObjectHideFlags: 0

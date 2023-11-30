@@ -13,6 +13,10 @@ public class PlayerAnimationControl : MonoBehaviour
     private bool isSleep = false;
     private bool isDrunk = false;
 
+    private HealthSystem healthSystem;
+    private GameObject carPrefab;
+    //private CarPrefabInfo carPrefabInfo;
+
     [SerializeField] private GameObject frontLight;
 
     [Header("Effect List: <effectObject> will be Current Effect of each scene")]
@@ -31,9 +35,17 @@ public class PlayerAnimationControl : MonoBehaviour
         gameManager = GameManager.Instance;
         playerControl = GetComponent<PlayerControl>();
     }
-    private void Start()
+    public void Initialize()
     {
-        //gameManager = GameManager.Instance;
+        healthSystem = GetComponent<HealthSystem>();
+        carPrefab = healthSystem.carPrefab;
+        //carPrefabInfo = carPrefab.GetComponent<CarPrefabInfo>();
+
+        //frontLight = carPrefabInfo.frontLight;
+        //boostEffect = carPrefabInfo.effectRoot_Stage1;
+        //sleepEffect = carPrefabInfo.sleepEffect_Stage2;
+        //drunkEffect = carPrefabInfo.drunkEffect_Stage3;
+
         switch (currentScene)
         {
             case "Stage2Scene":

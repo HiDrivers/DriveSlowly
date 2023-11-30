@@ -7,22 +7,30 @@ public class HealthSystem : MonoBehaviour
 {
     // 플레이어의 현재 상태를 다루는 스크립트, 플레이어 스프라이트 반영도 일단 이 스크립트에서 작성합니다.
 
-    [SerializeField] public GameObject carPrefab;
-    [SerializeField] private GameObject tempcarPrefab;
-    //[SerializeField] private Animator animator;
+    public GameObject carPrefab;
 
     public float curHp;
     public float maxHp;
 
-    //private static readonly int IsHit = Animator.StringToHash("IsHit");
+    private void Awake()
+    {
+        //if (carPrefab == null)
+        //{
+        carPrefab = PlayerData.Instance.carPrefab;
+        //}
+        //else carPrefab = null;
+    }
 
-    //private void Awake()
-    //{
-    //    carPrefab = tempcarPrefab;
-    //}
-
+    private void OnEnable()
+    {
+    }
     private void Start()
     {
+        var carPrefabPos = Instantiate(carPrefab);
+        carPrefabPos.transform.SetParent(transform);
+        gameObject.GetComponent<PlayerAnimationControl>().Initialize();
+        gameObject.GetComponent<PlayerControl>().carPrefab = carPrefab;
+
         curHp = maxHp;
     }
 

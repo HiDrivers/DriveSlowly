@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class PlayerControl : MonoBehaviour
 {
-    //private HealthSystem healthSystem;
-    [SerializeField] private GameObject carPrefab;
+    private HealthSystem healthSystem;
+    public GameObject carPrefab;
     [SerializeField]
     private float rotSpeed = 10.0f;
 
@@ -41,24 +41,16 @@ public class PlayerControl : MonoBehaviour
 
     private GameManager gameManager;
 
-    [SerializeField] private GameObject boostEffect;
-
     private void Awake()
     {
         gameManager = GameManager.Instance;
-        //healthSystem = GetComponent<HealthSystem>();
     }
 
-    private void OnEnable()
+    private void Start()
     {
-        //carPrefab = healthSystem.carPrefab;
+        healthSystem = GetComponent<HealthSystem>();
         rb = carPrefab.GetComponent<Rigidbody2D>();
     }
-
-    //private void Start()
-    //{
-    //    //carPrefab = PlayerData.Instance.carPrefab;
-    //}
 
     void Update()
     {
