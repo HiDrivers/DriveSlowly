@@ -121,7 +121,6 @@ public class PlayerControl : MonoBehaviour
         //}
 
         currentY = carPrefab.transform.position.y;
-        Debug.Log($"{currentY}");
 
         if (currentY < -5.2 && moveY < 0) moveY = 0;
         else if (currentY > 5.2 && moveY > 0) moveY = 0;
