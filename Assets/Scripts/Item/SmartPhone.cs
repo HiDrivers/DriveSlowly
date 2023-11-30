@@ -17,6 +17,11 @@ public class SmartPhone : Items
     {
         gameManager.phoneTimer = 5.0f;
         gameManager.isPhone = true;
+
+        // 데이터 저장
+        gameManager.totalItemCount += 1;
+        gameManager.currentSmartPhoneCount += 1;
+
         soundManager.PlayItemSound("SmartPhone");
 
         // 아이템의 다른 효과들...

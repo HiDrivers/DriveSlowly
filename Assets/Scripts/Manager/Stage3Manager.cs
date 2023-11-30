@@ -48,9 +48,26 @@ public class Stage3Manager : StageManager
         // 厘局拱 积己 包府
         if (obstacleTimer > obstacleSpawnCool)
         {
-            obstacleManager.GetComponent<ObstacleGenerateManager>().CreateObstacle();
+            obstacleManager.GetComponent<ObstacleGenerateManager>().CreateObstacle(multiplier);
             obstacleTimer = 0;
-            obstacleSpawnCool = Random.Range(2.0f, 4.0f);
+            if (currentTime < 30)
+            {
+                obstacleSpawnCool = Random.Range(2.0f, 4.0f);
+            }
+            else if (currentTime < 60)
+            {
+                obstacleSpawnCool = Random.Range(2.0f, 3.1f);
+                multiplier = 1.1f;
+            }
+            else if (currentTime < 90)
+            {
+                obstacleSpawnCool = 1.8f;
+                multiplier = 1.2f;
+            }
+            else
+            {
+                multiplier = 1.3f;
+            }
         }
         if (isDrunk != gameManager.isDrunk)
         {
