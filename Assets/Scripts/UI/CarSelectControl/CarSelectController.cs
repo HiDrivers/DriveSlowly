@@ -4,8 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class CarImagePairs : SerializableDictionary<Sprite, Sprite> { }
+
 public class CarSelectController : MonoBehaviour
 {
+    [SerializeField] private CarImagePairs carImagePairs;
+    [SerializeField] private GameObject[] carPrefabs;
+
     public CarSlot[] carSlots;
     [SerializeField] private CarSlot selectedSlot;
 
@@ -28,12 +34,16 @@ public class CarSelectController : MonoBehaviour
 
     private void Start()
     {
-        for (int i = 0; i < carSlots.Length; i++)
+        int index = 0;
+        foreach (KeyValuePair<Sprite, Sprite> imagePair in carImagePairs)
         {
-            carSlots[i].slotIndex = i;
+            carSlots[index].carImage.sprite = imagePair.Key;
+            carSlots[index].slotIndex = index;
+            index++;
         }
         selectedSlot = null;
     }
+
     public void SelectSlot(int index)
     {
         for (int i = 0; i < carSlots.Length; i++)
@@ -86,6 +96,7 @@ public class CarSelectController : MonoBehaviour
     public void ConfirmCar() // Confirm버튼
     {
         selectedCarImage.sprite = selectedSlot.carImage.sprite;
+        PlayerData.Instance.carPrefab = carPrefabs[selectedSlot.slotIndex];
         // SelectCarPopup UI 창 닫기(UI메니저 스크립트에 있나?)
         // gameObject.SetActive(false);
     }
