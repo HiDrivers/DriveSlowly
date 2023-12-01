@@ -3436,7 +3436,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9198311463134234996
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5428,8 +5428,8 @@ GameObject:
   - component: {fileID: 7601841378300261691}
   - component: {fileID: 8370747004073788581}
   - component: {fileID: 7349517167552624282}
-  - component: {fileID: 1619650677117053608}
   - component: {fileID: 860348936806985121}
+  - component: {fileID: 1619650677117053608}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -5496,20 +5496,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &1619650677117053608
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5418156552612895373}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 398b47e528e86514eb14d85c90586a11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  endingListPanel: {fileID: 5916353508062092986, guid: 39bfb6578fa048d488741a78288d6f7a, type: 3}
-  carListPanel: {fileID: 0}
 --- !u!114 &860348936806985121
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5566,6 +5552,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1619650677117053608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5418156552612895373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 398b47e528e86514eb14d85c90586a11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endingListPanel: {fileID: 5916353508062092986, guid: 39bfb6578fa048d488741a78288d6f7a, type: 3}
+  carListPanel: {fileID: 0}
 --- !u!1 &5576628145951984349
 GameObject:
   m_ObjectHideFlags: 0
