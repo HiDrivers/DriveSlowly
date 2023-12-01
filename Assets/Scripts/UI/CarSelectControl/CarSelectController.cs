@@ -20,26 +20,25 @@ public class CarSelectController : MonoBehaviour
     [SerializeField] private GameObject buyButton;
     [SerializeField] private GameObject confirmButton;
     private Button _buy;
-    private Button _confirm;
 
     [SerializeField] private GameObject selectedCar;
     private Image selectedCarImage;
 
     [SerializeField] private TextMeshProUGUI goldText;
+    [SerializeField] private TextMeshProUGUI carDescriptionText;
+    [SerializeField] private TextMeshProUGUI carPriceText;
 
     private void Awake()
     {
         selectedCarImage = selectedCar.GetComponent<Image>();
 
         _buy = buyButton.GetComponent<Button>();
-        _confirm = confirmButton.GetComponent<Button>();
     }
 
     private void OnEnable()
     {
         _buy.interactable = false;
         buyButton.SetActive(false);
-        _confirm.interactable = false;
         confirmButton.SetActive(true);
     }
 
@@ -48,7 +47,7 @@ public class CarSelectController : MonoBehaviour
         int index = 0;
         foreach (KeyValuePair<Sprite, Sprite> imagePair in carImagePairs)
         {
-            carSlots[index].carImage.sprite = imagePair.Key;
+            carSlots[index].carImage.sprite = imagePair.Value;
             carSlots[index].slotIndex = index;
             index++;
         }
@@ -74,6 +73,13 @@ public class CarSelectController : MonoBehaviour
         }
 
         UpdateOutLine();
+        UpdateSelectedCarInfo(index);
+    }
+
+    private void UpdateSelectedCarInfo(int index)
+    {
+        carDescriptionText.text = carSlots[index].description;
+        carPriceText.text = string.Format("{0:0} G", carSlots[index].price.ToString());
     }
 
     private void UpdateOutLine()
@@ -89,18 +95,24 @@ public class CarSelectController : MonoBehaviour
 
     private void CheckCarUsability()
     {
-        if (GameManager.Instance.gold >= selectedSlot.price && selectedSlot.car_UnusableIcon.activeSelf)
+        bool canBuy = GameManager.Instance.gold >= selectedSlot.price;
+        bool bought = !selectedSlot.car_UnusableIcon.activeSelf;
+
+        if (bought)
         {
+            buyButton.SetActive(false);
+        }
+        else if (canBuy && !bought)
+        {
+            buyButton.SetActive(true);
             _buy.interactable = true;
         }
         else
         {
+            buyButton.SetActive(true);
             _buy.interactable = false;
         }
-        buyButton.SetActive(_buy.interactable);
-
-        _confirm.interactable = _buy.interactable ? false : true;
-        confirmButton.SetActive(!_buy.interactable);
+        confirmButton.SetActive(!buyButton.activeSelf);
     }
 
     public void BuyCar() // Buy¹öÆ°

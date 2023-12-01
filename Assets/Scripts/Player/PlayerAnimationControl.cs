@@ -63,26 +63,6 @@ public class PlayerAnimationControl : MonoBehaviour
                 effectObject = null;
                 break;
         }
-        //if (currentScene == "Stage2Scene" || currentScene == "Stage2Scene 1")
-        //{
-        //    currentStage = 2;
-        //    effectObject = sleepEffect;
-        //}
-        //else if (currentScene == "Stage3Scene" || currentScene == "Stage3Scene 1")
-        //{
-        //    currentStage = 3;
-        //    effectObject = drunkEffect;
-        //}
-        //else
-        //{
-        //    currentStage = 0;
-        //    effectObject = null;
-        //}
-
-        if (currentScene != "Stage3Scene" || currentScene != "Stage3Scene 1")
-        {
-            frontLight.SetActive(false);
-        }
     }
 
     private void Update()
