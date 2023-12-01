@@ -43,16 +43,19 @@ public class PlayerAnimationControl : MonoBehaviour
         switch (currentScene)
         {
             case "Stage1Scene":
+                frontLight.SetActive(false);
                 effectObject = boostEffect;
                 break;
             case "Stage2Scene":
             case "Stage2Scene 1":
                 currentStage = 2;
+                frontLight.SetActive(false);
                 effectObject = sleepEffect;
                 break;
             case "Stage3Scene":
             case "Stage3Scene 1":
                 currentStage = 3;
+                frontLight.SetActive(true);
                 effectObject = drunkEffect;
                 break;
             default:
