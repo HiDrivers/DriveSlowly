@@ -10,7 +10,7 @@ public class OpenSettingUiButton : MonoBehaviour
     public void OpenSettingUI()
     {
         // UIManager의 Instance를 통해 SettingUi를 불러옴
-        UIBase settingUI = UIManager.Instance.ShowUI<UIBase>("SettingUi", transform);
+        UIBase settingUI = UIManager.Instance.ShowUI<UIBase>("SettingUI", transform);
 
         // UI 요소를 화면 중앙에 배치하기 위해 RectTransform 사용
         if (settingUI != null)
