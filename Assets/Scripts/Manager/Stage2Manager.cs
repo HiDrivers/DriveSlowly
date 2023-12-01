@@ -58,7 +58,7 @@ public class Stage2Manager : StageManager
             }
             itemTimer = 0;
 
-            if (gameManager.currentPillowCount == 0 && currentTime > 40)
+            if (!gameManager.sleepMode && gameManager.currentPillowCount == 0 && currentTime > 40)
             {
                 if (currentTime > 100)
                 {
