@@ -60,7 +60,7 @@ public class Stage3Manager : StageManager
                     sojuCriterion = 7;
                 }
             }
-            if (!gameManager.sleepMode)
+            if (!gameManager.drunkMode)
             {
                 ItemSpawnCoolControl();
             }

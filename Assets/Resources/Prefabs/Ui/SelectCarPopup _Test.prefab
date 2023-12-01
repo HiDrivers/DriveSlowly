@@ -578,7 +578,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 4686628543799339967}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6458953006472973260}
+        m_TargetAssemblyTypeName: CarSelectController, Assembly-CSharp
+        m_MethodName: ConfirmCar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &710906129464506871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1157,21 +1169,28 @@ MonoBehaviour:
     - {fileID: 21300000, guid: d58b3eb29976a47c89679e9f95a11176, type: 3}
     - {fileID: 21300000, guid: 9f8b2be26c2e94b02b2d205c5834f6d7, type: 3}
   carPrefabs:
-  - {fileID: 8105850709041807900}
-  - {fileID: 8950958452153551461}
-  - {fileID: 8831308431100849554}
-  - {fileID: 5895197237646488012}
-  - {fileID: 8110061610620928896}
-  - {fileID: 4335287635580464834}
-  - {fileID: 5790489723506565268}
-  - {fileID: 1195900771869028230}
+  - {fileID: 2897984505001321067, guid: 7c01723318cda924cb5f8260769a5954, type: 3}
+  - {fileID: 2897984505001321067, guid: f15b7f1108b923a4295d827f32b85f7b, type: 3}
+  - {fileID: 2897984505001321067, guid: ba75df52a17cd984a8e420ce7e81e239, type: 3}
+  - {fileID: 2897984505001321067, guid: aae45979a18f39e47a5ed9354f4192d9, type: 3}
+  - {fileID: 2897984505001321067, guid: 614e3468d6407f441892747db940e430, type: 3}
+  - {fileID: 2897984505001321067, guid: e0d94a69a41da8343bde4fa950d87a34, type: 3}
+  - {fileID: 2897984505001321067, guid: 0cb6996b73e39b543beca6316c14d823, type: 3}
+  - {fileID: 2897984505001321067, guid: 57b7a2efca44a32468a89ed8906ee425, type: 3}
   carSlots:
-  - {fileID: 8105850709041807900}
-  - {fileID: 0}
+  - {fileID: 5999686334909111982}
+  - {fileID: 8136839905539775043}
+  - {fileID: 4784140284604633728}
+  - {fileID: 1837482591363913432}
+  - {fileID: 4872079957047571682}
+  - {fileID: 8052270277698137631}
+  - {fileID: 3765606698331044312}
+  - {fileID: 7391527281531823312}
   selectedSlot: {fileID: 0}
-  buyButton: {fileID: 8938485907524173825}
-  confirmButton: {fileID: 5666288031123817472}
+  buyButton: {fileID: 6492332607253024685}
+  confirmButton: {fileID: 691645951075519458}
   selectedCar: {fileID: 4814607719309319660}
+  goldText: {fileID: 5889123147652368954}
 --- !u!1 &1195900771869028230
 GameObject:
   m_ObjectHideFlags: 0
@@ -4996,7 +5015,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 6664555697333539460}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 6458953006472973260}
+        m_TargetAssemblyTypeName: CarSelectController, Assembly-CSharp
+        m_MethodName: BuyCar
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &6512258791742111861
 GameObject:
   m_ObjectHideFlags: 0
