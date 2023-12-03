@@ -30,8 +30,5 @@ public class Soju : Items
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        soundManager.PlayItemSound("Soju");
-    }
+   
 }
