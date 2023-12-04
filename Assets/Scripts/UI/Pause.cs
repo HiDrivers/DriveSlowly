@@ -8,19 +8,13 @@ public class Pause : MonoBehaviour
     public GameObject lobbyButton;
 
     private bool isPaused = false;
-    private float lastClickTime = 0f;
-    private float clickDelay = 0.5f;
 
     public void TogglePause()
     {
-        if (Time.time - lastClickTime < clickDelay) return;
-
-        if (!isPaused)
-            PauseGame();
-        else
+        if (isPaused)
             ResumeGame();
-
-        lastClickTime = Time.time;
+        else
+            PauseGame();
     }
 
     public void PauseGame()
@@ -40,6 +34,10 @@ public class Pause : MonoBehaviour
         pausePanel.SetActive(false);
     }
 }
+
+
+
+
 
 
 
