@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Obstacle : MonoBehaviour
 {
@@ -14,9 +15,22 @@ public class Obstacle : MonoBehaviour
 
     public float initialSpeed;
 
+    private ObstacleLight oLight;
+
     private void Awake()
     {
         obstacleRigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    private void OnEnable()
+    {
+        if (SceneManager.GetActiveScene().name == "Stage3Scene" || SceneManager.GetActiveScene().name == "Stage3Scene 1")
+        {
+            if (TryGetComponent<ObstacleLight>(out oLight))
+            {
+                oLight.TurnOnLight();
+            }
+        }
     }
 
     private void Update()
