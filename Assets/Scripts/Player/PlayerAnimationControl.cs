@@ -13,13 +13,11 @@ public class PlayerAnimationControl : MonoBehaviour
     private bool isSleep = false;
     private bool isDrunk = false;
 
-    [SerializeField] private GameObject frontLight;
+    private HealthSystem healthSystem;
+    private GameObject carPrefab;
+    private CarPrefabInfo carPrefabInfo;
 
-    [Header("Effect List: <effectObject> will be Current Effect of each scene")]
-    [SerializeField] private GameObject effectObject;
-    [SerializeField] private GameObject boostEffect;
-    [SerializeField] private GameObject drunkEffect;
-    [SerializeField] private GameObject sleepEffect;
+    private GameObject frontLight, effectObject, boostEffect, drunkEffect, sleepEffect;
 
     private PlayerControl playerControl;
 
@@ -31,45 +29,39 @@ public class PlayerAnimationControl : MonoBehaviour
         gameManager = GameManager.Instance;
         playerControl = GetComponent<PlayerControl>();
     }
-    private void Start()
+    public void Start()
     {
-        //gameManager = GameManager.Instance;
+        healthSystem = GetComponent<HealthSystem>();
+        carPrefab = healthSystem._car;
+        carPrefabInfo = carPrefab.GetComponent<CarPrefabInfo>();
+
+        frontLight = carPrefabInfo.frontLight;
+        boostEffect = carPrefabInfo.effectRoot_Stage1;
+        sleepEffect = carPrefabInfo.sleepEffect_Stage2;
+        drunkEffect = carPrefabInfo.drunkEffect_Stage3;
+
         switch (currentScene)
         {
+            case "Stage1Scene":
+                frontLight.SetActive(false);
+                effectObject = boostEffect;
+                break;
             case "Stage2Scene":
             case "Stage2Scene 1":
                 currentStage = 2;
+                frontLight.SetActive(false);
                 effectObject = sleepEffect;
                 break;
             case "Stage3Scene":
             case "Stage3Scene 1":
                 currentStage = 3;
+                frontLight.SetActive(true);
                 effectObject = drunkEffect;
                 break;
             default:
                 currentStage = 0;
                 effectObject = null;
                 break;
-        }
-        //if (currentScene == "Stage2Scene" || currentScene == "Stage2Scene 1")
-        //{
-        //    currentStage = 2;
-        //    effectObject = sleepEffect;
-        //}
-        //else if (currentScene == "Stage3Scene" || currentScene == "Stage3Scene 1")
-        //{
-        //    currentStage = 3;
-        //    effectObject = drunkEffect;
-        //}
-        //else
-        //{
-        //    currentStage = 0;
-        //    effectObject = null;
-        //}
-
-        if (currentScene != "Stage3Scene" || currentScene != "Stage3Scene 1")
-        {
-            frontLight.SetActive(false);
         }
     }
 

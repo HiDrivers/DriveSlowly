@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,21 +16,30 @@ public class CarSelectController : MonoBehaviour
     public CarSlot[] carSlots;
     [SerializeField] private CarSlot selectedSlot;
 
-    [SerializeField] private Button buyButton;
-    [SerializeField] private Button confirmButton;
+
+    [SerializeField] private GameObject buyButton;
+    [SerializeField] private GameObject confirmButton;
+    private Button _buy;
 
     [SerializeField] private GameObject selectedCar;
     private Image selectedCarImage;
 
+    [SerializeField] private TextMeshProUGUI goldText;
+    [SerializeField] private TextMeshProUGUI carDescriptionText;
+    [SerializeField] private TextMeshProUGUI carPriceText;
+
     private void Awake()
     {
         selectedCarImage = selectedCar.GetComponent<Image>();
+
+        _buy = buyButton.GetComponent<Button>();
     }
 
     private void OnEnable()
     {
-        buyButton.interactable = false;
-        confirmButton.interactable = false;
+        _buy.interactable = false;
+        buyButton.SetActive(false);
+        confirmButton.SetActive(true);
     }
 
     private void Start()
@@ -37,11 +47,18 @@ public class CarSelectController : MonoBehaviour
         int index = 0;
         foreach (KeyValuePair<Sprite, Sprite> imagePair in carImagePairs)
         {
-            carSlots[index].carImage.sprite = imagePair.Key;
+            carSlots[index].carImage.sprite = imagePair.Value;
             carSlots[index].slotIndex = index;
             index++;
         }
         selectedSlot = null;
+
+        UpdateCurrentGold();
+    }
+
+    private void UpdateCurrentGold()
+    {
+        goldText.text = string.Format("소지금\n{0:0} G", GameManager.Instance.gold);
     }
 
     public void SelectSlot(int index)
@@ -56,6 +73,13 @@ public class CarSelectController : MonoBehaviour
         }
 
         UpdateOutLine();
+        UpdateSelectedCarInfo(index);
+    }
+
+    private void UpdateSelectedCarInfo(int index)
+    {
+        carDescriptionText.text = carSlots[index].description;
+        carPriceText.text = string.Format("{0:0} G", carSlots[index].price.ToString());
     }
 
     private void UpdateOutLine()
@@ -71,25 +95,32 @@ public class CarSelectController : MonoBehaviour
 
     private void CheckCarUsability()
     {
-        if (GameManager.Instance.gold >= selectedSlot.price && selectedSlot.car_UnusableIcon.activeSelf)
+        bool canBuy = GameManager.Instance.gold >= selectedSlot.price;
+        bool bought = !selectedSlot.car_UnusableIcon.activeSelf;
+
+        if (bought)
         {
-            buyButton.interactable = true;
+            buyButton.SetActive(false);
+        }
+        else if (canBuy && !bought)
+        {
+            buyButton.SetActive(true);
+            _buy.interactable = true;
         }
         else
         {
-            buyButton.interactable = false;
+            buyButton.SetActive(true);
+            _buy.interactable = false;
         }
-
-        confirmButton.interactable = selectedSlot.car_UnusableIcon.activeSelf ? false : true;
+        confirmButton.SetActive(!buyButton.activeSelf);
     }
 
     public void BuyCar() // Buy버튼
     {
-        if (GameManager.Instance.gold >= selectedSlot.price)
-        {
-            GameManager.Instance.gold -= selectedSlot.price; // PlayerData.Gold 차감
-            selectedSlot.car_UnusableIcon.SetActive(false);// selectedSlot.car_UnusableIcon비활성화
-        }
+        GameManager.Instance.gold -= selectedSlot.price; // PlayerData.Gold 차감
+        selectedSlot.car_UnusableIcon.SetActive(false);
+
+        UpdateCurrentGold();
         CheckCarUsability();
     }
 
