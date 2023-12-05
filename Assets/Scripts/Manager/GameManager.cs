@@ -166,7 +166,11 @@ public class GameManager : Singleton<GameManager>
                 SceneManager.LoadScene("Stage2Scene");
                 break;
             case "Stage2Scene":
-                SceneManager.LoadScene("CutScene3_0");
+                SceneManager.LoadScene("CutScene2_3");
+                break;
+            case "CutScene2_3":
+                UIRoot = GameObject.Find("UIRoot").transform;
+                UIManager.Instance.ShowUI<UIBase>("Stage2ClearUI", UIRoot);
                 break;
             case "CutScene3_0":
                 if (PlayerPrefs.GetInt("IsFirst") == 0)

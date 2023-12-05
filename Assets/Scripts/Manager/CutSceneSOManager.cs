@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class CutSceneSOManager : MonoBehaviour
 {
-    [SerializeField] private CutScneneSO Speeding;
-    [SerializeField] private CutScneneSO SlowDown;
+    [SerializeField] private CutScneneSO BadDrive;
+    [SerializeField] private CutScneneSO GoodDrive;
+    public int currentChapter;
     // Start is called before the first frame update
     private GameManager gameManager;
     private void Awake()
@@ -13,18 +14,35 @@ public class CutSceneSOManager : MonoBehaviour
         if(GameManager.Instance != null)
         {
             gameManager = GameManager.Instance;
-            if (gameManager.currentBoosterCount > 2)
+            if (currentChapter == 1)
             {
-                gameObject.GetComponent<TalkManager>().cutScneneSO = Speeding;
+                if (gameManager.currentBoosterCount > 2)
+                {
+                    gameObject.GetComponent<TalkManager>().cutScneneSO = BadDrive;
+                }
+                else
+                {
+                    gameObject.GetComponent<TalkManager>().cutScneneSO = GoodDrive;
+                    gameManager.gold -= (3 - gameManager.currentBoosterCount) * 2;
+                    gameManager.gold = Mathf.Max(0, gameManager.gold);
+                    gameManager.currentGoldCount -= (3 - gameManager.currentBoosterCount) * 2;
+                    gameManager.currentGoldCount = Mathf.Max(0, gameManager.currentGoldCount);
+                }
             }
-            else
+            else if (currentChapter == 2)
             {
-                gameObject.GetComponent<TalkManager>().cutScneneSO = SlowDown;
-                gameManager.gold -= (3 - gameManager.currentBoosterCount) * 2;
-                gameManager.gold = Mathf.Max(0, gameManager.gold);
-                gameManager.currentGoldCount -= (3 - gameManager.currentBoosterCount) * 2;
-                gameManager.currentGoldCount = Mathf.Max(0, gameManager.currentGoldCount);
+                if (gameManager.sleepMode || gameManager.currentPillowCount > 1)
+                {
+                    gameObject.GetComponent<TalkManager>().cutScneneSO = BadDrive;
+                }
+                else
+                {
+                    gameObject.GetComponent<TalkManager>().cutScneneSO = GoodDrive;
+                    gameManager.gold += 5;
+                    gameManager.currentGoldCount += 5;
+                }
             }
+
         }
     }
 }
