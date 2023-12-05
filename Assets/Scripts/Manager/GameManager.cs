@@ -139,7 +139,11 @@ public class GameManager : Singleton<GameManager>
                 InGameStart();
                 break;
             case "Stage1Scene":
-                SceneManager.LoadScene("CutScene2_0");
+                SceneManager.LoadScene("CutScene1_2");
+                break;
+            case "CutScene1_2":
+                UIRoot = GameObject.Find("UIRoot").transform;
+                UIManager.Instance.ShowUI<UIBase>("Stage1ClearUI", UIRoot);
                 break;
             case "CutScene2_0":
                 if (PlayerPrefs.GetInt("IsFirst") == 0)

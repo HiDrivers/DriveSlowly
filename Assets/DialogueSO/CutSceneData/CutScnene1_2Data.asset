@@ -15,14 +15,12 @@ MonoBehaviour:
   cutSceneClips:
   - speaker: "\uCC9C\uCC9C\uD76C"
     text: "\uD5C9...\uD5C9... \uC81C \uC2DC\uAC04\uC5D0 \uB3C4\uCC29\uD588\uB098...?"
-    animationName: 
-    audioClip: {fileID: 8300000, guid: b96be2757cb41194087ad9db1f18796c, type: 3}
+    animationName: Dialogue1_2_1
   - speaker: "\uC655\uACE4\uB300 \uBD80\uC7A5"
-    text: "\uC624 \uCC9C\uCC9C\uD76C! \uB4DC\uB514\uC5B4 \uC654\uAD6C\uB9CC!"
-    animationName: 
-    audioClip: {fileID: 8300000, guid: 6b053c2a6e6407341b84790a8ea3cc0e, type: 3}
+    text: "\uC624 \uCC9C\uCC9C\uD76C\uC528! \uB4DC\uB514\uC5B4 \uC654\uAD6C\uB9CC!"
+    animationName: Dialogue1_2_2
   - speaker: "\uCC9C\uCC9C\uD76C"
-    text: "\uC88B\uC740 \uC544\uCE68\uC785\uB2C8\uB2E4 \uBD80\uC7A5\uB2D8!"
+    text: "\uC88B.... \uC88B\uC740 \uC544\uCE68\uC785\uB2C8\uB2E4 \uBD80\uC7A5\uB2D8!"
     animationName: 
     audioClip: {fileID: 0}
   - speaker: "\uC655\uACE4\uB300 \uBD80\uC7A5"
@@ -30,36 +28,42 @@ MonoBehaviour:
     animationName: 
     audioClip: {fileID: 8300000, guid: 6b053c2a6e6407341b84790a8ea3cc0e, type: 3}
   - speaker: "\uC655\uACE4\uB300 \uBD80\uC7A5"
-    text: "\uB108\uAC00 \uD63C\uB098\uAE30 \uB531 \uC88B\uC740 \uC544\uCE68\uC778
-      \uAC83 \uAC19\uB2E4!!"
-    animationName: 
-    audioClip: {fileID: 8300000, guid: 6b053c2a6e6407341b84790a8ea3cc0e, type: 3}
+    text: "\uCC9C\uCC9C\uD76C\uC528 \uC6D4\uAE09\uC774 \uAE4E\uC774\uAE30 \uC815\uB9D0
+      \uC88B\uC740 \uC544\uCE68\uC774\uC9C0! "
+    animationName: Dialogue1_2_3
   - speaker: "\uC655\uACE4\uB300 \uBD80\uC7A5"
     text: "\uC9C0\uAE08 \uC2DC\uAC04\uC774 \uBA87\uC2DC\uC778\uC9C0\uB294 \uC54C\uACE0
       \uC788\uB098???"
     animationName: 
     audioClip: {fileID: 8300000, guid: 6b053c2a6e6407341b84790a8ea3cc0e, type: 3}
   - speaker: "\uCC9C\uCC9C\uD76C"
-    text: "\uC8C4\uC1A1\uD569\uB2C8\uB2E4.. \uC5B4\uC81C \uD504\uB85C\uC81D\uD2B8\uB97C
+    text: "\uC8C4\uC1A1\uD569\uB2C8\uB2E4.. \uC5B4\uC81C \uBC00\uB9B0 \uC11C\uB958\uB4E4\uC744
       \uC900\uBE44\uD558\uB290\uB77C \uC57C\uADFC\uC744 \uD558\uB2E4\uBCF4\uB2C8
       \uB2A6\uC7A0\uC744 \uC790\uBC84\uB838\uC2B5\uB2C8\uB2E4."
+    animationName: Dialogue1_2_4
+  - speaker: "\uC655\uACE4\uB300 \uBD80\uC7A5"
+    text: "\uC694\uC998 MZ \uC138\uB300\uB4E4\uC740 \uBB50\uB784\uAE4C... \uC5F4\uC815\uC774
+      \uC5C6\uB294 \uAC83 \uAC19\uC5B4~"
+    animationName: Dialogue1_2_3
+  - speaker: "\uC655\uACE4\uB300 \uBD80\uC7A5"
+    text: "\uC5B4\uB9B4\uC801 \uB0B4\uAC00 \uC778\uD134\uC774\uC600\uC744 \uB54C\uB294
+      \uB9D0\uC774\uC57C~ *&$%^$#^%#"
     animationName: 
     audioClip: {fileID: 0}
   - speaker: "\uCC9C\uCC9C\uD76C"
-    text: "(\uC544 \uBD80\uC7A5\uB2D8\uC758 \uAC1C\uADF8 \uB108\uBB34 \uD53C\uACE4\uD574..
-      \n\uAC8C\uB2E4\uAC00 \uBC25 \uBA39\uACE0 \uBC14\uB85C \uC6B4\uC804\uD558\uBA74
-      \uB108\uBB34 \uC878\uB9B4 \uD150\uB370\u2026 \uC774\uBC88 \uBBF8\uD305 \uC5B4\uCA4C\uC9C0?)"
+    text: "(\uC5B4\uD734... \uB610 \uC2DC\uC791\uC774\uC2DC\uB124... \uC5B8\uC81C\uCBE4
+      \uB05D\uB098\uB824\uB098..)"
+    animationName: Dialogue1_2_5
+  - speaker: "\uC655\uACE4\uB300 \uBD80\uC7A5"
+    text: ".....\uADF8\uB807\uAC8C 3\uC2DC\uAC04 \uC790\uACE0 \uC5F4\uC2EC\uD788
+      \uD574\uC11C \uC774 \uC790\uB9AC\uAE4C\uC9C0 \uC62C\uB77C\uC654\uB2E4 \uC774
+      \uB9D0\uC774\uC57C~"
+    animationName: Dialogue1_2_3
+  - speaker: "\uC655\uACE4\uB300 \uBD80\uC7A5"
+    text: "\uC544\uBB34\uD2BC \uB2A6\uC740 \uC2DC\uAC04\uB9CC\uD07C \uCC9C\uCC9C\uD76C\uC528
+      \uC6D4\uAE09\uC5D0\uC11C \uAE54\uD14C\uB2C8 \uADF8\uB807\uAC8C \uC54C\uC544\uC694!"
     animationName: 
     audioClip: {fileID: 8300000, guid: 82e5d28678f901b408232462c53e8412, type: 3}
   - speaker: "\uCC9C\uCC9C\uD76C"
-    text: "(\uC544 \uBD80\uC7A5\uB2D8\uC758 \uAC1C\uADF8 \uB108\uBB34 \uD53C\uACE4\uD574..
-      \n\uAC8C\uB2E4\uAC00 \uBC25 \uBA39\uACE0 \uBC14\uB85C \uC6B4\uC804\uD558\uBA74
-      \uB108\uBB34 \uC878\uB9B4 \uD150\uB370\u2026 \uC774\uBC88 \uBBF8\uD305 \uC5B4\uCA4C\uC9C0?)"
-    animationName: 
-    audioClip: {fileID: 0}
-  - speaker: "\uCC9C\uCC9C\uD76C"
-    text: "(\uC544 \uBD80\uC7A5\uB2D8\uC758 \uAC1C\uADF8 \uB108\uBB34 \uD53C\uACE4\uD574..
-      \n\uAC8C\uB2E4\uAC00 \uBC25 \uBA39\uACE0 \uBC14\uB85C \uC6B4\uC804\uD558\uBA74
-      \uB108\uBB34 \uC878\uB9B4 \uD150\uB370\u2026 \uC774\uBC88 \uBBF8\uD305 \uC5B4\uCA4C\uC9C0?)"
-    animationName: 
-    audioClip: {fileID: 0}
+    text: "\uB124... \uC54C\uACA0\uC2B5\uB2C8\uB2E4..\u3160\u3160"
+    animationName: Dialogue1_2_4

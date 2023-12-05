@@ -113,17 +113,17 @@ public class Stage3Manager : StageManager
         {
             if (currentTime > 100)
             {
-                itemSpawnCool = 1.4f;
+                itemSpawnCool = 1.2f;
             }
 
             else if (currentTime > 80)
             {
-                itemSpawnCool = 2.0f;
+                itemSpawnCool = 1.7f;
             }
 
             else if (currentTime > 60)
             {
-                itemSpawnCool = 3.0f;
+                itemSpawnCool = 2.5f;
             }
 
             else if (currentTime > 40)
