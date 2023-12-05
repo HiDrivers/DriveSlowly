@@ -40,7 +40,7 @@ public class TalkManager : MonoBehaviour
             GameManager.Instance.LoadNextScene();
         }
     }
-   
+
 
     IEnumerator NormalChat(CutSceneClip cutSceneClip)
     {
@@ -49,16 +49,31 @@ public class TalkManager : MonoBehaviour
 
         animator.StopPlayback();
 
-        // 애니매이션 실행
+        // Animation execution
         if (!string.IsNullOrEmpty(cutSceneClip.animationName))
         {
             animator.Play(cutSceneClip.animationName);
         }
 
+        // AudioSource component check
+        AudioSource audioSource = GetComponent<AudioSource>();
+        if (audioSource == null)
+        {
+            // If AudioSource is missing, add it automatically
+            audioSource = gameObject.AddComponent<AudioSource>();
+            // You might want to set additional properties for the AudioSource here
+        }
+
+        if (cutSceneClip.audioClip != null)
+        {
+            // Play the connected audio clip
+            audioSource.clip = cutSceneClip.audioClip;
+            audioSource.Play();
+        }
 
         for (int i = 0; i < cutSceneClip.text.Length; i++)
         {
-            writerText +=cutSceneClip.text[i];
+            writerText += cutSceneClip.text[i];
             talkText.text = writerText;
             yield return new WaitForSeconds(0.05f);
         }
@@ -67,6 +82,9 @@ public class TalkManager : MonoBehaviour
         {
             yield return null;
         }
+
+        // Stop the audio after text display
+        audioSource.Stop();
 
         ShowNextDialogue();
     }
