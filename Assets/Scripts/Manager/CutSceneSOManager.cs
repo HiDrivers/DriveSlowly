@@ -21,6 +21,9 @@ public class CutSceneSOManager : MonoBehaviour
             {
                 gameObject.GetComponent<TalkManager>().cutScneneSO = SlowDown;
                 gameManager.gold -= (3 - gameManager.currentBoosterCount) * 2;
+                gameManager.gold = Mathf.Max(0, gameManager.gold);
+                gameManager.currentGoldCount -= (3 - gameManager.currentBoosterCount) * 2;
+                gameManager.currentGoldCount = Mathf.Max(0, gameManager.currentGoldCount);
             }
         }
     }

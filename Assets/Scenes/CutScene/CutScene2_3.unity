@@ -881,8 +881,8 @@ MonoBehaviour:
   talkText: {fileID: 1508422665}
   characterNameText: {fileID: 1508422666}
   writerText: 
-  animator: {fileID: 0}
-  cutScneneSO: {fileID: 11400000, guid: 0e877b0a69dc842bf99bef6a860f9293, type: 2}
+  animator: {fileID: 614176671}
+  cutScneneSO: {fileID: 11400000, guid: 0e3fa19031d0f9f4c9a572dcd52dfdbb, type: 2}
 --- !u!4 &449683328
 Transform:
   m_ObjectHideFlags: 0
@@ -1168,6 +1168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 614176668}
   - component: {fileID: 614176670}
+  - component: {fileID: 614176671}
   m_Layer: 0
   m_Name: Animation2_3
   m_TagString: Untagged
@@ -1209,6 +1210,27 @@ PlayableDirector:
   m_SceneBindings: []
   m_ExposedReferences:
     m_References: []
+--- !u!95 &614176671
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 614176667}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 577ceab2e32dee64a958dca8f92d2c2f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &812211509
 GameObject:
   m_ObjectHideFlags: 0
