@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba4c0215993242638f7b1a327cced02, type: 3}
+  m_Name: CutScnene1_1Data
+  m_EditorClassIdentifier: 
+  cutSceneClips:
+  - speaker: "\uCC9C\uCC9C\uD76C"
+    text: "\uD5C9...\uD5C9... \uC81C \uC2DC\uAC04\uC5D0 \uB3C4\uCC29\uD588\uB098...?"
+    animationName: Dialogue1_2_1
+  - speaker: "\uC655\uACE4\uB300 \uBD80\uC7A5"
+    text: "\uC624 \uCC9C\uCC9C\uD76C\uC528! \uB4DC\uB514\uC5B4 \uC654\uAD6C\uB9CC!"
+    animationName: Dialogue1_2_2
+  - speaker: "\uCC9C\uCC9C\uD76C"
+    text: "\uC88B.... \uC88B\uC740 \uC544\uCE68\uC785\uB2C8\uB2E4 \uBD80\uC7A5\uB2D8!"
+    animationName: 
+  - speaker: "\uC655\uACE4\uB300 \uBD80\uC7A5"
+    text: "\uC88B\uC740 \uC544\uCE68... \uC815\uB9D0\uB85C \uC88B\uC740 \uC544\uCE68\uC774\uC9C0..."
+    animationName: 
+  - speaker: "\uC655\uACE4\uB300 \uBD80\uC7A5"
+    text: "\uCC9C\uCC9C\uD76C\uC528\uAC00 \uCE6D\uCC2C \uBC1B\uAE30 \uC815\uB9D0
+      \uC88B\uC740 \uC544\uCE68\uC774\uC9C0! "
+    animationName: Dialogue1_2_6
+  - speaker: "\uC655\uACE4\uB300 \uBD80\uC7A5"
+    text: "\uC5B4\uC81C \uB2A6\uAC8C\uAE4C\uC9C0 \uC57C\uADFC\uD558\uBA74\uC11C \uCC98\uB9AC\uD55C
+      \uC11C\uB958\uB4E4 \uC798 \uBD24\uB124"
+    animationName: Dialogue1_2_7
+  - speaker: "\uC655\uACE4\uB300 \uBD80\uC7A5"
+    text: "\uC778\uD134\uC774\uB77C\uACE0 \uBBFF\uAE30 \uD798\uB4E4\uC815\uB3C4\uB85C
+      \uAE30\uAC00 \uB9C9\uD788\uAC8C \uCC98\uB9AC\uD588\uB354\uAD6C\uB9CC!"
+    animationName: Dialogue1_2_6
+  - speaker: "\uC655\uACE4\uB300 \uBD80\uC7A5"
+    text: "\uC694\uC998 MZ \uC138\uB300\uB4E4\uC740 \uBB50\uB784\uAE4C... \uC5F4\uC815\uC774
+      \uC5C6\uB294 \uAC83 \uAC19\uC544~"
+    animationName: Dialogue1_2_7
+  - speaker: "\uC655\uACE4\uB300 \uBD80\uC7A5"
+    text: "\uB77C\uACE0 \uC0DD\uAC01\uD55C \uB0B4 \uC790\uC2E0 \uC774 \uBD80\uB044\uB7EC\uC6CC\uC9C0\uB294\uAD6C\uB9CC!
+      \uD558\uD558\uD558!"
+    animationName: Dialogue1_2_6
+  - speaker: "\uCC9C\uCC9C\uD76C"
+    text: "(\uD734... \uC704\uD5D8\uD558\uAE34 \uD588\uC9C0\uB9CC \uACFC\uC18D\uD574\uC11C\uB77C\uB3C4
+      \uB2A6\uC9C0 \uC54A\uAE38 \uC798\uD588\uB2E4..)"
+    animationName: Dialogue1_2_8
+  - speaker: "\uC655\uACE4\uB300 \uBD80\uC7A5"
+    text: "\uC624\uB298 \uD558\uB8E8\uB3C4 \uD798\uCC28\uAC8C \uC2DC\uC791\uD574\uBCF4\uC790\uACE0!
+      \uD558\uD558\uD558!"
+    animationName: Dialogue1_2_6
+  - speaker: "\uCC9C\uCC9C\uD76C"
+    text: "\uB135! \uBD80\uC7A5\uB2D8\uB3C4 \uD654\uC774\uD305\uC785\uB2C8\uB2E4!"
+    animationName: Dialogue1_2_9
