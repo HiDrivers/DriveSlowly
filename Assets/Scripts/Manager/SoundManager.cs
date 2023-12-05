@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Collections;
 
 public class SoundManager : Singleton<SoundManager>
 {
@@ -147,6 +148,7 @@ public class SoundManager : Singleton<SoundManager>
     {
         int audioSourceIndex = -1;
         AudioClip itemClip = null;
+        float soundDuration = 5.0f; // 원하는 사운드 재생 시간
 
         switch (itemName)
         {
@@ -190,6 +192,9 @@ public class SoundManager : Singleton<SoundManager>
                 effectAudioSources[audioSourceIndex].clip = itemClip;
                 ApplyVolumes();
                 effectAudioSources[audioSourceIndex].Play();
+
+                // 사운드 재생 후 일정 시간이 지나면 사운드를 정지합니다.
+                StartCoroutine(StopSoundAfterSeconds(soundDuration, audioSourceIndex)); // 변경된 부분
             }
             else
             {
@@ -197,7 +202,16 @@ public class SoundManager : Singleton<SoundManager>
             }
         }
     }
-    
+
+    private IEnumerator StopSoundAfterSeconds(float seconds, int audioSourceIndex)
+    {
+        yield return new WaitForSeconds(seconds);
+        if (audioSourceIndex >= 0 && audioSourceIndex < effectAudioSources.Length)
+        {
+            effectAudioSources[audioSourceIndex].Stop();
+        }
+    }
+
     public AudioClip backgroundMusic;
 
     private AudioSource backgroundAudioSource;

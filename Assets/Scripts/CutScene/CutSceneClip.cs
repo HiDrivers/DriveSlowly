@@ -9,4 +9,5 @@ public class CutSceneClip
     public string speaker;
     public string text;
     public string animationName = "";
+    public AudioClip audioClip; // 오디오 클립 추가
 }
