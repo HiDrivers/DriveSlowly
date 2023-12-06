@@ -19,7 +19,8 @@ MonoBehaviour:
     animationName: EndingDialogue1_1
     audioClip: {fileID: 0}
   - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
-    text: "\uC5B4\uC11C\uC640 \uC800\uC2B9\uC740 \uCC98\uC74C\uC774\uC9C0? I am \uD310\uC0AC\uC608\uC694 "
+    text: "\uC5B4\uC11C\uC640 \uC800\uC2B9\uC740 \uCC98\uC74C\uC774\uC9C0?\nI am
+      \uD310\uC0AC\uC608\uC694 "
     animationName: EndingDialogue1_2
     audioClip: {fileID: 0}
   - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
