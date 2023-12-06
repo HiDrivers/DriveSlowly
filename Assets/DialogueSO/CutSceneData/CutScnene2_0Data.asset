@@ -13,6 +13,10 @@ MonoBehaviour:
   m_Name: CutScnene2_0Data
   m_EditorClassIdentifier: 
   cutSceneClips:
+  - speaker: "(\uC5C5\uBB34\uC911)"
+    text: "\uC5F4\uC2EC\uD788 \uBC1C\uD45C \uC900\uBE44 \uC644\uB8CC\uC911..."
+    animationName: Dialogue2_0_9
+    audioClip: {fileID: 0}
   - speaker: "\uC655\uACE4\uB300 \uBD80\uC7A5"
     text: "\uCC9C\uCC9C\uD76C\uC528 \uC810\uC2EC \uC2DD\uC0AC \uD6C4\uC5D0  '\uC798\uB098\uAC00'\uD68C\uC0AC\uC5D0\uC11C
       \uD558\uB294 \uBBF8\uD305 \uC78A\uC740 \uAC74 \uC544\uB2C8\uACA0\uC9C0?"
