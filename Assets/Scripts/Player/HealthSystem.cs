@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthSystem : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class HealthSystem : MonoBehaviour
 
     public GameObject carPrefab;
     [HideInInspector] public GameObject _car;
+
+    [SerializeField] public GameObject damageIndicator;
+    public Image damagedPanel;
+    [SerializeField] private float damageBlinkInterval = 1f;
 
     public float curHp;
     public float maxHp;
@@ -35,5 +40,19 @@ public class HealthSystem : MonoBehaviour
     internal void UpdateCurHp()
     {
         curHp -= Time.deltaTime;
+    }
+
+    public IEnumerator GetDamageIndicate()
+    {
+        float startAlpha = 0.2f;
+        float a = startAlpha;
+
+        while (a > 0f)
+        {
+            a -= (startAlpha / damageBlinkInterval) * Time.deltaTime;
+            damagedPanel.color = new Color(0.8f, 0f, 0f, a);
+            if (a < 0.03f) a = startAlpha;
+            yield return null;
+        }
     }
 }

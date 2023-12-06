@@ -7,15 +7,14 @@ using UnityEngine.UI;
 public class PlayerCollisionDetector : MonoBehaviour
 {
     private HealthSystem playerHealth;
-    [SerializeField] private GameObject damagedIndicator;
-    private Image damagedPanel;
-
-    [SerializeField] private float damageBlinkInterval = 1f;
+    private GameObject _damagedIndicator;
+    private Image _damagedPanel;
 
     private void Start()
     {
         playerHealth = GetComponentInParent<HealthSystem>();
-        //damagedPanel = damagedIndicator.GetComponent<Image>();
+        _damagedIndicator = playerHealth.damageIndicator;
+        _damagedPanel = playerHealth.damagedPanel;
     }
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -23,23 +22,16 @@ public class PlayerCollisionDetector : MonoBehaviour
         {
             playerHealth.UpdateCurHp();
 
-            //StartCoroutine(GetDamageIndicate());
+            _damagedPanel.enabled = true;
+            StartCoroutine(playerHealth.GetDamageIndicate());
         }
     }
-
-    //IEnumerator GetDamageIndicate()
-    //{
-    //    float startAlpha = 0.5f;
-    //    float a = startAlpha;
-    //    damagedPanel.enabled = true;
-
-    //    while (a > 0f)
-    //    {
-    //        a -= (startAlpha / damageBlinkInterval) * Time.deltaTime;
-    //        damagedPanel.color = new Color(0.8f, 0f, 0f, a);
-    //        yield return null;
-    //    }
-
-    //    damagedPanel.enabled = false;
-    //}
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (_damagedIndicator.activeSelf == true)
+        {
+            StopCoroutine(playerHealth.GetDamageIndicate());
+            _damagedPanel.enabled = false; 
+        }
+    }
 }

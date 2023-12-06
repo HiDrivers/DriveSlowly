@@ -38,6 +38,8 @@ public class StageManager : MonoBehaviour
     private PlayerData playerData;
     HealthSystem healthSystem;
 
+    [SerializeField] private GameObject damageIndicator;
+
     protected virtual void Awake()
     {
         gameManager = GameManager.Instance;
@@ -49,6 +51,7 @@ public class StageManager : MonoBehaviour
     protected virtual void Start()
     {
         currentTime = 0;
+        damageIndicator.SetActive(true);
     }
 
     protected virtual void Update()
@@ -95,6 +98,7 @@ public class StageManager : MonoBehaviour
         {
             UIManager.Instance.ShowUI<UIBase>("GameClearUi", UIRoot);
             isClearOn = true;
+            damageIndicator.SetActive(false);
         }
     }
 }
