@@ -47,7 +47,7 @@ public class StageManager : MonoBehaviour
     protected virtual void Start()
     {
         currentTime = 0;
-        gold.text = $"{gameManager.gold} G";
+        gold.text = string.Format("{0:000}G", gameManager.gold).ToString();
     }
 
     protected virtual void Update()
@@ -65,7 +65,7 @@ public class StageManager : MonoBehaviour
 
             progress.value = (float) currentTime / clearTime;
             durability.value = healthSystem.curHp / healthSystem.maxHp;
-            gold.text = $"{gameManager.gold} G";
+            gold.text = string.Format("{0:000}G", gameManager.gold).ToString();
             if (currentTime >= clearTime)
             {
                 gameClear = true;
