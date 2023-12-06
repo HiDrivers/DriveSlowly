@@ -45,18 +45,18 @@ MonoBehaviour:
     text: "\uC6B4\uC804 \uC911 \uC6B4\uC804\uC5D0 \uC9D1\uC911\uD558\uC9C0 \uC54A\uACE0 
       \uC2A4\uB9C8\uD2B8\uD3F0\uC744 \uD655\uC778\uD558\uC5EC \uBCF8\uC778\uACFC
       \uD0C0\uC778\uC758 \uC0DD\uBA85\uC5D0 \uC704\uD611\uD55C \uC8C4\uB85C"
-    animationName: EndingDialogue1_6_1
+    animationName: Judge_SmartPhone
     audioClip: {fileID: 0}
   - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
     text: "\uB300\uC911\uAD50\uD1B5\uC744 \uD0C8 \uB54C \uB9C8\uB2E4 \uC774\uC5B4\uD3F0\uC744
       \uB193\uACE0 \uC624\uAC70\uB098  \uC2A4\uB9C8\uD2B8\uD3F0 \uBC30\uD130\uB9AC\uAC00
       10%\uC778 \uD615\uBC8C\uC744 \uC120\uACE0\uD569\uB2C8\uB2E4."
-    animationName: EndingDialogue1_7
+    animationName: Judge_Battery
     audioClip: {fileID: 0}
   - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
     text: "\uD53C\uACE0 \uC55E\uC73C\uB85C \uC6B4\uC804 \uD560 \uB54C\uB294 \uC6B4\uC804\uC5D0\uB9CC
       \uC9D1\uC911\uD558\uB3C4\uB85D \uD558\uC138\uC694! "
-    animationName: EndingDialogue1_8
+    animationName: Judge_NoPhonePlease
     audioClip: {fileID: 0}
   - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
     text: "\uB2E4\uC2DC \uD55C \uBC88 \uC7AC\uD310 \uACB0\uACFC\uB97C \uC120\uACE0
