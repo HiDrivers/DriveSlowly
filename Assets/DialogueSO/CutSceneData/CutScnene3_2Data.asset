@@ -17,32 +17,32 @@ MonoBehaviour:
     text: "\uC557 \uC800\uB294 \uC6B4\uC804\uC744 \uD574\uC57C \uD574\uC11C \uC220\uC740
       \uB9C8\uC2DC\uC9C0 \uC54A\uACA0\uC2B5\uB2C8\uB2E4. "
     animationName: Dialogue3_2_1
-    audioClip: {fileID: 8300000, guid: e04a9209969f468499258866d47d9bea, type: 3}
+    audioClip: {fileID: 0}
   - speaker: "\uCC9C\uCC9C\uD76C"
     text: "\uB300\uC2E0 \uC624\uB298\uC740 \uBD80\uC7A5\uB2D8\uAED8\uC11C \uCC28\uB97C
       \uC548 \uAC00\uC9C0\uACE0 \uC624\uC168\uC73C\uB2C8 \n\uC81C\uAC00 \uB301\uAE4C\uC9C0
       \uBAA8\uC154\uB2E4 \uB4DC\uB9AC\uACA0\uC2B5\uB2C8\uB2E4."
     animationName: Dialogue3_2_2
-    audioClip: {fileID: 8300000, guid: e04a9209969f468499258866d47d9bea, type: 3}
+    audioClip: {fileID: 0}
   - speaker: "\uC655\uACE4\uB300\uBD80\uC7A5"
     text: "\uC74C .. \uC790\uB124\uB97C \uC704\uD55C \uC790\uB9B0\uB370 \uC544\uC27D\uAD70\u2026\n\uADF8\uB798
       \uC544\uBB34\uB9AC \uC220\uC774 \uC88B\uC544\uB3C4 \uC74C\uC8FC \uC6B4\uC804\uC740
       \uC548\uB420 \uC77C\uC774\uC9C0"
     animationName: Dialogue3_2_3
-    audioClip: {fileID: 8300000, guid: e04a9209969f468499258866d47d9bea, type: 3}
+    audioClip: {fileID: 0}
   - speaker: "\uC655\uACE4\uB300\uBD80\uC7A5"
     text: "\uCC9C\uD76C\uC528 \uBE7C\uACE0 \uC6B0\uB9AC\uB07C\uB9AC \uB9C8\uC2DC\uC790\uACE0 "
     animationName: Dialogue3_2_4
-    audioClip: {fileID: 8300000, guid: e04a9209969f468499258866d47d9bea, type: 3}
+    audioClip: {fileID: 0}
   - speaker: "(1\uC2DC\uAC04 \uB4A4)"
     text: ......
     animationName: Dialogue3_1_7
-    audioClip: {fileID: 8300000, guid: e04a9209969f468499258866d47d9bea, type: 3}
+    audioClip: {fileID: 0}
   - speaker: "\uC655\uACE4\uB300 \uBD80\uC7A5"
     text: "\uC624\uB298 \uC220\uC744 \uB108\uBB34 \uB9CE\uC774 \uB9C8\uC168\uAD6C\uB9CC~
       \uCC9C\uD76C\uC528 \uC6B0\uB9B0 \uC774\uB9CC \uB4E4\uC5B4\uAC00\uC9C0 "
     animationName: Dialogue3_2_6
-    audioClip: {fileID: 8300000, guid: e04a9209969f468499258866d47d9bea, type: 3}
+    audioClip: {fileID: 0}
   - speaker: "\uCC9C\uCC9C\uD76C"
     text: "\uBD80\uC7A5\uB2D8 \uC81C\uAC00 \uB301\uAE4C\uC9C0 \uC548!\uC804!\uD788
       \uBAA8\uC2DC\uACA0\uC2B5\uB2C8\uB2E4~"
