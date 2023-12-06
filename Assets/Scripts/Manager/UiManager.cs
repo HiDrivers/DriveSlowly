@@ -12,7 +12,7 @@ public class UIManager : Singleton<UIManager>
 
     public void LoadUIPrefabs()
     {
-        var objs = Resources.LoadAll<GameObject>("Prefabs/UI/");
+        var objs = Resources.LoadAll<GameObject>("Prefabs/UI");
         foreach (var obj in objs)
         {
             string uiName = obj.name;
@@ -22,7 +22,7 @@ public class UIManager : Singleton<UIManager>
 
     public T ShowUI<T>(string uiName, Transform parent) where T : UIBase
     {
-        if (uiPrefabs.ContainsKey(uiName))
+        if (uiPrefabs.TryGetValue(uiName, out GameObject prefab))
         {
             T existingUI = parent.GetComponentInChildren<T>();
             if (existingUI != null)
@@ -31,7 +31,7 @@ public class UIManager : Singleton<UIManager>
             }
             else
             {
-                GameObject uiGameObject = Instantiate(uiPrefabs[uiName], parent, false);
+                GameObject uiGameObject = Instantiate(prefab, parent, false);
                 T uiComponent = uiGameObject.GetComponent<T>();
 
                 if (uiComponent != null)

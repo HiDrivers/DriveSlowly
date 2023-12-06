@@ -31,9 +31,5 @@ public class Coffee : Items
         Destroy(this.gameObject);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        // 다른 물체와의 충돌 시 효과음을 다시 재생합니다.
-        soundManager.PlayItemSound("Coffee");
-    }
+   
 }

@@ -12,6 +12,11 @@ public class SceneLoader : MonoBehaviour
         SceneManager.LoadScene("LobbyScene");
     }
 
+    public void CutScene2_0Load()
+    {
+        SceneManager.LoadScene("CutScene2_0");
+    }
+
     public void CutScene2_1Load()
     {
         SceneManager.LoadScene("CutScene2_1");
@@ -20,6 +25,11 @@ public class SceneLoader : MonoBehaviour
     public void CutScene2_2Load()
     {
         SceneManager.LoadScene("CutScene2_2");
+    }
+
+    public void CutScene3_0Load()
+    {
+        SceneManager.LoadScene("CutScene3_0");
     }
 
     public void CutScene3_1Load()

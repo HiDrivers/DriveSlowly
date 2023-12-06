@@ -30,9 +30,6 @@ public class SmartPhone : Items
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        soundManager.PlayItemSound("smartphone");
-    }
+   
 }
 

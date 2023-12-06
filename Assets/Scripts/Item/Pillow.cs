@@ -31,9 +31,6 @@ public class Pillow : Items
         Destroy(gameObject);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        soundManager.PlayItemSound("Pillow");
-    }
+    
 }
 

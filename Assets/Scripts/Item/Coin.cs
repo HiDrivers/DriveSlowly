@@ -30,9 +30,6 @@ public class Coin : Items
         Invoke("DestroyThis", 0.3f);
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        soundManager.PlayItemSound("Coin");
-    }
+   
 }
 
