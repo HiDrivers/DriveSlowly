@@ -37,27 +37,27 @@ MonoBehaviour:
     animationName: EndingDialogue1_5
     audioClip: {fileID: 0}
   - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
-    text: "\uD53C\uACE0 \uCC9C\uCC9C\uD76C\uB294 \uC548\uC804 \uC6B4\uC804 \uD560
-      \uAE30\uD68C\uAC00 \uB9CE\uC558\uC74C\uC5D0\uB3C4 \uBD88\uAD6C\uD558\uACE0, "
-    animationName: EndingDialogue1_6
+    text: "\uD53C\uACE0 \uCC9C\uCC9C\uD76C\uB294 \uC644\uBCBD\uD55C \uC6B4\uC804
+      \uC2E4\uB825\uC73C\uB85C  \uB2E8 \uD55C\uAC74\uC5D0 \uC0AC\uACE0\uB3C4 \uB0B4\uC9C0
+      \uC54A\uC558\uC73C\uB098"
+    animationName: Judge_BestDriver
     audioClip: {fileID: 0}
   - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
-    text: "\uAE08\uCABD\uC774 \uAC19\uC740 \uCD5C\uC545\uC758 \uC120\uD0DD\uB9CC
-      \uACE8\uB77C \uC6B4\uC804\uC744 \uD588\uAE30\uC5D0 "
-    animationName: EndingDialogue1_6_1
+    text: "\uBD88\uBC95\uC801\uC774\uACE0 \uC798\uBABB\uB41C \uC6B4\uC804\uBC29\uC2DD\uB9CC\uC744
+      \uACE0\uC9D1\uD574 \uC6B4\uC804\uC744 \uD55C \uC8C4\uB85C"
+    animationName: Judge_BadDriver
     audioClip: {fileID: 0}
   - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
-    text: "\uB2E4\uC2DC\uB294 \uC6B4\uC804\uC744 \uD560 \uC218 \uC5C6\uAC8C \uD558\uB294
-      BMW \uC9C0\uC625\uD615\uC744 \uC120\uACE0 \uD55C\uB2E4."
-    animationName: EndingDialogue1_7
+    text: "\uD3C9\uC0DD \uB208 \uC55E\uC5D0\uC11C \uBAA8\uB4E0 \uC2E0\uD638\uB4F1\uC774
+      \uBE68\uAC04\uBD88\uB85C \uBC14\uB00C\uB294  \uBD88\uBE68\uAC04 \uC0AC\uCD98\uAE30
+      .. \uC544\uB2C8 \uBD88 \uBE68\uAC04 \uC2E0\uD638\uB4F1 \uC9C0\uC625\uD615\uC744
+      \uC120\uACE0 \uD569\uB2C8\uB2E4"
+    animationName: Judge_TrafficLight
     audioClip: {fileID: 0}
   - speaker: "\uCC9C\uCC9C\uD76C"
-    text: "\uC640 BMW? \uC9C0\uC625\uC774 \uC544\uB2C8\uB77C \uAC1C\uAFC0 \uC544\uB2CC\uAC00\uC694?"
-    animationName: EndingDialogue1_8
-    audioClip: {fileID: 0}
-  - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
-    text: "\uBB54\uC18C\uB9AC\uC5EC Bus, Metro, Walk ;;"
-    animationName: EndingDialogue1_9
+    text: "\uC774\uB7F4\uC218\uAC00... \uADF8\uB798\uB3C4 \uB0B4 \uC6B4\uC804 \uD3FC
+      \uBBF8\uCCE4\uB2E4\uC774~ "
+    animationName: Chen_Sad
     audioClip: {fileID: 0}
   - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
     text: "\uB2E4\uC2DC \uD55C \uBC88 \uC7AC\uD310 \uACB0\uACFC\uB97C \uC120\uACE0
