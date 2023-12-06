@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba4c0215993242638f7b1a327cced02, type: 3}
+  m_Name: EndingScene4
+  m_EditorClassIdentifier: 
+  cutSceneClips:
+  - speaker: "\uCC9C\uCC9C\uD76C"
+    text: "\uC5EC\uAE30\uAC00 \uC5B4\uB514\uC9C0 \uAFC8\uC778\uAC00? \n\uC815..\uC815\uC9C1\uC6D0\uC740
+      \uC5B4\uB5BB\uAC8C \uB410\uC9C0? "
+    animationName: EndingDialogue1_1
+    audioClip: {fileID: 0}
+  - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
+    text: "\uC5B4\uC11C\uC640 \uC800\uC2B9\uC740 \uCC98\uC74C\uC774\uC9C0?\nI am
+      \uD310\uC0AC\uC608\uC694 "
+    animationName: EndingDialogue1_2
+    audioClip: {fileID: 0}
+  - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
+    text: "\uBCF8 \uC7AC\uD310\uC7A5 \uC774\uC81C\uBD80\uD130 \uD53C\uACE0 \uCC9C\uCC9C\uD76C\uC758
+      \uC6B4\uC804\uC5D0 \uB300\uD55C \uC7AC\uD310\uC744 \uC2DC\uC791\uD558\uACA0\uC5B4\uC6A9~"
+    animationName: EndingDialogue1_3
+    audioClip: {fileID: 0}
+  - speaker: "\uCC9C\uCC9C\uD76C"
+    text: "\uC800 \uAFC8\uC774\uBA74 \uBCF5\uAD8C \uBC88\uD638 \uC880 ..."
+    animationName: EndingDialogue1_4
+    audioClip: {fileID: 0}
+  - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
+    text: "\uC870\uC6A9\uD788 \uD558\uC138\uC694 !"
+    animationName: EndingDialogue1_5
+    audioClip: {fileID: 0}
+  - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
+    text: "\uD53C\uACE0 \uCC9C\uCC9C\uD76C\uB294 \uC81C\uD55C\uB41C \uC18D\uB3C4\uB97C
+      \uBB34\uC2DC\uD558\uACE0  \uC774\uAE30\uC801\uC774\uACE0 \uC704\uD611\uC801\uC73C\uB85C
+      \uC6B4\uC804\uD55C \uC8C4\uB85C"
+    animationName: EndingDialogue4_6
+    audioClip: {fileID: 0}
+  - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
+    text: "\uD3C9\uC0DD \uC5B4\uBCF4\uAD6C\uC5D0\uC11C \uAD50\uD1B5\uC548\uC804\uC744
+      \uC704\uD574 \uBD09\uC0AC\uD558\uB294 \uBD09\uC0AC\uD615\uC744 \uC120\uACE0\uD569\uB2C8\uB2E4 "
+    animationName: EndingDialogue4_7
+    audioClip: {fileID: 0}
+  - speaker: "\uCC9C\uCC9C\uD76C"
+    text: "\uC7AC\uD310\uC7A5\uB2D8 \uD558\uC9C0\uB9CC \uBE68\uB790\uC8E0?\n\uADFC\uB370
+      \uC5B4\uBCF4\uAD6C\uAC00 \uBB54\uAC00\uC694? "
+    animationName: EndingDialogue4_8
+    audioClip: {fileID: 0}
+  - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
+    text: "\uD53C\uACE0 \uBC18\uC131\uD558\uC138\uC694 \uADF8\uB9AC\uACE0 \uAE30\uC5B5\uD558\uC138\uC694 
+      \n\uC5B4\uBCF4\uAD6C\uB294 \uC5B4\uB9B0\uC774 \uBCF4\uD638 \uAD6C\uC5ED\uC785\uB2C8\uB2E4."
+    animationName: EndingDialogue4_9
+    audioClip: {fileID: 0}
+  - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
+    text: "\uB2E4\uC2DC \uD55C \uBC88 \uC7AC\uD310 \uACB0\uACFC\uB97C \uC120\uACE0
+      \uD558\uACA0\uC2B5\uB2C8\uB2E4. \uD53C\uACE0 \uCC9C\uCC9C\uD76C \uC720\uC8C4! 
+      \n\uC774\uC0C1\uC73C\uB85C \uC7AC\uD310\uC740 \uB9C8\uCE58\uACA0\uC2B5\uB2C8\uB2E4. "
+    animationName: EndingDialogue1_10
+    audioClip: {fileID: 0}
+  - speaker: "\uCC9C\uCC9C\uD76C"
+    text: "\uC544...\uC548\uB3FC!!!!!!"
+    animationName: EndingDialogue1_11
+    audioClip: {fileID: 0}
