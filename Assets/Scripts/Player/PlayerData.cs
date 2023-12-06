@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class PlayerData : Singleton<PlayerData>
 {
     // 무엇이 필요할까?
-    public float gold;
+    public int gold;
     public GameObject carPrefab;
     // 엔딩 업적을 여기서 관리하는 건 어떨까?
     // 로비 씬에서부터 이 객체가 작동하게 한다.

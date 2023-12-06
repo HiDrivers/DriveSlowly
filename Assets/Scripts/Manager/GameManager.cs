@@ -21,9 +21,6 @@ public class GameManager : Singleton<GameManager>
     public int currentSojuCleanerCount = 0;
     public float totalDurabilityDamage = 0;
             
-    // 捣 包府
-    public int gold = 100;
-
     // 抄气款傈 包府 (1胶抛捞瘤)
     [Header("Stage 1 Reckless Drive")]
     public bool isBoost = false;
@@ -46,7 +43,7 @@ public class GameManager : Singleton<GameManager>
     public bool drunkMode = false;
     public bool isDrunk = false;
     public float drunkTimer = 0;
-
+    
     private void Start()
     {
         if (!PlayerPrefs.HasKey("IsFirst"))
