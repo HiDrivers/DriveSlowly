@@ -43,7 +43,7 @@ MonoBehaviour:
       \uBA39\uACE0 \uC26C\uAE38 \uC798\uD588\uC5B4  \n\uBC25 \uBA39\uACE0 \uBC14\uB85C
       \uC878\uC74C\uC6B4\uC804\uC744 \uD560 \uC218\uB294 \uC5C6\uC9C0!"
     animationName: Dialogue2_2_6
-    audioClip: {fileID: 8300000, guid: 8f784de5648d7b0419695fd210510167, type: 3}
+    audioClip: {fileID: 0}
   - speaker: "\uCC9C\uCC9C\uD76C"
     text: "\uC774 \uCEE8\uB514\uC158\uC774\uBA74 \uBBF8\uD305\uC740 \uBB38\uC81C\uC5C6\uACA0\uB294\uB370?
       \n\uADF8\uB807\uB2E4\uBA74 \uC774\uBC88\uC5D4 \uB098\uB3C4 \uC815\uC9C1\uC6D0?
