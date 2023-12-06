@@ -28,8 +28,11 @@ public class CarSelectController : MonoBehaviour
     [SerializeField] private TextMeshProUGUI carDescriptionText;
     [SerializeField] private TextMeshProUGUI carPriceText;
 
+    private PlayerData playerData;
+
     private void Awake()
     {
+        playerData = PlayerData.Instance;
         selectedCarImage = selectedCar.GetComponent<Image>();
 
         _buy = buyButton.GetComponent<Button>();
@@ -58,7 +61,7 @@ public class CarSelectController : MonoBehaviour
 
     private void UpdateCurrentGold()
     {
-        goldText.text = string.Format("소지금\n{0:0} G", GameManager.Instance.gold);
+        goldText.text = string.Format("소지금\n{0:0} G", playerData.gold);
     }
 
     public void SelectSlot(int index)
@@ -95,7 +98,7 @@ public class CarSelectController : MonoBehaviour
 
     private void CheckCarUsability()
     {
-        bool canBuy = GameManager.Instance.gold >= selectedSlot.price;
+        bool canBuy = playerData.gold >= selectedSlot.price;
         bool bought = !selectedSlot.car_UnusableIcon.activeSelf;
 
         if (bought)
@@ -117,7 +120,7 @@ public class CarSelectController : MonoBehaviour
 
     public void BuyCar() // Buy버튼
     {
-        GameManager.Instance.gold -= selectedSlot.price; // PlayerData.Gold 차감
+        playerData.gold -= selectedSlot.price; // PlayerData.Gold 차감
         selectedSlot.car_UnusableIcon.SetActive(false);
 
         UpdateCurrentGold();
@@ -127,7 +130,7 @@ public class CarSelectController : MonoBehaviour
     public void ConfirmCar() // Confirm버튼
     {
         selectedCarImage.sprite = selectedSlot.carImage.sprite;
-        PlayerData.Instance.carPrefab = carPrefabs[selectedSlot.slotIndex];
+        playerData.carPrefab = carPrefabs[selectedSlot.slotIndex];
         // SelectCarPopup UI 창 닫기(UI메니저 스크립트에 있나?)
         // gameObject.SetActive(false);
     }

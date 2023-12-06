@@ -9,8 +9,11 @@ public class CutSceneSOManager : MonoBehaviour
     public int currentChapter;
     // Start is called before the first frame update
     private GameManager gameManager;
+    private PlayerData playerData;
     private void Awake()
     {
+        playerData = PlayerData.Instance;
+
         if(GameManager.Instance != null)
         {
             gameManager = GameManager.Instance;
@@ -23,8 +26,8 @@ public class CutSceneSOManager : MonoBehaviour
                 else
                 {
                     gameObject.GetComponent<TalkManager>().cutScneneSO = GoodDrive;
-                    gameManager.gold -= (3 - gameManager.currentBoosterCount) * 2;
-                    gameManager.gold = Mathf.Max(0, gameManager.gold);
+                    playerData.gold -= (3 - gameManager.currentBoosterCount) * 2;
+                    playerData.gold = Mathf.Max(0, playerData.gold);
                     gameManager.currentGoldCount -= (3 - gameManager.currentBoosterCount) * 2;
                     gameManager.currentGoldCount = Mathf.Max(0, gameManager.currentGoldCount);
                 }
@@ -38,7 +41,7 @@ public class CutSceneSOManager : MonoBehaviour
                 else
                 {
                     gameObject.GetComponent<TalkManager>().cutScneneSO = GoodDrive;
-                    gameManager.gold += 5;
+                    playerData.gold += 5;
                     gameManager.currentGoldCount += 5;
                 }
             }

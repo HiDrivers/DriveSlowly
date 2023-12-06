@@ -6,17 +6,19 @@ public class Coin : Items
 {
     private SoundManager soundManager; // SoundManager의 참조
     private GameManager gameManager;
+    private PlayerData playerData;
 
     private void Start()
     {
         soundManager = SoundManager.Instance;
         gameManager = GameManager.Instance;
+        playerData = PlayerData.Instance;
     }
 
     public override void ItemEffect(GameObject player)
     {
         // 아이템 효과
-        gameManager.gold += 10;
+        playerData.gold += 10;
 
         // 데이터 저장
         gameManager.currentGoldCount += 10;

@@ -35,11 +35,13 @@ public class StageManager : MonoBehaviour
     protected float multiplier = 1.0f;
 
     protected GameManager gameManager;
+    private PlayerData playerData;
     HealthSystem healthSystem;
 
     protected virtual void Awake()
     {
         gameManager = GameManager.Instance;
+        playerData = PlayerData.Instance;
         healthSystem = player.GetComponent<HealthSystem>();
         spawnPoint = obstacleManager.GetComponent<ObstacleGenerateManager>().obstacleGenPositions;
     }
@@ -47,7 +49,6 @@ public class StageManager : MonoBehaviour
     protected virtual void Start()
     {
         currentTime = 0;
-        gold.text = $"{gameManager.gold} G";
     }
 
     protected virtual void Update()
@@ -63,9 +64,23 @@ public class StageManager : MonoBehaviour
                 currentTime += Time.deltaTime * 2;
             }
 
-            progress.value = (float) currentTime / clearTime;
+            progress.value = (float)currentTime / clearTime;
             durability.value = healthSystem.curHp / healthSystem.maxHp;
-            gold.text = $"{gameManager.gold} G";
+
+            gold.text = string.Format("{0:000}G", playerData.gold).ToString();
+            if (playerData.gold > 9999)
+            {
+                gold.fontSize = 35;
+            }
+            else if (playerData.gold > 999)
+            {
+                gold.fontSize = 40;
+            }
+            else
+            {
+                gold.fontSize = 50;
+            }
+
             if (currentTime >= clearTime)
             {
                 gameClear = true;
