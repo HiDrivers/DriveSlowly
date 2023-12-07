@@ -20,6 +20,8 @@ public class GameManager : Singleton<GameManager>
     public int currentSojuCount = 0;
     public int currentSojuCleanerCount = 0;
     public float totalDurabilityDamage = 0;
+
+    public int endingSceneNum = 1;
             
     // 난폭운전 관리 (1스테이지)
     [Header("Stage 1 Reckless Drive")]
@@ -192,11 +194,29 @@ public class GameManager : Singleton<GameManager>
                 break;
 
             case "Stage3Scene":
+                CheckEnding();
+                SceneManager.LoadScene("EndingScene0");
                 PlayerPrefs.SetInt("IsFirst", 1);
-                Debug.Log("EndingScene Activated");
-                SceneManager.LoadScene("EndingScene");
                 break;
-
+            case "EndingScene0":
+                if (endingSceneNum < 5)
+                {
+                    SceneManager.LoadScene("EndingScene1");
+                    break;
+                }
+                else
+                {
+                    SceneManager.LoadScene("EndingScene2");
+                    break;
+                }
+            case "EndingScene1":
+                UIRoot = GameObject.Find("UIRoot").transform;
+                UIManager.Instance.ShowUI<UIBase>("GameEndUI", UIRoot);
+                break;
+            case "EndingScene2":
+                UIRoot = GameObject.Find("UIRoot").transform;
+                UIManager.Instance.ShowUI<UIBase>("GameEndUI", UIRoot);
+                break;
         }
     }
 
@@ -207,54 +227,58 @@ public class GameManager : Singleton<GameManager>
         if (drunkMode && sleepMode && currentBoosterCount > 0 && totalDurabilityDamage == 0)
         {
             // EndingManager.Instance.endingPanels[0].blindObject.SetActive(false); CheckEnding이 작동함에 따라 엔딩이 해금될 겁니다.
+            endingSceneNum = 5;
         }
         // 악질 엔딩
         else if (drunkMode && sleepMode && currentBoosterCount > 0)
         {
-
+            endingSceneNum = 1;
         }
         // 졸음 운전 엔딩
         else if(sleepMode && !drunkMode && currentBoosterCount == 0)
         {
-
+            endingSceneNum = 2;
         }
         // 음주 운전 엔딩
         else if(!sleepMode && drunkMode && currentBoosterCount == 0)
         {
-
+            endingSceneNum = 3;
         }
         // 난폭운전 엔딩
         else if(!drunkMode && !drunkMode && currentBoosterCount > 0)
         {
-
+            endingSceneNum = 4;
         }
-        // 배드 엔딩2
+        // 옳은 선택지 엔딩
         else if (!drunkMode && !drunkMode && currentBoosterCount == 0)
         {
             // 바보 엔딩
             if (currentSojuCount > 0 && currentPillowCount > 0 && currentSmartPhoneCount > 0)
             {
-
+                endingSceneNum = 6;
             }
 
             // 스마트폰 엔딩
             else if (currentSmartPhoneCount > 0 && currentSojuCount == 0 && currentPillowCount == 0)
             {
-
+                endingSceneNum = 7;
             }
             // 스페셜 엔딩
             else if (totalItemCount == 0)
             {
-                // 헤지 펀드
-                if (currentGoldCount > 200)
-                {
+                endingSceneNum = 9;
+            }
+        }
+        else
+        {
+            if (currentGoldCount >= 200)
+            {
+                endingSceneNum = 8;
+            }
 
-                }
-                // 진엔딩 초입
-                else
-                {
-
-                }
+            else
+            {
+                endingSceneNum = 1;
             }
         }
     }
