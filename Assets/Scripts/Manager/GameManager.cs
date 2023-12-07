@@ -196,8 +196,9 @@ public class GameManager : Singleton<GameManager>
 
             case "Stage3Scene":
                 CheckEnding();
-                SceneManager.LoadScene("EndingScene0");
                 PlayerPrefs.SetInt("IsFirst", 1);
+                PlayerPrefs.SetInt($"Ending{endingSceneNum}", 1);
+                SceneManager.LoadScene("EndingScene0");
                 break;
             case "EndingScene0":
                 if (endingSceneNum < 5)

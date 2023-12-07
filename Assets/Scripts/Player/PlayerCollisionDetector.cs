@@ -28,10 +28,13 @@ public class PlayerCollisionDetector : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (_damagedIndicator.activeSelf == true)
+        if (_damagedIndicator != null)
         {
-            StopCoroutine(playerHealth.GetDamageIndicate());
-            _damagedPanel.enabled = false; 
+            if (_damagedIndicator.activeSelf == true)
+            {
+                StopCoroutine(playerHealth.GetDamageIndicate());
+                _damagedPanel.enabled = false;
+            }
         }
     }
 }
