@@ -70,7 +70,7 @@ public class StageManager : MonoBehaviour
             progress.value = (float)currentTime / clearTime;
             durability.value = healthSystem.curHp / healthSystem.maxHp;
 
-            gold.text = string.Format("{0:000}G", playerData.gold).ToString();
+            gold.text = $"{playerData.gold}G";
             if (playerData.gold > 9999)
             {
                 gold.fontSize = 35;
