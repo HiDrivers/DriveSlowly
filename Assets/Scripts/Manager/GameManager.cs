@@ -52,6 +52,7 @@ public class GameManager : Singleton<GameManager>
         {
             PlayerPrefs.SetInt("IsFirst", 0);
         }
+        PlayerPrefs.SetInt("CarSlot0", 1);
     }
 
     private void DataInitialize()

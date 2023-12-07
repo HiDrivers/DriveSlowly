@@ -1724,6 +1724,42 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2585291040737960553, guid: 8dd8cc0441365444da27600ad483eeab, type: 3}
+      propertyPath: cars.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585291040737960553, guid: 8dd8cc0441365444da27600ad483eeab, type: 3}
+      propertyPath: cars.Array.data[0]
+      value: 
+      objectReference: {fileID: 2897984505001321067, guid: 7c01723318cda924cb5f8260769a5954, type: 3}
+    - target: {fileID: 2585291040737960553, guid: 8dd8cc0441365444da27600ad483eeab, type: 3}
+      propertyPath: cars.Array.data[1]
+      value: 
+      objectReference: {fileID: 2897984505001321067, guid: f15b7f1108b923a4295d827f32b85f7b, type: 3}
+    - target: {fileID: 2585291040737960553, guid: 8dd8cc0441365444da27600ad483eeab, type: 3}
+      propertyPath: cars.Array.data[2]
+      value: 
+      objectReference: {fileID: 2897984505001321067, guid: ba75df52a17cd984a8e420ce7e81e239, type: 3}
+    - target: {fileID: 2585291040737960553, guid: 8dd8cc0441365444da27600ad483eeab, type: 3}
+      propertyPath: cars.Array.data[3]
+      value: 
+      objectReference: {fileID: 2897984505001321067, guid: aae45979a18f39e47a5ed9354f4192d9, type: 3}
+    - target: {fileID: 2585291040737960553, guid: 8dd8cc0441365444da27600ad483eeab, type: 3}
+      propertyPath: cars.Array.data[4]
+      value: 
+      objectReference: {fileID: 2897984505001321067, guid: 614e3468d6407f441892747db940e430, type: 3}
+    - target: {fileID: 2585291040737960553, guid: 8dd8cc0441365444da27600ad483eeab, type: 3}
+      propertyPath: cars.Array.data[5]
+      value: 
+      objectReference: {fileID: 2897984505001321067, guid: e0d94a69a41da8343bde4fa950d87a34, type: 3}
+    - target: {fileID: 2585291040737960553, guid: 8dd8cc0441365444da27600ad483eeab, type: 3}
+      propertyPath: cars.Array.data[6]
+      value: 
+      objectReference: {fileID: 2897984505001321067, guid: 0cb6996b73e39b543beca6316c14d823, type: 3}
+    - target: {fileID: 2585291040737960553, guid: 8dd8cc0441365444da27600ad483eeab, type: 3}
+      propertyPath: cars.Array.data[7]
+      value: 
+      objectReference: {fileID: 2897984505001321067, guid: 57b7a2efca44a32468a89ed8906ee425, type: 3}
     - target: {fileID: 7788097497537920610, guid: 8dd8cc0441365444da27600ad483eeab, type: 3}
       propertyPath: m_Name
       value: GameManager

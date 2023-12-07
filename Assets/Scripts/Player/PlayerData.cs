@@ -8,6 +8,8 @@ public class PlayerData : Singleton<PlayerData>
     // 무엇이 필요할까?
     public int gold;
     public GameObject carPrefab;
+
+    public List<GameObject> cars;
     // 엔딩 업적을 여기서 관리하는 건 어떨까?
     // 로비 씬에서부터 이 객체가 작동하게 한다.
     // 스테이지 씬이 시작하면 Player-CarSprite의 spriteRenderer.Sprite을 carSprite로 지정해야 한다. 이것도 아니다. 아래의 Player오브젝트 하위 Car_Image오브젝트를 다 만들어야 한다.
@@ -22,5 +24,19 @@ public class PlayerData : Singleton<PlayerData>
         {
             gold = 0;
         }
+        if (PlayerPrefs.HasKey("CurrentCarIndex"))
+        {
+            carPrefab = cars[PlayerPrefs.GetInt("CurrentCarIndex")];
+        }
+        else
+        {
+            carPrefab = cars[0];
+            PlayerPrefs.SetInt("CurrentCarIndex", 0);
+        }
+    }
+
+    public void goldDataSave()
+    {
+        PlayerPrefs.SetInt("Gold", gold);
     }
 }
