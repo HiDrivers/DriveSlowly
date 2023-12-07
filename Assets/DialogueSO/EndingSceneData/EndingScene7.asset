@@ -17,7 +17,7 @@ MonoBehaviour:
     text: "\uC5EC\uAE30\uAC00 \uC5B4\uB514\uC9C0 \uAFC8\uC778\uAC00? \n\uC815..\uC815\uC9C1\uC6D0\uC740
       \uC5B4\uB5BB\uAC8C \uB410\uC9C0? "
     animationName: EndingDialogue1_1
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 92d1e5dc662140a42a2b6b050aba899b, type: 3}
   - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
     text: "\uC5B4\uC11C\uC640 \uC800\uC2B9\uC740 \uCC98\uC74C\uC774\uC9C0?\nI am
       \uD310\uC0AC\uC608\uC694 "
@@ -27,7 +27,7 @@ MonoBehaviour:
     text: "\uBCF8 \uC7AC\uD310\uC7A5 \uC774\uC81C\uBD80\uD130 \uD53C\uACE0 \uCC9C\uCC9C\uD76C\uC758
       \uC6B4\uC804\uC5D0 \uB300\uD55C \uC7AC\uD310\uC744 \uC2DC\uC791\uD558\uACA0\uC5B4\uC6A9~"
     animationName: EndingDialogue1_3
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: dd08a9d8a420ca942991e7f3e80f9eeb, type: 3}
   - speaker: "\uCC9C\uCC9C\uD76C"
     text: "\uC800 \uAFC8\uC774\uBA74 \uBCF5\uAD8C \uBC88\uD638 \uC880 ..."
     animationName: EndingDialogue1_4
@@ -52,7 +52,7 @@ MonoBehaviour:
       \uB193\uACE0 \uC624\uAC70\uB098  \uC2A4\uB9C8\uD2B8\uD3F0 \uBC30\uD130\uB9AC\uAC00
       10%\uC778 \uD615\uBC8C\uC744 \uC120\uACE0\uD569\uB2C8\uB2E4."
     animationName: Judge_Battery
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 91f64267081ee2d499853eaff66b66ce, type: 3}
   - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
     text: "\uD53C\uACE0 \uC55E\uC73C\uB85C \uC6B4\uC804 \uD560 \uB54C\uB294 \uC6B4\uC804\uC5D0\uB9CC
       \uC9D1\uC911\uD558\uB3C4\uB85D \uD558\uC138\uC694! "
@@ -63,8 +63,8 @@ MonoBehaviour:
       \uD558\uACA0\uC2B5\uB2C8\uB2E4. \uD53C\uACE0 \uCC9C\uCC9C\uD76C \uC720\uC8C4! 
       \n\uC774\uC0C1\uC73C\uB85C \uC7AC\uD310\uC740 \uB9C8\uCE58\uACA0\uC2B5\uB2C8\uB2E4. "
     animationName: EndingDialogue1_10
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: dd08a9d8a420ca942991e7f3e80f9eeb, type: 3}
   - speaker: "\uCC9C\uCC9C\uD76C"
     text: "\uC544...\uC548\uB3FC!!!!!!"
     animationName: EndingDialogue1_11
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: bc9871ea73a25b44e9fa24b3b5af517a, type: 3}

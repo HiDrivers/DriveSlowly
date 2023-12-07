@@ -54,7 +54,7 @@ MonoBehaviour:
   - speaker: "\uCC9C\uCC9C\uD76C"
     text: "\uC640 BMW? \uC9C0\uC625\uC774 \uC544\uB2C8\uB77C \uAC1C\uAFC0 \uC544\uB2CC\uAC00\uC694?"
     animationName: EndingDialogue1_8
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 4d6c9335567aa1c408ce43f125f676ca, type: 3}
   - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
     text: "\uBB54\uC18C\uB9AC\uC5EC Bus, Metro, Walk ;;"
     animationName: EndingDialogue1_9
