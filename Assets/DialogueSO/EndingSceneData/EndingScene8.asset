@@ -17,7 +17,7 @@ MonoBehaviour:
     text: "\uC5EC\uAE30\uAC00 \uC5B4\uB514\uC9C0 \uAFC8\uC778\uAC00? \n\uC815..\uC815\uC9C1\uC6D0\uC740
       \uC5B4\uB5BB\uAC8C \uB410\uC9C0? "
     animationName: EndingDialogue1_1
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 92d1e5dc662140a42a2b6b050aba899b, type: 3}
   - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
     text: "\uC5B4\uC11C\uC640 \uC800\uC2B9\uC740 \uCC98\uC74C\uC774\uC9C0?\nI am
       \uD310\uC0AC\uC608\uC694 "
@@ -27,7 +27,7 @@ MonoBehaviour:
     text: "\uBCF8 \uC7AC\uD310\uC7A5 \uC774\uC81C\uBD80\uD130 \uD53C\uACE0 \uCC9C\uCC9C\uD76C\uC758
       \uC6B4\uC804\uC5D0 \uB300\uD55C \uC7AC\uD310\uC744 \uC2DC\uC791\uD558\uACA0\uC5B4\uC6A9~"
     animationName: EndingDialogue1_3
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: dd08a9d8a420ca942991e7f3e80f9eeb, type: 3}
   - speaker: "\uCC9C\uCC9C\uD76C"
     text: "\uC800 \uAFC8\uC774\uBA74 \uBCF5\uAD8C \uBC88\uD638 \uC880 ..."
     animationName: EndingDialogue1_4
@@ -46,7 +46,7 @@ MonoBehaviour:
     text: "\"\uC774\uC758 \uC788\uC74C!  200\uACE8\uB4DC \uC804\uBD80 \uC7AC\uD310\uC7A5\uB2D8
       \uBAAB\uC73C\uB85C \uB4DC\uB9B4\uD14C\uB2C8 \uC120\uCC98 \uBD80\uD0C1\uB4DC\uB9BD\uB2C8\uB2E4!\""
     animationName: Chen_TwoHundredGold
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: 8c6f1eec941e38c48b0dd8e752d69f1b, type: 3}
   - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
     text: "\uB098\uB97C \uBAA8\uC695\uD560 \uC148\uC778\uAC00 ! \uB098\uB97C \uB3C8\uC73C\uB85C
       \uC0AC\uB824\uACE0 \uD558\uB294 \uAC90\uAC00!"
@@ -63,4 +63,4 @@ MonoBehaviour:
       \uC774\uC0C1\uC73C\uB85C \uC7AC\uD310\uC740 \uB9C8\uCE58\uACA0\uC2B5\uB2C8\uB2E4.
       \""
     animationName: EndingDialogue1_10
-    audioClip: {fileID: 0}
+    audioClip: {fileID: 8300000, guid: dd08a9d8a420ca942991e7f3e80f9eeb, type: 3}
