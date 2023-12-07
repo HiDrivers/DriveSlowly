@@ -4,13 +4,35 @@ using UnityEngine;
 
 public class SojuCleaner : Items
 {
+    private SoundManager soundManager; // SoundManager의 참조
+    private GameManager gameManager;
+
+    private void Start()
+    {
+        soundManager = SoundManager.Instance;
+        gameManager = GameManager.Instance;
+    }
+
     public override void ItemEffect(GameObject player)
     {
-        GameManager.Instance.drunkTimer = 5.0f;
-        GameManager.Instance.isDrunk = false;
-        // 아이템 효과음 TO DO
+        gameManager.drunkTimer = 5.0f;
+        gameManager.isDrunk = false;
+
+        // 데이터 저장
+        gameManager.totalItemCount += 1;
+        gameManager.currentSojuCleanerCount += 1;
+
+        soundManager.PlayItemSound("SojuCleaner");
+
+        // 아이템의 다른 효과들...
         // 아이템 획득 애니메이션 TO DO
         // 플레이어 애니메이션 효과
-        Destroy(this.gameObject);
+        Destroy(gameObject);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        soundManager.PlayItemSound("SojuCleaner");
     }
 }
+

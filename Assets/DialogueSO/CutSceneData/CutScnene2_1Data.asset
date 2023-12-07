@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba4c0215993242638f7b1a327cced02, type: 3}
+  m_Name: CutScnene2_1Data
+  m_EditorClassIdentifier: 
+  cutSceneClips:
+  - speaker: "\uCC9C\uCC9C\uD76C"
+    text: "(\uC774\uC57C \uC774 \uC9D1 \uC81C\uC721 \uB9DB\uC9D1\uC774\uB124~ \uBC30\uBD80\uB974\uAC8C
+      \uC798 \uBA39\uC5C8\uB2E4)"
+    animationName: 
+  - speaker: "\uCC9C\uCC9C\uD76C"
+    text: "\uBD80\uC7A5\uB2D8 \uC800\uB294 \uC774\uC81C \uBBF8\uD305 \uB2E4\uB140\uC624\uACA0\uC2B5\uB2C8\uB2E4"
+    animationName: Dialogue2_1_1
+    audioClip: {fileID: 0}
+  - speaker: "\uC655\uACE4\uB300 \uBD80\uC7A5"
+    text: "\uADF8\uB798, \uCC9C\uD76C\uC528 \uC5BC\uB978 \uB2E4\uB140\uC624\uAC8C
+      \uC774\uBC88 \uBBF8\uD305 \uC790\uB124\uB9CC \uBBFF\uACA0\uB124! "
+    animationName: Dialogue2_1_2
+    audioClip: {fileID: 0}
+  - speaker: "\uC655\uACE4\uB300 \uBD80\uC7A5"
+    text: "\uC6B0\uB9AC\uB294 \uB2E4\uB4E4 \uCEE4\uD53C \uD55C\uC794 \uB9C8\uC2DC\uB7EC
+      \uAC00\uC790\uACE0 \uCEE4\uD53C\uB294 \uC5ED\uC2DC \uB77C\uB5BC\uC57C\u2026
+      \uB77C\uB5BC\uB294 \uB9D0\uC774\uC57C \u2026 "
+    animationName: Dialogue2_1_3
+    audioClip: {fileID: 0}
+  - speaker: "\uCC9C\uCC9C\uD76C"
+    text: "\uC544 \uBC25\uC744 \uBA39\uC5C8\uB354\uB2C8 \uB108\uBB34 \uB098\uB978\uD558\uB2E4.
+      \n\uB098\uB3C4 \uCEE4\uD53C \uD55C \uC794 \uB9C8\uC2DC\uBA74 \uC88B\uC744 \uD150\uB370
+      \uBC8C\uC368 \uC2DC\uAC04\uC774\u2026"
+    animationName: Dialogue2_1_4
+    audioClip: {fileID: 8300000, guid: 82e5d28678f901b408232462c53e8412, type: 3}
+  - speaker: "\uCC9C\uCC9C\uD76C"
+    text: "\uC544\uB0D0 \uC774\uB7F4 \uB54C\uAC00 \uC544\uB2C8\uC9C0  \n\uC774\uBC88
+      \uBBF8\uD305\uC5D0 \uB2A6\uC73C\uBA74 \uC815\uC9C1\uC6D0\uC758 \uAFC8\uC740
+      \uBB3C \uAC74\uB108 \uAC08\uC9C0\uB3C4 \uBAB0\uB77C "
+    animationName: Dialogue2_1_5
+    audioClip: {fileID: 0}
+  - speaker: "\uCC9C\uCC9C\uD76C"
+    text: "\uBC30\uBD88\uB7EC\uC11C \uC7A0\uC740 \uC880 \uC624\uC9C0\uB9CC \uC5BC\uB978
+      \uB2E4\uB140\uC624\uC790!"
+    animationName: Dialogue2_1_6
+    audioClip: {fileID: 8300000, guid: aee2ca5cd8766cb408b035df58f94437, type: 3}

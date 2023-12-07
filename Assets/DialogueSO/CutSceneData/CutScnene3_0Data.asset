@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba4c0215993242638f7b1a327cced02, type: 3}
+  m_Name: CutScnene3_0Data
+  m_EditorClassIdentifier: 
+  cutSceneClips:
+  - speaker: "\uACE0\uAE43\uC9D1"
+    text: "(\uB4E4\uC369\uB4E4\uC369 \uB5A0\uB4E4\uC369) \n(\uC640\uAE00\uC640\uAE00
+      \uC2DC\uB04C\uC2DC\uB04C)"
+    animationName: Dialogue3_0_1
+    audioClip: {fileID: 0}
+  - speaker: "\uC655\uACE4\uB300\uBD80\uC7A5"
+    text: "\uCC9C\uCC9C\uD76C\uC528\uAC00 \uC624\uD6C4 \uBBF8\uD305\uC744 \uC798
+      \uB9C8\uCE5C \uB355\uBD84\uC5D0 \uC774\uB807\uAC8C \uD68C\uC2DD\uB3C4 \uD558\uACE0
+      \uC5BC\uB9C8\uB098 \uC88B\uB098. "
+    animationName: Dialogue3_0_2
+    audioClip: {fileID: 0}
+  - speaker: "\uC655\uACE4\uB300\uBD80\uC7A5"
+    text: "\uC790\uB124 \uC774 \uC815\uB3C4\uBA74 \uC815\uADDC\uC9C1\uB3C4 \uBB38\uC81C
+      \uC5C6\uACA0\uC5B4~ "
+    animationName: Dialogue3_0_2
+    audioClip: {fileID: 0}
+  - speaker: "\uCC9C\uCC9C\uD76C"
+    text: "(\uADF8\uB7FC \uB098\uB3C4 \uC774\uC81C \uC800.. \uC815\uADDC\uC9C1?!) 
+      \n\uAC10\uC0AC\uD569\uB2C8\uB2E4! \uBD80\uC7A5\uB2D8! \uC5F4\uC2EC\uD788 \uD558\uACA0\uC2B5\uB2C8\uB2E4!!!!!!"
+    animationName: Dialogue3_0_4
+    audioClip: {fileID: 0}
+  - speaker: "\uC655\uACE4\uB300\uBD80\uC7A5"
+    text: "\uBB3C\uB860 \uB0B4\uAC00 \uACB0\uC815\uD558\uB294 \uAC74 \uC544\uB2C8\uC9C0\uB9CC
+      \uB9D0\uC774\uC57C \n\uD558\uD558\uD558\uD558\uD558\uD558"
+    animationName: Dialogue3_0_2
+    audioClip: {fileID: 8300000, guid: 0ed512f3f6bfa2e4e8fd07bb283e092b, type: 3}
+  - speaker: "\uC655\uACE4\uB300\uBD80\uC7A5"
+    text: "\uC790\uB124 \uB9E5\uC8FC\uAC00 \uC8FD\uC73C\uBA74 \uBB50\uB77C\uACE0
+      \uD558\uB294 \uC904 \uC54C\uACE0 \uC788\uB098?"
+    animationName: Empty
+    audioClip: {fileID: 0}
+  - speaker: "\uC655\uACE4\uB300\uBD80\uC7A5"
+    text: "\uC720.\uC5B8.\uBE44.\uC5B4"
+    animationName: Dialogue3_0_7
+    audioClip: {fileID: 0}
+  - speaker: "\uC655\uACE4\uB300\uBD80\uC7A5"
+    text: "\uD558\uD558\uD558\uD558\uD558\uD558 \n\uC720\uC5B8 BEER \uC6C3\uAE30\uC9C0
+      \uC54A\uB098"
+    animationName: Dialogue3_0_8
+    audioClip: {fileID: 8300000, guid: 0ed512f3f6bfa2e4e8fd07bb283e092b, type: 3}
+  - speaker: "\uC655\uACE4\uB300\uBD80\uC7A5"
+    text: "\uC790 \uCC9C\uD76C\uC528\uB3C4 \uBE44\uC5B4 \uD55C \uC794 \uD558\uAC8C,
+      \n\uC794\uC774 BEER\uC788\uC9C0 \uC54A\uB098 \uD478\uD558\uD558"
+    animationName: Dialogue3_0_9
+    audioClip: {fileID: 8300000, guid: 0ed512f3f6bfa2e4e8fd07bb283e092b, type: 3}

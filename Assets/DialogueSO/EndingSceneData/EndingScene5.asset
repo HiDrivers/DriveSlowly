@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ba4c0215993242638f7b1a327cced02, type: 3}
+  m_Name: EndingScene5
+  m_EditorClassIdentifier: 
+  cutSceneClips:
+  - speaker: "\uCC9C\uCC9C\uD76C"
+    text: "\uC5EC\uAE30\uAC00 \uC5B4\uB514\uC9C0 \uAFC8\uC778\uAC00? \n\uC815..\uC815\uC9C1\uC6D0\uC740
+      \uC5B4\uB5BB\uAC8C \uB410\uC9C0? "
+    animationName: EndingDialogue1_1
+    audioClip: {fileID: 8300000, guid: 92d1e5dc662140a42a2b6b050aba899b, type: 3}
+  - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
+    text: "\uC5B4\uC11C\uC640 \uC800\uC2B9\uC740 \uCC98\uC74C\uC774\uC9C0?\nI am
+      \uD310\uC0AC\uC608\uC694 "
+    animationName: EndingDialogue1_2
+    audioClip: {fileID: 0}
+  - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
+    text: "\uBCF8 \uC7AC\uD310\uC7A5 \uC774\uC81C\uBD80\uD130 \uD53C\uACE0 \uCC9C\uCC9C\uD76C\uC758
+      \uC6B4\uC804\uC5D0 \uB300\uD55C \uC7AC\uD310\uC744 \uC2DC\uC791\uD558\uACA0\uC5B4\uC6A9~"
+    animationName: EndingDialogue1_3
+    audioClip: {fileID: 8300000, guid: dd08a9d8a420ca942991e7f3e80f9eeb, type: 3}
+  - speaker: "\uCC9C\uCC9C\uD76C"
+    text: "\uC800 \uAFC8\uC774\uBA74 \uBCF5\uAD8C \uBC88\uD638 \uC880 ..."
+    animationName: EndingDialogue1_4
+    audioClip: {fileID: 0}
+  - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
+    text: "\uC870\uC6A9\uD788 \uD558\uC138\uC694 !"
+    animationName: EndingDialogue1_5
+    audioClip: {fileID: 0}
+  - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
+    text: "\uD53C\uACE0 \uCC9C\uCC9C\uD76C\uB294 \uC644\uBCBD\uD55C \uC6B4\uC804
+      \uC2E4\uB825\uC73C\uB85C  \uB2E8 \uD55C\uAC74\uC5D0 \uC0AC\uACE0\uB3C4 \uB0B4\uC9C0
+      \uC54A\uC558\uC73C\uB098"
+    animationName: Judge_BestDriver
+    audioClip: {fileID: 0}
+  - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
+    text: "\uBD88\uBC95\uC801\uC774\uACE0 \uC798\uBABB\uB41C \uC6B4\uC804\uBC29\uC2DD\uB9CC\uC744
+      \uACE0\uC9D1\uD574 \uC6B4\uC804\uC744 \uD55C \uC8C4\uB85C"
+    animationName: Judge_BadDriver
+    audioClip: {fileID: 0}
+  - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
+    text: "\uD3C9\uC0DD \uB208 \uC55E\uC5D0\uC11C \uBAA8\uB4E0 \uC2E0\uD638\uB4F1\uC774
+      \uBE68\uAC04\uBD88\uB85C \uBC14\uB00C\uB294  \uBD88\uBE68\uAC04 \uC0AC\uCD98\uAE30
+      .. \uC544\uB2C8 \uBD88 \uBE68\uAC04 \uC2E0\uD638\uB4F1 \uC9C0\uC625\uD615\uC744
+      \uC120\uACE0 \uD569\uB2C8\uB2E4"
+    animationName: Judge_TrafficLight
+    audioClip: {fileID: 0}
+  - speaker: "\uCC9C\uCC9C\uD76C"
+    text: "\uC774\uB7F4\uC218\uAC00... \uADF8\uB798\uB3C4 \uB0B4 \uC6B4\uC804 \uD3FC
+      \uBBF8\uCCE4\uB2E4\uC774~ "
+    animationName: Chen_Sad
+    audioClip: {fileID: 8300000, guid: 894a7b4d5dbf71c438bd16715b9dfc1e, type: 3}
+  - speaker: "\uC800\uC2B9 \uC7AC\uD310\uC7A5"
+    text: "\uB2E4\uC2DC \uD55C \uBC88 \uC7AC\uD310 \uACB0\uACFC\uB97C \uC120\uACE0
+      \uD558\uACA0\uC2B5\uB2C8\uB2E4. \uD53C\uACE0 \uCC9C\uCC9C\uD76C \uC720\uC8C4! 
+      \n\uC774\uC0C1\uC73C\uB85C \uC7AC\uD310\uC740 \uB9C8\uCE58\uACA0\uC2B5\uB2C8\uB2E4. "
+    animationName: EndingDialogue1_10
+    audioClip: {fileID: 8300000, guid: dd08a9d8a420ca942991e7f3e80f9eeb, type: 3}
+  - speaker: "\uCC9C\uCC9C\uD76C"
+    text: "\uC544...\uC548\uB3FC!!!!!!"
+    animationName: EndingDialogue1_11
+    audioClip: {fileID: 8300000, guid: bc9871ea73a25b44e9fa24b3b5af517a, type: 3}

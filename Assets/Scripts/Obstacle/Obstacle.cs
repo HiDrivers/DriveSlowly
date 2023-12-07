@@ -1,20 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Obstacle : MonoBehaviour
 {
     private Rigidbody2D obstacleRigidbody;
 
-    [SerializeField] private float speed;
+    public float speed;
     [SerializeField] private Vector3 direction;
     public bool isFromBottom;
     public int pos;
     public GameObject ObstacleManager;
 
+    public float initialSpeed;
+
+    private ObstacleLight oLight;
+
     private void Awake()
     {
         obstacleRigidbody = GetComponent<Rigidbody2D>();
+    }
+
+    private void OnEnable()
+    {
+        if (SceneManager.GetActiveScene().name == "Stage3Scene" || SceneManager.GetActiveScene().name == "Stage3Scene 1")
+        {
+            if (TryGetComponent<ObstacleLight>(out oLight))
+            {
+                oLight.TurnOnLight();
+            }
+        }
     }
 
     private void Update()
@@ -35,6 +51,11 @@ public class Obstacle : MonoBehaviour
             transform.position += direction * speed * Time.deltaTime;
         }
 
+        if (transform.position.y < -8f || transform.position.y > 8f) // 장애물이 일정 y범위를 벗어나면 비활성화
+        {
+            ObstacleManager.GetComponent<ObstacleGenerateManager>().spawnPosCount[pos] -= 1;
+            gameObject.SetActive(false);
+        }
     }
 
     //private void OnEnable()
@@ -46,27 +67,18 @@ public class Obstacle : MonoBehaviour
     //}
 
 
-    //private void Update()
+    //private void OnTriggerEnter2D(Collider2D collision) // 리팩토링 피드백에 따라, 장애물의 현재 좌표에 따른 비활성화 로직으로 변경합니다.
     //{
-    //    if (transform.position.y < -10f || transform.position.y > 10f)
+
+    //    if (collision.tag == "End")
     //    {
+    //        ObstacleManager.GetComponent<ObstacleGenerateManager>().spawnPosCount[pos] -= 1;
     //        gameObject.SetActive(false);
-    //        //ObstacleGenerateManager_Jin.Instance.occupiedList.Dequeue();
+    //    }
+
+    //    else if (collision.tag == "Obstacle")
+    //    {
+    //        Debug.Log("GameOver : Car crash");
     //    }
     //}
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-
-        if (collision.tag == "End")
-        {
-            ObstacleManager.GetComponent<ObstacleGenerateManager_Jin>().spawnPosCount[pos] -= 1;
-            gameObject.SetActive(false);
-        }
-
-        else if (collision.tag == "Obstacle")
-        {
-            Debug.Log("GameOver : Car crash");
-        }
-    }
 }

@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
     // 현재 스테이지 관리
-    public int currentStage = 0;
+    public string currentStage;
+
+    private Transform UIRoot;
 
     // 엔딩 관리
     public int currentGoldCount = 0;
-
     public int totalItemCount = 0;
     public int currentBoosterCount = 0;
     public int currentCoffeeCount = 0;
@@ -20,10 +21,8 @@ public class GameManager : Singleton<GameManager>
     public int currentSojuCleanerCount = 0;
     public float totalDurabilityDamage = 0;
 
-
-    // 돈 관리
-    public int gold = 0;
-
+    public int endingSceneNum = 1;
+            
     // 난폭운전 관리 (1스테이지)
     [Header("Stage 1 Reckless Drive")]
     public bool isBoost = false;
@@ -46,19 +45,39 @@ public class GameManager : Singleton<GameManager>
     public bool drunkMode = false;
     public bool isDrunk = false;
     public float drunkTimer = 0;
+    
+    private void Start()
+    {
+        if (!PlayerPrefs.HasKey("IsFirst"))
+        {
+            PlayerPrefs.SetInt("IsFirst", 0);
+        }
+        PlayerPrefs.SetInt("CarSlot0", 1);
+    }
 
-    // Start is called before the first frame update
+    private void DataInitialize()
+    {
+        currentGoldCount = 0;
+        totalItemCount = 0;
+        currentBoosterCount = 0;
+        currentCoffeeCount = 0;
+        currentPillowCount = 0;
+        currentSmartPhoneCount = 0;
+        currentSojuCount = 0;
+        currentSojuCleanerCount = 0;
+        totalDurabilityDamage = 0;
+
+        sleepMode = false;
+        drunkMode = false;
+        isBoost = false;
+        isPhone = false;
+    }
+
+
     public void InGameStart()
     {
-        if (drunkMode)
-        {
-            isDrunk = true;
-
-        }
-        if (sleepMode)
-        {
-            isSleep = true;
-        }
+        isDrunk = drunkMode;
+        isSleep = sleepMode;
     }
 
     void Update()
@@ -109,40 +128,99 @@ public class GameManager : Singleton<GameManager>
 
     public void LoadNextScene()
     {
-        switch(currentStage)
+        switch(SceneManager.GetActiveScene().name)
         {
-            case 0:
+            case "LobbyScene":
+                DataInitialize();
                 SceneManager.LoadScene("CutScene1");
-                currentStage += 1;
                 break;
-            case 1:
-                SceneManager.LoadScene("MapTestScene_Stage1");
-                currentStage += 1;
+            case "CutScene1":
+                SceneManager.LoadScene("Stage1Scene");
                 InGameStart();
                 break;
-            case 2:
-                SceneManager.LoadScene("CutScene2_0");
-                currentStage += 1;
+            case "Stage1Scene":
+                SceneManager.LoadScene("CutScene1_2");
                 break;
-            case 3:
-                SceneManager.LoadScene("CutScene2_1");
-                GameManager.Instance.sleepMode = true;
-                currentStage += 1;
+            case "CutScene1_2":
+                UIRoot = GameObject.Find("UIRoot").transform;
+                UIManager.Instance.ShowUI<UIBase>("Stage1ClearUI", UIRoot);
                 break;
-            case 4:
+            case "CutScene2_0":
+                if (PlayerPrefs.GetInt("IsFirst") == 0)
+                {
+                    SceneManager.LoadScene("CutScene2_1");
+                }
+                else
+                {
+                    UIRoot = GameObject.Find("UIRoot").transform;
+                    UIManager.Instance.ShowUI<UIBase>("SelectUI1", UIRoot);
+                }
+                break;
+            case "CutScene2_1":
+                sleepMode = true;
                 SceneManager.LoadScene("Stage2Scene");
-                currentStage += 1;
                 InGameStart();
                 break;
-            case 5:
-                SceneManager.LoadScene("CutScene3_0");
-                currentStage += 1;
+            case "CutScene2_2":
+                sleepMode = false;
+                SceneManager.LoadScene("Stage2Scene");
                 break;
-            case 6:
+            case "Stage2Scene":
+                SceneManager.LoadScene("CutScene2_3");
+                break;
+            case "CutScene2_3":
+                UIRoot = GameObject.Find("UIRoot").transform;
+                UIManager.Instance.ShowUI<UIBase>("Stage2ClearUI", UIRoot);
+                break;
+            case "CutScene3_0":
+                if (PlayerPrefs.GetInt("IsFirst") == 0)
+                {
+                    SceneManager.LoadScene("CutScene3_1");
+                }
+                else
+                {
+                    UIRoot = GameObject.Find("UIRoot").transform;
+                    UIManager.Instance.ShowUI<UIBase>("SelectUI2", UIRoot);
+                }
+                break;
+            case "CutScene3_1":
+                drunkMode = true;
                 SceneManager.LoadScene("Stage3Scene");
-                currentStage += 1;
+                InGameStart();
+                break;
+            case "CutScene3_2":
+                drunkMode = false;
+                SceneManager.LoadScene("Stage3Scene");
+                InGameStart();
                 break;
 
+            case "Stage3Scene":
+                CheckEnding();
+                PlayerPrefs.SetInt("IsFirst", 1);
+                PlayerPrefs.SetInt($"Ending{endingSceneNum}", 1);
+                SceneManager.LoadScene("EndingScene0");
+                break;
+            case "EndingScene0":
+                if (endingSceneNum < 5)
+                {
+                    SceneManager.LoadScene("EndingScene1");
+                    break;
+                }
+                else
+                {
+                    SceneManager.LoadScene("EndingScene2");
+                    break;
+                }
+            case "EndingScene1":
+                PlayerData.Instance.goldDataSave();
+                UIRoot = GameObject.Find("UIRoot").transform;
+                UIManager.Instance.ShowUI<UIBase>("GameEndUI", UIRoot);
+                break;
+            case "EndingScene2":
+                PlayerData.Instance.goldDataSave();
+                UIRoot = GameObject.Find("UIRoot").transform;
+                UIManager.Instance.ShowUI<UIBase>("GameEndUI", UIRoot);
+                break;
         }
     }
 
@@ -152,55 +230,59 @@ public class GameManager : Singleton<GameManager>
         // 배드 드라이버 엔딩
         if (drunkMode && sleepMode && currentBoosterCount > 0 && totalDurabilityDamage == 0)
         {
-
+            // EndingManager.Instance.endingPanels[0].blindObject.SetActive(false); CheckEnding이 작동함에 따라 엔딩이 해금될 겁니다.
+            endingSceneNum = 5;
         }
         // 악질 엔딩
         else if (drunkMode && sleepMode && currentBoosterCount > 0)
         {
-
+            endingSceneNum = 1;
         }
         // 졸음 운전 엔딩
         else if(sleepMode && !drunkMode && currentBoosterCount == 0)
         {
-
+            endingSceneNum = 2;
         }
         // 음주 운전 엔딩
         else if(!sleepMode && drunkMode && currentBoosterCount == 0)
         {
-
+            endingSceneNum = 3;
         }
         // 난폭운전 엔딩
         else if(!drunkMode && !drunkMode && currentBoosterCount > 0)
         {
-
+            endingSceneNum = 4;
         }
-        // 배드 엔딩2
+        // 옳은 선택지 엔딩
         else if (!drunkMode && !drunkMode && currentBoosterCount == 0)
         {
             // 바보 엔딩
             if (currentSojuCount > 0 && currentPillowCount > 0 && currentSmartPhoneCount > 0)
             {
-
+                endingSceneNum = 6;
             }
 
             // 스마트폰 엔딩
             else if (currentSmartPhoneCount > 0 && currentSojuCount == 0 && currentPillowCount == 0)
             {
-
+                endingSceneNum = 7;
             }
             // 스페셜 엔딩
             else if (totalItemCount == 0)
             {
-                // 헤지 펀드
-                if (currentGoldCount > 200)
-                {
+                endingSceneNum = 9;
+            }
+        }
+        else
+        {
+            if (currentGoldCount >= 200)
+            {
+                endingSceneNum = 8;
+            }
 
-                }
-                // 진엔딩 초입
-                else
-                {
-
-                }
+            else
+            {
+                endingSceneNum = 1;
             }
         }
     }

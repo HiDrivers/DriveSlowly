@@ -12,30 +12,26 @@ public class UIManager : Singleton<UIManager>
 
     public void LoadUIPrefabs()
     {
-        var objs = Resources.LoadAll<GameObject>("Prefabs/UI/");
+        var objs = Resources.LoadAll<GameObject>("Prefabs/UI");
         foreach (var obj in objs)
         {
-            string uiName = obj.name.ToLower();
+            string uiName = obj.name;
             uiPrefabs[uiName] = obj;
         }
     }
 
     public T ShowUI<T>(string uiName, Transform parent) where T : UIBase
     {
-        uiName = uiName.ToLower();
-
-        if (uiPrefabs.ContainsKey(uiName))
+        if (uiPrefabs.TryGetValue(uiName, out GameObject prefab))
         {
-            // Check if UI already exists
             T existingUI = parent.GetComponentInChildren<T>();
             if (existingUI != null)
             {
-                return existingUI; // Return the existing UI component
+                return existingUI;
             }
             else
             {
-                // If UI doesn't exist, create a new instance
-                GameObject uiGameObject = Instantiate(uiPrefabs[uiName], parent, false);
+                GameObject uiGameObject = Instantiate(prefab, parent, false);
                 T uiComponent = uiGameObject.GetComponent<T>();
 
                 if (uiComponent != null)
@@ -57,6 +53,20 @@ public class UIManager : Singleton<UIManager>
         return null;
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

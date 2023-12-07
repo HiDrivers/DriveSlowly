@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: 0bf73a2397ff7dd479ada03a68fd829f
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - settingPanel: {fileID: 169149061408527328, guid: e4396e146fb7fd640a36e48fafca117c, type: 3}
+  - closeButton: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

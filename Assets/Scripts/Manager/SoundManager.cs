@@ -1,32 +1,56 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+using System.Collections;
 
-public class SoundManager : MonoBehaviour
+public class SoundManager : Singleton<SoundManager>
 {
     public Slider masterVolumeSlider;
     public Slider backgroundVolumeSlider;
     public Slider effectVolumeSlider;
 
-    public AudioSource backgroundAudioSource;
-    public AudioSource[] effectAudioSources;
+    private AudioSource[] backgroundAudioSources;
+    private AudioSource[] effectAudioSources;
 
-    private float masterVolume = 1.0f;
-
-    private void Awake()
+    private new void Awake()
     {
+        int sceneCount = SceneManager.sceneCountInBuildSettings;
+        backgroundAudioSources = new AudioSource[sceneCount];
+        effectAudioSources = new AudioSource[sceneCount];
+
+        for (int i = 0; i < sceneCount; i++)
+        {
+            backgroundAudioSources[i] = gameObject.AddComponent<AudioSource>();
+            effectAudioSources[i] = gameObject.AddComponent<AudioSource>();
+        }
+
+        LoadVolumesFromPlayerPrefs();
+        ApplyVolumes();
+
         masterVolumeSlider.onValueChanged.AddListener((value) => { SetMasterVolume(value); });
         backgroundVolumeSlider.onValueChanged.AddListener((value) => { SetBackgroundVolume(value); });
         effectVolumeSlider.onValueChanged.AddListener((value) => { SetEffectVolume(value); });
 
-        effectAudioSources = new AudioSource[7]; // 가정: 7개의 효과음 AudioSource
-        for (int i = 0; i < effectAudioSources.Length; i++)
-        {
-            effectAudioSources[i] = gameObject.AddComponent<AudioSource>();
-        }
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
 
-        LoadAudioClips();
-        LoadVolumesFromPlayerPrefs();
-        ApplyMasterVolume();
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        StopPreviousSceneBackground();
+        LoadAndPlaySceneBackground();
+    }
+
+    private void StopPreviousSceneBackground()
+    {
+        int previousSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+        for (int i = 0; i < backgroundAudioSources.Length; i++)
+        {
+            if (i != previousSceneIndex && backgroundAudioSources[i] != null)
+            {
+                backgroundAudioSources[i].Stop();
+            }
+        }
     }
 
     private void LoadVolumesFromPlayerPrefs()
@@ -34,125 +58,232 @@ public class SoundManager : MonoBehaviour
         masterVolumeSlider.value = PlayerPrefs.GetFloat("MasterVolume", 1.0f);
         backgroundVolumeSlider.value = PlayerPrefs.GetFloat("BackgroundVolume", 1.0f);
         effectVolumeSlider.value = PlayerPrefs.GetFloat("EffectVolume", 1.0f);
+    }
+
+    private void ApplyVolumes()
+    {
+        float masterVolume = masterVolumeSlider.value;
+        float backgroundVolume = backgroundVolumeSlider.value;
+        float effectVolume = effectVolumeSlider.value;
+
+        for (int i = 0; i < backgroundAudioSources.Length; i++)
+        {
+            if (backgroundAudioSources[i] != null)
+            {
+                backgroundAudioSources[i].volume = masterVolume * backgroundVolume;
+            }
+        }
 
         for (int i = 0; i < effectAudioSources.Length; i++)
         {
-            float volume = PlayerPrefs.GetFloat("EffectVolume" + i, 1.0f);
-            effectAudioSources[i].volume = volume;
+            if (effectAudioSources[i] != null)
+            {
+                effectAudioSources[i].volume = masterVolume * effectVolume;
+            }
         }
     }
 
-    private void LoadAudioClips()
+    private void LoadAndPlaySceneBackground()
     {
-        string sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+        if (this == null) return;
 
-        switch (sceneName)
+        string sceneName = SceneManager.GetActiveScene().name;
+        string backgroundMusicName = sceneName + "Background";
+
+        AudioClip sceneBackground = Resources.Load<AudioClip>(backgroundMusicName);
+
+        if (sceneBackground != null)
         {
-            case "SoundTest":
-                backgroundAudioSource.clip = Resources.Load<AudioClip>("Scene1Background");
-                break;
-            case "Scene2":
-                backgroundAudioSource.clip = Resources.Load<AudioClip>("Scene2Background");
-                break;
-            default:
-                break;
-        }
+            int sceneIndex = SceneManager.GetActiveScene().buildIndex;
 
-        backgroundAudioSource.Play();
+            if (sceneIndex < backgroundAudioSources.Length)
+            {
+                if (backgroundAudioSources[sceneIndex] != null)
+                {
+                    backgroundAudioSources[sceneIndex].clip = sceneBackground;
+                    ApplyVolumes();
+                    backgroundAudioSources[sceneIndex].loop = true;
+                    backgroundAudioSources[sceneIndex].Play();
+                }
+                else
+                {
+                    if (this != null)
+                    {
+                        backgroundAudioSources[sceneIndex] = gameObject.AddComponent<AudioSource>();
+                        backgroundAudioSources[sceneIndex].clip = sceneBackground;
+                        ApplyVolumes();
+                        backgroundAudioSources[sceneIndex].loop = true;
+                        backgroundAudioSources[sceneIndex].Play();
+                    }
+                }
+            }
+        }
     }
 
-    private void SetMasterVolume(float volume)
+    public void SetMasterVolume(float volume)
     {
-        masterVolume = volume;
-        ApplyMasterVolume();
+        masterVolumeSlider.value = volume;
+        ApplyVolumes();
         PlayerPrefs.SetFloat("MasterVolume", volume);
-    }
-
-    private void SetBackgroundVolume(float volume)
-    {
-        backgroundAudioSource.volume = masterVolume * volume;
-        PlayerPrefs.SetFloat("BackgroundVolume", volume);
-    }
-
-    private void SetEffectVolume(float volume)
-    {
-        for (int i = 0; i < effectAudioSources.Length; i++)
-        {
-            effectAudioSources[i].volume = masterVolume * volume;
-            PlayerPrefs.SetFloat("EffectVolume" + i, volume);
-        }
-    }
-
-    private void ApplyMasterVolume()
-    {
-        for (int i = 0; i < effectAudioSources.Length; i++)
-        {
-            effectAudioSources[i].volume = masterVolume * effectVolumeSlider.value;
-            PlayerPrefs.SetFloat("EffectVolume" + i, effectVolumeSlider.value);
-        }
-        backgroundAudioSource.volume = masterVolume * backgroundVolumeSlider.value;
-        PlayerPrefs.SetFloat("BackgroundVolume", backgroundVolumeSlider.value);
-        PlayerPrefs.SetFloat("MasterVolume", masterVolume);
-    }
-
-    public void UpdateVolumes()
-    {
-        SetMasterVolume(masterVolumeSlider.value);
-        SetBackgroundVolume(backgroundVolumeSlider.value);
-        SetEffectVolume(effectVolumeSlider.value);
         PlayerPrefs.Save();
     }
 
-    public void PlayEffectSound(int audioSourceIndex)
+    public void SetBackgroundVolume(float volume)
     {
-        if (audioSourceIndex < effectAudioSources.Length)
-        {
-            effectAudioSources[audioSourceIndex].Play();
-        }
-        else
-        {
-            Debug.LogWarning("유효하지 않은 오디오 소스 인덱스");
-        }
+        backgroundVolumeSlider.value = volume;
+        ApplyVolumes();
+        PlayerPrefs.SetFloat("BackgroundVolume", volume);
+        PlayerPrefs.Save();
+    }
+
+    public void SetEffectVolume(float volume)
+    {
+        effectVolumeSlider.value = volume;
+        ApplyVolumes();
+        PlayerPrefs.SetFloat("EffectVolume", volume);
+        PlayerPrefs.Save();
     }
 
     public void PlayItemSound(string itemName)
     {
         int audioSourceIndex = -1;
+        AudioClip itemClip = null;
+        float soundDuration = 5.0f; // 원하는 사운드 재생 시간
 
         switch (itemName)
         {
-            case "booster":
+            case "Booster":
                 audioSourceIndex = 0;
+                itemClip = Resources.Load<AudioClip>("BoosterSound");
                 break;
-            case "coffe":
+            case "Coffee":
                 audioSourceIndex = 1;
+                itemClip = Resources.Load<AudioClip>("CoffeeSound");
                 break;
-            case "coin":
+            case "Coin":
                 audioSourceIndex = 2;
+                itemClip = Resources.Load<AudioClip>("CoinSound");
                 break;
-            case "pillow":
+            case "Pillow":
                 audioSourceIndex = 3;
+                itemClip = Resources.Load<AudioClip>("PillowSound");
                 break;
-            case "smartphone":
+            case "SmartPhone":
                 audioSourceIndex = 4;
+                itemClip = Resources.Load<AudioClip>("SmartPhoneSound");
                 break;
-            case "soju":
+            case "Soju":
                 audioSourceIndex = 5;
+                itemClip = Resources.Load<AudioClip>("SojuSound");
                 break;
-            case "sojucleaner":
+            case "SojuCleaner":
                 audioSourceIndex = 6;
+                itemClip = Resources.Load<AudioClip>("SojuCleanerSound");
                 break;
             default:
-                Debug.LogWarning("해당 아이템에 대한 효과음이 없습니다.");
+                Debug.LogWarning("No sound for this item.");
                 break;
         }
 
-        if (audioSourceIndex != -1)
+        if (itemClip != null)
         {
-            PlayEffectSound(audioSourceIndex);
+            if (audioSourceIndex >= 0 && audioSourceIndex < effectAudioSources.Length)
+            {
+                effectAudioSources[audioSourceIndex].clip = itemClip;
+                ApplyVolumes();
+                effectAudioSources[audioSourceIndex].Play();
+
+                // 사운드 재생 후 일정 시간이 지나면 사운드를 정지합니다.
+                StartCoroutine(StopSoundAfterSeconds(soundDuration, audioSourceIndex)); // 변경된 부분
+            }
+            else
+            {
+                Debug.LogWarning("Invalid audio source index");
+            }
+        }
+    }
+
+    private IEnumerator StopSoundAfterSeconds(float seconds, int audioSourceIndex)
+    {
+        yield return new WaitForSeconds(seconds);
+        if (audioSourceIndex >= 0 && audioSourceIndex < effectAudioSources.Length)
+        {
+            effectAudioSources[audioSourceIndex].Stop();
+        }
+    }
+
+    public AudioClip backgroundMusic;
+
+    private AudioSource backgroundAudioSource;
+
+    private void Start()
+    {
+        backgroundAudioSource = gameObject.AddComponent<AudioSource>();
+        backgroundAudioSource.clip = backgroundMusic;
+        backgroundAudioSource.loop = false; // 루프를 비활성화하여 한 번만 재생되도록 설정
+        backgroundAudioSource.Play();
+    }
+
+    private void Update()
+    {
+        if (!backgroundAudioSource.isPlaying)
+        {
+            // 노래가 끝났을 때 다시 재생
+            backgroundAudioSource.Play();
         }
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
