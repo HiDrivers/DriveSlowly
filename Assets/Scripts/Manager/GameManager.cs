@@ -212,10 +212,12 @@ public class GameManager : Singleton<GameManager>
                     break;
                 }
             case "EndingScene1":
+                PlayerData.Instance.goldDataSave();
                 UIRoot = GameObject.Find("UIRoot").transform;
                 UIManager.Instance.ShowUI<UIBase>("GameEndUI", UIRoot);
                 break;
             case "EndingScene2":
+                PlayerData.Instance.goldDataSave();
                 UIRoot = GameObject.Find("UIRoot").transform;
                 UIManager.Instance.ShowUI<UIBase>("GameEndUI", UIRoot);
                 break;
