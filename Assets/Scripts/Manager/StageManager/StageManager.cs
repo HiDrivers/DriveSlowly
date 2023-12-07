@@ -31,6 +31,7 @@ public class StageManager : MonoBehaviour
     protected bool gameClear = false;
     private bool isClearOn = false;
     private float gameStartDelay = 1;
+    private bool gameOver = false;
 
     protected float multiplier = 1.0f;
 
@@ -56,7 +57,18 @@ public class StageManager : MonoBehaviour
 
     protected virtual void Update()
     {
-        if (!gameClear && gameStartDelay < 0)
+        if (gameOver)
+        {
+            return;
+        }
+        else if (healthSystem.curHp <= 0)
+        {
+            UIManager.Instance.ShowUI<UIBase>("GameOverUi", UIRoot);
+            isClearOn = true;
+            damageIndicator.SetActive(false);
+            gameOver = true;
+        }
+        else if (!gameClear && gameStartDelay < 0)
         {
             currentTime += Time.deltaTime;
             itemTimer += Time.deltaTime;
