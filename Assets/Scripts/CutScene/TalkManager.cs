@@ -10,28 +10,28 @@ public class TalkManager : MonoBehaviour
     public TextMeshProUGUI characterNameText;
     public string writerText = "";
     public Animator animator;
-
     public CutScneneSO cutScneneSO;
-
     private int currentCutSceneIndex = 0;
+    public SoundManager soundManager; // 이 부분에 SoundManager 참조를 추가합니다.
 
     void Start()
     {
         ShowNextDialogue();
     }
- 
 
     void ShowNextDialogue()
     {
-
         if (cutScneneSO == null)
             return;
 
         if (currentCutSceneIndex < cutScneneSO.cutSceneClips.Count)
         {
             CutSceneClip cutSceneClip = cutScneneSO.cutSceneClips[currentCutSceneIndex];
-            StartCoroutine(EnterText(cutSceneClip));
 
+            // SoundManager 참조를 CutSceneClip에 할당합니다.
+            cutSceneClip.soundManager = soundManager;
+
+            StartCoroutine(EnterText(cutSceneClip));
             currentCutSceneIndex++;
         }
         else
@@ -41,7 +41,6 @@ public class TalkManager : MonoBehaviour
         }
     }
 
-
     IEnumerator NormalChat(CutSceneClip cutSceneClip)
     {
         characterNameText.text = cutSceneClip.speaker;
@@ -49,24 +48,23 @@ public class TalkManager : MonoBehaviour
 
         animator.StopPlayback();
 
-        // Animation execution
         if (!string.IsNullOrEmpty(cutSceneClip.animationName))
         {
             animator.Play(cutSceneClip.animationName);
         }
 
-        // AudioSource component check
         AudioSource audioSource = GetComponent<AudioSource>();
         if (audioSource == null)
         {
-            // If AudioSource is missing, add it automatically
             audioSource = gameObject.AddComponent<AudioSource>();
-            // You might want to set additional properties for the AudioSource here
         }
 
         if (cutSceneClip.audioClip != null)
         {
-            // Play the connected audio clip
+            float masterVolume = SoundManager.Instance.masterVolumeSlider.value;
+            float effectVolume = SoundManager.Instance.effectVolumeSlider.value;
+            audioSource.volume = masterVolume * effectVolume;
+
             audioSource.clip = cutSceneClip.audioClip;
             audioSource.Play();
         }
@@ -83,7 +81,6 @@ public class TalkManager : MonoBehaviour
             yield return null;
         }
 
-        // Stop the audio after text display
         audioSource.Stop();
 
         ShowNextDialogue();
@@ -97,8 +94,8 @@ public class TalkManager : MonoBehaviour
     IEnumerator LoadSceneAfterDelay(string sceneName, float delay)
     {
         yield return new WaitForSeconds(delay);
-
-        // 지정된 시간이 지난 후 다음 씬을 로드
         SceneManager.LoadScene(sceneName);
     }
 }
+
+

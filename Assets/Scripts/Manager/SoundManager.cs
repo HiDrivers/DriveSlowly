@@ -139,7 +139,18 @@ public class SoundManager : Singleton<SoundManager>
     public void SetEffectVolume(float volume)
     {
         effectVolumeSlider.value = volume;
-        ApplyVolumes();
+
+        float masterVolume = masterVolumeSlider.value;
+        float effectVolume = effectVolumeSlider.value;
+
+        for (int i = 0; i < effectAudioSources.Length; i++)
+        {
+            if (effectAudioSources[i] != null)
+            {
+                effectAudioSources[i].volume = masterVolume * effectVolume;
+            }
+        }
+
         PlayerPrefs.SetFloat("EffectVolume", volume);
         PlayerPrefs.Save();
     }
