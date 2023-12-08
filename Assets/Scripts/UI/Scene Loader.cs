@@ -61,6 +61,7 @@ public class SceneLoader : MonoBehaviour
     private void SetTimeScaleToNormal()
     {
         Time.timeScale = 1f;
+        Screen.SetResolution(1080, 1920, false);
     }
 }
 
