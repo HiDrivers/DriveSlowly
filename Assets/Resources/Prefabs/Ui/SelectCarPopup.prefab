@@ -1191,6 +1191,8 @@ MonoBehaviour:
   confirmButton: {fileID: 691645951075519458}
   selectedCar: {fileID: 4814607719309319660}
   goldText: {fileID: 5889123147652368954}
+  carDescriptionText: {fileID: 0}
+  carPriceText: {fileID: 0}
 --- !u!1 &1195900771869028230
 GameObject:
   m_ObjectHideFlags: 0
@@ -1358,6 +1360,7 @@ MonoBehaviour:
   carImage: {fileID: 0}
   car_UnusableIcon: {fileID: 3836075328859501791}
   price: 0
+  description: 
   outline: {fileID: 0}
   selected: 0
   slotIndex: 0
@@ -2959,7 +2962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   endingListPanel: {fileID: 5916353508062092986, guid: 39bfb6578fa048d488741a78288d6f7a, type: 3}
-  carListPanel: {fileID: 3589053435689237512, guid: 527de02989f3d074b8d5bce5c18c0b95, type: 3}
+  carListPanel: {fileID: 0}
 --- !u!1 &3836075328859501791
 GameObject:
   m_ObjectHideFlags: 0
@@ -3463,6 +3466,7 @@ MonoBehaviour:
   carImage: {fileID: 0}
   car_UnusableIcon: {fileID: 4392928430391276305}
   price: 0
+  description: 
   outline: {fileID: 0}
   selected: 0
   slotIndex: 0
@@ -4415,6 +4419,7 @@ MonoBehaviour:
   carImage: {fileID: 0}
   car_UnusableIcon: {fileID: 1488343695904189941}
   price: 0
+  description: 
   outline: {fileID: 0}
   selected: 0
   slotIndex: 0
@@ -4662,6 +4667,7 @@ MonoBehaviour:
   carImage: {fileID: 0}
   car_UnusableIcon: {fileID: 7349353655075597113}
   price: 0
+  description: 
   outline: {fileID: 0}
   selected: 0
   slotIndex: 0
@@ -6217,6 +6223,7 @@ MonoBehaviour:
   carImage: {fileID: 0}
   car_UnusableIcon: {fileID: 3798441356987825346}
   price: 0
+  description: 
   outline: {fileID: 0}
   selected: 0
   slotIndex: 0
@@ -6388,6 +6395,7 @@ MonoBehaviour:
   carImage: {fileID: 0}
   car_UnusableIcon: {fileID: 783525035035457633}
   price: 0
+  description: 
   outline: {fileID: 0}
   selected: 0
   slotIndex: 0
@@ -6787,6 +6795,7 @@ MonoBehaviour:
   carImage: {fileID: 0}
   car_UnusableIcon: {fileID: 6620892584855866441}
   price: 0
+  description: 
   outline: {fileID: 0}
   selected: 0
   slotIndex: 0
@@ -6958,6 +6967,7 @@ MonoBehaviour:
   carImage: {fileID: 0}
   car_UnusableIcon: {fileID: 2857588557330221294}
   price: 0
+  description: 
   outline: {fileID: 0}
   selected: 0
   slotIndex: 0

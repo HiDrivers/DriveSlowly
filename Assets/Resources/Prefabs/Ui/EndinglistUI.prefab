@@ -1792,6 +1792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blindObject: {fileID: 3545474396234465159}
+  endingNum: 0
 --- !u!1 &1921580127396400191
 GameObject:
   m_ObjectHideFlags: 0
@@ -3094,6 +3095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blindObject: {fileID: 2759888635469914025}
+  endingNum: 0
 --- !u!1 &2759888635469914025
 GameObject:
   m_ObjectHideFlags: 0
@@ -3785,6 +3787,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blindObject: {fileID: 5271344131512134887}
+  endingNum: 0
 --- !u!1 &3537418020717620270
 GameObject:
   m_ObjectHideFlags: 0
@@ -4663,6 +4666,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blindObject: {fileID: 1836798706826129760}
+  endingNum: 0
 --- !u!1 &4376457381325472906
 GameObject:
   m_ObjectHideFlags: 0
@@ -4847,6 +4851,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blindObject: {fileID: 5132135252410975547}
+  endingNum: 0
 --- !u!1 &4476966460483639791
 GameObject:
   m_ObjectHideFlags: 0
@@ -5228,6 +5233,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blindObject: {fileID: 3862596784690410994}
+  endingNum: 0
 --- !u!1 &4980719185852889382
 GameObject:
   m_ObjectHideFlags: 0
@@ -5619,8 +5625,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\uC5D4\uB529\uBAA9\uB85D"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 2be1a1e702a6d4e699261607f8e07010, type: 2}
-  m_sharedMaterial: {fileID: -1529690375809034297, guid: 2be1a1e702a6d4e699261607f8e07010, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 26d9ca9a8487245f7ad058374fcd9d8e, type: 2}
+  m_sharedMaterial: {fileID: 1377501253146417465, guid: 26d9ca9a8487245f7ad058374fcd9d8e, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -5650,7 +5656,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 1
+  m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -7254,6 +7260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blindObject: {fileID: 7215921354293861301}
+  endingNum: 0
 --- !u!1 &6958221387281559703
 GameObject:
   m_ObjectHideFlags: 0
@@ -8816,6 +8823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blindObject: {fileID: 5983847377386503449}
+  endingNum: 0
 --- !u!1 &7913991675070122001
 GameObject:
   m_ObjectHideFlags: 0
@@ -10176,6 +10184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blindObject: {fileID: 6099593329059541413}
+  endingNum: 0
 --- !u!1 &9167887393553996463
 GameObject:
   m_ObjectHideFlags: 0
