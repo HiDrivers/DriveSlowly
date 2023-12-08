@@ -98,6 +98,10 @@ public class Stage1Manager : StageManager
                 itemSpawnCool = 3.0f;
             }
         }
+        else
+        {
+            itemSpawnCool = 4f;
+        }
     }
 
 }

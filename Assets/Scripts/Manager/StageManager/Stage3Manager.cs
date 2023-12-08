@@ -131,6 +131,10 @@ public class Stage3Manager : StageManager
                 itemSpawnCool = 2.5f;
             }
         }
+        else
+        {
+            itemSpawnCool = 4f;
+        }
     }
 
     public void PlayerDrunkUIControl()
