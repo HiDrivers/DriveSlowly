@@ -222,6 +222,7 @@ public class GameManager : Singleton<GameManager>
                 UIManager.Instance.ShowUI<UIBase>("GameEndUI", UIRoot);
                 break;
         }
+        Screen.SetResolution(1080, 1920, false);
     }
 
     public void CheckEnding()
@@ -272,6 +273,11 @@ public class GameManager : Singleton<GameManager>
             {
                 endingSceneNum = 9;
             }
+            // 엔딩 종류 추가 필요
+            else
+            {
+                endingSceneNum = 1;
+            }
         }
         else
         {
@@ -279,7 +285,7 @@ public class GameManager : Singleton<GameManager>
             {
                 endingSceneNum = 8;
             }
-
+            // 엔딩 추가 필요
             else
             {
                 endingSceneNum = 1;

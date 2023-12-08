@@ -19,7 +19,7 @@ public class Coin : Items
     {
         // 아이템 효과
         playerData.gold += 10;
-
+        gameObject.GetComponent<Collider2D>().enabled = false;
         // 데이터 저장
         gameManager.currentGoldCount += 10;
 
