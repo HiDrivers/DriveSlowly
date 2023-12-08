@@ -254,17 +254,18 @@ public class GameManager : Singleton<GameManager>
         {
             endingSceneNum = 4;
         }
+
         // 옳은 선택지 엔딩
-        else if (!drunkMode && !drunkMode && currentBoosterCount == 0)
+        else if (!drunkMode && !drunkMode)
         {
             // 바보 엔딩
-            if (currentSojuCount > 0 && currentPillowCount > 0 && currentSmartPhoneCount > 0)
+            if (currentSojuCount > 0 && currentPillowCount > 0 && currentSmartPhoneCount > 0 && currentBoosterCount > 0)
             {
                 endingSceneNum = 6;
             }
 
             // 스마트폰 엔딩
-            else if (currentSmartPhoneCount > 0 && currentSojuCount == 0 && currentPillowCount == 0)
+            else if (currentSmartPhoneCount > 0 && currentSojuCount == 0 && currentPillowCount == 0 && currentBoosterCount == 0)
             {
                 endingSceneNum = 7;
             }
