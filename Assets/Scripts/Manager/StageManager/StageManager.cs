@@ -53,6 +53,7 @@ public class StageManager : MonoBehaviour
     {
         currentTime = 0;
         damageIndicator.SetActive(true);
+        UpdateGoldData();
     }
 
     protected virtual void Update()
@@ -82,24 +83,7 @@ public class StageManager : MonoBehaviour
             progress.value = (float)currentTime / clearTime;
             durability.value = healthSystem.curHp / healthSystem.maxHp;
 
-            gold.text = $"{playerData.gold}G";
-            if (playerData.gold > 9999)
-            {
-                gold.fontSize = 35;
-            }
-            else if (playerData.gold > 999)
-            {
-                gold.fontSize = 40;
-            }
-            else
-            {
-                gold.fontSize = 50;
-            }
-
-            if (currentTime >= clearTime)
-            {
-                gameClear = true;
-            }
+            UpdateGoldData();
         }
 
         else if (gameStartDelay >= 0)
@@ -111,6 +95,28 @@ public class StageManager : MonoBehaviour
             UIManager.Instance.ShowUI<UIBase>("GameClearUi", UIRoot);
             isClearOn = true;
             damageIndicator.SetActive(false);
+        }
+    }
+
+    private void UpdateGoldData()
+    {
+        gold.text = $"{playerData.gold}G";
+        if (playerData.gold > 9999)
+        {
+            gold.fontSize = 35;
+        }
+        else if (playerData.gold > 999)
+        {
+            gold.fontSize = 40;
+        }
+        else
+        {
+            gold.fontSize = 50;
+        }
+
+        if (currentTime >= clearTime)
+        {
+            gameClear = true;
         }
     }
 }

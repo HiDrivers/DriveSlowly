@@ -1139,7 +1139,7 @@ MonoBehaviour:
   ControlUI: {fileID: 1062177905}
   clearTime: 120
   currentTime: 0
-  itemSpawnCool: 5
+  itemSpawnCool: 4
   progress: {fileID: 1102270540}
   durability: {fileID: 1623727833}
   gold: {fileID: 755626893}

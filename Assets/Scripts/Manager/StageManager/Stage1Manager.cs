@@ -80,22 +80,22 @@ public class Stage1Manager : StageManager
         {
             if(currentTime > 100)
             {
-                itemSpawnCool = 1.5f;
+                itemSpawnCool = 1f;
             }
 
             else if(currentTime > 80)
             {
-                itemSpawnCool = 2.0f;
+                itemSpawnCool = 1.5f;
             }
 
             else if(currentTime > 60)
             {
-                itemSpawnCool = 3.0f;
+                itemSpawnCool = 2.5f;
             }
 
             else if (currentTime > 40)
             {
-                itemSpawnCool = 4.0f;
+                itemSpawnCool = 3.0f;
             }
         }
     }
