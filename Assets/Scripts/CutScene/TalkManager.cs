@@ -12,6 +12,7 @@ public class TalkManager : MonoBehaviour
     public Animator animator;
     public CutScneneSO cutScneneSO;
     private int currentCutSceneIndex = 0;
+    public SoundManager soundManager; // 이 부분에 SoundManager 참조를 추가합니다.
 
     void Start()
     {
@@ -26,6 +27,10 @@ public class TalkManager : MonoBehaviour
         if (currentCutSceneIndex < cutScneneSO.cutSceneClips.Count)
         {
             CutSceneClip cutSceneClip = cutScneneSO.cutSceneClips[currentCutSceneIndex];
+
+            // SoundManager 참조를 CutSceneClip에 할당합니다.
+            cutSceneClip.soundManager = soundManager;
+
             StartCoroutine(EnterText(cutSceneClip));
             currentCutSceneIndex++;
         }
@@ -92,4 +97,5 @@ public class TalkManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 }
+
 

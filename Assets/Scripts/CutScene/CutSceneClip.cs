@@ -10,4 +10,5 @@ public class CutSceneClip
     public string text;
     public string animationName = "";
     public AudioClip audioClip; // 오디오 클립 추가
+    public SoundManager soundManager; // SoundManager 변수 추가
 }
