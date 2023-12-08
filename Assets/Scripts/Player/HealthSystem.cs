@@ -40,6 +40,7 @@ public class HealthSystem : MonoBehaviour
     internal void UpdateCurHp()
     {
         curHp -= Time.deltaTime;
+        GameManager.Instance.totalDurabilityDamage += Time.deltaTime;
     }
 
     public IEnumerator GetDamageIndicate()

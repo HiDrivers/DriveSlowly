@@ -54,14 +54,14 @@ public class CarSelectController : MonoBehaviour
             carSlots[index].slotIndex = index;
             index++;
         }
-        selectedSlot = null;
-
+        SelectSlot(PlayerPrefs.GetInt("CurrentCarIndex"));
+        selectedCarImage.sprite = selectedSlot.carImage.sprite;
         UpdateCurrentGold();
     }
 
     private void UpdateCurrentGold()
     {
-        goldText.text = string.Format("소지금\n{0:0} G", playerData.gold);
+        goldText.text = $"소지금\n{playerData.gold} G";
     }
 
     public void SelectSlot(int index)
@@ -122,6 +122,8 @@ public class CarSelectController : MonoBehaviour
     {
         playerData.gold -= selectedSlot.price; // PlayerData.Gold 차감
         selectedSlot.car_UnusableIcon.SetActive(false);
+        PlayerPrefs.SetInt($"CarSlot{selectedSlot.slotIndex}", 1);
+        PlayerData.Instance.goldDataSave();
 
         UpdateCurrentGold();
         CheckCarUsability();
@@ -131,6 +133,8 @@ public class CarSelectController : MonoBehaviour
     {
         selectedCarImage.sprite = selectedSlot.carImage.sprite;
         playerData.carPrefab = carPrefabs[selectedSlot.slotIndex];
+        PlayerPrefs.SetInt("CurrentCarIndex", selectedSlot.slotIndex);
+        Debug.Log($"{selectedSlot.slotIndex}");
         // SelectCarPopup UI 창 닫기(UI메니저 스크립트에 있나?)
         // gameObject.SetActive(false);
     }

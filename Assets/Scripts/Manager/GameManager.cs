@@ -52,6 +52,7 @@ public class GameManager : Singleton<GameManager>
         {
             PlayerPrefs.SetInt("IsFirst", 0);
         }
+        PlayerPrefs.SetInt("CarSlot0", 1);
     }
 
     private void DataInitialize()
@@ -195,8 +196,9 @@ public class GameManager : Singleton<GameManager>
 
             case "Stage3Scene":
                 CheckEnding();
-                SceneManager.LoadScene("EndingScene0");
                 PlayerPrefs.SetInt("IsFirst", 1);
+                PlayerPrefs.SetInt($"Ending{endingSceneNum}", 1);
+                SceneManager.LoadScene("EndingScene0");
                 break;
             case "EndingScene0":
                 if (endingSceneNum < 5)
@@ -210,10 +212,12 @@ public class GameManager : Singleton<GameManager>
                     break;
                 }
             case "EndingScene1":
+                PlayerData.Instance.goldDataSave();
                 UIRoot = GameObject.Find("UIRoot").transform;
                 UIManager.Instance.ShowUI<UIBase>("GameEndUI", UIRoot);
                 break;
             case "EndingScene2":
+                PlayerData.Instance.goldDataSave();
                 UIRoot = GameObject.Find("UIRoot").transform;
                 UIManager.Instance.ShowUI<UIBase>("GameEndUI", UIRoot);
                 break;

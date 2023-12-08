@@ -14,6 +14,8 @@ public class CarSlot : MonoBehaviour
     public bool selected; // 필요 없는 변수?
     public int slotIndex;
 
+    private string playerPrefsString;
+
     [SerializeField] private CarSelectController carSelectController;
 
     private void Awake()
@@ -25,6 +27,22 @@ public class CarSlot : MonoBehaviour
     void OnEnable()
     {
         outline.enabled = false;
+        playerPrefsString = $"CarSlot{slotIndex}";
+        if(PlayerPrefs.HasKey(playerPrefsString))
+        {
+            if (PlayerPrefs.GetInt(playerPrefsString) == 1)
+            {
+                transform.GetChild(1).gameObject.SetActive(false);
+            }
+            else
+            {
+                transform.GetChild(1).gameObject.SetActive(true);
+            }
+        }
+        else
+        {
+            PlayerPrefs.SetInt(playerPrefsString, 0);
+        }
     }
 
     public void ClickSlotUI()
