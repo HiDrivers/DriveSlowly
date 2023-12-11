@@ -230,43 +230,45 @@ public class GameManager : Singleton<GameManager>
     {
         // 배드 엔딩1
         // 배드 드라이버 엔딩
-        if (drunkMode && sleepMode && currentBoosterCount > 0 && totalDurabilityDamage == 0)
+        if (drunkMode && sleepMode && currentBoosterCount > 0 && totalDurabilityDamage == 0) // 음주운전 + 졸음운전 + 난폭운전 + 내구도 0
         {
-            // EndingManager.Instance.endingPanels[0].blindObject.SetActive(false); CheckEnding이 작동함에 따라 엔딩이 해금될 겁니다.
             endingSceneNum = 5;
         }
         // 악질 엔딩
-        else if (drunkMode && sleepMode && currentBoosterCount > 0)
+        else if (drunkMode && sleepMode && currentBoosterCount > 0)  // 음주운전 + 졸음운전 + 난폭운전
         {
             endingSceneNum = 1;
         }
+        // 헤지펀드 엔딩
+        else if (currentGoldCount >= 200)
+        {
+            endingSceneNum = 8;
+        }
         // 졸음 운전 엔딩
-        else if(sleepMode && !drunkMode && currentBoosterCount == 0)
+        else if(sleepMode && !drunkMode && currentBoosterCount > 0) // 졸음운전만 진행
         {
             endingSceneNum = 2;
         }
         // 음주 운전 엔딩
-        else if(!sleepMode && drunkMode && currentBoosterCount == 0)
+        else if(!sleepMode && drunkMode && currentBoosterCount > 0) // 음주운전만 진행
         {
             endingSceneNum = 3;
         }
+        // 바보 엔딩 : 소주 + 베개 + 스마트폰 + 부스터 (안좋은 아이템 모두 섭취)
+        else if (currentSojuCount > 0 && currentPillowCount > 0 && currentSmartPhoneCount > 0 && currentBoosterCount > 0)
+        {
+            endingSceneNum = 6;
+        }
         // 난폭운전 엔딩
-        else if(!drunkMode && !drunkMode && currentBoosterCount > 0)
+        else if (currentBoosterCount > 0) // 난폭운전만 진행
         {
             endingSceneNum = 4;
         }
-
         // 옳은 선택지 엔딩
-        else if (!drunkMode && !drunkMode)
+        else if (!drunkMode && !sleepMode && currentBoosterCount == 0) // 선택지 모두 옳게 선택
         {
-            // 바보 엔딩
-            if (currentSojuCount > 0 && currentPillowCount > 0 && currentSmartPhoneCount > 0 && currentBoosterCount > 0)
-            {
-                endingSceneNum = 6;
-            }
-
-            // 스마트폰 엔딩
-            else if (currentSmartPhoneCount > 0 && currentSojuCount == 0 && currentPillowCount == 0 && currentBoosterCount == 0)
+            // 스마트폰 엔딩 : 다른 아이템 모두 피하고 스마트폰만 먹음
+            if (currentSmartPhoneCount > 0 && currentSojuCount == 0 && currentPillowCount == 0)
             {
                 endingSceneNum = 7;
             }
@@ -275,23 +277,15 @@ public class GameManager : Singleton<GameManager>
             {
                 endingSceneNum = 9;
             }
-            // 엔딩 종류 추가 필요
             else
             {
                 endingSceneNum = 1;
             }
         }
+        // 보편적 엔딩 (2개의 잘못된 운전) ex) 난폭 + 음주 or 음주 + 졸음 or 졸음 + 난폭
         else
         {
-            if (currentGoldCount >= 200)
-            {
-                endingSceneNum = 8;
-            }
-            // 엔딩 추가 필요
-            else
-            {
-                endingSceneNum = 1;
-            }
+            endingSceneNum = 1; // endingSceneNum = 10;
         }
     }
 
