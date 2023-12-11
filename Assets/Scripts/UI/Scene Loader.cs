@@ -10,11 +10,7 @@ public class SceneLoader : MonoBehaviour
 
     public void LobbyLoad()
     {
-        string sceneName = SceneManager.GetActiveScene().name;
-        if (sceneName != "EndingScene1" && sceneName != "EndingScene2")
-        {
-            PlayerData.Instance.gold -= GameManager.Instance.currentGoldCount;
-        }
+        PlayerData.Instance.gold -= GameManager.Instance.currentGoldCount;
         SceneManager.LoadScene("LobbyScene");
         SetTimeScaleToNormal();
     }

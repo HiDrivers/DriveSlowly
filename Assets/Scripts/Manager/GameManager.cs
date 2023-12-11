@@ -46,7 +46,7 @@ public class GameManager : Singleton<GameManager>
     public bool isDrunk = false;
     public float drunkTimer = 0;
     
-    private void Start()
+    public void Start()
     {
         if (!PlayerPrefs.HasKey("IsFirst"))
         {
@@ -197,7 +197,6 @@ public class GameManager : Singleton<GameManager>
 
             case "Stage3Scene":
                 CheckEnding();
-                PlayerPrefs.SetInt("IsFirst", 1);
                 PlayerPrefs.SetInt($"Ending{endingSceneNum}", 1);
                 SceneManager.LoadScene("EndingScene0");
                 break;

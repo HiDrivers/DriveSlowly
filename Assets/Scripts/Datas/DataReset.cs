@@ -14,5 +14,7 @@ public class DataReset : MonoBehaviour
     public void GameReset()
     {
         PlayerPrefs.DeleteAll();
+        GameManager.Instance.Start();
+        PlayerData.Instance.Start();
     }
 }
