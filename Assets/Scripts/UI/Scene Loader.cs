@@ -61,6 +61,7 @@ public class SceneLoader : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);
         SetTimeScaleToNormal();
+        GameManager.Instance.InGameStart();
     }
 
     private void SetTimeScaleToNormal()
