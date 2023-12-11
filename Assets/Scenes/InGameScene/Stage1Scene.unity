@@ -22108,7 +22108,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1419553827504826046, guid: acbda6c426744ce4ea2e0343d0061bf1, type: 3}
       propertyPath: maxHp
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1419553827504826046, guid: acbda6c426744ce4ea2e0343d0061bf1, type: 3}
       propertyPath: carPrefab
