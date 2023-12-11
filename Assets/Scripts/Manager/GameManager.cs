@@ -78,6 +78,7 @@ public class GameManager : Singleton<GameManager>
     {
         isDrunk = drunkMode;
         isSleep = sleepMode;
+        isBoost = false;
     }
 
     void Update()
