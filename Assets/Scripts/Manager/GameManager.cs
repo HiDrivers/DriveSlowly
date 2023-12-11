@@ -243,6 +243,8 @@ public class GameManager : Singleton<GameManager>
         else if (currentGoldCount >= 200)
         {
             endingSceneNum = 8;
+            PlayerData.Instance.gold -= 200;
+            currentGoldCount -= 200;
         }
         // 졸음 운전 엔딩
         else if(sleepMode && !drunkMode && currentBoosterCount > 0) // 졸음운전만 진행
