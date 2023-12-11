@@ -58,10 +58,10 @@ public class SceneLoader : MonoBehaviour
     public void GameSceneReload()
     {
         // ÇöÀç ¾ÀÀ» ´Ù½Ã ºÒ·¯¿È
+        GameManager.Instance.InGameStart();
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);
         SetTimeScaleToNormal();
-        GameManager.Instance.InGameStart();
     }
 
     private void SetTimeScaleToNormal()
