@@ -10,7 +10,7 @@ public class SceneLoader : MonoBehaviour
 
     public void LobbyLoad()
     {
-        PlayerData.Instance.gold -= GameManager.Instance.currentGoldCount;
+        PlayerData.Instance.gold -= GameManager.Instance.totalGoldCount;
         SceneManager.LoadScene("LobbyScene");
         SetTimeScaleToNormal();
     }
@@ -54,6 +54,7 @@ public class SceneLoader : MonoBehaviour
     public void GameSceneReload()
     {
         // ÇöÀç ¾ÀÀ» ´Ù½Ã ºÒ·¯¿È
+        GameManager.Instance.totalGoldCount -= GameManager.Instance.currentStageGoldCount;
         GameManager.Instance.InGameStart();
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);

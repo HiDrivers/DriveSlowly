@@ -11,7 +11,7 @@ public class GameManager : Singleton<GameManager>
     private Transform UIRoot;
 
     // 엔딩 관리
-    public int currentGoldCount = 0;
+    public int totalGoldCount = 0;
     public int totalItemCount = 0;
     public int currentBoosterCount = 0;
     public int currentCoffeeCount = 0;
@@ -20,6 +20,7 @@ public class GameManager : Singleton<GameManager>
     public int currentSojuCount = 0;
     public int currentSojuCleanerCount = 0;
     public float totalDurabilityDamage = 0;
+    public int currentStageGoldCount = 0;
 
     public int endingSceneNum = 1;
             
@@ -57,7 +58,7 @@ public class GameManager : Singleton<GameManager>
 
     private void DataInitialize()
     {
-        currentGoldCount = 0;
+        totalGoldCount = 0;
         totalItemCount = 0;
         currentBoosterCount = 0;
         currentCoffeeCount = 0;
@@ -66,6 +67,7 @@ public class GameManager : Singleton<GameManager>
         currentSojuCount = 0;
         currentSojuCleanerCount = 0;
         totalDurabilityDamage = 0;
+        currentStageGoldCount = 0;
 
         sleepMode = false;
         drunkMode = false;
@@ -257,11 +259,11 @@ public class GameManager : Singleton<GameManager>
             }
         }
         // 헤지펀드 엔딩
-        else if (currentGoldCount >= 200)
+        else if (totalGoldCount >= 200)
         {
             endingSceneNum = 8;
             PlayerData.Instance.gold -= 200;
-            currentGoldCount -= 200;
+            totalGoldCount -= 200;
         }
         // 졸음 운전 엔딩
         else if(sleepMode && !drunkMode && currentBoosterCount > 0) // 졸음운전만 진행

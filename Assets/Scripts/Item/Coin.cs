@@ -21,8 +21,8 @@ public class Coin : Items
         playerData.gold += 10;
         gameObject.GetComponent<Collider2D>().enabled = false;
         // 데이터 저장
-        gameManager.currentGoldCount += 10;
-
+        gameManager.totalGoldCount += 10;
+        gameManager.currentStageGoldCount += 10;
         // 효과음 TO DO
 
         // 획득 애니메이션 TO DO

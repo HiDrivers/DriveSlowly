@@ -8,6 +8,6 @@ public class GoldTxtUI : MonoBehaviour
     public TMP_Text goldTxt;
     private void OnEnable()
     {
-        goldTxt.text = $"{GameManager.Instance.currentGoldCount}G";
+        goldTxt.text = $"{GameManager.Instance.totalGoldCount}G";
     }
 }
