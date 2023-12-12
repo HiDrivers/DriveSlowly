@@ -991,6 +991,7 @@ MonoBehaviour:
   coinPrefab: {fileID: 7725250228831151455, guid: d674ce827e8e51b44b5dcf01514c4caa, type: 3}
   player: {fileID: 1767281794}
   ControlUI: {fileID: 1062177905}
+  progressHandleImage: {fileID: 1171050362}
   clearTime: 120
   currentTime: 0
   itemSpawnCool: 4

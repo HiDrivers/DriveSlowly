@@ -123,7 +123,7 @@ public class CarSelectController : MonoBehaviour
         playerData.gold -= selectedSlot.price; // PlayerData.Gold 차감
         selectedSlot.car_UnusableIcon.SetActive(false);
         PlayerPrefs.SetInt($"CarSlot{selectedSlot.slotIndex}", 1);
-        PlayerData.Instance.goldDataSave();
+        PlayerData.Instance.goldDataSave(); // playerData.goldDataSave();
 
         UpdateCurrentGold();
         CheckCarUsability();
@@ -133,6 +133,7 @@ public class CarSelectController : MonoBehaviour
     {
         selectedCarImage.sprite = selectedSlot.carImage.sprite;
         playerData.carPrefab = carPrefabs[selectedSlot.slotIndex];
+        playerData.progressHandleImage.sprite = selectedSlot.carImage.sprite;
         PlayerPrefs.SetInt("CurrentCarIndex", selectedSlot.slotIndex);
         Debug.Log($"{selectedSlot.slotIndex}");
         // SelectCarPopup UI 창 닫기(UI메니저 스크립트에 있나?)
