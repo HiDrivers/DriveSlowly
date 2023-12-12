@@ -3,14 +3,19 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    private GameManager gameManager;
+    private void Start()
+    {
+        gameManager = GameManager.Instance;
+    }
     public void GameSceneLoad()
     {
-        GameManager.Instance.LoadNextScene();
+        gameManager.LoadNextScene();
     }
 
     public void LobbyLoad()
     {
-        PlayerData.Instance.gold -= GameManager.Instance.totalGoldCount;
+        PlayerData.Instance.gold -= gameManager.totalGoldCount;
         SceneManager.LoadScene("LobbyScene");
         SetTimeScaleToNormal();
     }
@@ -54,8 +59,9 @@ public class SceneLoader : MonoBehaviour
     public void GameSceneReload()
     {
         // ÇöÀç ¾ÀÀ» ´Ù½Ã ºÒ·¯¿È
-        GameManager.Instance.totalGoldCount -= GameManager.Instance.currentStageGoldCount;
-        GameManager.Instance.InGameStart();
+        gameManager.totalGoldCount -= gameManager.currentStageGoldCount;
+        PlayerData.Instance.gold -= gameManager.currentStageGoldCount;
+        gameManager.InGameStart();
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);
         SetTimeScaleToNormal();

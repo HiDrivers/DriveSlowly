@@ -81,6 +81,7 @@ public class GameManager : Singleton<GameManager>
         isDrunk = drunkMode;
         isSleep = sleepMode;
         isBoost = false;
+        currentStageGoldCount = 0;
     }
 
     void Update()
