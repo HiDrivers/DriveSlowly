@@ -18,6 +18,7 @@ public class Stage3Manager : StageManager
         base.Start();
         currentControl = Random.Range(1, 4);
         PlayerDrunkUIControl();
+        sojuCriterion = 5;
     }
 
     protected override void Update()
