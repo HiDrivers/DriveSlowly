@@ -15,7 +15,7 @@ public class Coin : Items
         soundManager = SoundManager.Instance;
         gameManager = GameManager.Instance;
         playerData = PlayerData.Instance;
-        if (PlayerPrefs.GetInt("CurrentCarIndex") == 5)
+        if (PlayerPrefs.GetInt("CurrentCarIndex") == 7)
         {
             goldValue = 12;
         }

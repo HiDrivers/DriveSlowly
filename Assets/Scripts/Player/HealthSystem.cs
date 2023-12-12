@@ -16,7 +16,7 @@ public class HealthSystem : MonoBehaviour
     [SerializeField] private float damageBlinkInterval = 1f;
 
     public float curHp;
-    public float maxHp;
+    public float maxHp = 3;
 
     private void Awake()
     {
@@ -34,6 +34,10 @@ public class HealthSystem : MonoBehaviour
     }
     private void Start()
     {
+        if (PlayerPrefs.GetInt("CurrentCarIndex") == 5)
+        {
+            maxHp = 5;
+        }
         curHp = maxHp;
     }
 
