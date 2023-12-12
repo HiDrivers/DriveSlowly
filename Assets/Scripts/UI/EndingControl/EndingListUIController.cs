@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class EndingListUIController : MonoBehaviour
 {
     [SerializeField] private GameObject _Container;
-    private float endingPanelGap = 566f;
+    public float endingPanelGap;
     private RectTransform containerRTransform;
     private int pages;
     private int page;
@@ -59,7 +59,7 @@ public class EndingListUIController : MonoBehaviour
             containerRTransform.anchoredPosition += new Vector2(endingPanelGap, 0);
             page--;
         }
-        //if (isNext) // ¼±Çü º¸°£À» ÀÌ¿ëÇÑ ºÎµå·¯¿î ÆäÀÌÁö ³Ñ±â±â ½Ãµµ Áß
+        //if (isNext) // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¿ï¿½ï¿½ï¿½ ï¿½Îµå·¯ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ±ï¿½ï¿½ ï¿½Ãµï¿½ ï¿½ï¿½
         //{
         //    currentPos = containerRTransform.anchoredPosition - new Vector2(endingPanelGap, 0);
         //    containerRTransform.anchoredPosition = Vector2.Lerp(containerRTransform.anchoredPosition, currentPos, translateSpeed * Time.deltaTime);
