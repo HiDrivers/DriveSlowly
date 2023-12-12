@@ -10,7 +10,7 @@ public class PlayerData : Singleton<PlayerData>
     public GameObject carPrefab;
 
     public List<GameObject> cars;
-    public Image progressHandleImage;
+    public Sprite progressHandleImage;
 
     // 엔딩 업적을 여기서 관리하는 건 어떨까?
     // 로비 씬에서부터 이 객체가 작동하게 한다.

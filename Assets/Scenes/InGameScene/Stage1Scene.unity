@@ -931,7 +931,7 @@ GameObject:
   - component: {fileID: 356011869}
   - component: {fileID: 356011868}
   m_Layer: 5
-  m_Name: StatusUI
+  m_Name: StatusUI_Current
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1214,7 +1214,7 @@ MonoBehaviour:
   coinPrefab: {fileID: 7725250228831151455, guid: d674ce827e8e51b44b5dcf01514c4caa, type: 3}
   player: {fileID: 1818410416}
   ControlUI: {fileID: 1062177905}
-  progressHandleImage: {fileID: 1171050362}
+  progressHandle: {fileID: 1171050362}
   clearTime: 120
   currentTime: 0
   itemSpawnCool: 4

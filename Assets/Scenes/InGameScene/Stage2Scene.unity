@@ -938,7 +938,7 @@ GameObject:
   - component: {fileID: 356011869}
   - component: {fileID: 356011868}
   m_Layer: 5
-  m_Name: StatusUI
+  m_Name: StatusUI_Unused
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1067,7 +1067,7 @@ MonoBehaviour:
   coinPrefab: {fileID: 7725250228831151455, guid: d674ce827e8e51b44b5dcf01514c4caa, type: 3}
   player: {fileID: 1767281794}
   ControlUI: {fileID: 1062177905}
-  progressHandleImage: {fileID: 1171050362}
+  progressHandle: {fileID: 400234971}
   clearTime: 120
   currentTime: 0
   itemSpawnCool: 4
@@ -2082,7 +2082,7 @@ GameObject:
   - component: {fileID: 796293603}
   - component: {fileID: 796293602}
   m_Layer: 5
-  m_Name: StatusUI (1)
+  m_Name: StatusUI_Current
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3417,17 +3417,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5425571500435657477, guid: c3d5badba3c6eda41ae3a3fadc8b2435, type: 3}
   m_PrefabInstance: {fileID: 1439948755}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1439948758 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3705800805852422720, guid: c3d5badba3c6eda41ae3a3fadc8b2435, type: 3}
-  m_PrefabInstance: {fileID: 1439948755}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1439948757}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1523698548
 GameObject:
   m_ObjectHideFlags: 0
@@ -4282,6 +4271,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5425571500435657477, guid: c3d5badba3c6eda41ae3a3fadc8b2435, type: 3}
   m_PrefabInstance: {fileID: 1694210817}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1694210820 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3705800805852422720, guid: c3d5badba3c6eda41ae3a3fadc8b2435, type: 3}
+  m_PrefabInstance: {fileID: 1694210817}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1694210819}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1767281793
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4341,11 +4341,11 @@ PrefabInstance:
     - target: {fileID: 1419553827504826046, guid: acbda6c426744ce4ea2e0343d0061bf1, type: 3}
       propertyPath: damagedPanel
       value: 
-      objectReference: {fileID: 1439948758}
+      objectReference: {fileID: 1694210820}
     - target: {fileID: 1419553827504826046, guid: acbda6c426744ce4ea2e0343d0061bf1, type: 3}
       propertyPath: damageIndicator
       value: 
-      objectReference: {fileID: 1439948757}
+      objectReference: {fileID: 1694210819}
     - target: {fileID: 1419553827504826046, guid: acbda6c426744ce4ea2e0343d0061bf1, type: 3}
       propertyPath: damagedIndicator
       value: 

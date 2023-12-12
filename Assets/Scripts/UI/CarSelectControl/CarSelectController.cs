@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
-public class CarImagePairs : SerializableDictionary<Sprite, Sprite> { }
+public class CarImagePairs : SerializableDictionary<int, Sprite> { }
 
 public class CarSelectController : MonoBehaviour
 {
@@ -48,7 +48,7 @@ public class CarSelectController : MonoBehaviour
     private void Start()
     {
         int index = 0;
-        foreach (KeyValuePair<Sprite, Sprite> imagePair in carImagePairs)
+        foreach (KeyValuePair<int, Sprite> imagePair in carImagePairs)
         {
             carSlots[index].carImage.sprite = imagePair.Value;
             carSlots[index].slotIndex = index;
@@ -133,7 +133,13 @@ public class CarSelectController : MonoBehaviour
     {
         selectedCarImage.sprite = selectedSlot.carImage.sprite;
         playerData.carPrefab = carPrefabs[selectedSlot.slotIndex];
-        playerData.progressHandleImage.sprite = selectedSlot.carImage.sprite;
+        foreach (KeyValuePair<int, Sprite> imagePair in carImagePairs)
+        {
+            if (imagePair.Key == selectedSlot.slotIndex)
+            {
+                playerData.progressHandleImage = imagePair.Value;
+            }
+        }
         PlayerPrefs.SetInt("CurrentCarIndex", selectedSlot.slotIndex);
         Debug.Log($"{selectedSlot.slotIndex}");
         // SelectCarPopup UI 창 닫기(UI메니저 스크립트에 있나?)

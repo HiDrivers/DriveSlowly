@@ -1243,6 +1243,22 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8101050530134894755, guid: c3d5badba3c6eda41ae3a3fadc8b2435, type: 3}
   m_PrefabInstance: {fileID: 226981880}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &226981882 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5425571500435657477, guid: c3d5badba3c6eda41ae3a3fadc8b2435, type: 3}
+  m_PrefabInstance: {fileID: 226981880}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &226981883 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3705800805852422720, guid: c3d5badba3c6eda41ae3a3fadc8b2435, type: 3}
+  m_PrefabInstance: {fileID: 226981880}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 226981882}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &245496815
 GameObject:
   m_ObjectHideFlags: 0
@@ -1720,7 +1736,7 @@ GameObject:
   - component: {fileID: 356011869}
   - component: {fileID: 356011868}
   m_Layer: 5
-  m_Name: StatusUI
+  m_Name: StatusUI_Unused
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1957,7 +1973,7 @@ GameObject:
   - component: {fileID: 441234327}
   - component: {fileID: 441234326}
   m_Layer: 5
-  m_Name: StatusUI (1)
+  m_Name: StatusUI_Current
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3322,14 +3338,14 @@ MonoBehaviour:
   coinPrefab: {fileID: 7725250228831151455, guid: d674ce827e8e51b44b5dcf01514c4caa, type: 3}
   player: {fileID: 391372882}
   ControlUI: {fileID: 1062177905}
-  progressHandleImage: {fileID: 1171050362}
+  progressHandle: {fileID: 1880706275}
   clearTime: 120
   currentTime: 0
   itemSpawnCool: 4
   progress: {fileID: 598196581}
   durability: {fileID: 151965327}
   gold: {fileID: 742533460}
-  damageIndicator: {fileID: 1101804789}
+  damageIndicator: {fileID: 226981882}
   sojuPrefab: {fileID: 4198778072502153136, guid: 35c291500363e804084840cb31bde925, type: 3}
   sojuCleanerPrefab: {fileID: 9221801603400900594, guid: 43540c010a88612418bf37cb849350d1, type: 3}
 --- !u!4 &963852028
@@ -4122,25 +4138,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3d5badba3c6eda41ae3a3fadc8b2435, type: 3}
---- !u!114 &1101804787 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3705800805852422720, guid: c3d5badba3c6eda41ae3a3fadc8b2435, type: 3}
-  m_PrefabInstance: {fileID: 1101804786}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101804789}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &1101804788 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8101050530134894755, guid: c3d5badba3c6eda41ae3a3fadc8b2435, type: 3}
-  m_PrefabInstance: {fileID: 1101804786}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1101804789 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5425571500435657477, guid: c3d5badba3c6eda41ae3a3fadc8b2435, type: 3}
   m_PrefabInstance: {fileID: 1101804786}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1102270538
@@ -6484,11 +6484,11 @@ PrefabInstance:
     - target: {fileID: 1419553827504826046, guid: acbda6c426744ce4ea2e0343d0061bf1, type: 3}
       propertyPath: damagedPanel
       value: 
-      objectReference: {fileID: 1101804787}
+      objectReference: {fileID: 226981883}
     - target: {fileID: 1419553827504826046, guid: acbda6c426744ce4ea2e0343d0061bf1, type: 3}
       propertyPath: damageIndicator
       value: 
-      objectReference: {fileID: 1101804789}
+      objectReference: {fileID: 226981882}
     - target: {fileID: 1855901742906315892, guid: acbda6c426744ce4ea2e0343d0061bf1, type: 3}
       propertyPath: m_Name
       value: Player
