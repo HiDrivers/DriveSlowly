@@ -28,8 +28,8 @@ public class CutSceneSOManager : MonoBehaviour
                     gameObject.GetComponent<TalkManager>().cutScneneSO = GoodDrive;
                     playerData.gold -= (3 - gameManager.currentBoosterCount) * 2;
                     playerData.gold = Mathf.Max(0, playerData.gold);
-                    gameManager.currentGoldCount -= (3 - gameManager.currentBoosterCount) * 2;
-                    gameManager.currentGoldCount = Mathf.Max(0, gameManager.currentGoldCount);
+                    gameManager.totalGoldCount -= (3 - gameManager.currentBoosterCount) * 2;
+                    gameManager.totalGoldCount = Mathf.Max(0, gameManager.totalGoldCount);
                 }
             }
             else if (currentChapter == 2)
@@ -42,7 +42,7 @@ public class CutSceneSOManager : MonoBehaviour
                 {
                     gameObject.GetComponent<TalkManager>().cutScneneSO = GoodDrive;
                     playerData.gold += 5;
-                    gameManager.currentGoldCount += 5;
+                    gameManager.totalGoldCount += 5;
                 }
             }
 

@@ -34,6 +34,14 @@ public class HealthSystem : MonoBehaviour
     }
     private void Start()
     {
+        if (PlayerPrefs.GetInt("CurrentCarIndex") == 5)
+        {
+            maxHp = 4;
+        }
+        else
+        {
+            maxHp = 2;
+        }
         curHp = maxHp;
     }
 

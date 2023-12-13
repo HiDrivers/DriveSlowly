@@ -14,6 +14,7 @@ public class StageManager : MonoBehaviour
     [SerializeField] protected GameObject coinPrefab;
     [SerializeField] protected GameObject player;
     [SerializeField] protected GameObject ControlUI;
+    [SerializeField] private Image progressHandle;
 
     public float clearTime = 120;
     public float currentTime;
@@ -54,6 +55,7 @@ public class StageManager : MonoBehaviour
         currentTime = 0;
         damageIndicator.SetActive(true);
         UpdateGoldData();
+        progressHandle.sprite = playerData.progressHandleImage;
     }
 
     protected virtual void Update()

@@ -12,6 +12,7 @@ public class PlayerControl : MonoBehaviour
 
     [SerializeField]
     public float speed = 2.5f;
+    private float motorSpeed = 1f;
 
     private Rigidbody2D rb;
 
@@ -51,6 +52,10 @@ public class PlayerControl : MonoBehaviour
         healthSystem = GetComponent<HealthSystem>();
         carPrefab = healthSystem._car;
         rb = carPrefab.GetComponent<Rigidbody2D>();
+        if(PlayerPrefs.GetInt("CurrentCarIndex") == 4)
+        {
+            motorSpeed = 1.5f;
+        }
     }
 
     void Update()
@@ -121,7 +126,7 @@ public class PlayerControl : MonoBehaviour
         if (currentY < -5.2 || currentY > 5.2) rb.mass = 100;
         else rb.mass = 1;
 
-        transform.Translate(new Vector3(moveX, moveY, 0).normalized * speed * Time.deltaTime);
+        transform.Translate(new Vector3(moveX, moveY, 0).normalized * speed * motorSpeed * Time.deltaTime);
         //}
     }
 
