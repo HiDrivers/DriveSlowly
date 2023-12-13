@@ -168,6 +168,7 @@ public class GameManager : Singleton<GameManager>
             case "CutScene2_2":
                 sleepMode = false;
                 SceneManager.LoadScene("Stage2Scene");
+                InGameStart();
                 break;
             case "Stage2Scene":
                 SceneManager.LoadScene("CutScene2_3");
