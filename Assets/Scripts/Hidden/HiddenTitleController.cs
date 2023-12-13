@@ -14,7 +14,7 @@ public class HiddenTitleController : MonoBehaviour
     public void CheckClickCount()
     {
         clickCnt++;
-        if (clickCnt > 5)
+        if (clickCnt >= 5)
         {
             SceneManager.LoadScene("CreditScene");
         }
