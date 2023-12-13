@@ -52,6 +52,7 @@ public class CarSelectController : MonoBehaviour
         _buy.interactable = false;
         buyButton.SetActive(false);
         confirmButton.SetActive(true);
+        UpdateCurrentGold();
     }
 
     private void Start()
