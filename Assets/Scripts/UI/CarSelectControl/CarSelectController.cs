@@ -36,6 +36,15 @@ public class CarSelectController : MonoBehaviour
         selectedCarImage = selectedCar.GetComponent<Image>();
 
         _buy = buyButton.GetComponent<Button>();
+
+        foreach (KeyValuePair<int, Sprite> imagePair in carImagePairs)
+        {
+            if (imagePair.Key == PlayerPrefs.GetInt("CurrentCarIndex"))
+            {
+                Debug.Log("Operated");
+                playerData.progressHandleImage = imagePair.Value;
+            }
+        }
     }
 
     private void OnEnable()

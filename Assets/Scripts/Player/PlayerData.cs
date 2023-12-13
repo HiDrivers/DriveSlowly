@@ -10,6 +10,7 @@ public class PlayerData : Singleton<PlayerData>
     public GameObject carPrefab;
 
     public List<GameObject> cars;
+    [SerializeField] private List<Sprite> carSideView; 
     public Sprite progressHandleImage;
 
     // 엔딩 업적을 여기서 관리하는 건 어떨까?
@@ -36,6 +37,8 @@ public class PlayerData : Singleton<PlayerData>
             carPrefab = cars[0];
             PlayerPrefs.SetInt("CurrentCarIndex", 0);
         }
+
+        progressHandleImage = carSideView[PlayerPrefs.GetInt("CurrentCarIndex")];
     }
 
     public void goldDataSave()
