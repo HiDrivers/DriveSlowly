@@ -1197,6 +1197,74 @@ PrefabInstance:
       propertyPath: description
       value: "\uCC9C\uCC9C\uD76C\uC758 \uC790\uAC00\uC6A9"
       objectReference: {fileID: 0}
+    - target: {fileID: 6458953006472973260, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
+      propertyPath: carImagePairs.m_keys.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6458953006472973260, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
+      propertyPath: carImagePairs.m_values.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6458953006472973260, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
+      propertyPath: carImagePairs.m_keys.Array.data[1]
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6458953006472973260, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
+      propertyPath: carImagePairs.m_keys.Array.data[2]
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6458953006472973260, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
+      propertyPath: carImagePairs.m_keys.Array.data[3]
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6458953006472973260, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
+      propertyPath: carImagePairs.m_keys.Array.data[4]
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6458953006472973260, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
+      propertyPath: carImagePairs.m_keys.Array.data[5]
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6458953006472973260, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
+      propertyPath: carImagePairs.m_keys.Array.data[6]
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6458953006472973260, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
+      propertyPath: carImagePairs.m_keys.Array.data[7]
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6458953006472973260, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
+      propertyPath: carImagePairs.m_values.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: cebaab259e81e4e92bdc9338e6f45f72, type: 3}
+    - target: {fileID: 6458953006472973260, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
+      propertyPath: carImagePairs.m_values.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 654ecde3bb30341c19314d1058e709c8, type: 3}
+    - target: {fileID: 6458953006472973260, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
+      propertyPath: carImagePairs.m_values.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: ce500095713af44e2b3e55e8c22eecc2, type: 3}
+    - target: {fileID: 6458953006472973260, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
+      propertyPath: carImagePairs.m_values.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9f301aa6b37074e61a60cf704df150bd, type: 3}
+    - target: {fileID: 6458953006472973260, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
+      propertyPath: carImagePairs.m_values.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4a12b943fe3644a50bd6ce82be54dac7, type: 3}
+    - target: {fileID: 6458953006472973260, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
+      propertyPath: carImagePairs.m_values.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: a4fd16e7cab7f42738916040a284a780, type: 3}
+    - target: {fileID: 6458953006472973260, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
+      propertyPath: carImagePairs.m_values.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300000, guid: d58b3eb29976a47c89679e9f95a11176, type: 3}
+    - target: {fileID: 6458953006472973260, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
+      propertyPath: carImagePairs.m_values.Array.data[7]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9f8b2be26c2e94b02b2d205c5834f6d7, type: 3}
     - target: {fileID: 6492332607253024685, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
       propertyPath: m_IsActive
       value: 1
