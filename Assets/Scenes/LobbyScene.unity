@@ -959,7 +959,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1837482591363913432, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
       propertyPath: price
-      value: 400
+      value: 777
       objectReference: {fileID: 0}
     - target: {fileID: 1837482591363913432, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
       propertyPath: slotIndex
@@ -1119,7 +1119,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4784140284604633728, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
       propertyPath: price
-      value: 450
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 4784140284604633728, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
       propertyPath: slotIndex
@@ -1155,7 +1155,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4872079957047571682, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
       propertyPath: price
-      value: 600
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 4872079957047571682, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
       propertyPath: slotIndex
@@ -1295,7 +1295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7391527281531823312, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
       propertyPath: price
-      value: 2800
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 7391527281531823312, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
       propertyPath: slotIndex
@@ -1307,7 +1307,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8052270277698137631, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
       propertyPath: price
-      value: 1000
+      value: 2500
       objectReference: {fileID: 0}
     - target: {fileID: 8052270277698137631, guid: 88372963038393e4f86aabfc7ca4cb52, type: 3}
       propertyPath: slotIndex
