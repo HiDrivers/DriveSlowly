@@ -17,7 +17,7 @@ public class Coin : Items
         playerData = PlayerData.Instance;
         if (PlayerPrefs.GetInt("CurrentCarIndex") == 7)
         {
-            goldValue = 12;
+            goldValue = 15;
         }
     }
 
