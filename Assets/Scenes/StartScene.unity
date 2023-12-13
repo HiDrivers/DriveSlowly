@@ -1493,6 +1493,46 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2585291040737960553, guid: 8dd8cc0441365444da27600ad483eeab, type: 3}
+      propertyPath: carSideView.Array.size
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585291040737960553, guid: 8dd8cc0441365444da27600ad483eeab, type: 3}
+      propertyPath: carSideView.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: cebaab259e81e4e92bdc9338e6f45f72, type: 3}
+    - target: {fileID: 2585291040737960553, guid: 8dd8cc0441365444da27600ad483eeab, type: 3}
+      propertyPath: carSideView.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 654ecde3bb30341c19314d1058e709c8, type: 3}
+    - target: {fileID: 2585291040737960553, guid: 8dd8cc0441365444da27600ad483eeab, type: 3}
+      propertyPath: carSideView.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: ce500095713af44e2b3e55e8c22eecc2, type: 3}
+    - target: {fileID: 2585291040737960553, guid: 8dd8cc0441365444da27600ad483eeab, type: 3}
+      propertyPath: carSideView.Array.data[3]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9f301aa6b37074e61a60cf704df150bd, type: 3}
+    - target: {fileID: 2585291040737960553, guid: 8dd8cc0441365444da27600ad483eeab, type: 3}
+      propertyPath: carSideView.Array.data[4]
+      value: 
+      objectReference: {fileID: 21300000, guid: 4a12b943fe3644a50bd6ce82be54dac7, type: 3}
+    - target: {fileID: 2585291040737960553, guid: 8dd8cc0441365444da27600ad483eeab, type: 3}
+      propertyPath: carSideView.Array.data[5]
+      value: 
+      objectReference: {fileID: 21300000, guid: a4fd16e7cab7f42738916040a284a780, type: 3}
+    - target: {fileID: 2585291040737960553, guid: 8dd8cc0441365444da27600ad483eeab, type: 3}
+      propertyPath: carSideView.Array.data[6]
+      value: 
+      objectReference: {fileID: 21300000, guid: d58b3eb29976a47c89679e9f95a11176, type: 3}
+    - target: {fileID: 2585291040737960553, guid: 8dd8cc0441365444da27600ad483eeab, type: 3}
+      propertyPath: carSideView.Array.data[7]
+      value: 
+      objectReference: {fileID: 21300000, guid: 9f8b2be26c2e94b02b2d205c5834f6d7, type: 3}
+    - target: {fileID: 7343953853490952734, guid: 8dd8cc0441365444da27600ad483eeab, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7788097497537920610, guid: 8dd8cc0441365444da27600ad483eeab, type: 3}
       propertyPath: m_Name
       value: GameManager
