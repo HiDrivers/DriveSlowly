@@ -112,7 +112,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_SizeDelta: {x: 300, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5928584907538427175
 CanvasRenderer:
@@ -142,7 +142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC7AC\uB3C4\uC804"
+  m_text: "\uAD11\uACE0 \uC2DC\uCCAD\uD558\uACE0  \uC774\uC5B4\uD558\uAE30"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2be1a1e702a6d4e699261607f8e07010, type: 2}
   m_sharedMaterial: {fileID: -1529690375809034297, guid: 2be1a1e702a6d4e699261607f8e07010, type: 2}
@@ -169,8 +169,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -470,7 +470,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -340, y: -330}
+  m_AnchoredPosition: {x: -340, y: -325}
   m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6140002641540505578
@@ -522,6 +522,7 @@ GameObject:
   - component: {fileID: 6715988341850023751}
   - component: {fileID: 5527038355163806374}
   - component: {fileID: 8741763275248300944}
+  - component: {fileID: 1557567416871111881}
   m_Layer: 5
   m_Name: GameOverTxt (1)
   m_TagString: Untagged
@@ -546,8 +547,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -330}
-  m_SizeDelta: {x: 800, y: 200}
+  m_AnchoredPosition: {x: 0, y: -320}
+  m_SizeDelta: {x: 600, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5527038355163806374
 CanvasRenderer:
@@ -577,8 +578,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC798\uBABB\uB41C \uC6B4\uC804\uC740 \uC0AC\uACE0\uC758 \uC6D0\uC778\uC774\uBA70,
-    \n\uC790\uC2E0\uACFC \uD0C0\uC778\uC758 \uC0DD\uBA85\uC744 \uC704\uD611\uD569\uB2C8\uB2E4."
+  m_text: "\uBE68\uB9AC\uBE68\uB9AC\uC5D0 \uC9D1\uCC29\uD558\uC5EC, \uACFC\uC18D
+    \uC695\uC2EC\uC744 \uBD80\uB9AC\uB294 \uC6B4\uC804\uC790\uB2D8. \uB3C4\uCC29\uC9C0\uAC00
+    \uC544\uB2CC \uB2E4\uB978 \uACF3\uC5D0 \uBE68\uB9AC\uBE68\uB9AC \uB3C4\uCC29\uD560\uC9C0\uB3C4
+    \uBAA8\uB985\uB2C8\uB2E4."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2be1a1e702a6d4e699261607f8e07010, type: 2}
   m_sharedMaterial: {fileID: -1529690375809034297, guid: 2be1a1e702a6d4e699261607f8e07010, type: 2}
@@ -617,7 +620,7 @@ MonoBehaviour:
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
-  m_lineSpacing: 80
+  m_lineSpacing: 30
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
@@ -647,6 +650,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1557567416871111881
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3247329835170352141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69008a1c3c2239c40bab4093f4a6e2bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3263480039297085193
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,7 +1072,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uC2DC\uC791\uD654\uBA74"
+  m_text: "\uB85C\uBE44\uB85C \uB3CC\uC544\uAC00\uAE30"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2be1a1e702a6d4e699261607f8e07010, type: 2}
   m_sharedMaterial: {fileID: -1529690375809034297, guid: 2be1a1e702a6d4e699261607f8e07010, type: 2}
@@ -1084,8 +1099,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 60
-  m_fontSizeBase: 60
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18

@@ -18,6 +18,7 @@ public class Stage3Manager : StageManager
         base.Start();
         currentControl = Random.Range(1, 4);
         PlayerDrunkUIControl();
+        sojuCriterion = 5;
     }
 
     protected override void Update()
@@ -113,23 +114,27 @@ public class Stage3Manager : StageManager
         {
             if (currentTime > 100)
             {
-                itemSpawnCool = 1.2f;
+                itemSpawnCool = 1.25f;
             }
 
             else if (currentTime > 80)
             {
-                itemSpawnCool = 1.7f;
+                itemSpawnCool = 1.5f;
             }
 
             else if (currentTime > 60)
             {
-                itemSpawnCool = 2.5f;
+                itemSpawnCool = 2.0f;
             }
 
             else if (currentTime > 40)
             {
-                itemSpawnCool = 4.0f;
+                itemSpawnCool = 2.5f;
             }
+        }
+        else
+        {
+            itemSpawnCool = 4f;
         }
     }
 

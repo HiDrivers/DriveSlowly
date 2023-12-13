@@ -26,7 +26,7 @@ public class Stage2Manager : StageManager
             PlayerSleepUIControl();
         }
         phoneCriterion = 5;
-        coffeeCriterion = 10;
+        coffeeCriterion = 5;
     }
 
     protected override void Update()
@@ -141,23 +141,27 @@ public class Stage2Manager : StageManager
         {
             if (currentTime > 100)
             {
-                itemSpawnCool = 1.5f;
+                itemSpawnCool = 1.25f;
             }
 
             else if (currentTime > 80)
             {
-                itemSpawnCool = 2.0f;
+                itemSpawnCool = 1.5f;
             }
 
             else if (currentTime > 60)
             {
-                itemSpawnCool = 3.0f;
+                itemSpawnCool = 2.5f;
             }
 
             else if (currentTime > 40)
             {
-                itemSpawnCool = 4.0f;
+                itemSpawnCool = 3.0f;
             }
+        }
+        else
+        {
+            itemSpawnCool = 4f;
         }
     }
 

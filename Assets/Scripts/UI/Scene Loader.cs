@@ -3,13 +3,25 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
+    private GameManager gameManager;
+    private void Start()
+    {
+        gameManager = GameManager.Instance;
+    }
     public void GameSceneLoad()
     {
-        GameManager.Instance.LoadNextScene();
+        gameManager.LoadNextScene();
+    }
+
+    public void StartLoad()
+    {
+        SceneManager.LoadScene("StartScene");
+        SetTimeScaleToNormal();
     }
 
     public void LobbyLoad()
     {
+        PlayerData.Instance.gold -= gameManager.totalGoldCount;
         SceneManager.LoadScene("LobbyScene");
         SetTimeScaleToNormal();
     }
@@ -53,6 +65,9 @@ public class SceneLoader : MonoBehaviour
     public void GameSceneReload()
     {
         // ÇöÀç ¾ÀÀ» ´Ù½Ã ºÒ·¯¿È
+        gameManager.totalGoldCount -= gameManager.currentStageGoldCount;
+        PlayerData.Instance.gold -= gameManager.currentStageGoldCount;
+        gameManager.InGameStart();
         Scene currentScene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(currentScene.name);
         SetTimeScaleToNormal();
@@ -61,6 +76,7 @@ public class SceneLoader : MonoBehaviour
     private void SetTimeScaleToNormal()
     {
         Time.timeScale = 1f;
+        Screen.SetResolution(1080, 1920, false);
     }
 }
 

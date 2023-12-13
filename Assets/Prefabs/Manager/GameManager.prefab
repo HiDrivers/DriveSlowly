@@ -102,6 +102,7 @@ GameObject:
   m_Component:
   - component: {fileID: 270738241664097192}
   - component: {fileID: 2585291040737960553}
+  - component: {fileID: 7646316579499347446}
   m_Layer: 0
   m_Name: PlayerData
   m_TagString: Untagged
@@ -109,21 +110,26 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &270738241664097192
-Transform:
+--- !u!224 &270738241664097192
+RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7343953853490952734}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 577.55695, y: 912.7307, z: -16.236193}
+  m_LocalPosition: {x: 0, y: 0, z: -16.236193}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8403817140940077527}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 577.55695, y: 912.7307}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2585291040737960553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,8 +142,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd64f6fbb3f0bef41aa4310057de2d63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gold: 0
+  gold: 5000
   carPrefab: {fileID: 2897984505001321067, guid: 7c01723318cda924cb5f8260769a5954, type: 3}
+  cars:
+  - {fileID: 2897984505001321067, guid: 7c01723318cda924cb5f8260769a5954, type: 3}
+  - {fileID: 2897984505001321067, guid: f15b7f1108b923a4295d827f32b85f7b, type: 3}
+  - {fileID: 2897984505001321067, guid: ba75df52a17cd984a8e420ce7e81e239, type: 3}
+  - {fileID: 2897984505001321067, guid: aae45979a18f39e47a5ed9354f4192d9, type: 3}
+  - {fileID: 2897984505001321067, guid: 614e3468d6407f441892747db940e430, type: 3}
+  - {fileID: 2897984505001321067, guid: e0d94a69a41da8343bde4fa950d87a34, type: 3}
+  - {fileID: 2897984505001321067, guid: 0cb6996b73e39b543beca6316c14d823, type: 3}
+  - {fileID: 2897984505001321067, guid: 57b7a2efca44a32468a89ed8906ee425, type: 3}
+  progressHandleImage: {fileID: 0}
+--- !u!222 &7646316579499347446
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7343953853490952734}
+  m_CullTransparentMesh: 1
 --- !u!1 &7788097497537920610
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,6 +219,7 @@ MonoBehaviour:
   currentSojuCount: 0
   currentSojuCleanerCount: 0
   totalDurabilityDamage: 0
+  endingSceneNum: 1
   isBoost: 0
   boostTimer: 0
   sleepMode: 0

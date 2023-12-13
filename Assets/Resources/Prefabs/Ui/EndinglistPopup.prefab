@@ -324,6 +324,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blindObject: {fileID: 1786350169252645093}
+  endingNum: 0
 --- !u!1 &225379682242288074
 GameObject:
   m_ObjectHideFlags: 0
@@ -2107,6 +2108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blindObject: {fileID: 1177217774415252733}
+  endingNum: 0
 --- !u!1 &2047558609213878230
 GameObject:
   m_ObjectHideFlags: 0
@@ -3205,6 +3207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blindObject: {fileID: 4560236865430747413}
+  endingNum: 0
 --- !u!1 &3373397329918604478
 GameObject:
   m_ObjectHideFlags: 0
@@ -3436,7 +3439,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &9198311463134234996
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4190,6 +4193,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blindObject: {fileID: 628210487945808781}
+  endingNum: 0
 --- !u!1 &4528243432886125071
 GameObject:
   m_ObjectHideFlags: 0
@@ -4494,6 +4498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blindObject: {fileID: 2430940349687158369}
+  endingNum: 0
 --- !u!1 &4893842349915363159
 GameObject:
   m_ObjectHideFlags: 0
@@ -5067,6 +5072,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blindObject: {fileID: 1778314373051699261}
+  endingNum: 0
 --- !u!1 &5214469060561113405
 GameObject:
   m_ObjectHideFlags: 0
@@ -5832,10 +5838,10 @@ RectTransform:
   m_Father: {fileID: 827616693389815661}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 283, y: -505}
-  m_SizeDelta: {x: 500, y: 950}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7012979505103330845
 CanvasRenderer:
@@ -5888,6 +5894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blindObject: {fileID: 8509874356182443758}
+  endingNum: 0
 --- !u!1 &5924513153373553211
 GameObject:
   m_ObjectHideFlags: 0
@@ -7513,6 +7520,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blindObject: {fileID: 2194426114148847558}
+  endingNum: 0
 --- !u!1 &7065373989259354853
 GameObject:
   m_ObjectHideFlags: 0
@@ -8670,6 +8678,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   blindObject: {fileID: 8965519930448174667}
+  endingNum: 0
 --- !u!1 &8159433184341567345
 GameObject:
   m_ObjectHideFlags: 0

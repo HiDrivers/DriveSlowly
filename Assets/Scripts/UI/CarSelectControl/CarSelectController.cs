@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
-public class CarImagePairs : SerializableDictionary<Sprite, Sprite> { }
+public class CarImagePairs : SerializableDictionary<int, Sprite> { }
 
 public class CarSelectController : MonoBehaviour
 {
@@ -36,6 +36,15 @@ public class CarSelectController : MonoBehaviour
         selectedCarImage = selectedCar.GetComponent<Image>();
 
         _buy = buyButton.GetComponent<Button>();
+
+        foreach (KeyValuePair<int, Sprite> imagePair in carImagePairs)
+        {
+            if (imagePair.Key == PlayerPrefs.GetInt("CurrentCarIndex"))
+            {
+                Debug.Log("Operated");
+                playerData.progressHandleImage = imagePair.Value;
+            }
+        }
     }
 
     private void OnEnable()
@@ -43,19 +52,20 @@ public class CarSelectController : MonoBehaviour
         _buy.interactable = false;
         buyButton.SetActive(false);
         confirmButton.SetActive(true);
+        UpdateCurrentGold();
     }
 
     private void Start()
     {
         int index = 0;
-        foreach (KeyValuePair<Sprite, Sprite> imagePair in carImagePairs)
+        foreach (KeyValuePair<int, Sprite> imagePair in carImagePairs)
         {
             carSlots[index].carImage.sprite = imagePair.Value;
             carSlots[index].slotIndex = index;
             index++;
         }
+        
         SelectSlot(PlayerPrefs.GetInt("CurrentCarIndex"));
-        selectedCarImage.sprite = selectedSlot.carImage.sprite;
         UpdateCurrentGold();
     }
 
@@ -73,6 +83,19 @@ public class CarSelectController : MonoBehaviour
                 selectedSlot = carSlots[index];
                 carSlots[index].outline.enabled = true;
             }
+        }
+
+        foreach (KeyValuePair<int, Sprite> imagePair in carImagePairs)
+        {
+            if (imagePair.Key == index)
+            {
+                playerData.progressHandleImage = imagePair.Value;
+            }
+        }
+
+        if (selectedSlot.car_UnusableIcon.activeSelf == false)
+        {
+            selectedCarImage.sprite = playerData.progressHandleImage;
         }
 
         UpdateOutLine();
@@ -123,7 +146,7 @@ public class CarSelectController : MonoBehaviour
         playerData.gold -= selectedSlot.price; // PlayerData.Gold 차감
         selectedSlot.car_UnusableIcon.SetActive(false);
         PlayerPrefs.SetInt($"CarSlot{selectedSlot.slotIndex}", 1);
-        PlayerData.Instance.goldDataSave();
+        playerData.goldDataSave();
 
         UpdateCurrentGold();
         CheckCarUsability();
@@ -133,6 +156,13 @@ public class CarSelectController : MonoBehaviour
     {
         selectedCarImage.sprite = selectedSlot.carImage.sprite;
         playerData.carPrefab = carPrefabs[selectedSlot.slotIndex];
+        foreach (KeyValuePair<int, Sprite> imagePair in carImagePairs)
+        {
+            if (imagePair.Key == selectedSlot.slotIndex)
+            {
+                playerData.progressHandleImage = imagePair.Value;
+            }
+        }
         PlayerPrefs.SetInt("CurrentCarIndex", selectedSlot.slotIndex);
         Debug.Log($"{selectedSlot.slotIndex}");
         // SelectCarPopup UI 창 닫기(UI메니저 스크립트에 있나?)

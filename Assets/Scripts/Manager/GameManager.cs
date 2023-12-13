@@ -11,7 +11,7 @@ public class GameManager : Singleton<GameManager>
     private Transform UIRoot;
 
     // 엔딩 관리
-    public int currentGoldCount = 0;
+    public int totalGoldCount = 0;
     public int totalItemCount = 0;
     public int currentBoosterCount = 0;
     public int currentCoffeeCount = 0;
@@ -20,6 +20,7 @@ public class GameManager : Singleton<GameManager>
     public int currentSojuCount = 0;
     public int currentSojuCleanerCount = 0;
     public float totalDurabilityDamage = 0;
+    public int currentStageGoldCount = 0;
 
     public int endingSceneNum = 1;
             
@@ -46,7 +47,7 @@ public class GameManager : Singleton<GameManager>
     public bool isDrunk = false;
     public float drunkTimer = 0;
     
-    private void Start()
+    public void Start()
     {
         if (!PlayerPrefs.HasKey("IsFirst"))
         {
@@ -57,7 +58,7 @@ public class GameManager : Singleton<GameManager>
 
     private void DataInitialize()
     {
-        currentGoldCount = 0;
+        totalGoldCount = 0;
         totalItemCount = 0;
         currentBoosterCount = 0;
         currentCoffeeCount = 0;
@@ -66,6 +67,7 @@ public class GameManager : Singleton<GameManager>
         currentSojuCount = 0;
         currentSojuCleanerCount = 0;
         totalDurabilityDamage = 0;
+        currentStageGoldCount = 0;
 
         sleepMode = false;
         drunkMode = false;
@@ -78,6 +80,8 @@ public class GameManager : Singleton<GameManager>
     {
         isDrunk = drunkMode;
         isSleep = sleepMode;
+        isBoost = false;
+        currentStageGoldCount = 0;
     }
 
     void Update()
@@ -164,6 +168,7 @@ public class GameManager : Singleton<GameManager>
             case "CutScene2_2":
                 sleepMode = false;
                 SceneManager.LoadScene("Stage2Scene");
+                InGameStart();
                 break;
             case "Stage2Scene":
                 SceneManager.LoadScene("CutScene2_3");
@@ -196,7 +201,6 @@ public class GameManager : Singleton<GameManager>
 
             case "Stage3Scene":
                 CheckEnding();
-                PlayerPrefs.SetInt("IsFirst", 1);
                 PlayerPrefs.SetInt($"Ending{endingSceneNum}", 1);
                 SceneManager.LoadScene("EndingScene0");
                 break;
@@ -222,48 +226,27 @@ public class GameManager : Singleton<GameManager>
                 UIManager.Instance.ShowUI<UIBase>("GameEndUI", UIRoot);
                 break;
         }
+        Screen.SetResolution(1080, 1920, false);
     }
 
     public void CheckEnding()
     {
         // 배드 엔딩1
         // 배드 드라이버 엔딩
-        if (drunkMode && sleepMode && currentBoosterCount > 0 && totalDurabilityDamage == 0)
+        if (drunkMode && sleepMode && currentBoosterCount > 0 && totalDurabilityDamage == 0) // 음주운전 + 졸음운전 + 난폭운전 + 내구도 0
         {
-            // EndingManager.Instance.endingPanels[0].blindObject.SetActive(false); CheckEnding이 작동함에 따라 엔딩이 해금될 겁니다.
             endingSceneNum = 5;
         }
         // 악질 엔딩
-        else if (drunkMode && sleepMode && currentBoosterCount > 0)
+        else if (drunkMode && sleepMode && currentBoosterCount > 0)  // 음주운전 + 졸음운전 + 난폭운전
         {
             endingSceneNum = 1;
         }
-        // 졸음 운전 엔딩
-        else if(sleepMode && !drunkMode && currentBoosterCount == 0)
-        {
-            endingSceneNum = 2;
-        }
-        // 음주 운전 엔딩
-        else if(!sleepMode && drunkMode && currentBoosterCount == 0)
-        {
-            endingSceneNum = 3;
-        }
-        // 난폭운전 엔딩
-        else if(!drunkMode && !drunkMode && currentBoosterCount > 0)
-        {
-            endingSceneNum = 4;
-        }
         // 옳은 선택지 엔딩
-        else if (!drunkMode && !drunkMode && currentBoosterCount == 0)
+        else if (!drunkMode && !sleepMode) // 선택지 모두 옳게 선택
         {
-            // 바보 엔딩
-            if (currentSojuCount > 0 && currentPillowCount > 0 && currentSmartPhoneCount > 0)
-            {
-                endingSceneNum = 6;
-            }
-
-            // 스마트폰 엔딩
-            else if (currentSmartPhoneCount > 0 && currentSojuCount == 0 && currentPillowCount == 0)
+            // 스마트폰 엔딩 : 다른 아이템 모두 피하고 스마트폰만 먹음
+            if (currentSmartPhoneCount > 0 && currentSojuCount == 0 && currentPillowCount == 0)
             {
                 endingSceneNum = 7;
             }
@@ -272,18 +255,42 @@ public class GameManager : Singleton<GameManager>
             {
                 endingSceneNum = 9;
             }
-        }
-        else
-        {
-            if (currentGoldCount >= 200)
+            // 바보 엔딩 : 소주 + 베개 + 스마트폰 + 부스터 (안좋은 아이템 모두 섭취)
+            else if (currentSojuCount > 0 && currentPillowCount > 0 && currentSmartPhoneCount > 0 && currentBoosterCount > 0)
             {
-                endingSceneNum = 8;
+                endingSceneNum = 6;
             }
-
+            // 난폭운전 엔딩
+            else if (currentBoosterCount > 0 && currentPillowCount == 0 && currentSmartPhoneCount == 0 && currentSojuCount == 0) // 난폭운전만 진행
+            {
+                endingSceneNum = 4;
+            }
             else
             {
-                endingSceneNum = 1;
+                endingSceneNum = 10; // 아이템 일부 섭취
             }
+        }
+        // 헤지펀드 엔딩
+        else if (totalGoldCount >= 200)
+        {
+            endingSceneNum = 8;
+            PlayerData.Instance.gold -= 200;
+            totalGoldCount -= 200;
+        }
+        // 졸음 운전 엔딩
+        else if(sleepMode && !drunkMode) // 졸음운전만 진행
+        {
+            endingSceneNum = 2;
+        }
+        // 음주 운전 엔딩
+        else if(!sleepMode && drunkMode) // 음주운전만 진행
+        {
+            endingSceneNum = 3;
+        }
+        // 보편적 엔딩 (2개의 잘못된 운전) ex) 난폭 + 음주 or 음주 + 졸음 or 졸음 + 난폭
+        else
+        {
+            endingSceneNum = 1; // endingSceneNum = 10;
         }
     }
 

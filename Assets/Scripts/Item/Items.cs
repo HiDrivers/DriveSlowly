@@ -23,7 +23,7 @@ public class Items : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("End"))
         {
-            Destroy(this);
+            this.gameObject.SetActive(false);
         }
     }
 

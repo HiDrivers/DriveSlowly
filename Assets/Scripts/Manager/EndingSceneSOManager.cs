@@ -15,6 +15,7 @@ public class EndingSceneSOManager : MonoBehaviour
     [SerializeField] private CutScneneSO EndingScene7;
     [SerializeField] private CutScneneSO EndingScene8;
     [SerializeField] private CutScneneSO EndingScene9;
+    [SerializeField] private CutScneneSO EndingScene10;
 
     private GameManager gameManager;
 
@@ -59,6 +60,9 @@ public class EndingSceneSOManager : MonoBehaviour
                         break;
                     case 9:
                         gameObject.GetComponent<TalkManager>().cutScneneSO = EndingScene9;
+                        break;
+                    case 10:
+                        gameObject.GetComponent<TalkManager>().cutScneneSO = EndingScene10;
                         break;
                 }
             }

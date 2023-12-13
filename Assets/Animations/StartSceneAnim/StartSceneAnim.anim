@@ -23,7 +23,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 760
+        value: -880
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -31,17 +31,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.083333336
-        value: 775
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.3
-        value: 760
+        time: 0.25
+        value: -900
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -52,7 +43,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Character
+    path: 'Image '
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -61,8 +52,8 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.083333336
-        value: 760
+        time: 0
+        value: -900
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -70,8 +61,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.3
-        value: 775
+        time: 0.25
+        value: -880
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -80,7 +71,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.5
-        value: 760
+        value: -900
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -91,7 +82,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Character2
+    path: Image 2
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -100,8 +91,8 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.083333336
-        value: 760
+        time: 0
+        value: -900
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -109,8 +100,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.7
-        value: 775
+        time: 0.75
+        value: -880
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -118,8 +109,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.8333333
-        value: 760
+        time: 1
+        value: -900
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -130,7 +121,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Character4
+    path: Image 4
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -139,8 +130,8 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.083333336
-        value: 760
+        time: 0
+        value: -900
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -149,7 +140,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.5
-        value: 775
+        value: -880
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -157,8 +148,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.7
-        value: 760
+        time: 0.75
+        value: -900
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -169,7 +160,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Character3
+    path: Image 3
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -182,7 +173,7 @@ AnimationClip:
   m_ClipBindingConstant:
     genericBindings:
     - serializedVersion: 2
-      path: 294335127
+      path: 366066450
       attribute: 538195251
       script: {fileID: 0}
       typeID: 224
@@ -191,7 +182,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 1957639128
+      path: 3917029118
       attribute: 538195251
       script: {fileID: 0}
       typeID: 224
@@ -200,7 +191,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 2647430893
+      path: 1752011
       attribute: 538195251
       script: {fileID: 0}
       typeID: 224
@@ -209,7 +200,7 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     - serializedVersion: 2
-      path: 61342542
+      path: 2659069544
       attribute: 538195251
       script: {fileID: 0}
       typeID: 224
@@ -223,7 +214,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.8333333
+    m_StopTime: 1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -245,7 +236,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 760
+        value: -880
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -253,17 +244,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.083333336
-        value: 775
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.3
-        value: 760
+        time: 0.25
+        value: -900
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -274,7 +256,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Character
+    path: 'Image '
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -283,8 +265,8 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.083333336
-        value: 760
+        time: 0
+        value: -900
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -292,8 +274,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.3
-        value: 775
+        time: 0.25
+        value: -880
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -302,7 +284,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.5
-        value: 760
+        value: -900
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -313,7 +295,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Character2
+    path: Image 2
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -322,8 +304,8 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.083333336
-        value: 760
+        time: 0
+        value: -900
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -331,8 +313,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.7
-        value: 775
+        time: 0.75
+        value: -880
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -340,8 +322,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.8333333
-        value: 760
+        time: 1
+        value: -900
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -352,7 +334,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Character4
+    path: Image 4
     classID: 224
     script: {fileID: 0}
     flags: 0
@@ -361,8 +343,8 @@ AnimationClip:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.083333336
-        value: 760
+        time: 0
+        value: -900
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -371,7 +353,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.5
-        value: 775
+        value: -880
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -379,8 +361,8 @@ AnimationClip:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.7
-        value: 760
+        time: 0.75
+        value: -900
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -391,7 +373,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_AnchoredPosition.y
-    path: Character3
+    path: Image 3
     classID: 224
     script: {fileID: 0}
     flags: 0

@@ -12,6 +12,7 @@ public class PlayerControl : MonoBehaviour
 
     [SerializeField]
     public float speed = 2.5f;
+    private float motorSpeed = 1f;
 
     private Rigidbody2D rb;
 
@@ -37,6 +38,7 @@ public class PlayerControl : MonoBehaviour
     private Vector3 rotLeft = new Vector3(0, 0, 30f);
     private Vector3 rotRight = new Vector3(0, 0, -30f);
 
+    private float currentX;
     private float currentY;
 
     private GameManager gameManager;
@@ -51,6 +53,10 @@ public class PlayerControl : MonoBehaviour
         healthSystem = GetComponent<HealthSystem>();
         carPrefab = healthSystem._car;
         rb = carPrefab.GetComponent<Rigidbody2D>();
+        if(PlayerPrefs.GetInt("CurrentCarIndex") == 4)
+        {
+            motorSpeed = 1.5f;
+        }
     }
 
     void Update()
@@ -113,15 +119,23 @@ public class PlayerControl : MonoBehaviour
         //    }
         //}
 
+        currentX = carPrefab.transform.position.x;
         currentY = carPrefab.transform.position.y;
 
-        if (currentY < -5.2 && moveY < 0) moveY = 0;
-        else if (currentY > 5.2 && moveY > 0) moveY = 0;
+        if ((currentY < -5.2 && moveY < 0) || (currentY > 5.2 && moveY > 0))
+        {
+            moveY = 0;
+        }
+        if ((currentX > 2.1 && moveX > 0) || (currentX < -2.1 && moveX < 0))
+        {
+            moveX = 0;
+        }
+
 
         if (currentY < -5.2 || currentY > 5.2) rb.mass = 100;
         else rb.mass = 1;
 
-        transform.Translate(new Vector3(moveX, moveY, 0).normalized * speed * Time.deltaTime);
+        transform.Translate(new Vector3(moveX, moveY, 0).normalized * speed * motorSpeed * Time.deltaTime);
         //}
     }
 
