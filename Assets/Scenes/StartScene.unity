@@ -1642,6 +1642,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2585291040737960553, guid: 8dd8cc0441365444da27600ad483eeab, type: 3}
+      propertyPath: gold
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2585291040737960553, guid: 8dd8cc0441365444da27600ad483eeab, type: 3}
       propertyPath: carSideView.Array.size
       value: 8
       objectReference: {fileID: 0}
