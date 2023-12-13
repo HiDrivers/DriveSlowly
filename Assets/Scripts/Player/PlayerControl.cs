@@ -38,6 +38,7 @@ public class PlayerControl : MonoBehaviour
     private Vector3 rotLeft = new Vector3(0, 0, 30f);
     private Vector3 rotRight = new Vector3(0, 0, -30f);
 
+    private float currentX;
     private float currentY;
 
     private GameManager gameManager;
@@ -118,10 +119,18 @@ public class PlayerControl : MonoBehaviour
         //    }
         //}
 
+        currentX = carPrefab.transform.position.x;
         currentY = carPrefab.transform.position.y;
 
-        if (currentY < -5.2 && moveY < 0) moveY = 0;
-        else if (currentY > 5.2 && moveY > 0) moveY = 0;
+        if ((currentY < -5.2 && moveY < 0) || (currentY > 5.2 && moveY > 0))
+        {
+            moveY = 0;
+        }
+        if ((currentX > 2.1 && moveX > 0) || (currentX < -2.1 && moveX < 0))
+        {
+            moveX = 0;
+        }
+
 
         if (currentY < -5.2 || currentY > 5.2) rb.mass = 100;
         else rb.mass = 1;
