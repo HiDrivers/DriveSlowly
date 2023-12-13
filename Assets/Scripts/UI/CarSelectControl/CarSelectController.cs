@@ -16,7 +16,6 @@ public class CarSelectController : MonoBehaviour
     public CarSlot[] carSlots;
     [SerializeField] private CarSlot selectedSlot;
 
-
     [SerializeField] private GameObject buyButton;
     [SerializeField] private GameObject confirmButton;
     private Button _buy;
@@ -164,8 +163,5 @@ public class CarSelectController : MonoBehaviour
             }
         }
         PlayerPrefs.SetInt("CurrentCarIndex", selectedSlot.slotIndex);
-        Debug.Log($"{selectedSlot.slotIndex}");
-        // SelectCarPopup UI 창 닫기(UI메니저 스크립트에 있나?)
-        // gameObject.SetActive(false);
     }
 }
