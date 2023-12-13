@@ -54,8 +54,8 @@ public class CarSelectController : MonoBehaviour
             carSlots[index].slotIndex = index;
             index++;
         }
+        
         SelectSlot(PlayerPrefs.GetInt("CurrentCarIndex"));
-        selectedCarImage.sprite = selectedSlot.carImage.sprite;
         UpdateCurrentGold();
     }
 
@@ -73,6 +73,19 @@ public class CarSelectController : MonoBehaviour
                 selectedSlot = carSlots[index];
                 carSlots[index].outline.enabled = true;
             }
+        }
+
+        foreach (KeyValuePair<int, Sprite> imagePair in carImagePairs)
+        {
+            if (imagePair.Key == index)
+            {
+                playerData.progressHandleImage = imagePair.Value;
+            }
+        }
+
+        if (selectedSlot.car_UnusableIcon.activeSelf == false)
+        {
+            selectedCarImage.sprite = playerData.progressHandleImage;
         }
 
         UpdateOutLine();
@@ -123,7 +136,7 @@ public class CarSelectController : MonoBehaviour
         playerData.gold -= selectedSlot.price; // PlayerData.Gold Â÷°¨
         selectedSlot.car_UnusableIcon.SetActive(false);
         PlayerPrefs.SetInt($"CarSlot{selectedSlot.slotIndex}", 1);
-        PlayerData.Instance.goldDataSave(); // playerData.goldDataSave();
+        playerData.goldDataSave();
 
         UpdateCurrentGold();
         CheckCarUsability();
