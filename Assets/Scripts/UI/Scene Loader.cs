@@ -13,6 +13,12 @@ public class SceneLoader : MonoBehaviour
         gameManager.LoadNextScene();
     }
 
+    public void StartLoad()
+    {
+        SceneManager.LoadScene("StartScene");
+        SetTimeScaleToNormal();
+    }
+
     public void LobbyLoad()
     {
         PlayerData.Instance.gold -= gameManager.totalGoldCount;

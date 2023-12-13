@@ -1495,6 +1495,7 @@ MonoBehaviour:
   EndingScene7: {fileID: 11400000, guid: e07c6819e58edaa49b35ae2a7c502fb9, type: 2}
   EndingScene8: {fileID: 11400000, guid: 551764ccc8bdab6429f0b0aa10836ef0, type: 2}
   EndingScene9: {fileID: 11400000, guid: 1524e51aa1da10b49883df43c74a71bf, type: 2}
+  EndingScene10: {fileID: 11400000, guid: 60626dbe4514032408b1c2e070f8badb, type: 2}
 --- !u!1 &459846351
 GameObject:
   m_ObjectHideFlags: 0

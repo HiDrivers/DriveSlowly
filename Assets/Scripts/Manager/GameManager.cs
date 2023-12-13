@@ -242,7 +242,7 @@ public class GameManager : Singleton<GameManager>
             endingSceneNum = 1;
         }
         // 옳은 선택지 엔딩
-        else if (!drunkMode && !sleepMode && currentBoosterCount == 0) // 선택지 모두 옳게 선택
+        else if (!drunkMode && !sleepMode) // 선택지 모두 옳게 선택
         {
             // 스마트폰 엔딩 : 다른 아이템 모두 피하고 스마트폰만 먹음
             if (currentSmartPhoneCount > 0 && currentSojuCount == 0 && currentPillowCount == 0)
@@ -254,9 +254,19 @@ public class GameManager : Singleton<GameManager>
             {
                 endingSceneNum = 9;
             }
+            // 바보 엔딩 : 소주 + 베개 + 스마트폰 + 부스터 (안좋은 아이템 모두 섭취)
+            else if (currentSojuCount > 0 && currentPillowCount > 0 && currentSmartPhoneCount > 0 && currentBoosterCount > 0)
+            {
+                endingSceneNum = 6;
+            }
+            // 난폭운전 엔딩
+            else if (currentBoosterCount > 0 && currentPillowCount == 0 && currentSmartPhoneCount == 0 && currentSojuCount == 0) // 난폭운전만 진행
+            {
+                endingSceneNum = 4;
+            }
             else
             {
-                endingSceneNum = 1;
+                endingSceneNum = 10; // 아이템 일부 섭취
             }
         }
         // 헤지펀드 엔딩
@@ -267,24 +277,14 @@ public class GameManager : Singleton<GameManager>
             totalGoldCount -= 200;
         }
         // 졸음 운전 엔딩
-        else if(sleepMode && !drunkMode && currentBoosterCount > 0) // 졸음운전만 진행
+        else if(sleepMode && !drunkMode) // 졸음운전만 진행
         {
             endingSceneNum = 2;
         }
         // 음주 운전 엔딩
-        else if(!sleepMode && drunkMode && currentBoosterCount > 0) // 음주운전만 진행
+        else if(!sleepMode && drunkMode) // 음주운전만 진행
         {
             endingSceneNum = 3;
-        }
-        // 난폭운전 엔딩
-        else if (currentBoosterCount > 0 && !sleepMode && !drunkMode) // 난폭운전만 진행
-        {
-            endingSceneNum = 4;
-        }
-        // 바보 엔딩 : 소주 + 베개 + 스마트폰 + 부스터 (안좋은 아이템 모두 섭취)
-        else if (currentSojuCount > 0 && currentPillowCount > 0 && currentSmartPhoneCount > 0 && currentBoosterCount > 0)
-        {
-            endingSceneNum = 6;
         }
         // 보편적 엔딩 (2개의 잘못된 운전) ex) 난폭 + 음주 or 음주 + 졸음 or 졸음 + 난폭
         else
